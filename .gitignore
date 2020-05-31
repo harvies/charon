@@ -1,2 +1,4 @@
-# Project exclude paths
-/charon-dependencies/target/
+.idea
+**/target
+**.iml
+**/logs
