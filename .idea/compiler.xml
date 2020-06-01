@@ -24,7 +24,6 @@
         </processorPath>
         <module name="charon-core" />
         <module name="charon-http" />
-        <module name="charon-facade" />
       </profile>
     </annotationProcessing>
   </component>

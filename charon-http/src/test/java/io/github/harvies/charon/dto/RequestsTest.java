@@ -1,4 +1,4 @@
-package io.github.harvies.charon.http;
+package io.github.harvies.charon.dto;
 
 import net.dongliu.requests.Proxies;
 import net.dongliu.requests.RawResponse;
