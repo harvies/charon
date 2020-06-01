@@ -23,6 +23,8 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.6/lombok-1.18.6.jar" />
         </processorPath>
         <module name="charon-core" />
+        <module name="charon-http" />
+        <module name="charon-facade" />
       </profile>
     </annotationProcessing>
   </component>
