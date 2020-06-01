@@ -1,12 +1,7 @@
 package io.github.harvies.charon.dto;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
+import java.io.Serializable;
 
-@Data
-@Accessors(chain = true)
-@NoArgsConstructor
-public abstract class BaseDTO {
+public abstract class BaseDTO implements Serializable {
     private static final long serialVersionUID = -4721607536018568393L;
 }
