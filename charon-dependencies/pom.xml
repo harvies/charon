@@ -318,6 +318,13 @@
                 <artifactId>jsoup</artifactId>
                 <version>1.12.1</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.sun.xml.bind</groupId>
+                <artifactId>jaxb-impl</artifactId>
+                <version>2.3.3</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -355,6 +362,12 @@
                             </path>
                         </annotationProcessorPaths>
                     </configuration>
+                </plugin>
+                <!--可将依赖一起打包 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>3.1.1</version>
                 </plugin>
                 <!-- 批量修改pom版本号-->
                 <plugin>
