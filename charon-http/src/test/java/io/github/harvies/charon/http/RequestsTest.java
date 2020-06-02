@@ -1,4 +1,4 @@
-package io.github.harvies.charon.dto;
+package io.github.harvies.charon.http;
 
 import net.dongliu.requests.Proxies;
 import net.dongliu.requests.RawResponse;
@@ -11,7 +11,7 @@ import org.junit.Test;
  */
 public class RequestsTest {
     @Test
-    public void test1() {
+    public void get() {
         RawResponse rawResponse = Requests.get("https://baidu.com").send();
         Assert.assertNotNull(rawResponse.readToText());
     }

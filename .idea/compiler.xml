@@ -22,8 +22,10 @@
           <entry name="$MAVEN_REPOSITORY$/joda-time/joda-time/2.9/joda-time-2.9.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.6/lombok-1.18.6.jar" />
         </processorPath>
-        <module name="charon-core" />
+        <module name="charon-facade" />
         <module name="charon-http" />
+        <module name="charon-core" />
+        <module name="charon-json" />
       </profile>
     </annotationProcessing>
   </component>

@@ -19,6 +19,7 @@
         <module>charon-core</module>
         <module>charon-facade</module>
         <module>charon-http</module>
+        <module>charon-json</module>
     </modules>
 
     <dependencies>
