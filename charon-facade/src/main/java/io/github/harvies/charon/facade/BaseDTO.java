@@ -1,4 +1,4 @@
-package io.github.harvies.charon.http;
+package io.github.harvies.charon.facade;
 
 import java.io.Serializable;
 
