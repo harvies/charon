@@ -1,25 +1,48 @@
-<!--配置debug=true,从而打印任何内部状态下的信息-->
-<configuration debug="true">
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <contextName>logback</contextName>
+    <property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} %line - %msg %n"/>
+    <property name="pattern-color"
+              value="%yellow(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%thread] %highlight(%-5level) %green(%logger{50}) %line - %highlight(%msg) %n"/>
+    <property name="LOG_HOME" value="logs"/>
 
-    <!--配置ConsoleAppender实例-->
-    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread][%logger{36}] %-5level %line - %msg%n</pattern>
+    <!-- 控制台输出 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${pattern}</pattern>
         </encoder>
     </appender>
 
-    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>./logs/app.log</file>
+    <!-- 控制台输出-带颜色 -->
+    <appender name="CONSOLE-WITH-COLOR" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${pattern-color}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 文件输出 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>./logs/log-%d.log</fileNamePattern>
-            <maxHistory>7</maxHistory>
+            <fileNamePattern>${LOG_HOME}/all.%d.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
         </rollingPolicy>
-        <encoder charset="UTF-8">
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread][%logger{36}] %-5level %line- %msg%n</pattern>
+
+        <encoder>
+            <pattern>${pattern}</pattern>
         </encoder>
     </appender>
-    <root level="debug">
-        <appender-ref ref="console"/>
-        <appender-ref ref="file"/>
+
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE-WITH-COLOR"/>
+        <appender-ref ref="FILE"/>
     </root>
+
+    <logger name="io.github.harvies.charon" level="info" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
 </configuration>
