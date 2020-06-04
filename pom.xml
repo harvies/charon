@@ -20,6 +20,8 @@
         <module>charon-facade</module>
         <module>charon-http</module>
         <module>charon-json</module>
+        <module>charon-dubbo-spring-boot-starter</module>
+        <module>charon-spring-boot-starter</module>
     </modules>
 
     <dependencies>
