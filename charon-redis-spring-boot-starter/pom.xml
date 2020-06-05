@@ -9,18 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>charon-dubbo-spring-boot-starter</artifactId>
-
+    <artifactId>charon-redis-spring-boot-starter</artifactId>
     <dependencies>
         <dependency>
-            <groupId>io.github.harvies</groupId>
-            <artifactId>charon-spring-boot-starter</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>io.github.harvies</groupId>
-            <artifactId>charon-dubbo</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
     </dependencies>
+
 </project>
