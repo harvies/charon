@@ -9,7 +9,7 @@ import org.apache.dubbo.rpc.listener.InvokerListenerAdapter;
 
 import static org.apache.dubbo.rpc.Constants.DEPRECATED_KEY;
 
-@Activate(DEPRECATED_KEY)
+@Activate
 public class TestInvokerListener extends InvokerListenerAdapter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TestInvokerListener.class);
