@@ -24,6 +24,7 @@
         <module>charon-spring-boot-starter</module>
         <module>charon-redis-spring-boot-starter</module>
         <module>charon-dubbo</module>
+        <module>charon-log</module>
     </modules>
 
     <dependencies>
