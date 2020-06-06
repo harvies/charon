@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import net.dongliu.requests.Proxies;
 import net.dongliu.requests.RawResponse;
 import net.dongliu.requests.Requests;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,7 +17,7 @@ public class RequestsTest {
     @Test
     public void get() {
         RawResponse rawResponse = Requests.get("https://baidu.com").send();
-        log.info("rawResponse:[{}]", rawResponse);
+        log.info("rawResponse:[{}]", ToStringBuilder.reflectionToString(rawResponse, ToStringStyle.JSON_STYLE));
         Assert.assertNotNull(rawResponse.readToText());
     }
 

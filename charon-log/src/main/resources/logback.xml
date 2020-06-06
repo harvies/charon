@@ -1,31 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<configuration>
+<configuration
+        xmlns="http://ch.qos.logback/xml/ns/logback"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://ch.qos.logback/xml/ns/logback https://raw.githubusercontent.com/enricopulatzo/logback-XSD/master/src/main/xsd/logback.xsd">
+
     <contextName>logback</contextName>
 
     <!-- msg Converter -->
-    <conversionRule conversionWord="msg"
-                    converterClass="io.github.harvies.charon.log.MySampleConverter"/>
-
+<!--    <conversionRule conversionWord="msg"-->
+<!--                    converterClass="io.github.harvies.charon.log.ArgumentToStringConverter"/>-->
 
     <property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} %line - %msg %n"/>
-    <!--    <property name="pattern-color"-->
-    <!--              value="%yellow(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%thread] %highlight(%-5level) %green(%logger{50}) %line - %highlight(%msg) %n"/>-->
-    <!--    <property name="LOG_HOME" value="logs"/>-->
+    <property name="LOG_HOME" value="logs"/>
 
     <!-- 控制台输出 -->
-    <appender name="CONSOLE" class="io.github.harvies.charon.log.MyConsoleAppender">
-<!--        <filter class="io.github.harvies.charon.log.CustomerFilter"/>-->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!--        <filter class="io.github.harvies.charon.log.CustomerFilter"/>-->
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>${pattern}</pattern>
         </encoder>
     </appender>
-
-    <!--    &lt;!&ndash; 控制台输出-带颜色 &ndash;&gt;-->
-    <!--    <appender name="CONSOLE-WITH-COLOR" class="io.github.harvies.charon.core.utils.MyConsoleAppender">-->
-    <!--        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">-->
-    <!--            <pattern>${pattern-color}</pattern>-->
-    <!--        </encoder>-->
-    <!--    </appender>-->
 
     <!-- 文件输出 -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -50,6 +44,7 @@
 
     <logger name="io.github.harvies.charon" level="info" additivity="false">
         <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
     </logger>
 
 </configuration>
