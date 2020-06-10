@@ -22,7 +22,7 @@ public class DubboExtraPropertiesEnvironmentPostProcessor extends DubboDefaultPr
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
         log.info("set dubbo properties begin");
         Properties properties = new Properties();
-        @Cleanup InputStream inputStream = new ClassPathResource("dubbo.properties").getInputStream();
+        @Cleanup InputStream inputStream = new ClassPathResource("charon-dubbo.properties").getInputStream();
         properties.load(inputStream);
         PropertiesPropertySource propertiesPropertySource = new PropertiesPropertySource(DubboDefaultPropertiesEnvironmentPostProcessor.PROPERTY_SOURCE_NAME, properties);
         environment.getPropertySources().addLast(propertiesPropertySource);
