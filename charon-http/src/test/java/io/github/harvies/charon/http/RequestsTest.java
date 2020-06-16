@@ -21,7 +21,7 @@ public class RequestsTest {
         Assert.assertNotNull(rawResponse.readToText());
     }
 
-    @Test
+//    @Test
     public void testSocksProxy() {
         RawResponse rawResponse = Requests.get("http://ip-api.com/json/?fields=query").timeout(1000 * 60 * 60).proxy(Proxies.socksProxy("127.0.0.1", 1080)).send();
         Assert.assertNotNull(rawResponse.readToText());

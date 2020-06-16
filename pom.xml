@@ -6,8 +6,8 @@
 
     <parent>
         <artifactId>charon-dependencies</artifactId>
-        <groupId>io.github.harvies</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <groupId>io.github.harvies.charon</groupId>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath>./charon-dependencies</relativePath>
     </parent>
 

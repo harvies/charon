@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class ObjectTest {
-    @Test
+//    @Test
     public void serialization() {
         // Serialization
         BagOfPrimitives obj = new BagOfPrimitives();
@@ -13,7 +13,7 @@ public class ObjectTest {
         Assert.assertEquals("{\"value1\":1,\"value2\":\"abc\"}", json);
     }
 
-    @Test
+//    @Test
     public void deserialization() {
         // Deserialization
         BagOfPrimitives obj2 = JsonUtils.parseObject("{\"value1\":1,\"value2\":\"abc\"}", BagOfPrimitives.class);
