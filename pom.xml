@@ -13,7 +13,7 @@
 
     <artifactId>charon-parent</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <modules>
         <module>charon-dependencies</module>
         <module>charon-core</module>
