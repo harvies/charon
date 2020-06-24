@@ -51,6 +51,7 @@
         <javassist.version>3.25.0-GA</javassist.version>
         <jsqlparser.version>3.1</jsqlparser.version>
         <ognl.version>3.2.10</ognl.version>
+        <apollo-client.version>1.6.0</apollo-client.version>
 
     </properties>
     <dependencyManagement>
@@ -324,7 +325,11 @@
                 <artifactId>jaxb-impl</artifactId>
                 <version>2.3.3</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.ctrip.framework.apollo</groupId>
+                <artifactId>apollo-client</artifactId>
+                <version>${apollo-client.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
