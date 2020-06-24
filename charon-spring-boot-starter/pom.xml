@@ -11,6 +11,14 @@
     <packaging>pom</packaging>
 
     <artifactId>charon-spring-boot-starter</artifactId>
+    <version>0.0.2-SNAPSHOT</version>
+
+    <modules>
+        <module>../charon-dubbo-spring-boot-starter</module>
+        <module>../charon-redis-spring-boot-starter</module>
+        <!--        <module>../charon-apollo-spring-boot-starter</module>-->
+    </modules>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -7,7 +7,7 @@
     <parent>
         <artifactId>charon-dependencies</artifactId>
         <groupId>io.github.harvies.charon</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
         <relativePath>./charon-dependencies</relativePath>
     </parent>
 
@@ -20,12 +20,9 @@
         <module>charon-facade</module>
         <module>charon-http</module>
         <module>charon-json</module>
-        <module>charon-dubbo-spring-boot-starter</module>
-        <module>charon-spring-boot-starter</module>
-        <module>charon-redis-spring-boot-starter</module>
-        <module>charon-dubbo</module>
         <module>charon-log</module>
-        <module>charon-apollo-spring-boot-starter</module>
+        <module>charon-dubbo</module>
+        <module>charon-spring-boot-starter</module>
     </modules>
 
     <dependencies>
