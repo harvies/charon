@@ -5,11 +5,11 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Value;
 
 public class ApolloTest extends BaseTest {
-    @Value("${apollo.filed1}")
-    private String field;
+    @Value("${test.property}")
+    private String property;
 
     @Test
     public void test() {
-        Assert.assertEquals("test", field);
+        Assert.assertEquals("test", property);
     }
 }

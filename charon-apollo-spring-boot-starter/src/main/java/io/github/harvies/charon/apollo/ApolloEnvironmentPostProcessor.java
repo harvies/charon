@@ -3,7 +3,10 @@ package io.github.harvies.charon.apollo;
 import lombok.Cleanup;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.context.config.ConfigFileApplicationListener;
 import org.springframework.boot.env.EnvironmentPostProcessor;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -15,13 +18,31 @@ import java.util.Properties;
 
 @Slf4j
 public class ApolloEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
+    @Value("${env}")
+    private String env;
+
     @SneakyThrows
     @Override
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
         log.info("set apollo properties begin");
+
+        //set app.id
+        String applicationName = environment.getProperty("spring.application.name");
+        if (StringUtils.isBlank(applicationName)) {
+            throw new RuntimeException("spring.application.name is not null");
+        }
+        System.setProperty("app.id", applicationName);
+
+        //set apollo.meta
+        String env = environment.getProperty("spring.profiles.active");
+        if (StringUtils.isBlank(env)) {
+            throw new RuntimeException("spring.profiles.active is not null");
+        }
         Properties properties = new Properties();
         @Cleanup InputStream inputStream = new ClassPathResource("charon-apollo.properties").getInputStream();
         properties.load(inputStream);
+        //load other properties
+        System.setProperty("apollo.meta", properties.getProperty("apollo.meta." + env));
         for (Map.Entry<Object, Object> entry : properties.entrySet()) {
             System.setProperty(entry.getKey().toString(), entry.getValue().toString());
         }
@@ -30,6 +51,7 @@ public class ApolloEnvironmentPostProcessor implements EnvironmentPostProcessor,
 
     @Override
     public int getOrder() {
-        return Ordered.LOWEST_PRECEDENCE;
+        //要比springboot读取properties文件优先级低
+        return ConfigFileApplicationListener.DEFAULT_ORDER + 1;
     }
 }
