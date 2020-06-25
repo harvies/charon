@@ -34,9 +34,9 @@ public class ApolloEnvironmentPostProcessor implements EnvironmentPostProcessor,
         System.setProperty("app.id", applicationName);
 
         //set apollo.meta
-        String env = environment.getProperty("spring.profiles.active");
+        String env = environment.getProperty("env");
         if (StringUtils.isBlank(env)) {
-            throw new RuntimeException("spring.profiles.active is not null");
+            throw new RuntimeException("properties env is not null");
         }
         Properties properties = new Properties();
         @Cleanup InputStream inputStream = new ClassPathResource("charon-apollo.properties").getInputStream();
