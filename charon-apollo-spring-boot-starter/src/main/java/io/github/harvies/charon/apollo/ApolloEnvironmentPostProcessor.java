@@ -42,7 +42,7 @@ public class ApolloEnvironmentPostProcessor implements EnvironmentPostProcessor,
         @Cleanup InputStream inputStream = new ClassPathResource("charon-apollo.properties").getInputStream();
         properties.load(inputStream);
         //load other properties
-        System.setProperty("apollo.meta", properties.getProperty("apollo.meta." + env));
+        System.setProperty("env", env);
         for (Map.Entry<Object, Object> entry : properties.entrySet()) {
             System.setProperty(entry.getKey().toString(), entry.getValue().toString());
         }

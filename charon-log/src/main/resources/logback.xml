@@ -42,7 +42,7 @@
         <appender-ref ref="FILE"/>
     </root>
 
-    <logger name="io.github.harvies.charon" level="info" additivity="false">
+    <logger name="io.github.harvies" level="info" additivity="false">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
     </logger>
