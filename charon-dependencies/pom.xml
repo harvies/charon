@@ -331,6 +331,13 @@
                 <artifactId>apollo-client</artifactId>
                 <version>${apollo-client.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.apache.skywalking</groupId>
+                <artifactId>apm-toolkit-trace</artifactId>
+                <version>${skywalking.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
