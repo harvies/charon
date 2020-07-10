@@ -6,9 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.context.config.ConfigFileApplicationListener;
 import org.springframework.boot.env.EnvironmentPostProcessor;
-import org.springframework.boot.env.OriginTrackedMapPropertySource;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.core.env.PropertiesPropertySource;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.InputStream;
@@ -24,9 +24,9 @@ public class CharonSpringBootEnvironmentPostProcessor implements EnvironmentPost
         Properties properties = new Properties();
         @Cleanup InputStream inputStream = new ClassPathResource("charon-spring-boot.properties").getInputStream();
         properties.load(inputStream);
-        OriginTrackedMapPropertySource originTrackedMapPropertySource = new OriginTrackedMapPropertySource("charon-spring-boot", properties);
-        //优先级最低
-        environment.getPropertySources().addLast(originTrackedMapPropertySource);
+        PropertiesPropertySource propertySource = new PropertiesPropertySource("charon-spring-boot", properties);
+        //放入list尾部(取值时从头到尾查找，若application.properties没配置，则从该propertySource取值)
+        environment.getPropertySources().addLast(propertySource);
         log.info("set apollo properties end");
     }
 
