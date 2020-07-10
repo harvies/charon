@@ -16,6 +16,7 @@ public class CharonSpringBootTest extends BaseTest {
 
     @Test
     public void test() {
+        String property = environment.getProperty("spring.jackson.time-zone");
         Assert.assertEquals("GMT+8", property);
     }
 }
