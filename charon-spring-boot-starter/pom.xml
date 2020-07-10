@@ -3,21 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>charon-parent</artifactId>
+        <artifactId>charon-spring-boot-starters</artifactId>
         <groupId>io.github.harvies.charon</groupId>
         <version>0.0.2-SNAPSHOT</version>
+        <relativePath>../charon-spring-boot-starters</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <packaging>jar</packaging>
 
     <artifactId>charon-spring-boot-starter</artifactId>
     <version>0.0.2-SNAPSHOT</version>
-
-<!--    <modules>-->
-<!--        <module>../charon-dubbo-spring-boot-starter</module>-->
-<!--        <module>../charon-redis-spring-boot-starter</module>-->
-<!--        <module>../charon-apollo-spring-boot-starter</module>-->
-<!--    </modules>-->
 
     <dependencies>
         <dependency>

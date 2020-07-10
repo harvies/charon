@@ -3,7 +3,6 @@ package io.github.harvies.charon.dubbo;
 import lombok.Cleanup;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.io.FileUtils;
 import org.apache.dubbo.spring.boot.env.DubboDefaultPropertiesEnvironmentPostProcessor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.core.Ordered;
