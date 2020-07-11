@@ -23,6 +23,7 @@
         <module>charon-log</module>
         <module>charon-dubbo</module>
         <module>charon-spring-boot-starters</module>
+        <module>charon-bom</module>
     </modules>
 
     <properties>
@@ -44,6 +45,11 @@
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
                 <artifactId>charon-log</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-json</artifactId>
                 <version>${charon.version}</version>
             </dependency>
             <dependency>
