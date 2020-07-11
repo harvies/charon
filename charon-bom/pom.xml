@@ -9,7 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <packaging>pom</packaging>
     <artifactId>charon-bom</artifactId>
+    <version>0.0.3-SNAPSHOT</version>
     <dependencies>
         <dependency>
             <groupId>io.github.harvies.charon</groupId>

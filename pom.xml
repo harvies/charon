@@ -32,6 +32,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- charon -->
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-bom</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
                 <artifactId>charon-core</artifactId>
@@ -52,6 +58,7 @@
                 <artifactId>charon-json</artifactId>
                 <version>${charon.version}</version>
             </dependency>
+            <!-- charon-spring-boot-starters-->
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
                 <artifactId>charon-spring-boot-starter</artifactId>
