@@ -7,13 +7,13 @@
     <parent>
         <artifactId>charon-dependencies</artifactId>
         <groupId>io.github.harvies.charon</groupId>
-        <version>0.0.2-SNAPSHOT</version>
+        <version>0.0.3-SNAPSHOT</version>
         <relativePath>./charon-dependencies</relativePath>
     </parent>
 
     <artifactId>charon-parent</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <modules>
         <module>charon-dependencies</module>
         <module>charon-core</module>
@@ -27,7 +27,7 @@
     </modules>
 
     <properties>
-        <charon.version>0.0.2-SNAPSHOT</charon.version>
+        <charon.version>0.0.3-SNAPSHOT</charon.version>
     </properties>
 
     <dependencyManagement>
