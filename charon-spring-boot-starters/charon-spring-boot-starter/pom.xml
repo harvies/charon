@@ -6,21 +6,26 @@
         <artifactId>charon-spring-boot-starters</artifactId>
         <groupId>io.github.harvies.charon</groupId>
         <version>0.0.2-SNAPSHOT</version>
-        <relativePath>../charon-spring-boot-starters</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>charon-dubbo-spring-boot-starter</artifactId>
+    <artifactId>charon-spring-boot-starter</artifactId>
+    <version>0.0.2-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
-            <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-spring-boot-starter</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-dubbo</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
+            <artifactId>charon-core</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
 </project>
