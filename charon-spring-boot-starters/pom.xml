@@ -16,5 +16,7 @@
         <module>charon-dubbo-spring-boot-starter</module>
         <module>charon-redis-spring-boot-starter</module>
         <module>charon-apollo-spring-boot-starter</module>
+        <module>charon-gson-spring-boot-starter</module>
+        <module>charon-web-spring-boot-starter</module>
     </modules>
 </project>

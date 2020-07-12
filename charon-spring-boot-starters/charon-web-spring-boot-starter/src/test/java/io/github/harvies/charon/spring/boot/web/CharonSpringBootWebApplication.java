@@ -1,12 +1,12 @@
-package io.github.harvies.charon.spring.boot;
+package io.github.harvies.charon.spring.boot.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class CharonSpringBootApplication {
+public class CharonSpringBootWebApplication {
     public static void main(String[] args) {
-        SpringApplication.run(CharonSpringBootApplication.class, args);
+        SpringApplication.run(CharonSpringBootWebApplication.class, args);
     }
 }

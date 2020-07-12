@@ -53,7 +53,7 @@
         <ognl.version>3.2.10</ognl.version>
         <apollo-client.version>1.6.0</apollo-client.version>
         <skywalking.version>8.0.1</skywalking.version>
-
+        <charon.version>0.0.3-SNAPSHOT</charon.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -336,6 +336,59 @@
                 <groupId>org.apache.skywalking</groupId>
                 <artifactId>apm-toolkit-trace</artifactId>
                 <version>${skywalking.version}</version>
+            </dependency>
+
+            <!-- charon -->
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-bom</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-core</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-http</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-log</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-json</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <!-- charon-spring-boot-starters-->
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-spring-boot-starter</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-dubbo-spring-boot-starter</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-apollo-spring-boot-starter</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-gson-spring-boot-starter</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-web-spring-boot-starter</artifactId>
+                <version>${charon.version}</version>
             </dependency>
 
         </dependencies>

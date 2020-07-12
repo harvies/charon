@@ -22,7 +22,7 @@ public class CharonSpringBootEnvironmentPostProcessor implements EnvironmentPost
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
         log.info("set charon-spring-boot properties begin");
         Properties properties = new Properties();
-        @Cleanup InputStream inputStream = new ClassPathResource("charon-spring-boot.properties").getInputStream();
+        @Cleanup InputStream inputStream = new ClassPathResource("charon/application.properties").getInputStream();
         properties.load(inputStream);
         PropertiesPropertySource propertySource = new PropertiesPropertySource("charon-spring-boot", properties);
         //放入list尾部(取值时从头到尾查找，若application.properties没配置，则从该propertySource取值)
