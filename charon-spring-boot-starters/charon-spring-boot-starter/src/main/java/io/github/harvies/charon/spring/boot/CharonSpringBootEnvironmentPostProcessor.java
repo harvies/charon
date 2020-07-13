@@ -20,6 +20,7 @@ public class CharonSpringBootEnvironmentPostProcessor implements EnvironmentPost
     @SneakyThrows
     @Override
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
+
         log.info("set charon-spring-boot properties begin");
         Properties properties = new Properties();
         @Cleanup InputStream inputStream = new ClassPathResource("charon/application.properties").getInputStream();
