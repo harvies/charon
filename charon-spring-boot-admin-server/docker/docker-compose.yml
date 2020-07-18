@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  blazars:
+    image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-spring-boot-admin-server:latest
+    networks:
+      - default
+    ports:
+      - "8082:8080"
+    deploy:
+      replicas: 2
+networks:
+  default:
+    external:
+      name: dev_overlay

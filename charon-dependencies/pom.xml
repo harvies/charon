@@ -466,6 +466,25 @@
                         </execution>
                     </executions>
                 </plugin>
+
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <!-- 由于没有继承spring-boot-parent(里面有下面的配置),所以需要配置重新打包-->
+                    <executions>
+                        <execution>
+                            <id>repackage</id>
+                            <configuration>
+                                <!--                                <mainClass>io.github.harvies.charon.spring.boot.admin.server.SpringBootAdminApplication</mainClass>-->
+                            </configuration>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
             </plugins>
         </pluginManagement>
     </build>
