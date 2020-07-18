@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/test")
 public class TestController {
-    @Value("${value}")
+    @Value("${value:1}")
     private String test1;
 
     @RequestMapping("/get")

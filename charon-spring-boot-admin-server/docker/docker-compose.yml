@@ -9,6 +9,15 @@ services:
       - "8082:8080"
     deploy:
       replicas: 2
+      resources:
+        limits:
+          memory: 300M
+          cpus: '2'
+    environment:
+      env: dev
+      SW_AGENT_COLLECTOR_BACKEND_SERVICES: sw.dev.kikera.top:11800
+      SW_AGENT_NAME: charon-spring-boot-admin-server
+      spring.cloud.inetutils.preferred-networks[0]: eth0
 networks:
   default:
     external:
