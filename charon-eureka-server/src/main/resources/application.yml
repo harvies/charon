@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: uranus-eureka-server
+server:
+  port: 8761
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/,${ADDITIONAL_EUREKA_SERVER_LIST}
+  instance:
+    ## 从环境变量传进来
+    hostname: ${EUREKA_HOST}
