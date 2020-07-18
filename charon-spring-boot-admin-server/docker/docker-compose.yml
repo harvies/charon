@@ -11,7 +11,7 @@ services:
       replicas: 2
       resources:
         limits:
-          memory: 300M
+          memory: 400M
           cpus: '2'
     environment:
       env: dev

@@ -10,10 +10,13 @@ public class ApolloTest extends BaseTest {
 
     @Value("${skywalking.collector.backend_service:1}")
     private String swAgent;
+    @Value("${skywalking.agent.service_name:1}")
+    private String swAgentServiceName;
 
     @Test
     public void test() {
         Assert.assertEquals("1", property);
         Assert.assertEquals("1", swAgent);
+        Assert.assertEquals("1", swAgentServiceName);
     }
 }
