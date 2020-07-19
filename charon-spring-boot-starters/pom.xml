@@ -18,5 +18,6 @@
         <module>charon-apollo-spring-boot-starter</module>
         <module>charon-gson-spring-boot-starter</module>
         <module>charon-web-spring-boot-starter</module>
+        <module>charon-spring-boot-admin-client-starter</module>
     </modules>
 </project>

@@ -1,11 +1,11 @@
-package io.github.harvies.charon.spring.boot.web;
+package io.github.harvies.charon.spring.boot.admin.client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CharonSpringBootWebApplication {
+public class CharonSpringBootAdminClientApplication {
     public static void main(String[] args) {
-        SpringApplication.run(CharonSpringBootWebApplication.class, args);
+        SpringApplication.run(CharonSpringBootAdminClientApplication.class, args);
     }
 }
