@@ -2,7 +2,7 @@ version: "3"
 
 services:
   eureka1:
-    image: harvies/charon-eureka-server
+    image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-eureka-server
     networks:
       - default
     ports:
@@ -14,13 +14,13 @@ services:
       spring.cloud.inetutils.preferred-networks: 10.0.3
       eureka.instance.prefer-ip-address: 'false'
     deploy:
-      replicas: 2
+      replicas: 1
       resources:
         limits:
           memory: 100M
           cpus: '4'
   eureka2:
-    image: harvies/charon-eureka-server
+    image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-eureka-server
     networks:
       - default
     ports:
@@ -32,7 +32,7 @@ services:
       spring.cloud.inetutils.preferred-networks: 10.0.3
       eureka.instance.prefer-ip-address: 'false'
     deploy:
-      replicas: 2
+      replicas: 1
       resources:
         limits:
           memory: 100M
