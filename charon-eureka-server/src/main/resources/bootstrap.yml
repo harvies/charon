@@ -14,4 +14,3 @@ eureka:
   instance:
     ## 从环境变量传进来
     hostname: ${EUREKA_HOST:localhost}
-    prefer-ip-address: true
