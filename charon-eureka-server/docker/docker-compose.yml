@@ -12,6 +12,7 @@ services:
       ADDITIONAL_EUREKA_SERVER_LIST: http://eureka2:8761/eureka/
       EUREKA_HOST: eureka1
       spring.cloud.inetutils.preferred-networks: 10.0.3
+      eureka.instance.prefer-ip-address: 'false'
     deploy:
       replicas: 2
       resources:
@@ -29,6 +30,7 @@ services:
       ADDITIONAL_EUREKA_SERVER_LIST: http://eureka1:8761/eureka/
       EUREKA_HOST: eureka2
       spring.cloud.inetutils.preferred-networks: 10.0.3
+      eureka.instance.prefer-ip-address: 'false'
     deploy:
       replicas: 2
       resources:
