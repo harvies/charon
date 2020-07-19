@@ -1,6 +1,10 @@
+env: dev
+
 spring:
   application:
-    name: uranus-eureka-server
+    name: charon-eureka-server
+  profiles:
+    active: ${env}
 server:
   port: 8761
 eureka:
@@ -9,4 +13,5 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/,${ADDITIONAL_EUREKA_SERVER_LIST}
   instance:
     ## 从环境变量传进来
-    hostname: ${EUREKA_HOST}
+    hostname: ${EUREKA_HOST:localhost}
+    prefer-ip-address: true
