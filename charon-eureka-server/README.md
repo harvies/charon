@@ -15,3 +15,7 @@ docker network create -d overlay --ingress --subnet=10.0.3.0/24 --attachable  de
 mvn package docker:build &&  docker stack rm eureka-cluster && docker stack  deploy -c  docker-compose.yml eureka-cluster
 
 ```
+
+## 参考
+
+https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-eureka-server.html
