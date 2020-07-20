@@ -391,6 +391,11 @@
                 <artifactId>charon-web-spring-boot-starter</artifactId>
                 <version>${charon.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-spring-boot-admin-client-starter</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
 
             <!-- spring-boot-admin-->
             <dependency>
