@@ -17,6 +17,7 @@ public class TestJsonController {
         Map<String, Object> map = new HashMap<>();
         map.put("aa", "aaaa");
         map.put("bbb", new Date());
+        map.put("cc", "张三");
         return map;
     }
 }

@@ -8,6 +8,10 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnClass(JSONObject.class)
@@ -26,6 +30,11 @@ public class FastJsonAutoConfiguration {
     @ConditionalOnMissingBean
     public FastJsonHttpMessageConverter fastJsonHttpMessageConverter(FastJsonConfig config) {
         FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();
+        converter.setFastJsonConfig(config);
+        // 处理中文乱码问题
+        List<MediaType> fastMediaTypes = new ArrayList<>();
+        fastMediaTypes.add(MediaType.APPLICATION_JSON);
+        converter.setSupportedMediaTypes(fastMediaTypes);
         converter.setFastJsonConfig(config);
         return converter;
     }
