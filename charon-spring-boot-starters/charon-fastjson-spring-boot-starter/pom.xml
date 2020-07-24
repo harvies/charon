@@ -14,15 +14,15 @@
     <dependencies>
         <dependency>
             <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-spring-boot-starter</artifactId>
+            <artifactId>charon-core</artifactId>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-web-spring-boot-starter</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

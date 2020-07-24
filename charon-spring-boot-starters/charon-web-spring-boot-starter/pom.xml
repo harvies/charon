@@ -21,6 +21,10 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-fastjson-spring-boot-starter</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
