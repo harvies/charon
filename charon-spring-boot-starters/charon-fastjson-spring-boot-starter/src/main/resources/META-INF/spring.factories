@@ -1,0 +1,2 @@
+org.springframework.context.ApplicationContextInitializer=\
+  io.github.harvies.charon.spring.boot.fastjson.FastJsonApplicationInitializer
