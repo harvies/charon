@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 services:
   charon-spring-boot-admin-server:
@@ -7,12 +7,18 @@ services:
       - default
     ports:
       - "8082:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
     deploy:
-      replicas: 2
+      replicas: 1
       resources:
         limits:
           memory: 500M
-          cpus: '4'
+          cpus: '8'
     environment:
       env: dev
       spring.cloud.inetutils.preferred-networks: 10.0.3

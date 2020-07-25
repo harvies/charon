@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 services:
   eureka1:
@@ -7,6 +7,12 @@ services:
       - default
     ports:
       - "8761:8761"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8761"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
     environment:
       env: dev
       ADDITIONAL_EUREKA_SERVER_LIST: http://eureka2:8761/eureka/,http://eureka3:8761/eureka/
@@ -19,13 +25,19 @@ services:
       resources:
         limits:
           memory: 300M
-          cpus: '2'
+          cpus: '4'
   eureka2:
     image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-eureka-server
     networks:
       - default
     ports:
       - "8762:8761"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
     environment:
       env: dev
       ADDITIONAL_EUREKA_SERVER_LIST: http://eureka1:8761/eureka/,http://eureka3:8761/eureka/
@@ -38,13 +50,19 @@ services:
       resources:
         limits:
           memory: 300M
-          cpus: '2'
+          cpus: '4'
   eureka3:
     image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-eureka-server
     networks:
       - default
     ports:
       - "8763:8761"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8761"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
     environment:
       env: dev
       ADDITIONAL_EUREKA_SERVER_LIST: http://eureka1:8761/eureka/,http://eureka2:8761/eureka/
@@ -57,7 +75,7 @@ services:
       resources:
         limits:
           memory: 300M
-          cpus: '2'
+          cpus: '4'
 networks:
   default:
     external:
