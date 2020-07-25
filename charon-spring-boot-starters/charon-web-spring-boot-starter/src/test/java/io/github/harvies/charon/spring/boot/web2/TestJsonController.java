@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spring.boot.web;
+package io.github.harvies.charon.spring.boot.web2;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
