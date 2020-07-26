@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spring.boot.web;
+package io.github.harvies.charon.spring.boot.test.web;
 
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

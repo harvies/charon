@@ -1,4 +1,0 @@
-org.springframework.context.ApplicationContextInitializer=\
-  io.github.harvies.charon.spring.boot.web.CharonWebApplicationInitializer
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-io.github.harvies.charon.spring.boot.web2.CharonWebConfiguration

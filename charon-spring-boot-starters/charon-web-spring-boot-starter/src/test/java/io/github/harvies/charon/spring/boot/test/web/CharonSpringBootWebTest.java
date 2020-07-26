@@ -1,5 +1,6 @@
-package io.github.harvies.charon.spring.boot.web;
+package io.github.harvies.charon.spring.boot.test.web;
 
+import io.github.harvies.charon.spring.boot.web.Constants;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.boot.web.client.RestTemplateBuilder;
