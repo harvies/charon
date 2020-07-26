@@ -40,7 +40,7 @@ public class CharonWebHandlerInterceptor implements HandlerInterceptor {
     public String getDescription(HttpServletRequest httpServletRequest) {
         StringBuilder sb = new StringBuilder();
         sb.append("traceId=").append(TraceContext.traceId());
-        sb.append("uri=").append(httpServletRequest.getRequestURI());
+        sb.append(";uri=").append(httpServletRequest.getRequestURI());
         sb.append(";method=").append(httpServletRequest.getMethod());
         sb.append(";params=").append(JsonUtils.toJSONString(httpServletRequest.getParameterMap()));
         sb.append(";client=").append(httpServletRequest.getRemoteAddr() + ":" + httpServletRequest.getRemotePort());
