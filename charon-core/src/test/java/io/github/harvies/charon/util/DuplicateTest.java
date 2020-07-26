@@ -1,4 +1,4 @@
-package io.github.harvies.charon.core.utils;
+package io.github.harvies.charon.util;
 
 import org.junit.Test;
 

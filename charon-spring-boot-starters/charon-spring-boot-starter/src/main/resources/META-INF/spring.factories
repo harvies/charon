@@ -1,6 +1,4 @@
 org.springframework.boot.env.EnvironmentPostProcessor=\
   io.github.harvies.charon.spring.boot.CharonSpringBootEnvironmentPostProcessor
-org.springframework.boot.SpringApplicationRunListener=\
-  io.github.harvies.charon.spring.boot.CharonSpringApplicationRunListener
 org.springframework.context.ApplicationListener=\
   io.github.harvies.charon.spring.boot.CharonApplicationListener

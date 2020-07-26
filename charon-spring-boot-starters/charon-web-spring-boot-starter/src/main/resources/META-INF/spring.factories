@@ -1,2 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 io.github.harvies.charon.spring.boot.web.CharonWebConfiguration
+org.springframework.context.ApplicationListener=\
+  io.github.harvies.charon.spring.boot.web.CharonWebApplicationListener

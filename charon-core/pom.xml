@@ -41,6 +41,10 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
         <!--jdk14缺失的包-->
         <dependency>
             <groupId>javax.annotation</groupId>
@@ -50,7 +54,6 @@
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>

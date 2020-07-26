@@ -19,7 +19,6 @@
         <module>charon-core</module>
         <module>charon-facade</module>
         <module>charon-http</module>
-        <module>charon-json</module>
         <module>charon-log</module>
         <module>charon-dubbo</module>
         <module>charon-spring-boot-starters</module>
