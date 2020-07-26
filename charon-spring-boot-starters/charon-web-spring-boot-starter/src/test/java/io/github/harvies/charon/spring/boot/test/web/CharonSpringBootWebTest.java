@@ -19,7 +19,7 @@ public class CharonSpringBootWebTest extends BaseTest {
 
     @Test
     public void test() {
-        String forObject = restTemplateBuilder.build().getForObject(host + port + "/health/status", String.class);
+        String forObject = restTemplateBuilder.build().getForObject(host + port + "/health/status?a=b", String.class);
         Assert.assertEquals(Constants.SUCCESS, forObject);
     }
 
