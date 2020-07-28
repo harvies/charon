@@ -18,20 +18,16 @@
         <module>charon-dependencies</module>
         <module>charon-core</module>
         <module>charon-facade</module>
-        <module>charon-http</module>
-        <module>charon-log</module>
         <module>charon-dubbo</module>
         <module>charon-spring-boot-starters</module>
-        <module>charon-bom</module>
-        <module>charon-file</module>
         <!--        <module>charon-spring-boot-admin-server</module>-->
         <!--        <module>charon-eureka-server</module>-->
     </modules>
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

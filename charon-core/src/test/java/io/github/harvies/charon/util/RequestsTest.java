@@ -1,4 +1,4 @@
-package io.github.harvies.charon.http;
+package io.github.harvies.charon.util;
 
 import lombok.extern.slf4j.Slf4j;
 import net.dongliu.requests.Proxies;
