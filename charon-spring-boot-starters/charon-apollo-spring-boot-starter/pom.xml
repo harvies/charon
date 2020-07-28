@@ -12,8 +12,9 @@
     <artifactId>charon-apollo-spring-boot-starter</artifactId>
     <dependencies>
         <dependency>
-            <groupId>com.ctrip.framework.apollo</groupId>
-            <artifactId>apollo-client</artifactId>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-apollo</artifactId>
+            <version>0.0.3-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>io.github.harvies.charon</groupId>

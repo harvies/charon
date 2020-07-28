@@ -19,5 +19,6 @@
         <module>charon-web-spring-boot-starter</module>
         <module>charon-spring-boot-admin-client-starter</module>
         <module>charon-fastjson-spring-boot-starter</module>
+        <module>charon-notify-spring-boot-starter</module>
     </modules>
 </project>
