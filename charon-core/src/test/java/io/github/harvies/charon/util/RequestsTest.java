@@ -6,8 +6,9 @@ import net.dongliu.requests.RawResponse;
 import net.dongliu.requests.Requests;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author harvies
@@ -18,12 +19,12 @@ public class RequestsTest {
     public void get() {
         RawResponse rawResponse = Requests.get("https://baidu.com").send();
         log.info("rawResponse:[{}]", ToStringBuilder.reflectionToString(rawResponse, ToStringStyle.JSON_STYLE));
-        Assert.assertNotNull(rawResponse.readToText());
+        Assertions.assertNotNull(rawResponse.readToText());
     }
 
-//    @Test
+    @Disabled
     public void testSocksProxy() {
         RawResponse rawResponse = Requests.get("http://ip-api.com/json/?fields=query").timeout(1000 * 60 * 60).proxy(Proxies.socksProxy("127.0.0.1", 1080)).send();
-        Assert.assertNotNull(rawResponse.readToText());
+        Assertions.assertNotNull(rawResponse.readToText());
     }
 }

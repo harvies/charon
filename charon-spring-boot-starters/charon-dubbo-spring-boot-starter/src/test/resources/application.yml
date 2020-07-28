@@ -1,20 +1,21 @@
 env: dev
+
 dubbo:
   application:
     qosEnable: false
   protocol:
     name: dubbo
-    port: 18083
+    port: 18080
   registry:
     address: zookeeper://${zookeeperServerLists}
     file: ${user.home}/dubbo-cache/${spring.application.name}/dubbo.cache
     id: zk
   scan:
-    basePackages: io.github.harvies.pluto
+    basePackages: io.github.harvies.charon.dubbo
   metadata-report:
     address: zookeeper://${zookeeperServerLists}
   consumer:
     check: false
 spring:
   application:
-    name: pluto
+    name: charon-dubbo-spring-boot
