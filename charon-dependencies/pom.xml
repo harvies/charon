@@ -415,6 +415,13 @@
                 <version>${spring-boot-admin-starter.version}</version>
             </dependency>
 
+            <!-- javamelody-->
+            <dependency>
+                <groupId>net.bull.javamelody</groupId>
+                <artifactId>javamelody-spring-boot-starter</artifactId>
+                <version>1.85.0</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
