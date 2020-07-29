@@ -18,8 +18,6 @@ import java.util.Properties;
 
 @Slf4j
 public class ApolloEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
-    @Value("${env}")
-    private String env;
 
     @SneakyThrows
     @Override
@@ -27,17 +25,21 @@ public class ApolloEnvironmentPostProcessor implements EnvironmentPostProcessor,
         log.info("set apollo properties begin");
 
         //set app.id
-        String applicationName = environment.getProperty("spring.application.name");
+        String applicationName = environment.getProperty("charon.application.name");
         if (StringUtils.isBlank(applicationName)) {
-            throw new RuntimeException("spring.application.name is not null");
+            throw new RuntimeException("charon.application.name is not null");
         }
         System.setProperty("app.id", applicationName);
+        System.setProperty("spring.application.name", applicationName);
 
         //set apollo.meta
-        String env = environment.getProperty("env");
+        String env = environment.getProperty("charon.env");
         if (StringUtils.isBlank(env)) {
             throw new RuntimeException("properties env is not null");
         }
+
+        System.setProperty("spring.profiles.active", env);
+
         Properties properties = new Properties();
         @Cleanup InputStream inputStream = new ClassPathResource("charon-apollo.properties").getInputStream();
         properties.load(inputStream);

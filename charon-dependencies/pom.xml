@@ -6,7 +6,7 @@
 
     <artifactId>charon-dependencies</artifactId>
     <groupId>io.github.harvies.charon</groupId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.4-SNAPSHOT</version>
     <packaging>pom</packaging>
     <properties>
         <!-- Compiler properties -->
@@ -53,7 +53,7 @@
         <ognl.version>3.2.10</ognl.version>
         <apollo-client.version>1.6.0</apollo-client.version>
         <skywalking.version>8.0.1</skywalking.version>
-        <charon.version>0.0.3-SNAPSHOT</charon.version>
+        <charon.version>0.0.4-SNAPSHOT</charon.version>
         <spring-boot-admin-starter.version>2.2.3</spring-boot-admin-starter.version>
     </properties>
     <dependencyManagement>
@@ -141,12 +141,12 @@
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>junit</groupId>-->
-<!--                <artifactId>junit</artifactId>-->
-<!--                <version>4.12</version>-->
-<!--                <scope>compile</scope>-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>junit</groupId>-->
+            <!--                <artifactId>junit</artifactId>-->
+            <!--                <version>4.12</version>-->
+            <!--                <scope>compile</scope>-->
+            <!--            </dependency>-->
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter</artifactId>
@@ -348,27 +348,22 @@
             <!-- charon -->
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
-                <artifactId>charon-bom</artifactId>
-                <version>${charon.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.harvies.charon</groupId>
                 <artifactId>charon-core</artifactId>
                 <version>${charon.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
-                <artifactId>charon-http</artifactId>
+                <artifactId>charon-apollo</artifactId>
                 <version>${charon.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
-                <artifactId>charon-log</artifactId>
+                <artifactId>charon-dubbo</artifactId>
                 <version>${charon.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
-                <artifactId>charon-json</artifactId>
+                <artifactId>charon-notify</artifactId>
                 <version>${charon.version}</version>
             </dependency>
             <!-- charon-spring-boot-starters-->

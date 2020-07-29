@@ -14,7 +14,7 @@ public class ApolloTest {
     @Test
     public void get() {
         //load other properties
-        System.setProperty("env", "dev");
+        System.setProperty("charon.env", "dev");
         Config appConfig = ConfigService.getConfig("dev-common");
         Assertions.assertTrue(appConfig.getPropertyNames().size() != 0);
     }

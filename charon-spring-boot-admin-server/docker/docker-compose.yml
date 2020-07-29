@@ -20,7 +20,7 @@ services:
           memory: 500M
           cpus: '8'
     environment:
-      env: dev
+      charon.env: dev
       spring.cloud.inetutils.preferred-networks: 10.0.3
       #spring.cloud.inetutils.ignoredInterfaces[0]: eth1
       #spring.cloud.inetutils.ignoredInterfaces[1]: eth2

@@ -7,13 +7,13 @@
     <parent>
         <artifactId>charon-dependencies</artifactId>
         <groupId>io.github.harvies.charon</groupId>
-        <version>0.0.3-SNAPSHOT</version>
+        <version>0.0.4-SNAPSHOT</version>
         <relativePath>./charon-dependencies</relativePath>
     </parent>
 
     <artifactId>charon-parent</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.4-SNAPSHOT</version>
     <modules>
         <module>charon-dependencies</module>
         <module>charon-core</module>
@@ -21,8 +21,9 @@
         <module>charon-dubbo</module>
         <module>charon-spring-boot-starters</module>
         <module>charon-apollo</module>
-        <!--        <module>charon-spring-boot-admin-server</module>-->
-        <!--        <module>charon-eureka-server</module>-->
+        <module>charon-notify</module>
+        <module>charon-spring-boot-admin-server</module>
+        <module>charon-eureka-server</module>
     </modules>
 
     <dependencies>

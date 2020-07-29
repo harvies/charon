@@ -1,4 +1,7 @@
-env: dev
+charon:
+  env: dev
+  application:
+    name: charon-dubbo-spring-boot
 
 dubbo:
   application:
@@ -16,6 +19,3 @@ dubbo:
     address: zookeeper://${zookeeperServerLists}
   consumer:
     check: false
-spring:
-  application:
-    name: charon-dubbo-spring-boot
