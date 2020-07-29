@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>charon-monitor</artifactId>
+    <artifactId>charon-monitor-spring-boot-starter</artifactId>
     <dependencies>
         <dependency>
             <groupId>net.bull.javamelody</groupId>
