@@ -384,17 +384,17 @@
             </dependency>
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
-                <artifactId>charon-gson-spring-boot-starter</artifactId>
-                <version>${charon.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.harvies.charon</groupId>
                 <artifactId>charon-fastjson-spring-boot-starter</artifactId>
                 <version>${charon.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
                 <artifactId>charon-web-spring-boot-starter</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-notify-spring-boot-starter</artifactId>
                 <version>${charon.version}</version>
             </dependency>
             <dependency>
