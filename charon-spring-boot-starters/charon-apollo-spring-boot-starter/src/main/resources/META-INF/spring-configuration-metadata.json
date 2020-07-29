@@ -1,0 +1,16 @@
+{
+  "properties": [
+    {
+      "name": "charon.env",
+      "description": "环境标识.",
+      "defaultValue": "dev",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "charon.application.name",
+      "description": "应用名称.",
+      "defaultValue": "",
+      "type": "java.lang.String"
+    }
+  ]
+}

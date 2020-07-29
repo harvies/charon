@@ -1,0 +1,10 @@
+{
+  "properties": [
+    {
+      "name": "charon.notify.dingTalkWebHookUrl",
+      "description": "钉钉webHook地址.",
+      "defaultValue": "",
+      "type": "java.lang.String"
+    }
+  ]
+}
