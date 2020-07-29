@@ -64,15 +64,35 @@ public class RequestsTest {
 
 
     /**
-     * dingtalk
+     * dingtalk 普通文本
      */
     @Test
-    public void dingtalk() {
+    public void dingtalkText() {
         Map<String, Object> data = new HashMap<>();
         data.put("msgtype", "text");
         Map<String, Object> textObject = new HashMap<>();
         textObject.put("content", "报警-测试内容22211");
         data.put("text", textObject);
+        Map<String, String> headerMap = new HashMap<>();
+        headerMap.put("Content-Type", "application/json");
+        String text = Requests.post(dingTalkWebHookUrl)
+                .body(JsonUtils.toJSONString(data))
+                .headers(headerMap)
+                .send().readToText();
+        Assertions.assertNotNull(text);
+    }
+
+    /**
+     * dingtalk
+     */
+    @Test
+    public void dingtalkMarkDown() {
+        Map<String, Object> data = new HashMap<>();
+        data.put("msgtype", "markdown");
+        Map<String, Object> textObject = new HashMap<>();
+        textObject.put("text", "### 报警-测试内容22211");
+        textObject.put("title", "报警-测试标题");
+        data.put("markdown", textObject);
         Map<String, String> headerMap = new HashMap<>();
         headerMap.put("Content-Type", "application/json");
         String text = Requests.post(dingTalkWebHookUrl)
