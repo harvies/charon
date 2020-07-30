@@ -1,0 +1,23 @@
+# Use root/example as user/password credentials
+version: '3.7'
+
+services:
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 81:8080
+    deploy:
+      replicas: 1
+    networks:
+      - default
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+networks:
+  default:
+    external:
+      name: dev_overlay
