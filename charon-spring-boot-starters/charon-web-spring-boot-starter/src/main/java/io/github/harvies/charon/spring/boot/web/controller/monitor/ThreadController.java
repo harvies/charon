@@ -10,7 +10,7 @@ import java.lang.management.ThreadInfo;
 
 @Slf4j
 @RestController
-@RequestMapping(value = "/thread")
+@RequestMapping(value = "/thread", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ThreadController {
 
     @RequestMapping(value = "/dumpAllThreads", produces = MediaType.APPLICATION_JSON_VALUE)
