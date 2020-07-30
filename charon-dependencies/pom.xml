@@ -367,6 +367,11 @@
                 <artifactId>charon-notify</artifactId>
                 <version>${charon.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-oss</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
             <!-- charon-spring-boot-starters-->
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
@@ -396,6 +401,11 @@
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
                 <artifactId>charon-notify-spring-boot-starter</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-oss-spring-boot-starter</artifactId>
                 <version>${charon.version}</version>
             </dependency>
             <dependency>

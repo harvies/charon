@@ -24,6 +24,7 @@
         <module>charon-notify</module>
         <module>charon-spring-boot-admin-server</module>
         <module>charon-eureka-server</module>
+        <module>charon-oss</module>
     </modules>
 
     <dependencies>

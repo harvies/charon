@@ -21,6 +21,7 @@
         <module>charon-fastjson-spring-boot-starter</module>
         <module>charon-notify-spring-boot-starter</module>
         <module>charon-monitor-spring-boot-starter</module>
+        <module>charon-oss-spring-boot-starter</module>
     </modules>
     <dependencies>
         <dependency>
