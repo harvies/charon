@@ -31,7 +31,7 @@ public class RequestsTest {
         System.setProperty("charon.env", "dev");
         config = ConfigService.getConfig("dev-common");
         log.info("config {}", config.getPropertyNames());
-        dingTalkWebHookUrl = config.getProperty("charon.notify.dingTalkWebHookUrl", "");
+        dingTalkWebHookUrl = config.getProperty("charon.notify.dingtalk.web-hook-url", "");
         serverSauceWebHookUrl = config.getProperty("charon.notify.serverSauceWebHookUrl", "");
     }
 

@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spring.boot.notify;
+package io.github.harvies.charon.notify;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

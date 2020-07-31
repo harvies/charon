@@ -7,14 +7,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class DingTalkNotify implements Notify {
-    /**
-     * webHook地址
-     */
-    private String webHookUrl;
+public class DingTalkNotifyService implements NotifyService {
+    private DingTalkProperties dingTalkProperties;
 
-    public DingTalkNotify(String webHookUrl) {
-        this.webHookUrl = webHookUrl;
+    public DingTalkNotifyService(DingTalkProperties dingTalkProperties) {
+        this.dingTalkProperties = dingTalkProperties;
     }
 
     @Override
@@ -27,7 +24,7 @@ public class DingTalkNotify implements Notify {
         data.put("markdown", textObject);
         Map<String, String> headerMap = new HashMap<>();
         headerMap.put("Content-Type", "application/json");
-        String result = Requests.post(webHookUrl)
+        String result = Requests.post(dingTalkProperties.getWebHookUrl())
                 .body(JsonUtils.toJSONString(data))
                 .headers(headerMap)
                 .send().readToText();

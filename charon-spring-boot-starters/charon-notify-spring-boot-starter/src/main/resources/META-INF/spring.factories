@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-io.github.harvies.charon.spring.boot.notify.NotifyAutoConfiguration
+io.github.harvies.charon.notify.NotifyAutoConfiguration
