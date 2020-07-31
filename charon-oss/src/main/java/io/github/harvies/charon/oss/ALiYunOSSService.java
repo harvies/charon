@@ -1,7 +1,10 @@
 package io.github.harvies.charon.oss;
 
-import lombok.SneakyThrows;
+import com.aliyun.oss.OSS;
+import com.aliyun.oss.OSSClientBuilder;
 import lombok.extern.slf4j.Slf4j;
+
+import java.io.ByteArrayInputStream;
 
 /**
  * @author harvies
@@ -11,16 +14,24 @@ public class ALiYunOSSService implements OSSService {
     /**
      * 配置
      */
-    private ALiYunOSSProperties aLiYunOSSProperties;
+    private ALiYunOSSProperties properties;
 
     public ALiYunOSSService(ALiYunOSSProperties aLiYunOSSProperties) {
-        this.aLiYunOSSProperties = aLiYunOSSProperties;
+        this.properties = aLiYunOSSProperties;
     }
 
-    @SneakyThrows
     @Override
     public FileDTO upload(byte[] bytes, String fileName) {
         log.info("fileName:[{}]", fileName);
-        return new FileDTO("null");
+        OSS ossClient = new OSSClientBuilder().build(properties.getEndpoint(), properties.getAccessKeyId(), properties.getAccessKeySecret());
+        String path = Utils.getPath(fileName);
+        try {
+            ossClient.putObject(properties.getBucketName(), path, new ByteArrayInputStream(bytes));
+        } finally {
+            ossClient.shutdown();
+        }
+        String url = "https://" + properties.getBucketName() + "." + properties.getEndpoint() + "/" + path;
+        log.info("upload success, url:[{}]", url);
+        return new FileDTO(url).setCdnUrl(url);
     }
 }

@@ -346,6 +346,13 @@
                 <version>${skywalking.version}</version>
             </dependency>
 
+            <!--aliyun -->
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>3.10.2</version>
+            </dependency>
+
             <!-- charon -->
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>

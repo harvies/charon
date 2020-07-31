@@ -2,7 +2,6 @@ package io.github.harvies.charon.oss;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.time.DateFormatUtils;
 import org.kohsuke.github.*;
 
 import java.io.IOException;
@@ -20,14 +19,14 @@ public class GithubOSSService implements OSSService {
     /**
      * 配置
      */
-    private GithubProperties githubProperties;
+    private GithubProperties properties;
 
-    public GithubOSSService(GithubProperties githubProperties) {
-        this.githubProperties = githubProperties;
+    public GithubOSSService(GithubProperties properties) {
+        this.properties = properties;
     }
 
     /**
-     * 登录信息缓存
+     * 登录信息缓存 String key = username + "|" + repositoryName;
      */
     private volatile static Map<String, GHRepository> REPOSITORY_MAP = new HashMap<>();
 
@@ -35,15 +34,15 @@ public class GithubOSSService implements OSSService {
     @Override
     public FileDTO upload(byte[] bytes, String fileName) {
         log.info("fileName:[{}]", fileName);
-        String username = githubProperties.getUsername();
-        GHRepository ghRepository = getGHRepository(username, githubProperties.getRepositoryName());
+        String username = properties.getUsername();
+        GHRepository ghRepository = getGHRepository(username, properties.getRepositoryName());
         log.info("ghRepository:[{}]", ghRepository);
 
         synchronized (ghRepository) {
             String path = doUpload(bytes, fileName, ghRepository);
-
-            return new FileDTO("https://raw.githubusercontent.com/" + username + "/" + githubProperties.getRepositoryName() + "/" + githubProperties.getBranch() + "/" + path)
-                    .setCustomDomainUrl(githubProperties.getCustomDomain() + "/" + path);
+            String url = "https://raw.githubusercontent.com/" + username + "/" + properties.getRepositoryName() + "/" + properties.getBranch() + "/" + path;
+            log.info("upload success, url:[{}]", url);
+            return new FileDTO(url).setCdnUrl(properties.getCustomDomain() + "/" + path);
         }
     }
 
@@ -51,7 +50,7 @@ public class GithubOSSService implements OSSService {
         /**
          * 1. 获取 Ref
          */
-        String ref = ghRepository.getRef("heads/" + githubProperties.getBranch()).getObject().getSha();
+        String ref = ghRepository.getRef("heads/" + properties.getBranch()).getObject().getSha();
         log.info("ref:[{}]", ref);
 
         /**
@@ -69,8 +68,7 @@ public class GithubOSSService implements OSSService {
         /**
          * 4. 生成 tree
          */
-        String dateStr = DateFormatUtils.format(System.currentTimeMillis(), "yyyy/MM/dd/yyyymmddHHmmsssss-");
-        String path = dateStr + fileName;
+        String path = Utils.getPath(fileName);
         GHTree ghTree = ghRepository.createTree().shaEntry(path, ghBlob.getSha(), false)
                 .baseTree(commit.getTree().getSha())
                 .create();
@@ -79,14 +77,14 @@ public class GithubOSSService implements OSSService {
         /**
          * 5. 生成 Commit
          */
-        GHCommit ghCommit = ghRepository.createCommit().committer(githubProperties.getCommitterName(), githubProperties.getCommitterEmail(), new Date()).message("commit")
+        GHCommit ghCommit = ghRepository.createCommit().committer(properties.getCommitterName(), properties.getCommitterEmail(), new Date()).message("commit")
                 .tree(ghTree.getSha()).parent(ref).create();
         log.info("ghCommit:[{}]", ghCommit);
 
         /**
          * 6. 更新 Ref
          */
-        ghRepository.getRef("heads/" + githubProperties.getBranch()).updateTo(ghCommit.getSHA1(), false);
+        ghRepository.getRef("heads/" + properties.getBranch()).updateTo(ghCommit.getSHA1(), false);
         return path;
     }
 
@@ -99,9 +97,9 @@ public class GithubOSSService implements OSSService {
                 ghRepository = REPOSITORY_MAP.get(key);
                 if (ghRepository == null) {
                     //仅使用accessToken参数需要先获取用户信息
-                    GitHubBuilder gitHubBuilder = new GitHubBuilder().withOAuthToken(githubProperties.getOauthAccessToken(), username);
-                    if (githubProperties.getEnableProxy()) {
-                        gitHubBuilder.withProxy(new Proxy(githubProperties.getProxyType(), new InetSocketAddress(githubProperties.getProxyHost(), githubProperties.getProxyPort())));
+                    GitHubBuilder gitHubBuilder = new GitHubBuilder().withOAuthToken(properties.getOauthAccessToken(), username);
+                    if (properties.getEnableProxy()) {
+                        gitHubBuilder.withProxy(new Proxy(properties.getProxyType(), new InetSocketAddress(properties.getProxyHost(), properties.getProxyPort())));
                     }
                     GitHub gitHub = gitHubBuilder.build();
                     ghRepository = gitHub.getUser(username).getRepository(repositoryName);

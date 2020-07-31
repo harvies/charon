@@ -14,5 +14,5 @@ import lombok.experimental.Accessors;
 public class FileDTO {
     @NonNull
     private String url;
-    private String customDomainUrl;
+    private String cdnUrl;
 }
