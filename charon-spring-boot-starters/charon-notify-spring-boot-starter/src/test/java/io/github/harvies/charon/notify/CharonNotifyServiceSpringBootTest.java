@@ -12,7 +12,7 @@ public class CharonNotifyServiceSpringBootTest extends BaseTest {
 
     @Test
     public void test() {
-        boolean send = notifyService.send("报警-测试标题", "报警-测试内容");
+        boolean send = notifyService.send("通知-测试标题", "通知-测试内容");
         Assertions.assertTrue(send);
     }
 }

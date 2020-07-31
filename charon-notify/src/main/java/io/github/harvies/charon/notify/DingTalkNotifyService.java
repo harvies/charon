@@ -1,13 +1,21 @@
 package io.github.harvies.charon.notify;
 
 import io.github.harvies.charon.util.JsonUtils;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import net.dongliu.requests.Requests;
 
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ * 钉钉消息通知服务
+ */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class DingTalkNotifyService implements NotifyService {
+    /**
+     * 钉钉配置
+     */
     private DingTalkProperties dingTalkProperties;
 
     public DingTalkNotifyService(DingTalkProperties dingTalkProperties) {

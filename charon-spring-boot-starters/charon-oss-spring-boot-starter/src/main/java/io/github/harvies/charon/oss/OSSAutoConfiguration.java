@@ -14,6 +14,6 @@ public class OSSAutoConfiguration {
     @ConditionalOnMissingBean
     @ConditionalOnClass(GHCommit.class)
     OSSService github(GithubConfig githubConfig) {
-        return new GithubOSSServiceImpl(githubConfig);
+        return new GithubOSSService(githubConfig);
     }
 }
