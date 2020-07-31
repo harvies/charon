@@ -353,6 +353,13 @@
                 <version>3.10.2</version>
             </dependency>
 
+            <!--netty-->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+
             <!-- charon -->
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
