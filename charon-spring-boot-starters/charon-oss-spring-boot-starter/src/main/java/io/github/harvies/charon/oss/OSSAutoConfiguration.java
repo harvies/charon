@@ -1,19 +1,28 @@
 package io.github.harvies.charon.oss;
 
-import org.kohsuke.github.GHCommit;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
-@EnableConfigurationProperties({GithubConfig.class})
+@Configuration(proxyBeanMethods = false)
+@EnableConfigurationProperties({ALiYunOSSProperties.class, GithubProperties.class})
 public class OSSAutoConfiguration {
+
+    static final String PREFERRED_NOTIFY_PROPERTY = Constants.OSS_PROPERTIES_PREFIX + ".preferred";
+
     @Bean
     @ConditionalOnMissingBean
-    @ConditionalOnClass(GHCommit.class)
-    OSSService github(GithubConfig githubConfig) {
-        return new GithubOSSService(githubConfig);
+    @ConditionalOnProperty(name = PREFERRED_NOTIFY_PROPERTY, havingValue = Constants.ALIYUN, matchIfMissing = true)
+    OSSService aliyun(ALiYunOSSProperties aLiYunOSSProperties) {
+        return new ALiYunOSSService(aLiYunOSSProperties);
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    @ConditionalOnProperty(name = PREFERRED_NOTIFY_PROPERTY, havingValue = Constants.GITHUB)
+    OSSService github(GithubProperties githubProperties) {
+        return new GithubOSSService(githubProperties);
     }
 }

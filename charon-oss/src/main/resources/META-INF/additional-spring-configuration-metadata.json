@@ -1,0 +1,29 @@
+{
+  "properties": [
+    {
+      "name": "charon.oss.preferred",
+      "type": "java.lang.String",
+      "description": "OSS存储方式，默认阿里云."
+    }
+  ],
+  "hints": [
+    {
+      "name": "charon.oss.preferred",
+      "values": [
+        {
+          "value": "aliyun",
+          "description": "阿里云."
+        },
+        {
+          "value": "github",
+          "description": "GitHub."
+        }
+      ],
+      "providers": [
+        {
+          "name": "any"
+        }
+      ]
+    }
+  ]
+}

@@ -20,10 +20,10 @@ public class GithubOSSService implements OSSService {
     /**
      * 配置
      */
-    private GithubConfig githubConfig;
+    private GithubProperties githubProperties;
 
-    public GithubOSSService(GithubConfig githubConfig) {
-        this.githubConfig = githubConfig;
+    public GithubOSSService(GithubProperties githubProperties) {
+        this.githubProperties = githubProperties;
     }
 
     /**
@@ -35,15 +35,15 @@ public class GithubOSSService implements OSSService {
     @Override
     public FileDTO upload(byte[] bytes, String fileName) {
         log.info("fileName:[{}]", fileName);
-        String username = githubConfig.getUsername();
-        GHRepository ghRepository = getGHRepository(username, githubConfig.getRepositoryName());
+        String username = githubProperties.getUsername();
+        GHRepository ghRepository = getGHRepository(username, githubProperties.getRepositoryName());
         log.info("ghRepository:[{}]", ghRepository);
 
         synchronized (ghRepository) {
             String path = doUpload(bytes, fileName, ghRepository);
 
-            return new FileDTO("https://raw.githubusercontent.com/" + username + "/" + githubConfig.getRepositoryName() + "/" + githubConfig.getBranch() + "/" + path)
-                    .setCustomDomainUrl(githubConfig.getCustomDomain() + "/" + path);
+            return new FileDTO("https://raw.githubusercontent.com/" + username + "/" + githubProperties.getRepositoryName() + "/" + githubProperties.getBranch() + "/" + path)
+                    .setCustomDomainUrl(githubProperties.getCustomDomain() + "/" + path);
         }
     }
 
@@ -51,7 +51,7 @@ public class GithubOSSService implements OSSService {
         /**
          * 1. 获取 Ref
          */
-        String ref = ghRepository.getRef("heads/" + githubConfig.getBranch()).getObject().getSha();
+        String ref = ghRepository.getRef("heads/" + githubProperties.getBranch()).getObject().getSha();
         log.info("ref:[{}]", ref);
 
         /**
@@ -79,14 +79,14 @@ public class GithubOSSService implements OSSService {
         /**
          * 5. 生成 Commit
          */
-        GHCommit ghCommit = ghRepository.createCommit().committer(githubConfig.getCommitterName(), githubConfig.getCommitterEmail(), new Date()).message("commit")
+        GHCommit ghCommit = ghRepository.createCommit().committer(githubProperties.getCommitterName(), githubProperties.getCommitterEmail(), new Date()).message("commit")
                 .tree(ghTree.getSha()).parent(ref).create();
         log.info("ghCommit:[{}]", ghCommit);
 
         /**
          * 6. 更新 Ref
          */
-        ghRepository.getRef("heads/" + githubConfig.getBranch()).updateTo(ghCommit.getSHA1(), false);
+        ghRepository.getRef("heads/" + githubProperties.getBranch()).updateTo(ghCommit.getSHA1(), false);
         return path;
     }
 
@@ -99,9 +99,9 @@ public class GithubOSSService implements OSSService {
                 ghRepository = REPOSITORY_MAP.get(key);
                 if (ghRepository == null) {
                     //仅使用accessToken参数需要先获取用户信息
-                    GitHubBuilder gitHubBuilder = new GitHubBuilder().withOAuthToken(githubConfig.getOauthAccessToken(), username);
-                    if (githubConfig.getEnableProxy()) {
-                        gitHubBuilder.withProxy(new Proxy(githubConfig.getProxyType(), new InetSocketAddress(githubConfig.getProxyHost(), githubConfig.getProxyPort())));
+                    GitHubBuilder gitHubBuilder = new GitHubBuilder().withOAuthToken(githubProperties.getOauthAccessToken(), username);
+                    if (githubProperties.getEnableProxy()) {
+                        gitHubBuilder.withProxy(new Proxy(githubProperties.getProxyType(), new InetSocketAddress(githubProperties.getProxyHost(), githubProperties.getProxyPort())));
                     }
                     GitHub gitHub = gitHubBuilder.build();
                     ghRepository = gitHub.getUser(username).getRepository(repositoryName);

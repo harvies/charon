@@ -11,8 +11,8 @@ import java.net.Proxy;
  */
 @Getter
 @Setter
-@ConfigurationProperties(prefix = "charon.oss.github")
-public class GithubConfig {
+@ConfigurationProperties(prefix = Constants.GITHUB_PROPERTIES_PREFIX)
+public class GithubProperties {
     /**
      * 访问token
      */
