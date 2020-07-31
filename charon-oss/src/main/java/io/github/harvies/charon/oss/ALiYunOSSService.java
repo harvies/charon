@@ -2,6 +2,7 @@ package io.github.harvies.charon.oss;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.ByteArrayInputStream;
@@ -21,8 +22,8 @@ public class ALiYunOSSService implements OSSService {
     }
 
     @Override
-    public FileDTO upload(byte[] bytes, String fileName) {
-        log.info("fileName:[{}]", fileName);
+    public FileDTO upload(@NonNull byte[] bytes, @NonNull String fileName) {
+        log.info("begin upload,fileName:[{}]", fileName);
         OSS ossClient = new OSSClientBuilder().build(properties.getEndpoint(), properties.getAccessKeyId(), properties.getAccessKeySecret());
         String path = Utils.getPath(fileName);
         try {

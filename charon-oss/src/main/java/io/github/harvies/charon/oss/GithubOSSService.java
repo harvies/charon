@@ -1,5 +1,6 @@
 package io.github.harvies.charon.oss;
 
+import lombok.NonNull;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.kohsuke.github.*;
@@ -32,8 +33,8 @@ public class GithubOSSService implements OSSService {
 
     @SneakyThrows
     @Override
-    public FileDTO upload(byte[] bytes, String fileName) {
-        log.info("fileName:[{}]", fileName);
+    public FileDTO upload(@NonNull byte[] bytes, @NonNull String fileName) {
+        log.info("begin upload,fileName:[{}]", fileName);
         String username = properties.getUsername();
         GHRepository ghRepository = getGHRepository(username, properties.getRepositoryName());
         log.info("ghRepository:[{}]", ghRepository);
