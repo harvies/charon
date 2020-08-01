@@ -19,6 +19,7 @@ package io.github.harvies.charon.elasticjob.lite.job;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shardingsphere.elasticjob.api.ShardingContext;
+import org.apache.shardingsphere.elasticjob.simple.job.SimpleJob;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
@@ -26,7 +27,7 @@ import java.util.Date;
 
 @Component
 @Slf4j
-public class SpringBootSimpleJob implements org.apache.shardingsphere.elasticjob.simple.job.SimpleJob {
+public class SpringBootSimpleJob implements SimpleJob {
 
     @Override
     public void execute(ShardingContext shardingContext) {
