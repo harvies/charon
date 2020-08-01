@@ -12,13 +12,13 @@ import java.util.Map;
  * 钉钉消息通知服务
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class DingTalkNotifyService implements NotifyService {
+public class DingTalkNotifyProvider implements NotifyProvider {
     /**
      * 钉钉配置
      */
     private DingTalkProperties dingTalkProperties;
 
-    public DingTalkNotifyService(DingTalkProperties dingTalkProperties) {
+    public DingTalkNotifyProvider(DingTalkProperties dingTalkProperties) {
         this.dingTalkProperties = dingTalkProperties;
     }
 

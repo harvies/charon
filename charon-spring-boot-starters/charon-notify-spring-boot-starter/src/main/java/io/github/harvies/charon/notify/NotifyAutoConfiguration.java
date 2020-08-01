@@ -15,14 +15,14 @@ public class NotifyAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     @ConditionalOnProperty(name = PREFERRED_NOTIFY_PROPERTY, havingValue = Constants.DING_TALK, matchIfMissing = true)
-    NotifyService dingTalkNotifyService(DingTalkProperties dingTalkProperties) {
-        return new DingTalkNotifyService(dingTalkProperties);
+    NotifyProvider dingTalkNotifyProvider(DingTalkProperties dingTalkProperties) {
+        return new DingTalkNotifyProvider(dingTalkProperties);
     }
 
     @Bean
     @ConditionalOnMissingBean
     @ConditionalOnProperty(name = PREFERRED_NOTIFY_PROPERTY, havingValue = Constants.SERVER_SAUCE)
-    NotifyService serverSauceNotifyService(ServerSauceProperties serverSauceProperties) {
-        return new ServerSauceNotifyService(serverSauceProperties);
+    NotifyProvider serverSauceNotifyProvider(ServerSauceProperties serverSauceProperties) {
+        return new ServerSauceNotifyProvider(serverSauceProperties);
     }
 }

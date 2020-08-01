@@ -12,11 +12,11 @@ import java.util.Map;
  * server酱通知服务
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class ServerSauceNotifyService implements NotifyService {
+public class ServerSauceNotifyProvider implements NotifyProvider {
 
     private ServerSauceProperties serverSauceProperties;
 
-    public ServerSauceNotifyService(ServerSauceProperties serverSauceProperties) {
+    public ServerSauceNotifyProvider(ServerSauceProperties serverSauceProperties) {
         this.serverSauceProperties = serverSauceProperties;
     }
 

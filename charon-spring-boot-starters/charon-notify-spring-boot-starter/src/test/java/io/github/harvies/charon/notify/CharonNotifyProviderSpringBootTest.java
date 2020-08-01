@@ -5,14 +5,14 @@ import org.junit.jupiter.api.Assertions;
 
 import javax.annotation.Resource;
 
-public class CharonNotifyServiceSpringBootTest extends BaseTest {
+public class CharonNotifyProviderSpringBootTest extends BaseTest {
 
     @Resource
-    private NotifyService notifyService;
+    private NotifyProvider notifyProvider;
 
     @Test
     public void test() {
-        boolean send = notifyService.send("通知-测试标题", "通知-测试内容");
+        boolean send = notifyProvider.send("通知-测试标题", "通知-测试内容");
         Assertions.assertTrue(send);
     }
 }

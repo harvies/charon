@@ -369,6 +369,11 @@
             <!-- charon -->
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-facade</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
                 <artifactId>charon-core</artifactId>
                 <version>${charon.version}</version>
             </dependency>

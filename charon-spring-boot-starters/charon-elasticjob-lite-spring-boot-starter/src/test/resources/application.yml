@@ -11,4 +11,4 @@ elasticjob:
       elasticJobClass: io.github.harvies.charon.elasticjob.lite.job.SpringBootSimpleJob
       cron: 0/5 * * * * ?
       shardingTotalCount: 3
-      shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
+      shardingxItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
