@@ -11,13 +11,13 @@ import java.io.ByteArrayInputStream;
  * @author harvies
  */
 @Slf4j
-public class ALiYunOSSService implements OSSService {
+public class ALiYunOSSProvider implements OSSProvider {
     /**
      * 配置
      */
     private ALiYunOSSProperties properties;
 
-    public ALiYunOSSService(ALiYunOSSProperties aLiYunOSSProperties) {
+    public ALiYunOSSProvider(ALiYunOSSProperties aLiYunOSSProperties) {
         this.properties = aLiYunOSSProperties;
     }
 

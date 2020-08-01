@@ -263,12 +263,6 @@
                 <version>${curator.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>io.netty</groupId>
-                <artifactId>netty-all</artifactId>
-                <version>${netty.version}</version>
-            </dependency>
-
             <!--system monitor -->
             <dependency>
                 <groupId>com.github.oshi</groupId>
@@ -394,7 +388,12 @@
             </dependency>
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
-                <artifactId>charon-oss</artifactId>
+                <artifactId>charon-oss-api</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-oss-core</artifactId>
                 <version>${charon.version}</version>
             </dependency>
             <!-- charon-spring-boot-starters-->

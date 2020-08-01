@@ -1,3 +1,12 @@
+引入starter
+
+```xml
+ <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-oss-spring-boot-starter</artifactId>
+        </dependency>
+```
+
 如果使用github，则引入
 ```xml
         <dependency>

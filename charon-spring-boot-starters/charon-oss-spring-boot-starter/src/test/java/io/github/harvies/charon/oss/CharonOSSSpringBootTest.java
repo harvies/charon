@@ -11,20 +11,20 @@ public class CharonOSSSpringBootTest extends BaseTest {
 
     private String fileUrl = "https://img95.699pic.com/photo/40100/6015.jpg_wh300.jpg";
     @Resource
-    private OSSService ossService;
+    private OSSProvider ossProvider;
 
     @Test
     public void testUploadByByteArray() {
         byte[] bytes = Requests.get(fileUrl)
                 .send()
                 .readToBytes();
-        FileDTO fileDTO = ossService.upload(bytes, "测试图片.jpg");
+        FileDTO fileDTO = ossProvider.upload(bytes, "测试图片.jpg");
         Assertions.assertNotNull(fileDTO);
     }
 
     @Test
     public void testUploadByFileUrl() throws IOException {
-        FileDTO fileDTO = ossService.upload(fileUrl, "测试图片.jpg");
+        FileDTO fileDTO = ossProvider.upload(fileUrl, "测试图片.jpg");
         Assertions.assertNotNull(fileDTO);
     }
 }

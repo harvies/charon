@@ -16,13 +16,13 @@ import java.util.Map;
  * @author harvies
  */
 @Slf4j
-public class GithubOSSService implements OSSService {
+public class GithubOSSProvider implements OSSProvider {
     /**
      * 配置
      */
     private GithubProperties properties;
 
-    public GithubOSSService(GithubProperties properties) {
+    public GithubOSSProvider(GithubProperties properties) {
         this.properties = properties;
     }
 

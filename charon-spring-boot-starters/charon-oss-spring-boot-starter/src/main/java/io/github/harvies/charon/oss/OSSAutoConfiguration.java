@@ -15,14 +15,14 @@ public class OSSAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     @ConditionalOnProperty(name = PREFERRED_NOTIFY_PROPERTY, havingValue = Constants.ALIYUN, matchIfMissing = true)
-    OSSService aliyun(ALiYunOSSProperties aLiYunOSSProperties) {
-        return new ALiYunOSSService(aLiYunOSSProperties);
+    OSSProvider aliyun(ALiYunOSSProperties aLiYunOSSProperties) {
+        return new ALiYunOSSProvider(aLiYunOSSProperties);
     }
 
     @Bean
     @ConditionalOnMissingBean
     @ConditionalOnProperty(name = PREFERRED_NOTIFY_PROPERTY, havingValue = Constants.GITHUB)
-    OSSService github(GithubProperties githubProperties) {
-        return new GithubOSSService(githubProperties);
+    OSSProvider github(GithubProperties githubProperties) {
+        return new GithubOSSProvider(githubProperties);
     }
 }

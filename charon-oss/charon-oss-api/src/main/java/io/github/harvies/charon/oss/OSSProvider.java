@@ -11,7 +11,7 @@ import java.net.URL;
  *
  * @author harvies
  */
-public interface OSSService {
+public interface OSSProvider {
     /**
      * 上传文件
      *
