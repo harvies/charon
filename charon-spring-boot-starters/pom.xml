@@ -22,6 +22,7 @@
         <module>charon-notify-spring-boot-starter</module>
         <module>charon-monitor-spring-boot-starter</module>
         <module>charon-oss-spring-boot-starter</module>
+        <module>charon-elasticjob-lite-spring-boot-starter</module>
     </modules>
     <dependencies>
         <dependency>

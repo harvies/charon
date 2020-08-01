@@ -2,3 +2,5 @@ org.springframework.boot.env.EnvironmentPostProcessor=\
   io.github.harvies.charon.spring.boot.CharonSpringBootEnvironmentPostProcessor
 org.springframework.context.ApplicationListener=\
   io.github.harvies.charon.spring.boot.CharonApplicationListener
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+io.github.harvies.charon.spring.boot.CharonBootConfiguration
