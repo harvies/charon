@@ -26,3 +26,6 @@ jobs:
       run: mvn deploy -DskipTests -s $GITHUB_WORKSPACE/.maven/settings.xml
       env:
         GITHUB_TOKEN: ${{ github.token }}
+
+    - name: Notify
+      run: curl 'https://api.kikera.top:4433/notify/send?title=GitHub Actions&text=通知-charon build success!'
