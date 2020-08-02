@@ -1,4 +1,4 @@
-FROM registry.cn-hangzhou.aliyuncs.com/harvies/jdk8:latest
+FROM harvies/jdk8:latest
 WORKDIR /source
 RUN git clone git@github.com:harvies/charon.git
 WORKDIR /source/charon/charon-socks-proxy-server
