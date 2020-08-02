@@ -1,20 +1,13 @@
 package io.github.harvies.charon.apollo;
 
-import lombok.Cleanup;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.context.config.ConfigFileApplicationListener;
 import org.springframework.boot.env.EnvironmentPostProcessor;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.core.io.ClassPathResource;
-
-import java.io.InputStream;
-import java.util.Map;
-import java.util.Properties;
 
 @Slf4j
 public class ApolloEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
