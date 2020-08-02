@@ -48,7 +48,7 @@
                     <id>rdc-releases</id>
                     <url>https://repo.rdc.aliyun.com/repository/130334-release-2FjnAX/</url>
                     <releases>
-                        <enabled>true</enabled>
+                        <enabled>false</enabled>
                     </releases>
                     <snapshots>
                         <enabled>false</enabled>
@@ -70,7 +70,7 @@
                     <id>rdc-releases</id>
                     <url>https://repo.rdc.aliyun.com/repository/130334-release-2FjnAX/</url>
                     <releases>
-                        <enabled>true</enabled>
+                        <enabled>false</enabled>
                     </releases>
                     <snapshots>
                         <enabled>false</enabled>
