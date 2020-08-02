@@ -2,11 +2,6 @@ charon:
   env: local
   application:
     name: charon-eureka-server
-
-spring:
-  application:
-  profiles:
-    active: ${charon.env}
 server:
   port: 8761
 eureka:
