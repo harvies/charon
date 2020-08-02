@@ -18,4 +18,4 @@ eureka:
     hostname: ${EUREKA_HOST:localhost}
     ##由于采用hostname做查找设置成false
     prefer-ip-address: false
-    environment: ${env}
+    environment: ${charon.env}
