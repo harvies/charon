@@ -42,7 +42,7 @@
         </profile>
 
         <profile>
-            <id>nexus</id>
+            <id>aliyun-rdc</id>
             <repositories>
                 <repository>
                     <id>rdc-releases</id>
@@ -92,7 +92,7 @@
 
     <activeProfiles>
         <activeProfile>github</activeProfile>
-        <activeProfile>nexus</activeProfile>
+        <activeProfile>aliyun-rdc</activeProfile>
     </activeProfiles>
 
 </settings>
