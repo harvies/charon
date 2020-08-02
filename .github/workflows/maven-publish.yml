@@ -28,4 +28,4 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
 
     - name: Notify
-      run: curl 'https://api.kikera.top:4433/notify/send?title=GitHub Actions&text=通知-charon build success!'
+      run: curl 'https://api.kikera.top:4433/notify/send?title=GitHub%20Actions&text=%E9%80%9A%E7%9F%A5-charon%20build%20success!'
