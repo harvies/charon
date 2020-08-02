@@ -91,7 +91,7 @@
     </profiles>
 
     <activeProfiles>
-        <activeProfile>github</activeProfile>
+<!--        <activeProfile>github</activeProfile>-->
         <activeProfile>aliyun-rdc</activeProfile>
     </activeProfiles>
 

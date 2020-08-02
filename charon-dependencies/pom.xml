@@ -476,19 +476,19 @@
     </dependencyManagement>
 
     <distributionManagement>
+<!--        <repository>-->
+<!--            <id>github</id>-->
+<!--            <name>GitHub OWNER Apache Maven Packages</name>-->
+<!--            <url>https://maven.pkg.github.com/harvies/charon</url>-->
+<!--        </repository>-->
         <repository>
-            <id>github</id>
-            <name>GitHub OWNER Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/harvies/charon</url>
+            <id>rdc-releases</id>
+            <url>https://repo.rdc.aliyun.com/repository/130334-release-2FjnAX/</url>
         </repository>
-        <!--        <repository>-->
-        <!--            <id>rdc-releases</id>-->
-        <!--            <url>https://repo.rdc.aliyun.com/repository/130334-release-2FjnAX/</url>-->
-        <!--        </repository>-->
-        <!--        <snapshotRepository>-->
-        <!--            <id>rdc-snapshots</id>-->
-        <!--            <url>https://repo.rdc.aliyun.com/repository/130334-snapshot-p7wPh5/</url>-->
-        <!--        </snapshotRepository>-->
+        <snapshotRepository>
+            <id>rdc-snapshots</id>
+            <url>https://repo.rdc.aliyun.com/repository/130334-snapshot-p7wPh5/</url>
+        </snapshotRepository>
 
     </distributionManagement>
 

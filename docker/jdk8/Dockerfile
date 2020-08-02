@@ -7,17 +7,7 @@ RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g"  /etc/apk/repositorie
 RUN apk add tzdata curl bash busybox-extras maven openssh-client git tini fontconfig ttf-dejavu
 
 ## maven
-#COPY settings.xml /usr/share/java/maven-3/conf
-### ssh
-#RUN mkdir /root/.ssh
-#COPY id_rsa /root/.ssh/
-#RUN chmod 600 /root/.ssh/id_rsa
-#
-## Create known_hosts
-#RUN touch /root/.ssh/known_hosts
-#RUN chmod 600 /root/.ssh/known_hosts
-## Add known_hosts
-#RUN ssh-keyscan code.aliyun.com >> /root/.ssh/known_hosts
+RUN wget -P /usr/share/java/maven-3/conf  https://raw.githubusercontent.com/harvies/charon/master/.maven/settings.xml
 
 ## 时区
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
