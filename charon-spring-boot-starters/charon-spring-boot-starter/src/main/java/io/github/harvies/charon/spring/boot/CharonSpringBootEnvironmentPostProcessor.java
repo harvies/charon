@@ -1,5 +1,6 @@
 package io.github.harvies.charon.spring.boot;
 
+import io.github.harvies.charon.util.FileUtils;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -8,6 +9,7 @@ import org.springframework.boot.env.EnvironmentPostProcessor;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.PropertiesPropertySource;
+import org.springframework.core.io.FileUrlResource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 import org.springframework.util.ClassUtils;
@@ -56,6 +58,14 @@ public class CharonSpringBootEnvironmentPostProcessor implements EnvironmentPost
                 URL url = urls.nextElement();
                 UrlResource resource = new UrlResource(url);
                 properties.putAll(PropertiesLoaderUtils.loadProperties(resource));
+            }
+            //加载~/charon.properties
+            try {
+                FileUrlResource fileUrlResource = new FileUrlResource(FileUtils.getCurrentUserHomePath() + "/.charon.properties");
+                Properties charonProperties = PropertiesLoaderUtils.loadProperties(fileUrlResource);
+                properties.putAll(charonProperties);
+            } catch (Exception e) {
+                log.info("未配置~/charon.properties");
             }
             PropertiesPropertySource propertySource = new PropertiesPropertySource("charon-spring-boot", properties);
             //放入list尾部(取值时从头到尾查找，若application.properties没配置，则从该propertySource取值)

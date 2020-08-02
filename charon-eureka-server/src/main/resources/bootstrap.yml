@@ -1,5 +1,5 @@
 charon:
-  env: local
+  env: dev
   application:
     name: charon-eureka-server
 server:
