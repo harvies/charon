@@ -4,6 +4,11 @@
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
     <servers>
         <server>
+            <id>github</id>
+            <username>harvies</username>
+            <password>${env.GITHUB_TOKEN}</password>
+        </server>
+        <server>
             <id>rdc-releases</id>
             <username>ibRY1K</username>
             <password>Q8hFhj2dPL</password>
