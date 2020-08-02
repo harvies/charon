@@ -73,3 +73,5 @@ jobs:
 
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
+      - name: Notify
+          run: curl 'https://api.kikera.top:4433/notify/send?title=GitHub%20Actions&text=%E9%80%9A%E7%9F%A5-charon-eureka-server%20build%20success!'
