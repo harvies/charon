@@ -40,26 +40,6 @@
             <id>nexus</id>
             <repositories>
                 <repository>
-                    <id>central</id>
-                    <url>https://maven.aliyun.com/nexus/content/groups/public</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-                <repository>
-                    <id>snapshots</id>
-                    <url>https://maven.aliyun.com/nexus/content/groups/public</url>
-                    <releases>
-                        <enabled>false</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                </repository>
-                <repository>
                     <id>rdc-releases</id>
                     <url>https://repo.rdc.aliyun.com/repository/130334-release-2FjnAX/</url>
                     <releases>
@@ -81,26 +61,6 @@
                 </repository>
             </repositories>
             <pluginRepositories>
-                <pluginRepository>
-                    <id>central</id>
-                    <url>https://maven.aliyun.com/nexus/content/groups/public</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </pluginRepository>
-                <pluginRepository>
-                    <id>snapshots</id>
-                    <url>https://maven.aliyun.com/nexus/content/groups/public</url>
-                    <releases>
-                        <enabled>false</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                </pluginRepository>
                 <pluginRepository>
                     <id>rdc-releases</id>
                     <url>https://repo.rdc.aliyun.com/repository/130334-release-2FjnAX/</url>
