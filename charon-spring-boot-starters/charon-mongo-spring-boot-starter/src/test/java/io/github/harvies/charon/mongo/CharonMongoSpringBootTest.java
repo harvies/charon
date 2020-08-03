@@ -1,24 +1,25 @@
 package io.github.harvies.charon.mongo;
 
+import com.mongodb.client.MongoDatabase;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
 public class CharonMongoSpringBootTest extends BaseTest {
 
     @Resource
-    private MongoTemplate mongoTemplate;
+    private List<MongoTemplate> mongoTemplateList;
 
     @Test
-    public void test() {
-        List<String> collectionNameList = new ArrayList<>();
-        mongoTemplate.getDb().listCollectionNames().forEach(s -> collectionNameList.add(s));
-        Assertions.assertNotEquals(0, collectionNameList.size());
+    public void listCollectionNames() {
+        for (MongoTemplate mongoTemplate : mongoTemplateList) {
+            MongoDatabase mongoDatabase = mongoTemplate.getDb();
+            mongoDatabase.listCollectionNames().forEach(s -> log.info("{} dbName:[{}] collectionNames:[{}]", mongoTemplate.hashCode(), mongoDatabase.getName(), s));
+            log.info("--------------------");
+        }
     }
 }
