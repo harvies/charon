@@ -1,0 +1,37 @@
+{
+  "properties": [
+    {
+      "name": "charon.env",
+      "type": "java.lang.String",
+      "description": "环境，默认dev."
+    }
+  ],
+  "hints": [
+    {
+      "name": "charon.env",
+      "values": [
+        {
+          "value": "dev",
+          "description": "开发."
+        },
+        {
+          "value": "fat",
+          "description": "主干."
+        },
+        {
+          "value": "uat",
+          "description": "预发."
+        },
+        {
+          "value": "pro",
+          "description": "生产."
+        }
+      ],
+      "providers": [
+        {
+          "name": "any"
+        }
+      ]
+    }
+  ]
+}
