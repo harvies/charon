@@ -1,1 +1,2 @@
-org.springframework.boot.env.EnvironmentPostProcessor=io.github.harvies.charon.dubbo.DubboExtraPropertiesEnvironmentPostProcessor
+org.springframework.boot.env.EnvironmentPostProcessor=\
+  io.github.harvies.charon.dubbo.DubboExtraPropertiesEnvironmentPostProcessor

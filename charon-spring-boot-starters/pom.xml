@@ -24,6 +24,7 @@
         <module>charon-oss-spring-boot-starter</module>
         <module>charon-elasticjob-lite-spring-boot-starter</module>
         <module>charon-mongo-spring-boot-starter</module>
+        <module>charon-shardingsphere-jdbc-spring-boot-starter</module>
     </modules>
     <dependencies>
         <dependency>

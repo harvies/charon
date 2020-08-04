@@ -2,12 +2,17 @@
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <mirrors>
+        <mirror>
+            <id>mirror</id>
+            <mirrorOf>!rdc-releases,!rdc-snapshots</mirrorOf>
+            <name>mirror</name>
+            <url>https://maven.aliyun.com/nexus/content/groups/public</url>
+        </mirror>
+
+    </mirrors>
     <servers>
-        <server>
-            <id>github</id>
-            <username>harvies</username>
-            <password>${env.GITHUB_TOKEN}</password>
-        </server>
         <server>
             <id>rdc-releases</id>
             <username>ibRY1K</username>
@@ -21,34 +26,33 @@
     </servers>
     <profiles>
         <profile>
-            <id>github</id>
+            <id>nexus</id>
             <repositories>
                 <repository>
                     <id>central</id>
-                    <url>https://repo1.maven.org/maven2</url>
+                    <url>https://maven.aliyun.com/nexus/content/groups/public</url>
                     <releases>
                         <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>snapshots</id>
+                    <url>https://maven.aliyun.com/nexus/content/groups/public</url>
+                    <releases>
+                        <enabled>false</enabled>
                     </releases>
                     <snapshots>
                         <enabled>true</enabled>
                     </snapshots>
                 </repository>
                 <repository>
-                    <id>github</id>
-                    <name>GitHub OWNER Apache Maven Packages</name>
-                    <url>https://maven.pkg.github.com/harvies/charon</url>
-                </repository>
-            </repositories>
-        </profile>
-
-        <profile>
-            <id>aliyun-rdc</id>
-            <repositories>
-                <repository>
                     <id>rdc-releases</id>
                     <url>https://repo.rdc.aliyun.com/repository/130334-release-2FjnAX/</url>
                     <releases>
-                        <enabled>false</enabled>
+                        <enabled>true</enabled>
                     </releases>
                     <snapshots>
                         <enabled>false</enabled>
@@ -67,10 +71,30 @@
             </repositories>
             <pluginRepositories>
                 <pluginRepository>
+                    <id>central</id>
+                    <url>https://maven.aliyun.com/nexus/content/groups/public</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>snapshots</id>
+                    <url>https://maven.aliyun.com/nexus/content/groups/public</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
+                <pluginRepository>
                     <id>rdc-releases</id>
                     <url>https://repo.rdc.aliyun.com/repository/130334-release-2FjnAX/</url>
                     <releases>
-                        <enabled>false</enabled>
+                        <enabled>true</enabled>
                     </releases>
                     <snapshots>
                         <enabled>false</enabled>
@@ -88,11 +112,11 @@
                 </pluginRepository>
             </pluginRepositories>
         </profile>
+
     </profiles>
 
     <activeProfiles>
-<!--        <activeProfile>github</activeProfile>-->
-        <activeProfile>aliyun-rdc</activeProfile>
+        <activeProfile>nexus</activeProfile>
     </activeProfiles>
 
 </settings>
