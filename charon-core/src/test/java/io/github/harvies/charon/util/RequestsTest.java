@@ -1,14 +1,12 @@
 package io.github.harvies.charon.util;
 
-import com.ctrip.framework.apollo.Config;
-import com.ctrip.framework.apollo.ConfigService;
 import lombok.extern.slf4j.Slf4j;
-import net.dongliu.requests.Proxies;
 import net.dongliu.requests.RawResponse;
 import net.dongliu.requests.Requests;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author harvies
