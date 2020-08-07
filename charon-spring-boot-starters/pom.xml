@@ -26,6 +26,7 @@
         <module>charon-mongo-spring-boot-starter</module>
         <module>charon-shardingsphere-jdbc-spring-boot-starter</module>
         <module>charon-elasticsearch-spring-boot-starter</module>
+        <module>charon-elk-spring-boot-starter</module>
     </modules>
     <dependencies>
         <dependency>
