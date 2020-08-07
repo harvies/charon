@@ -23,45 +23,25 @@ public class RedisAutoConfiguration {
     @Bean(destroyMethod = "shutdown")
     @ConditionalOnMissingBean(RedissonClient.class)
     public RedissonClient redisson() {
-        Config config;
-        Method clusterMethod = ReflectionUtils.findMethod(RedisProperties.class, "getCluster");
-        Method timeoutMethod = ReflectionUtils.findMethod(RedisProperties.class, "getTimeout");
-        Object timeoutValue = ReflectionUtils.invokeMethod(timeoutMethod, redisProperties);
-        int timeout;
-        if (null == timeoutValue) {
-            timeout = 10000;
-        } else if (!(timeoutValue instanceof Integer)) {
-            Method millisMethod = ReflectionUtils.findMethod(timeoutValue.getClass(), "toMillis");
-            timeout = ((Long) ReflectionUtils.invokeMethod(millisMethod, timeoutValue)).intValue();
-        } else {
-            timeout = (Integer) timeoutValue;
+        Config config = new Config();
+        //timeout default 3000;
+        int timeout = 3000;
+        if (redisProperties.getTimeout() != null) {
+            timeout = Math.toIntExact(redisProperties.getTimeout().toMillis());
         }
-
-        if (clusterMethod != null && ReflectionUtils.invokeMethod(clusterMethod, redisProperties) != null) {
-            Object clusterObject = ReflectionUtils.invokeMethod(clusterMethod, redisProperties);
-            Method nodesMethod = ReflectionUtils.findMethod(clusterObject.getClass(), "getNodes");
-            List<String> nodesObject = (List) ReflectionUtils.invokeMethod(nodesMethod, clusterObject);
-
-            String[] nodes = convert(nodesObject);
-
-            config = new Config();
+        if (redisProperties.getCluster() != null) {
             config.useClusterServers()
-                    .addNodeAddress(nodes)
-                    .setConnectTimeout(timeout)
+                    .addNodeAddress(convert(redisProperties.getCluster().getNodes()))
+                    .setTimeout(timeout)
                     .setPassword(redisProperties.getPassword());
+        } else if (redisProperties.getSentinel() != null) {
+            // TODO: 2020/8/7
         } else {
-            config = new Config();
-            String prefix = "redis://";
-            Method method = ReflectionUtils.findMethod(RedisProperties.class, "isSsl");
-            if (method != null && (Boolean) ReflectionUtils.invokeMethod(method, redisProperties)) {
-                prefix = "rediss://";
-            }
-
             config.useSingleServer()
-                    .setAddress(prefix + redisProperties.getHost() + ":" + redisProperties.getPort())
-                    .setConnectTimeout(timeout)
-                    .setDatabase(redisProperties.getDatabase())
-                    .setPassword(redisProperties.getPassword());
+                    .setAddress(redisProperties.getUrl())
+                    .setTimeout(timeout)
+                    .setPassword(redisProperties.getPassword())
+                    .setDatabase(redisProperties.getDatabase());
         }
         return Redisson.create(config);
     }
