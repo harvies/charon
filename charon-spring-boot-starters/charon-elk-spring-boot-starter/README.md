@@ -6,9 +6,9 @@
 
 - 配置logstash
 
-➜  ~ vi /etc/logstash/conf.d/logstash.conf 
-
 ```
+vi /etc/logstash/conf.d/logstash.conf 
+
 # Sample Logstash configuration for creating a simple
 # Beats -> Logstash -> Elasticsearch pipeline.
 

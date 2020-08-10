@@ -1,7 +1,6 @@
 ## 介绍
 
-整合常用框架，方便维护
-
+整合常用框架
 
 * [charon-spring-boot-starter](./charon-spring-boot-starters/charon-spring-boot-starter) 
 * [charon-web-spring-boot-starter](./charon-spring-boot-starters/charon-web-spring-boot-starter) 
@@ -20,10 +19,12 @@
 
 ## 编译
 
+```bash
 mvn clean install -DskipTests -U -s '.maven/settings.xml'
+```
 
 ## 部署
-
+```bash
 mvn clean deploy -DskipTests -U -s '.maven/settings.xml'
-
+```
 ![Maven Package](https://github.com/harvies/charon/workflows/Maven%20Package/badge.svg)
