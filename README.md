@@ -23,6 +23,7 @@
   -  [charon-notify-spring-boot-starter](./charon-spring-boot-starters/charon-notify-spring-boot-starter) 一个推送(通知)starter，支持钉钉等消息推送
   -  [charon-oss-spring-boot-starter](./charon-spring-boot-starters/charon-oss-spring-boot-starter) 一个oss starter，支持阿里云OSS及GitHub
   -  [charon-redis-spring-boot-starter](./charon-spring-boot-starters/charon-redis-spring-boot-starter) 拓展redis-spring-boot-starter,集成redisson(更好的redis分布式锁实现)
+  -  [charon-swagger-spring-boot-starter](./charon-spring-boot-starters/charon-swagger-spring-boot-starter)  集成swagger及bootstrap主题
   -  [charon-shardingsphere-jdbc-spring-boot-starter](./charon-spring-boot-starters/charon-shardingsphere-jdbc-spring-boot-starter) 集成shardingsphere-jdbc
   -  [charon-spring-boot-admin-client-starter](./charon-spring-boot-starters/charon-spring-boot-admin-client-starter) 集成spring-boot-amin-client
 - [docker](./docker) 常用docker镜像
