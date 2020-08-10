@@ -5,7 +5,7 @@ import org.apache.commons.text.StringEscapeUtils;
 /**
  * 字符串工具类
  */
-public class StringUtils extends org.apache.commons.lang3.StringUtils {
+public class StringUtils {
 
     /**
      * unicode解码
@@ -15,6 +15,16 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
      */
     public static String unicodeDecode(final String input) {
         return StringEscapeUtils.unescapeJava(input);
+    }
+
+    /**
+     * unicode编码
+     *
+     * @param input 输入
+     * @return 结果
+     */
+    public static String unicodeEncode(final String input) {
+        return StringEscapeUtils.escapeJava(input);
     }
 
 }
