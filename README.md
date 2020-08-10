@@ -2,7 +2,7 @@
 
 整合常用框架
 
-* [charon-spring-boot-starter](./charon-spring-boot-starters/charon-spring-boot-starter) 
+* [charon-spring-boot-starter](./charon-spring-boot-starters/charon-spring-boot-starter)  对spring-boot-starter做的封装，新增配置.charon.properties加载(方便本地调试)
 * [charon-web-spring-boot-starter](./charon-spring-boot-starters/charon-web-spring-boot-starter) 
 * [charon-apollo-spring-boot-starter](./charon-spring-boot-starters/charon-apollo-spring-boot-starter) 
 * [charon-dubbo-spring-boot-starter](./charon-spring-boot-starters/charon-dubbo-spring-boot-starter) 
