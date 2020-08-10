@@ -8,7 +8,7 @@
 
 ➜  ~ vi /etc/logstash/conf.d/logstash.conf 
 
-```json
+```
 # Sample Logstash configuration for creating a simple
 # Beats -> Logstash -> Elasticsearch pipeline.
 
