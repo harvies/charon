@@ -29,6 +29,8 @@ charon.web.swagger.title=\u6D4B\u8BD5
 charon.web.swagger.description=\u6D4B\u8BD5
 ```
 
+- controller方法上添加@ApiOperation注解
+
 - 访问地址
 
 http://localhost:8080/doc.html
