@@ -3,6 +3,7 @@ package io.github.harvies.charon.oss;
 import lombok.NonNull;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.kohsuke.github.*;
 
 import java.io.IOException;
@@ -43,7 +44,16 @@ public class GithubOSSProvider implements OSSProvider {
             String path = doUpload(bytes, fileName, ghRepository);
             String url = "https://raw.githubusercontent.com/" + username + "/" + properties.getRepositoryName() + "/" + properties.getBranch() + "/" + path;
             log.info("upload success, url:[{}]", url);
-            return new FileDTO(url).setCdnUrl(properties.getCustomDomain() + "/" + path);
+            String customDomain = properties.getCustomDomain();
+            if (StringUtils.isBlank(customDomain)) {
+                customDomain = "https://cdn.jsdelivr.net/gh/" + properties.getUsername() + "/" + properties.getRepositoryName() + "@" + properties.getBranch();
+            }
+            FileDTO fileDTO = new FileDTO(url);
+            if (StringUtils.isNotBlank(customDomain)) {
+                fileDTO.setCdnUrl(customDomain + "/" + path);
+            }
+
+            return fileDTO;
         }
     }
 

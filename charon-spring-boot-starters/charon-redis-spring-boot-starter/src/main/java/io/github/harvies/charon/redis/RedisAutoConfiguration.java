@@ -3,26 +3,24 @@ package io.github.harvies.charon.redis;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.util.ReflectionUtils;
 
-import javax.annotation.Resource;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO: 2020/8/7 整合redis-spring-boot-starter和redisson
 @Configuration(proxyBeanMethods = false)
+@EnableConfigurationProperties({RedisProperties.class})
 public class RedisAutoConfiguration {
-    @Resource
-    private RedisProperties redisProperties;
 
     @Bean(destroyMethod = "shutdown")
     @ConditionalOnMissingBean(RedissonClient.class)
-    public RedissonClient redisson() {
+    @ConditionalOnClass(Redisson.class)
+    public RedissonClient redisson(RedisProperties redisProperties) {
         Config config = new Config();
         //timeout default 3000;
         int timeout = 3000;

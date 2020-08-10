@@ -35,7 +35,7 @@ public class GithubProperties {
      */
     private String committerEmail;
     /**
-     * 自定义域名
+     * 自定义域名(默认jsdelivr)
      */
     private String customDomain;
 
