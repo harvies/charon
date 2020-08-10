@@ -1,5 +1,7 @@
 package io.github.harvies.charon.spring.boot.web.controller.monitor;
 
+import io.github.harvies.charon.spring.boot.web.result.ResultDTO;
+import io.github.harvies.charon.spring.boot.web.result.Results;
 import lombok.SneakyThrows;
 import net.bull.javamelody.internal.model.HeapHistogram;
 import net.bull.javamelody.internal.model.VirtualMachine;
@@ -12,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class HeapController {
     @SneakyThrows
     @RequestMapping(value = "/histogram")
-    public HeapHistogram histogram() {
-        return VirtualMachine.createHeapHistogram();
+    public ResultDTO<HeapHistogram> histogram() {
+        return Results.success(VirtualMachine.createHeapHistogram());
 
     }
 }

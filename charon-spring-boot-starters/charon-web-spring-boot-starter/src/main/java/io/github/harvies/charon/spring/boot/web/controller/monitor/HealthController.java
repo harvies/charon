@@ -1,6 +1,7 @@
 package io.github.harvies.charon.spring.boot.web.controller.monitor;
 
-import io.github.harvies.charon.spring.boot.web.Constants;
+import io.github.harvies.charon.spring.boot.web.result.ResultDTO;
+import io.github.harvies.charon.spring.boot.web.result.Results;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HealthController {
 
     @RequestMapping("/status")
-    public String status() {
-        return Constants.SUCCESS;
+    public ResultDTO<String> status() {
+        return Results.success("success");
     }
 }

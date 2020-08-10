@@ -1,6 +1,8 @@
 package io.github.harvies.charon.spring.boot.test.web;
 
+import com.alibaba.fastjson.JSONObject;
 import io.github.harvies.charon.spring.boot.web.Constants;
+import io.github.harvies.charon.util.JsonUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -20,7 +22,8 @@ public class CharonSpringBootWebTest extends BaseTest {
     @Test
     public void testHealthStatus() {
         String forObject = restTemplateBuilder.build().getForObject(host + port + "/health/status?a=b", String.class);
-        Assertions.assertEquals(Constants.SUCCESS, forObject);
+        JSONObject jsonObject = JsonUtils.parseObject(forObject);
+        Assertions.assertEquals(Constants.SUCCESS, jsonObject.getString("data"));
     }
 
     @Test
