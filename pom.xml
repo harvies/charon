@@ -26,6 +26,7 @@
         <module>charon-eureka-server</module>
         <module>charon-oss</module>
         <module>charon-socks-proxy-server</module>
+        <module>charon-agent</module>
     </modules>
 
     <dependencies>

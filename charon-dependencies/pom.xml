@@ -199,6 +199,13 @@
                 <scope>compile</scope>
             </dependency>
 
+            <!-- asm -->
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>${javassist.version}</version>
+            </dependency>
+
             <!-- httpclient-->
             <dependency>
                 <groupId>net.dongliu</groupId>
