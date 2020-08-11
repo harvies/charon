@@ -1,6 +1,7 @@
 package io.github.harvies.charon.spring.boot.web.interceptor;
 
 import com.google.common.base.Stopwatch;
+import io.github.harvies.charon.spring.boot.web.utils.HttpServletUtils;
 import io.github.harvies.charon.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.skywalking.apm.toolkit.trace.TraceContext;
@@ -16,36 +17,34 @@ public class CharonWebHandlerInterceptor implements HandlerInterceptor {
     private ThreadLocal<Stopwatch> stopWatchThreadLocal = new ThreadLocal<>();
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         Stopwatch started = Stopwatch.createStarted();
         stopWatchThreadLocal.set(started);
         return true;
     }
 
     @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) {
 
     }
 
     @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
         try {
             long millis = stopWatchThreadLocal.get().elapsed().toMillis();
-            log.info("web request description:[{}] ,cast [{}] millis", getDescription(request), millis);
+            log.info("请求参数:[{}] ,耗时 [{}] millis", getDescription(request), millis);
         } finally {
             stopWatchThreadLocal.remove();
         }
     }
 
-    public String getDescription(HttpServletRequest httpServletRequest) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("traceId=").append(TraceContext.traceId());
-        sb.append(";uri=").append(httpServletRequest.getRequestURI());
-        sb.append(";method=").append(httpServletRequest.getMethod());
-        sb.append(";params=").append(JsonUtils.toJSONString(httpServletRequest.getParameterMap()));
-        sb.append(";client=").append(httpServletRequest.getRemoteAddr() + ":" + httpServletRequest.getRemotePort());
-        sb.append(";session=").append(httpServletRequest.getRequestedSessionId());
-        sb.append(";user=").append(httpServletRequest.getRemoteUser());
-        return sb.toString();
+    public String getDescription(HttpServletRequest request) {
+        return "traceId=" + TraceContext.traceId() +
+                ";uri=" + request.getRequestURI() +
+                ";method=" + request.getMethod() +
+                ";params=" + JsonUtils.toJSONString(request.getParameterMap()) +
+                ";client=" + HttpServletUtils.getIp(request) + ":" + request.getRemotePort() +
+                ";session=" + request.getRequestedSessionId() +
+                ";user=" + request.getRemoteUser();
     }
 }
