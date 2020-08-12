@@ -1,0 +1,81 @@
+# Use root/example as user/password credentials
+version: '3.7'
+
+services:
+  apollo-configservice:
+    image: apolloconfig/apollo-configservice:1.7.0-SNAPSHOT
+    restart: always
+    hostname: apollo-configservice
+    ports:
+      - 8080:8080
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 500M
+          cpus: '4'
+    environment:
+      SPRING_DATASOURCE_URL: 'jdbc:mysql://mysql.dev.kikera.top:3306/ApolloConfigDB?characterEncoding=utf8'
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: Lisi@123
+      spring.cloud.inetutils.ignoredInterfaces[0]: eth1
+      spring.cloud.inetutils.ignoredInterfaces[1]: eth2
+
+  apollo-adminservice:
+    image: apolloconfig/apollo-adminservice:1.7.0-SNAPSHOT
+    restart: always
+    hostname: apollo-adminservice
+    ports:
+      - 8090:8090
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8090"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 500M
+          cpus: '4'
+    environment:
+      SPRING_DATASOURCE_URL: 'jdbc:mysql://mysql.dev.kikera.top:3306/ApolloConfigDB?characterEncoding=utf8'
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: Lisi@123
+      spring.cloud.inetutils.ignoredInterfaces[0]: eth1
+      spring.cloud.inetutils.ignoredInterfaces[1]: eth2
+  apollo-portal:
+    image: apolloconfig/apollo-portal:1.7.0-SNAPSHOT
+    restart: always
+    hostname: apollo-portal
+    ports:
+      - 8070:8070
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8070"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 500M
+          cpus: '4'
+    environment:
+      SPRING_DATASOURCE_URL: 'jdbc:mysql://mysql.dev.kikera.top:3306/ApolloPortalDB?characterEncoding=utf8'
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: Lisi@123
+      spring.cloud.inetutils.ignoredInterfaces[0]: eth1
+      spring.cloud.inetutils.ignoredInterfaces[1]: eth2
+networks:
+  default:
+    external:
+      name: dev_overlay

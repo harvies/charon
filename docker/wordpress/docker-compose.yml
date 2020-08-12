@@ -1,0 +1,62 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:5.7.28
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_DATABASE_PASSWORD}
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    networks:
+      - default
+    deploy:
+      placement:
+        constraints:
+          - engine.labels.host == pacificrack
+  wordpress:
+    image: wordpress:latest
+    volumes:
+      - wordpress_data:/var/www/html
+    ports:
+      - 30000:80
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+    deploy:
+      placement:
+        constraints:
+          - engine.labels.host == pacificrack
+      replicas: 1
+      resources:
+        limits:
+          memory: 200M
+        reservations:
+          cpus: '0.25'
+          memory: 200M
+    networks:
+      - default
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 91:8080
+    deploy:
+      placement:
+        constraints:
+          - engine.labels.host == aliyun
+    networks:
+      - default
+volumes:
+  mysql_data:
+  wordpress_data:
+
+networks:
+  default:
+    external:
+      name: prod_overlay

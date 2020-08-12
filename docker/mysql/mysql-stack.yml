@@ -1,0 +1,46 @@
+# Use root/example as user/password credentials
+version: '3.7'
+
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: always
+    ports:
+      - 33061:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: Lisi@123
+      MYSQL_DATABASE: test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: Lisi@123
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 500M
+        reservations:
+          memory: 300M
+      placement:
+        constraints:
+          - engine.labels.host == aliyun
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 81:8080
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - engine.labels.host == aliyun
+    networks:
+      - default
+volumes:
+  mysql_data:
+networks:
+  default:
+    external:
+      name: dev_overlay
