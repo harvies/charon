@@ -1,6 +1,9 @@
 ## 项目介绍
 
-整合常用框架
+代码库
+
+![Maven Package](https://github.com/harvies/charon/workflows/Maven%20Package/badge.svg)
+
 
 ## 项目结构介绍
 
@@ -38,9 +41,6 @@ mvn clean install -DskipTests -U -s '.maven/settings.xml'
 ```bash
 mvn clean deploy -DskipTests -U -s '.maven/settings.xml'
 ```
-![Maven Package](https://github.com/harvies/charon/workflows/Maven%20Package/badge.svg)
-
-
 
 ## 常用工具
 
