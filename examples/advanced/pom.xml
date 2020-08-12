@@ -7,16 +7,14 @@
         <groupId>io.github.harvies.charon</groupId>
         <version>0.0.4-SNAPSHOT</version>
     </parent>
+    
     <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>rocketmq</artifactId>
-    <groupId>io.github.harvies.eris</groupId>
-    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>rocketmq-namesrv-bootstrap</module>
-        <module>rocketmq-broker-bootstrap</module>
-        <module>rocketmq-example</module>
+        <module>spi</module>
     </modules>
+    <artifactId>advanced</artifactId>
+    <groupId>io.github.harvies.eris</groupId>
+    <version>0.0.1-SNAPSHOT</version>
 
 </project>

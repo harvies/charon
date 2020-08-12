@@ -22,6 +22,8 @@
         <module>tomcat</module>
         <module>spring</module>
         <module>rocketmq</module>
+        <module>base</module>
+        <module>advanced</module>
     </modules>
 
 
