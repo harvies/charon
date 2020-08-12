@@ -1,0 +1,8 @@
+rocketmq:
+  name-server: localhost:9876
+  vipChannelEnabled: false
+  producer:
+    group: test
+    ##设置key是为了让producer的VipChannelEnabled=false,见org.apache.rocketmq.spring.autoconfigure.RocketMQAutoConfiguration.registerContainer()
+    access-key: AK
+    secret-key: SK
