@@ -3,21 +3,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>charon-parent</artifactId>
-        <groupId>io.github.harvies.charon</groupId>
-        <version>0.0.4-SNAPSHOT</version>
+        <artifactId>sofa-rpc</artifactId>
+        <groupId>io.github.harvies.eris</groupId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>examples</artifactId>
+    <groupId>io.github.harvies.eris</groupId>
+    <artifactId>rpc-sofa-rpc-local</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>rpc-simple</module>
-        <module>netty</module>
-        <module>github</module>
-        <module>dubbo</module>
-        <module>sofa-rpc</module>
-        <module>zookeeper</module>
+        <module>rpc-sofa-rpc-local-consumer</module>
+        <module>rpc-sofa-rpc-local-provider</module>
     </modules>
 
 
