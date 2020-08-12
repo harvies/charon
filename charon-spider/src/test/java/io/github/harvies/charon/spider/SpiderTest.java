@@ -1,6 +1,5 @@
 package io.github.harvies.charon.spider;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Spider;
@@ -11,10 +10,9 @@ import us.codecraft.webmagic.processor.example.BaiduBaikePageProcessor;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Test2 {
+public class SpiderTest {
 
     @Test
-    @Disabled
     public void testBaiduBaikePageProcessor() {
         //single download
         Spider spider = Spider.create(new BaiduBaikePageProcessor()).thread(4);
@@ -35,7 +33,6 @@ public class Test2 {
     }
 
     @Test
-    @Disabled
     public void testGithubRepoPageProcessor() {
         Spider.create(new GithubRepoPageProcessor())
                 .addUrl("https://github.com/harvies")
@@ -43,6 +40,7 @@ public class Test2 {
                 .addPipeline(new ConsolePipeline())
 //                .setScheduler(new RedisPriorityScheduler("localhost"))
                 .thread(5)
-                .run();
+//                .run();
+                .start();
     }
 }
