@@ -41,7 +41,7 @@
         <zookeeper.version>3.6.0</zookeeper.version>
         <netty.version>4.1.42.Final</netty.version>
         <dubbo.version>2.7.6</dubbo.version>
-        <arthas.version>3.1.1</arthas.version>
+        <arthas.version>3.3.7</arthas.version>
         <webmagic.version>0.7.4-SNAPSHOT</webmagic.version>
         <redisson.version>3.13.2</redisson.version>
         <seata.version>0.5.1</seata.version>

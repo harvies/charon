@@ -27,6 +27,7 @@
         <module>charon-oss</module>
         <module>charon-socks-proxy-server</module>
         <module>charon-agent</module>
+        <module>charon-attach</module>
     </modules>
 
     <dependencies>

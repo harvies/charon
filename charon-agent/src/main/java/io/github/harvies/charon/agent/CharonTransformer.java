@@ -37,7 +37,7 @@ public class CharonTransformer implements ClassFileTransformer
 		List<String> list = methodMap.get(className);
 		if (list == null)
 		{
-			list = new ArrayList<String>();
+			list = new ArrayList<>();
 			methodMap.put(className, list);
 		}
 		list.add(methodName);
