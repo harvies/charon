@@ -29,6 +29,7 @@
         <module>charon-agent</module>
         <module>charon-attach</module>
         <module>charon-spider</module>
+        <module>examples</module>
     </modules>
 
     <dependencies>
