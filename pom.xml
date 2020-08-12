@@ -28,6 +28,7 @@
         <module>charon-socks-proxy-server</module>
         <module>charon-agent</module>
         <module>charon-attach</module>
+        <module>charon-spider</module>
     </modules>
 
     <dependencies>
