@@ -1,0 +1,1 @@
+一键清空github所有fork仓库

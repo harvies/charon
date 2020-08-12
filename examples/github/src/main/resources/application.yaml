@@ -1,0 +1,7 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: github-repo-manage
+github:
+  oauthAccessToken: ${charon.oss.github.oauthAccessToken}
