@@ -3,26 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>charon-parent</artifactId>
+        <artifactId>examples</artifactId>
         <groupId>io.github.harvies.charon</groupId>
         <version>0.0.4-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>examples</artifactId>
+    <artifactId>rocketmq</artifactId>
+    <groupId>io.github.harvies.eris</groupId>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>rpc-simple</module>
-        <module>netty</module>
-        <module>github</module>
-        <module>dubbo</module>
-        <module>sofa-rpc</module>
-        <module>sofa-boot</module>
-        <module>zookeeper</module>
-        <module>tomcat</module>
-        <module>spring</module>
-        <module>rocketmq</module>
+        <module>rocketmq-namesrv-bootstrap</module>
+        <module>rocketmq-broker-bootstrap</module>
+        <module>rocketmq-example</module>
+        <module>docketmq-console-ng</module>
     </modules>
-
 
 </project>
