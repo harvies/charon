@@ -39,3 +39,20 @@ mvn clean install -DskipTests -U -s '.maven/settings.xml'
 mvn clean deploy -DskipTests -U -s '.maven/settings.xml'
 ```
 ![Maven Package](https://github.com/harvies/charon/workflows/Maven%20Package/badge.svg)
+
+
+
+## 常用工具
+
+### oh-my-zsh(zsh配置管理工具)
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+### arthas(Java诊断工具)
+```
+curl -O https://alibaba.github.io/arthas/arthas-boot.jar
+
+java -jar arthas-boot.jar -repo-mirror aliyun
+
+```
+### htop(系统监控)
