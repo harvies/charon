@@ -18,6 +18,7 @@
         <module>dubbo</module>
         <module>sofa-rpc</module>
         <module>zookeeper</module>
+        <module>tomcat</module>
     </modules>
 
 
