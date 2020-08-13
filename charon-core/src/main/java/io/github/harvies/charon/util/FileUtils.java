@@ -2,7 +2,7 @@ package io.github.harvies.charon.util;
 
 public class FileUtils {
     /**
-     * 获取当前用户家目录
+     * 获取当前用户家目录 例如/Users/harvies
      *
      * @return 路径
      */

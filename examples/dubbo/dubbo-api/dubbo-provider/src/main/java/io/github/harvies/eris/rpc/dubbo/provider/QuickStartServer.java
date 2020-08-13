@@ -1,6 +1,7 @@
 package io.github.harvies.eris.rpc.dubbo.provider;
 
 
+import io.github.harvies.charon.util.PropertiesUtils;
 import io.github.harvies.eris.dubbo.client.service.HelloService;
 import io.github.harvies.eris.rpc.dubbo.provider.service.impl.HelloServiceImpl;
 import org.apache.dubbo.config.ApplicationConfig;
@@ -15,9 +16,10 @@ import java.util.concurrent.CountDownLatch;
 public class QuickStartServer {
 
     public static void main(String[] args) throws Exception {
+        String zkUrl = PropertiesUtils.getDefaultProperty("charon.zk.url");
         ServiceConfig<HelloService> service = new ServiceConfig<>();
         service.setApplication(new ApplicationConfig("first-dubbo-provider"));
-        service.setRegistry(new RegistryConfig("zookeeper://192.168.7.77:2181"));
+        service.setRegistry(new RegistryConfig("zookeeper://" + zkUrl));
         service.setInterface(HelloService.class);
         service.setRef(new HelloServiceImpl());
         //设置集群容错模式(默认failover)
