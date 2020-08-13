@@ -78,12 +78,6 @@
         </dependency>
 
         <dependency>
-            <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-apollo</artifactId>
-            <version>0.0.4-SNAPSHOT</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <scope>test</scope>

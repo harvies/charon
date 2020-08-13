@@ -16,5 +16,9 @@
             <groupId>com.ctrip.framework.apollo</groupId>
             <artifactId>apollo-client</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-core</artifactId>
+        </dependency>
     </dependencies>
 </project>
