@@ -1,1 +1,1 @@
-test=io.github.harvies.charon.dubbo.filters.TestFilter
+log=io.github.harvies.charon.dubbo.filters.LogFilter
