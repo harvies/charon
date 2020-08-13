@@ -15,7 +15,6 @@
         <cxf.version>3.0.14</cxf.version>
         <sofaboot.version>3.1.4</sofaboot.version>
         <curator-test.version>4.0.1</curator-test.version>
-        <junit.version>4.12</junit.version>
     </properties>
 
     <dependencies>

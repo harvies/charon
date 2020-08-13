@@ -19,7 +19,7 @@ public class ArrayBlockingQueueTest {
      * 默认非公平
      * 有界阻塞队列,必须传入数组大小
      */
-    private static ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<>(100);
+    private static final ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<>(100);
 
     public static void main(String[] args) {
 
@@ -67,7 +67,7 @@ public class ArrayBlockingQueueTest {
         new Thread(() -> {
             for (int j = 0; j < 10; j++) {
                 try {
-                    ArrayList arrayList = new ArrayList();
+                    ArrayList<Integer> arrayList = new ArrayList<>();
                     /**
                      * drainTo()是BlockingQueue里的方法
                      * 4.drainTo():一次性从 BlockingQueue 获取所有可用的数据对象(还可以指定获取数据的个

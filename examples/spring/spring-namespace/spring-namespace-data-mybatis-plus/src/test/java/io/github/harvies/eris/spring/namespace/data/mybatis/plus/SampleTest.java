@@ -3,7 +3,7 @@ package io.github.harvies.eris.spring.namespace.data.mybatis.plus;
 import io.github.harvies.eris.spring.namespace.data.mybatis.plus.entity.User;
 import io.github.harvies.eris.spring.namespace.data.mybatis.plus.mapper.UserMapper;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;

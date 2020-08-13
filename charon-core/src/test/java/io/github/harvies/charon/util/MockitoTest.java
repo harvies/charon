@@ -11,7 +11,7 @@ public class MockitoTest {
     public void simpleTest() {
 
         //创建mock对象，参数可以是类，也可以是接口
-        List<String> list = Mockito.mock(List.class);
+        List list = Mockito.mock(List.class);
 
         //设置方法的预期返回值 （如果list.get(0) 被调用 ，调用之后返回 helloworld）
         //当然前提是要创建了Mock对象，如这里就是创建了跟 List相关的 Mock对象
@@ -20,7 +20,7 @@ public class MockitoTest {
         //只需要Mock 一下，就可以拿到这个对象，去测试它的方法，（当然，如果方法有参数我们是需要传递的，像get(0)）
         Mockito.when(list.get(0)).thenReturn("helloworld");
         //list.get(0)的调用就会返回 helloworld
-        String result = list.get(0);
+        String result = String.valueOf(list.get(0));
         System.out.println(result);
 
         //验证方法调用(是否调用了get(0))

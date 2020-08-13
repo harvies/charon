@@ -17,7 +17,7 @@ import java.util.Properties;
  */
 public class ExampleObjectFactory extends DefaultObjectFactory {
     @Override
-    public Object create(Class type) {
+    public <T> T create(Class<T> type) {
         return super.create(type);
     }
 
