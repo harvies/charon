@@ -25,7 +25,7 @@ import org.apache.rocketmq.namesrv.NamesrvStartup;
 public class NamesrvBootstrap {
 
     public static void main(String[] args) {
-        System.setProperty(MixAll.ROCKETMQ_HOME_PROPERTY, "rocketmq");
+        System.setProperty(MixAll.ROCKETMQ_HOME_PROPERTY, "examples/rocketmq");
         NamesrvStartup.main0(args);
     }
 

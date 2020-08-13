@@ -2,7 +2,7 @@ package io.github.harvies.eris.rocketmq;
 
 import org.apache.rocketmq.common.message.MessageDecoder;
 import org.apache.rocketmq.common.message.MessageId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.net.UnknownHostException;
 

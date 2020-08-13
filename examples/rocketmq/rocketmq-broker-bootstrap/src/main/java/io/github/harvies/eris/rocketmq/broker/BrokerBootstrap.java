@@ -25,12 +25,12 @@ import org.apache.rocketmq.common.MixAll;
 public class BrokerBootstrap {
 
     public static void main(String[] args) {
-        System.setProperty(MixAll.ROCKETMQ_HOME_PROPERTY, "mq/mq-rocketmq");
+        System.setProperty(MixAll.ROCKETMQ_HOME_PROPERTY, "examples/rocketmq");
         System.setProperty(MixAll.NAMESRV_ADDR_PROPERTY, "localhost:9876");
 
         args = new String[2];
         args[0] = "-c";
-        args[1] = "mq/mq-rocketmq/conf/broker.conf";
+        args[1] = "examples/rocketmq/conf/broker.conf";
         BrokerStartup.main(args);
     }
 
