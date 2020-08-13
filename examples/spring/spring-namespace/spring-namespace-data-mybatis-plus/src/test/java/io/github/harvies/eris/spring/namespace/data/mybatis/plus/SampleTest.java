@@ -3,7 +3,7 @@ package io.github.harvies.eris.spring.namespace.data.mybatis.plus;
 import io.github.harvies.eris.spring.namespace.data.mybatis.plus.entity.User;
 import io.github.harvies.eris.spring.namespace.data.mybatis.plus.mapper.UserMapper;
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -17,7 +17,6 @@ public class SampleTest {
 
     @Autowired
     private UserMapper userMapper;
-
     @Test
     public void testSelect() {
         System.out.println(("----- selectAll method test ------"));
@@ -26,7 +25,7 @@ public class SampleTest {
         userList.forEach(System.out::println);
     }
 
-    @Test
+//    @Test
     public void testSequence() {
         User u = new User();
         u.setName("Tomcat");
