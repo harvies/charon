@@ -1,8 +1,9 @@
 package io.github.harvies.eris.base.algorithm.leetcode.twosum;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class OnePassHashTableTest extends BaseTest {
 
@@ -11,7 +12,7 @@ public class OnePassHashTableTest extends BaseTest {
         TwoSum twoSum = new OnePassHashTable();
         argMap.forEach((integers, integer) -> {
             int[] sum = twoSum.twoSum(integers, integer);
-            System.err.println(ToStringBuilder.reflectionToString(sum, ToStringStyle.SIMPLE_STYLE));
+            assertThat(integers[sum[0]] + integers[sum[1]], is(integer));
         });
     }
 }

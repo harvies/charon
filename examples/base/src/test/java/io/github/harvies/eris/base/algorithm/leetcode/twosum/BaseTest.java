@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BaseTest {
+    
     protected static final Map<int[], Integer> argMap = new HashMap<>(5);
 
     static {
