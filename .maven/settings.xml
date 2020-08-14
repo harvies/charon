@@ -45,14 +45,14 @@
                         <enabled>false</enabled>
                     </releases>
                     <snapshots>
-                        <enabled>true</enabled>
+                        <enabled>false</enabled>
                     </snapshots>
                 </repository>
                 <repository>
                     <id>rdc-releases</id>
                     <url>https://repo.rdc.aliyun.com/repository/130334-release-2FjnAX/</url>
                     <releases>
-                        <enabled>true</enabled>
+                        <enabled>false</enabled>
                     </releases>
                     <snapshots>
                         <enabled>false</enabled>
@@ -87,14 +87,14 @@
                         <enabled>false</enabled>
                     </releases>
                     <snapshots>
-                        <enabled>true</enabled>
+                        <enabled>false</enabled>
                     </snapshots>
                 </pluginRepository>
                 <pluginRepository>
                     <id>rdc-releases</id>
                     <url>https://repo.rdc.aliyun.com/repository/130334-release-2FjnAX/</url>
                     <releases>
-                        <enabled>true</enabled>
+                        <enabled>false</enabled>
                     </releases>
                     <snapshots>
                         <enabled>false</enabled>
@@ -107,7 +107,7 @@
                         <enabled>false</enabled>
                     </releases>
                     <snapshots>
-                        <enabled>true</enabled>
+                        <enabled>false</enabled>
                     </snapshots>
                 </pluginRepository>
             </pluginRepositories>
