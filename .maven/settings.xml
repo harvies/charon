@@ -23,15 +23,6 @@
             <username>ibRY1K</username>
             <password>Q8hFhj2dPL</password>
         </server>
-
-        <server>
-            <id>docker-aliyun</id>
-            <username>cr0n6e@gmail.com</username>
-            <password>Lisi@123</password>
-            <configuration>
-                <email>cr0n6e@gmail.com</email>
-            </configuration>
-        </server>
     </servers>
     <profiles>
         <profile>
