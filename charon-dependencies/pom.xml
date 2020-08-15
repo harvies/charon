@@ -640,6 +640,35 @@
                     </executions>
                 </plugin>
 
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>1.2.2</version>
+                    <configuration>
+                        <serverId>docker-aliyun</serverId>
+                        <dockerHost>http://archlinux.kikera.top:9999</dockerHost>
+                        <imageName>registry.cn-hangzhou.aliyuncs.com/harvies/${project.artifactId}</imageName>
+                        <baseImage>registry.cn-hangzhou.aliyuncs.com/harvies/jdk8:latest</baseImage>
+                        <imageTags>
+                            <imageTag>${project.version}</imageTag>
+                            <imageTag>latest</imageTag>
+                        </imageTags>
+                        <entryPoint>
+                            ["/sbin/tini","--","java","-Djava.security.egd=file:/dev/./urandom","-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005","-javaagent:/opt/skywalking/agent/skywalking-agent.jar","-jar","/${project.build.finalName}.jar"]
+                        </entryPoint>
+                        <exposes>
+                            <expose>8080</expose>
+                        </exposes>
+                        <!-- copy the service's jar file from target into the root directory of the image -->
+                        <resources>
+                            <resource>
+                                <targetPath>/</targetPath>
+                                <directory>${project.build.directory}</directory>
+                                <include>${project.build.finalName}.jar</include>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
