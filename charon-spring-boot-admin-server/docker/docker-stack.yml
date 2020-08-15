@@ -21,6 +21,7 @@ services:
           cpus: '2'
     environment:
       charon.env: dev
+      EUREKA_URL: http://eureka1:8761/eureka,http://eureka2:8761/eureka,http://eureka3:8761/eureka
       spring.cloud.inetutils.preferred-networks: 10.0.3
       SW_AGENT_COLLECTOR_BACKEND_SERVICES: sw.dev.kikera.top:11800
       SW_AGENT_NAME: charon-spring-boot-admin-server
