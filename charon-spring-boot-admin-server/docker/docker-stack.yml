@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  charon-spring-boot-admin-server:
+  spring-boot-admin:
     image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-spring-boot-admin-server:latest
     networks:
       - default

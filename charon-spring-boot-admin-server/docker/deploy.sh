@@ -1,5 +1,5 @@
 #!/bin/bash
 
-docker stack  deploy -c  docker-stack.yml charon-spring-boot-admin-server-cluster
+docker stack  deploy -c  docker-stack.yml spring-boot-admin
 
-docker service update charon-spring-boot-admin-server-cluster_charon-spring-boot-admin-server --force
+docker service update spring-boot-admin_spring-boot-admin --force
