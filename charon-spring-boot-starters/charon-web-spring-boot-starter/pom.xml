@@ -25,10 +25,6 @@
             <artifactId>charon-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-fastjson-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.apache.skywalking</groupId>
             <artifactId>apm-toolkit-trace</artifactId>
         </dependency>
