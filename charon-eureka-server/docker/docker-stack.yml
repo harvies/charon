@@ -7,17 +7,11 @@ services:
       - default
     ports:
       - "8761:8761"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8761"]
-      interval: 1m30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
     environment:
+      spring.cloud.inetutils.preferred-networks: 10.0.3
       charon.env: dev
       ADDITIONAL_EUREKA_SERVER_LIST: http://eureka2:8761/eureka/,http://eureka3:8761/eureka/
       EUREKA_HOST: eureka1
-      spring.cloud.inetutils.preferred-networks: 10.0.3
       SW_AGENT_COLLECTOR_BACKEND_SERVICES: sw.dev.kikera.top:11800
       SW_AGENT_NAME: eureka1
     deploy:
@@ -25,24 +19,18 @@ services:
       resources:
         limits:
           memory: 300M
-          cpus: '4'
+          cpus: '2'
   eureka2:
     image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-eureka-server
     networks:
       - default
     ports:
       - "8762:8761"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
-      interval: 1m30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
     environment:
+      spring.cloud.inetutils.preferred-networks: 10.0.3
       charon.env: dev
       ADDITIONAL_EUREKA_SERVER_LIST: http://eureka1:8761/eureka/,http://eureka3:8761/eureka/
       EUREKA_HOST: eureka2
-      spring.cloud.inetutils.preferred-networks: 10.0.3
       SW_AGENT_COLLECTOR_BACKEND_SERVICES: sw.dev.kikera.top:11800
       SW_AGENT_NAME: eureka2
     deploy:
@@ -50,24 +38,18 @@ services:
       resources:
         limits:
           memory: 300M
-          cpus: '4'
+          cpus: '2'
   eureka3:
     image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-eureka-server
     networks:
       - default
     ports:
       - "8763:8761"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8761"]
-      interval: 1m30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
     environment:
+      spring.cloud.inetutils.preferred-networks: 10.0.3
       charon.env: dev
       ADDITIONAL_EUREKA_SERVER_LIST: http://eureka1:8761/eureka/,http://eureka2:8761/eureka/
       EUREKA_HOST: eureka3
-      spring.cloud.inetutils.preferred-networks: 10.0.3
       SW_AGENT_COLLECTOR_BACKEND_SERVICES: sw.dev.kikera.top:11800
       SW_AGENT_NAME: eureka3
     deploy:
@@ -75,7 +57,7 @@ services:
       resources:
         limits:
           memory: 300M
-          cpus: '4'
+          cpus: '2'
 networks:
   default:
     external:
