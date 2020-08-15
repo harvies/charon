@@ -12,8 +12,8 @@
     <artifactId>charon-spring-boot-admin-server</artifactId>
     <dependencies>
         <dependency>
-            <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-web-spring-boot-starter</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>de.codecentric</groupId>
