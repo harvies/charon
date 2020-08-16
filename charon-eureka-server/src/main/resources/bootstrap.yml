@@ -13,3 +13,6 @@ eureka:
     hostname: ${EUREKA_HOST:localhost}
     ##由于采用hostname做查找设置成false
     prefer-ip-address: false
+  server:
+    ## 节点之间数据读取超时时间（ms）
+    peer-node-read-timeout-ms: 1000
