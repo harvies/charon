@@ -17,18 +17,30 @@
 version: '3.3'
 services:
   oap:
-    image: apache/skywalking-oap-server:8.0.1-es7
+    image: apache/skywalking-oap-server:8.1.0-es7
     restart: always
     ports:
       - 11800:11800
       - 12800:12800
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 400M
+          cpus: '2'
     environment:
       SW_STORAGE: elasticsearch7
       SW_STORAGE_ES_CLUSTER_NODES: es.dev.kikera.top:9200
   ui:
-    image: apache/skywalking-ui:8.0.1
+    image: apache/skywalking-ui:8.1.0
     restart: always
     ports:
       - 8084:8080
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 300M
+          cpus: '2'
     environment:
       SW_OAP_ADDRESS: oap:12800
