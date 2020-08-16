@@ -12,6 +12,18 @@ class FileUtilsTest {
     @Test
     void getCurrentUserHomePath() {
         String currentUserHomePath = FileUtils.getCurrentUserHomePath();
-        Assertions.assertNotNull(currentUserHomePath);
+        assertNotNull(currentUserHomePath);
+    }
+
+    @Test
+    void getSeparator() {
+        String separator = FileUtils.getSeparator();
+        assertNotNull(separator);
+    }
+
+    @Test
+    void getPathSeparator() {
+        String pathSeparator = FileUtils.getPathSeparator();
+        assertNotNull(pathSeparator);
     }
 }
