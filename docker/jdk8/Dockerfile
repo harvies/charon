@@ -13,7 +13,10 @@ RUN wget -P /usr/share/java/maven-3/conf  https://raw.githubusercontent.com/harv
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo 'Asia/Shanghai' >/etc/timezone
 
-# copy arthas
-RUN wget  -P /opt https://arthas.gitee.io/arthas-boot.jar
+# install arthas
+RUN curl -L https://raw.githubusercontent.com/harvies/arthas-install/master/install_arthas.sh |sh
+
+# Tini is now available at /sbin/tini
+ENTRYPOINT ["/sbin/tini", "--"]
 
 WORKDIR /
