@@ -16,3 +16,5 @@ eureka:
   server:
     ## 节点之间数据读取超时时间（ms）
     peer-node-read-timeout-ms: 1000
+    ## 节点之间连接超时时长（ms）
+    peer-node-connect-timeout-ms: 1000
