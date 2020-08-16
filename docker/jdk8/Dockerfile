@@ -18,5 +18,3 @@ RUN curl -L https://raw.githubusercontent.com/harvies/arthas-install/master/inst
 
 # Tini is now available at /sbin/tini
 ENTRYPOINT ["/sbin/tini", "--"]
-
-WORKDIR /
