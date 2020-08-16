@@ -7,7 +7,7 @@ RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g"  /etc/apk/repositorie
 RUN apk add tzdata curl bash busybox-extras maven openssh-client git tini fontconfig ttf-dejavu
 
 ## maven
-RUN wget -P /usr/share/java/maven-3/conf  https://raw.githubusercontent.com/harvies/charon/master/.maven/settings.xml
+RUN wget -O /usr/share/java/maven-3/conf/settings.xml  https://raw.githubusercontent.com/harvies/charon/master/.maven/settings.xml
 
 ## 时区
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
