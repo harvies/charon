@@ -4,6 +4,9 @@
 
 ![Maven Package](https://github.com/harvies/charon/workflows/Maven%20Package/badge.svg)
 
+## 项目要求
+
+- JDK9
 
 ## 项目结构介绍
 
