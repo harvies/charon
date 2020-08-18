@@ -22,7 +22,7 @@ package io.github.harvies.eris.base.jdk.concurrent.thread;
  * @author harvies
  */
 public class ThreadLocalTest {
-    private static final ThreadLocal threadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
 
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {

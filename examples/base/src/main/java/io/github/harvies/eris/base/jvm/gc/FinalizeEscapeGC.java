@@ -13,6 +13,7 @@ public class FinalizeEscapeGC {
         System.err.println("yes, i am still alive :)");
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void finalize() throws Throwable {
         /**

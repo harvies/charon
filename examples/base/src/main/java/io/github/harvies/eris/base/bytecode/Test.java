@@ -10,8 +10,8 @@ public class Test {
         CtClass cc = cp.get("io.github.harvies.eris.base.bytecode.Hello");
         CtMethod m = cc.getDeclaredMethod("say");
         m.insertBefore("{ System.out.println(\"Hello.say():\"); }");
-        Class c = cc.toClass();
-        Hello h = (Hello) c.newInstance();
+        Class<Hello> c = (Class<Hello>) cc.toClass();
+        Hello h = c.getDeclaredConstructor().newInstance();
         h.say();
     }
 }

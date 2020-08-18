@@ -1,5 +1,7 @@
 package io.github.harvies.eris.base.datastructure.map;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,10 +17,12 @@ import java.util.Map;
  * @author harvies
  */
 public class HashMapTest {
-    private static Map<String, Object> map = new HashMap<>();
-
-    public static void main(String[] args) {
-        map.put("a", "aaa");
+    @Test
+    public void test() {
+        Map<Integer, Integer> map = new HashMap<>(1);
+        for (int i = 0; i < 10; i++) {
+            map.put(i, i);
+        }
         System.err.println(map);
     }
 }
