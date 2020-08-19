@@ -64,6 +64,7 @@ public class MissingNumberInArray {
      * numbers from 1 to 100 or 1 - 1000
      */
     private static int getMissingNumber(int[] numbers, int totalCount) {
+        //求和:n*((n+1)/2)
         int expectedSum = totalCount * ((totalCount + 1) / 2);
         int actualSum = 0;
         for (int i : numbers) {
