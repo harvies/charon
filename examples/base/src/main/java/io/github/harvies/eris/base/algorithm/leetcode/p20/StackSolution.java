@@ -1,20 +1,18 @@
 package io.github.harvies.eris.base.algorithm.leetcode.p20;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 public class StackSolution implements ValidParentheses {
     @Override
     public boolean isValid(String s) {
         //存储括号映射关系
-        Map<Character, Character> pairs = new HashMap<Character, Character>() {{
+        Map<Character, Character> pairs = new HashMap<>() {{
             put(')', '(');
             put(']', '[');
             put('}', '{');
         }};
-        //使用栈结构存储数据
-        Stack<Character> stack = new Stack<>();
+        //使用栈结构存储数据(Stack继承Vector,不推荐使用，加锁效率低)
+        Deque<Character> stack = new LinkedList<>();
         char[] chars = s.toCharArray();
         for (char aChar : chars) {
             //左括号入栈

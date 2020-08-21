@@ -6,12 +6,12 @@
 
     <artifactId>charon-dependencies</artifactId>
     <groupId>io.github.harvies.charon</groupId>
-    <version>0.0.4-SNAPSHOT</version>
+    <version>0.0.5-SNAPSHOT</version>
     <packaging>pom</packaging>
     <properties>
         <!-- Compiler properties -->
-        <maven.compiler.target>8</maven.compiler.target>
-        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
         <encoding>UTF-8</encoding>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
@@ -55,7 +55,7 @@
         <ognl.version>3.2.10</ognl.version>
         <apollo-client.version>1.6.0</apollo-client.version>
         <skywalking.version>8.0.1</skywalking.version>
-        <charon.version>0.0.4-SNAPSHOT</charon.version>
+        <charon.version>0.0.5-SNAPSHOT</charon.version>
         <spring-boot-admin-starter.version>2.2.3</spring-boot-admin-starter.version>
         <javamelody.version>1.85.0</javamelody.version>
 

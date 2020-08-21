@@ -1,5 +1,5 @@
 ## java探针
-java  -javaagent:charon-agent-0.0.4-SNAPSHOT-jar-with-dependencies.jar 
+java  -javaagent:charon-agent-0.0.5-SNAPSHOT-jar-with-dependencies.jar 
 
 
 https://www.jianshu.com/p/e35bbb047ace

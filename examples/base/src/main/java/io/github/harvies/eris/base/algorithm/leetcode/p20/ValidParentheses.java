@@ -34,5 +34,5 @@ package io.github.harvies.eris.base.algorithm.leetcode.p20;
  * 利用一个栈，不断地往里压左括号，一旦遇上了一个右括号，我们就把栈顶的左括号弹出来，表示这是一个合法的组合，以此类推，直到最后判断栈里还有没有左括号剩余。
  */
 public interface ValidParentheses {
-    public boolean isValid(String s);
+    boolean isValid(String s);
 }
