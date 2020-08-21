@@ -661,6 +661,7 @@
                         <entryPoint>
                             ["/sbin/tini","--","java","-Djava.security.egd=file:/dev/./urandom","-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005","-javaagent:/opt/skywalking/agent/skywalking-agent.jar","-jar","/${project.build.finalName}.jar"]
                         </entryPoint>
+                        <workdir>/</workdir>
                         <exposes>
                             <expose>8080</expose>
                         </exposes>
