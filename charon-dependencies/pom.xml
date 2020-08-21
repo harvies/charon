@@ -650,6 +650,7 @@
                     <artifactId>docker-maven-plugin</artifactId>
                     <version>1.2.2</version>
                     <configuration>
+                        <noCache>true</noCache>
                         <serverId>docker-aliyun</serverId>
                         <dockerHost>http://archlinux.kikera.top:9999</dockerHost>
                         <imageName>registry.cn-hangzhou.aliyuncs.com/harvies/${project.artifactId}</imageName>
