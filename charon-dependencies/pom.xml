@@ -654,7 +654,7 @@
                         <serverId>docker-aliyun</serverId>
                         <dockerHost>http://archlinux.kikera.top:9999</dockerHost>
                         <imageName>registry.cn-hangzhou.aliyuncs.com/harvies/${project.artifactId}</imageName>
-                        <baseImage>registry.cn-hangzhou.aliyuncs.com/harvies/jdk:latest</baseImage>
+                        <baseImage>harvies/jdk:latest</baseImage>
                         <imageTags>
                             <imageTag>${project.version}</imageTag>
                             <imageTag>latest</imageTag>
