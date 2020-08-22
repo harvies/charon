@@ -2,6 +2,7 @@ package io.github.harvies.charon.spring.boot;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Getter
 @Setter
 @ConfigurationProperties(prefix = "charon.application")
+@ToString
 public class CharonBootApplicationProperties {
     /**
      * 应用名称
