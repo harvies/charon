@@ -18,7 +18,7 @@ services:
       replicas: 1
       resources:
         limits:
-          memory: 300M
+          memory: 500M
           cpus: '2'
   eureka2:
     image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-eureka-server
@@ -37,7 +37,7 @@ services:
       replicas: 1
       resources:
         limits:
-          memory: 300M
+          memory: 500M
           cpus: '2'
   eureka3:
     image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-eureka-server
@@ -56,7 +56,7 @@ services:
       replicas: 1
       resources:
         limits:
-          memory: 300M
+          memory: 500M
           cpus: '2'
 networks:
   default:
