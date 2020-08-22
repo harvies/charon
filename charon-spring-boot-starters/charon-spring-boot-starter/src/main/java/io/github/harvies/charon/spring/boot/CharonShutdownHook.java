@@ -16,6 +16,7 @@ public class CharonShutdownHook implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() {
+        log.warn("charon boot application register shutdown hook success!");
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             log.error("charon boot application shutdown:{}", properties);
             applicationEventPublisher.publishEvent(new CharonBootShutdownEvent(properties));
