@@ -9,6 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     
+    <properties>
+        <JAVA_OPTS.Xmx>-Xmx200m</JAVA_OPTS.Xmx>
+        <JAVA_OPTS.Xms>-Xms200m</JAVA_OPTS.Xms>
+    </properties>
+    
     <artifactId>charon-eureka-server</artifactId>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-server -->
