@@ -17,7 +17,7 @@ services:
       replicas: 2
       resources:
         limits:
-          memory: 300M
+          memory: 200M
           cpus: '2'
     environment:
       charon.env: dev
