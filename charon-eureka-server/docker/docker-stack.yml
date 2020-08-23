@@ -4,10 +4,9 @@ services:
   eureka1:
     image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-eureka-server
     networks:
-      - default
+      - dev_overlay
     ports:
       - "8761:8761"
-    restart: always
     environment:
       spring.cloud.inetutils.preferred-networks: 10.0.3
       charon.env: dev
@@ -20,13 +19,14 @@ services:
       resources:
         limits:
           cpus: '2'
+      restart_policy:
+        condition: on-failure
   eureka2:
     image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-eureka-server
     networks:
       - dev_overlay
     ports:
       - "8762:8761"
-    restart: always
     environment:
       spring.cloud.inetutils.preferred-networks: 10.0.3
       charon.env: dev
@@ -39,13 +39,14 @@ services:
       resources:
         limits:
           cpus: '2'
+      restart_policy:
+        condition: on-failure
   eureka3:
     image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-eureka-server
     networks:
-      - default
+      - dev_overlay
     ports:
       - "8763:8761"
-    restart: always
     environment:
       spring.cloud.inetutils.preferred-networks: 10.0.3
       charon.env: dev
@@ -58,6 +59,8 @@ services:
       resources:
         limits:
           cpus: '2'
+      restart_policy:
+        condition: on-failure
 networks:
   dev_overlay:
     external: true
