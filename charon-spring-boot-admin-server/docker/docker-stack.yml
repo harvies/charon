@@ -4,7 +4,7 @@ services:
   spring-boot-admin:
     image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-spring-boot-admin-server:latest
     networks:
-      - default
+      - dev_overlay
     ports:
       - "8082:8080"
     healthcheck:
@@ -26,6 +26,5 @@ services:
       SW_AGENT_COLLECTOR_BACKEND_SERVICES: sw.dev.kikera.top:11800
       SW_AGENT_NAME: charon-spring-boot-admin-server
 networks:
-  default:
-    external:
-      name: dev_overlay
+  dev_overlay:
+    external: true
