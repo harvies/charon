@@ -12,6 +12,7 @@ services:
       - ROOT_PASSWORD=lisi@123
     ports:
       - 8899:8899
+    restart: always
     deploy:
       replicas: 1
       placement:

@@ -5,6 +5,7 @@ services:
     image: harvies/dubbo-proxy:latest
     networks:
       - default
+    restart: always
     deploy:
       replicas: 1
     ports:

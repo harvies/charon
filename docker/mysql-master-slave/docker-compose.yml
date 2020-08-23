@@ -13,6 +13,7 @@ services:
       placement:
         constraints:
           - engine.labels.host == aliyun
+    restart: always
   mysqlslave:
     image: mysql:5.7.15
     environment:
@@ -26,6 +27,7 @@ services:
       placement:
         constraints:
           - engine.labels.host == tencent
+    restart: always
   mysqlconfigure:
     image: mysql:5.7.15
     environment:
@@ -41,3 +43,4 @@ services:
       placement:
         constraints:
           - engine.labels.host == tencent
+    restart: always

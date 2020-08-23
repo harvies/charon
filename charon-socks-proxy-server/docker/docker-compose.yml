@@ -5,6 +5,7 @@ services:
     image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-socks-proxy-server
     networks:
       - default
+    restart: always
     ports:
       - "1088:1088"
     environment:
