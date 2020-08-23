@@ -69,6 +69,7 @@
 
         <JAVA_OPTS.Xmx>-Xmx512m</JAVA_OPTS.Xmx>
         <JAVA_OPTS.Xms>-Xms512m</JAVA_OPTS.Xms>
+        <web.port>8080</web.port>
 
     </properties>
     <dependencyManagement>
@@ -666,7 +667,7 @@
                         </entryPoint>
                         <workdir>/</workdir>
                         <exposes>
-                            <expose>8080</expose>
+                            <expose>${web.port}</expose>
                         </exposes>
                         <!-- copy the service's jar file from target into the root directory of the image -->
                         <resources>
