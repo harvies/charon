@@ -15,10 +15,6 @@ services:
       start_period: 10m
     deploy:
       replicas: 2
-      resources:
-        limits:
-          memory: 800M
-          cpus: '2'
     environment:
       charon.env: dev
       spring.cloud.inetutils.preferred-networks: 10.0.3

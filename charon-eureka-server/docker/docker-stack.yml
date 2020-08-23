@@ -16,10 +16,6 @@ services:
       SW_AGENT_NAME: eureka1
     deploy:
       replicas: 1
-      resources:
-        limits:
-          memory: 500M
-          cpus: '2'
   eureka2:
     image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-eureka-server
     networks:
@@ -35,10 +31,6 @@ services:
       SW_AGENT_NAME: eureka2
     deploy:
       replicas: 1
-      resources:
-        limits:
-          memory: 500M
-          cpus: '2'
   eureka3:
     image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-eureka-server
     networks:
@@ -54,10 +46,6 @@ services:
       SW_AGENT_NAME: eureka3
     deploy:
       replicas: 1
-      resources:
-        limits:
-          memory: 500M
-          cpus: '2'
 networks:
   default:
     external:
