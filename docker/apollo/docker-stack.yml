@@ -3,7 +3,7 @@ version: '3.7'
 
 services:
   apollo-configservice:
-    image: apolloconfig/apollo-configservice:1.7.0-SNAPSHOT
+    image: apolloconfig/apollo-configservice:latest
     restart: always
     hostname: apollo-configservice
     ports:
@@ -21,7 +21,7 @@ services:
       spring.cloud.inetutils.preferred-networks: 10.0.3
 
   apollo-adminservice:
-    image: apolloconfig/apollo-adminservice:1.7.0-SNAPSHOT
+    image: apolloconfig/apollo-adminservice:latest
     restart: always
     hostname: apollo-adminservice
     ports:
@@ -38,7 +38,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: Lisi@123
       spring.cloud.inetutils.preferred-networks: 10.0.3
   apollo-portal:
-    image: apolloconfig/apollo-portal:1.7.0-SNAPSHOT
+    image: apolloconfig/apollo-portal:latest
     restart: always
     hostname: apollo-portal
     ports:
