@@ -7,6 +7,12 @@ services:
       - dev_overlay
     ports:
       - "8761:8761"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 2m
     environment:
       spring.cloud.inetutils.preferred-networks: 10.0.3
       charon.env: dev
@@ -27,6 +33,12 @@ services:
       - dev_overlay
     ports:
       - "8762:8761"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 2m
     environment:
       spring.cloud.inetutils.preferred-networks: 10.0.3
       charon.env: dev
@@ -47,6 +59,12 @@ services:
       - dev_overlay
     ports:
       - "8763:8761"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 2m
     environment:
       spring.cloud.inetutils.preferred-networks: 10.0.3
       charon.env: dev
