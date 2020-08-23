@@ -2,17 +2,23 @@ version: '3.7'
 
 services:
   dubbo-admin:
-    image: harvies/dubbo-admin
+    image: harvies/dubbo-admin:latest
     restart: always
     hostname: dubbo-admin
     ports:
       - 2179:8080
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: '2'
     environment:
-      - admin.registry.address=zookeeper://zoo1:2181,zoo2:2181,zoo3:2181
-      - admin.config-center=zookeeper://zoo1:2181,zoo2:2181,zoo3:2181
-      - admin.metadata-report.address=zookeeper://zoo1:2181,zoo2:2181,zoo3:2181
-      - admin.root.user.name=root
-      - admin.root.user.password=root
+      - admin.registry.address=zookeeper://zk.dev.kikera.top:2181
+      - admin.config-center=zookeeper://zk.dev.kikera.top:2181
+      - admin.metadata-report.address=zookeeper://zk.dev.kikera.top:2181
+      - admin.check.authority=true
+      - admin.root.user.name=admin
+      - admin.root.user.password=Lisi@123
     networks:
       - default
 networks:
