@@ -67,7 +67,8 @@
         <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
         <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
 
-
+        <JAVA_OPTS>-Xmx512m</JAVA_OPTS>
+        
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -660,7 +661,7 @@
                             <imageTag>latest</imageTag>
                         </imageTags>
                         <entryPoint>
-                            ["java","-Djava.security.egd=file:/dev/./urandom","-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005","-javaagent:/opt/skywalking/agent/skywalking-agent.jar","-jar","/${project.build.finalName}.jar"]
+                            ["java","${JAVA_OPTS}","-Djava.security.egd=file:/dev/./urandom","-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005","-javaagent:/opt/skywalking/agent/skywalking-agent.jar","-jar","/${project.build.finalName}.jar"]
                         </entryPoint>
                         <workdir>/</workdir>
                         <exposes>

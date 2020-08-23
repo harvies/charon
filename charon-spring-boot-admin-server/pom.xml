@@ -9,6 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <properties>
+        <JAVA_OPTS>-Xmx400m</JAVA_OPTS>
+    </properties>
+
     <artifactId>charon-spring-boot-admin-server</artifactId>
     <dependencies>
         <dependency>
