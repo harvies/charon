@@ -67,8 +67,8 @@
         <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
         <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
 
-        <JAVA_OPTS>-Xmx512m</JAVA_OPTS>
-        
+        <JAVA_OPTS>-Xms512m -Xmx512m</JAVA_OPTS>
+
     </properties>
     <dependencyManagement>
         <dependencies>
