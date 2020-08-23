@@ -10,8 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <JAVA_OPTS.Xmx>-Xmx400m</JAVA_OPTS.Xmx>
-        <JAVA_OPTS.Xms>-Xms400m</JAVA_OPTS.Xms>
+        <JAVA_OPTS.Xmx>-Xmx300m</JAVA_OPTS.Xmx>
+        <JAVA_OPTS.Xms>-Xms300m</JAVA_OPTS.Xms>
     </properties>
 
     <artifactId>charon-spring-boot-admin-server</artifactId>
