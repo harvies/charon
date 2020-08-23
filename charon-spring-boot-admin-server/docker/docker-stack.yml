@@ -12,7 +12,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 3
-      start_period: 10m
+      start_period: 2m
     deploy:
       replicas: 2
       resources:
