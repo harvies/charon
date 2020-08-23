@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
   agent:
-    image: portainer/agent
+    image: portainer/agent:latest
     environment:
       # REQUIRED: Should be equal to the service name prefixed by "tasks." when
       # deployed inside an overlay network
@@ -22,7 +22,7 @@ services:
         constraints: [node.platform.os == linux]
 
   portainer:
-    image: portainer/portainer
+    image: portainer/portainer:latest
     command: -H tcp://tasks.agent:9001 --tlsskipverify
     ports:
       - "9000:9000"
