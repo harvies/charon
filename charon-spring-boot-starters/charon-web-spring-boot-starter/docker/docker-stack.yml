@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+  charon-boot-example:
+    image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-boot-example:latest
+    networks:
+      - dev_overlay
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: curl -f http://localhost:8080/health/status |grep 'success' || exit 1
+      interval: 3s
+      timeout: 1s
+      retries: 3
+      start_period: 10m
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: '2'
+    environment:
+      charon.env: dev
+      spring.cloud.inetutils.preferred-networks: 10.0.3
+      SW_AGENT_COLLECTOR_BACKEND_SERVICES: sw.dev.kikera.top:11800
+      SW_AGENT_NAME: dev-charon-boot-example
+networks:
+  dev_overlay:
+    external: true
