@@ -18,7 +18,6 @@
         <dependency>
             <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-web-spring-boot-starter</artifactId>
-            <scope>test</scope>
         </dependency>
 
     </dependencies>

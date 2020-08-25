@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spring.boot.web.controller.monitor;
+package io.github.harvies.charon.spring.boot.monitor.controller;
 
 import io.github.harvies.charon.spring.boot.web.result.ResultDTO;
 import io.github.harvies.charon.spring.boot.web.result.Results;
