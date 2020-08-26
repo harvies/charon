@@ -15,7 +15,7 @@
 charon.env=dev
 charon.application.name=charon-redis
 spring.redis.client-name=${charon.application.name}
-spring.redis.url=redis://host:port
+spring.redis.url=redis://password@host:port
 spring.redis.database=0
 spring.redis.timeout=3s
 ```

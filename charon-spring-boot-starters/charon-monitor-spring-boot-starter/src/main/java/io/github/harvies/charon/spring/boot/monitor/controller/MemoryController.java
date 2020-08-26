@@ -24,4 +24,10 @@ public class MemoryController {
     public ResultDTO<MemoryUsage> getNonHeapMemoryUsage() {
         return Results.success(ManagementFactory.getMemoryMXBean().getNonHeapMemoryUsage());
     }
+
+//    @RequestMapping(value = "/info", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResultDTO<JavaInformations> info(ServletContext servletContext) {
+//        return Results.success(new JavaInformations(servletContext, true));
+//    }
 }
+

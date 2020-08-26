@@ -1,8 +1,10 @@
 package io.github.harvies.charon.redis;
 
+import org.apache.commons.lang3.StringUtils;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
+import org.redisson.config.SingleServerConfig;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
@@ -35,9 +37,13 @@ public class RedisAutoConfiguration {
         } else if (redisProperties.getSentinel() != null) {
             // TODO: 2020/8/7
         } else {
-            config.useSingleServer()
-                    .setAddress(redisProperties.getUrl())
-                    .setTimeout(timeout)
+            SingleServerConfig singleServerConfig = config.useSingleServer();
+            if (StringUtils.isNotBlank(redisProperties.getUrl())) {
+                singleServerConfig.setAddress(redisProperties.getUrl());
+            } else {
+                singleServerConfig.setAddress("redis://" + redisProperties.getHost() + ":" + redisProperties.getPort());
+            }
+            singleServerConfig.setTimeout(timeout)
                     .setPassword(redisProperties.getPassword())
                     .setDatabase(redisProperties.getDatabase());
         }
