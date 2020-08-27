@@ -30,6 +30,7 @@
         <module>charon-attach</module>
         <module>charon-spider</module>
         <module>examples</module>
+        <module>charon-dlock</module>
     </modules>
 
     <dependencies>
