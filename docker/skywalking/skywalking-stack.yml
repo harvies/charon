@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-version: '3.3'
+version: '3.7'
 services:
   oap:
     image: apache/skywalking-oap-server:8.1.0-es7
@@ -30,7 +30,10 @@ services:
           cpus: '2'
     environment:
       SW_STORAGE: elasticsearch7
-      SW_STORAGE_ES_CLUSTER_NODES: es.dev.kikera.top:9200
+      SW_STORAGE_ES_CLUSTER_NODES: es.dev.kikera.org:9200
+    extra_hosts:
+      - "sw.dev.kikera.org:172.26.106.92"
+      - "es.dev.kikera.org:172.26.106.92"
   ui:
     image: apache/skywalking-ui:8.1.0
     restart: always
