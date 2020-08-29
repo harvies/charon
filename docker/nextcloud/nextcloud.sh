@@ -1,1 +1,1 @@
-docker run -d -p 808:80 -v /data/nextcloud:/var/www/html nextcloud
+docker run -d  --name nextcloud -p 808:80 -v /data/nextcloud:/var/www/html nextcloud
