@@ -544,12 +544,19 @@
                 <artifactId>logstash-logback-encoder</artifactId>
                 <version>6.4</version>
             </dependency>
-            
+
             <!-- 对象内存信息查看 -->
             <dependency>
                 <groupId>org.openjdk.jol</groupId>
                 <artifactId>jol-core</artifactId>
                 <version>0.13</version>
+            </dependency>
+            
+            <!--图像缩略图 -->
+            <dependency>
+                <groupId>net.coobird</groupId>
+                <artifactId>thumbnailator</artifactId>
+                <version>0.4.12</version>
             </dependency>
 
         </dependencies>
