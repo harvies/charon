@@ -27,4 +27,22 @@ public class StringUtils {
         return StringEscapeUtils.escapeJava(input);
     }
 
+    /**
+     * 格式化,输出hashcode
+     *
+     * @param o 入参
+     * @return 结果
+     */
+    public static String format(Object o) {
+        return o.toString() + ",identityHashCode:" + System.identityHashCode(o) + ",hashCode:" + o.hashCode();
+    }
+
+    /**
+     * 打印
+     *
+     * @param o 入参
+     */
+    public static void println(Object o) {
+        System.out.println(format(o));
+    }
 }
