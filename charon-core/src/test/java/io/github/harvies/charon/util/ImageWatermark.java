@@ -61,8 +61,8 @@ public class ImageWatermark {
             Graphics2D g = bi.createGraphics();
 
             //x,y轴默认是从0坐标开始
-            int x = width - icWeight;
-            int y = 0;
+            int x = (width - icWeight) / 2;
+            int y = (height - icHeight) / 2;
 
             //设置对线段的锯齿状边缘处理
             g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
