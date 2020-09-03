@@ -1,7 +1,10 @@
 package io.github.harvies.charon.util;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+
+import java.util.List;
 
 public class JsonUtils {
 
@@ -13,7 +16,15 @@ public class JsonUtils {
         return JSON.parseObject(json, objClass);
     }
 
+    public static <T> List<T> parseArray(String json, Class<T> objClass) {
+        return JSON.parseArray(json, objClass);
+    }
+
     public static JSONObject parseObject(String json) {
         return JSONObject.parseObject(json);
+    }
+
+    public static JSONArray parseArray(String json) {
+        return JSONObject.parseArray(json);
     }
 }

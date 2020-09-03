@@ -2,7 +2,7 @@ package io.github.harvies.charon.util;
 
 import java.io.File;
 
-public class FileUtils {
+public class FileUtils extends org.apache.commons.io.FileUtils {
     /**
      * 获取当前用户家目录 例如/Users/harvies
      *
@@ -36,5 +36,14 @@ public class FileUtils {
      */
     public static String getPathSeparator() {
         return File.pathSeparator;
+    }
+
+    /**
+     * 获取操作系统临时目录
+     *
+     * @return 临时目录
+     */
+    public static String getTmpDir() {
+        return System.getProperty("java.io.tmpdir");
     }
 }

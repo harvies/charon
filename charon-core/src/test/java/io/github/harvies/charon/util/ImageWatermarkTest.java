@@ -2,23 +2,22 @@ package io.github.harvies.charon.util;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.io.File;
+import java.io.IOException;
 
 class ImageWatermarkTest {
 
     @Test
-    void markImageBySingleIcon() {
-        String icon = FileUtils.getCurrentUserHomePath() + "/Downloads/icon.png";
-        String source = FileUtils.getCurrentUserHomePath() + "/Downloads/520dcdcf-932c-4d19-bfc8-b7b00d592f8f.jpeg";
-        String output = FileUtils.getCurrentUserHomePath() + "/Downloads/";
+    void markImageBySingleIcon() throws IOException {
+        byte[] iconByteArray = FileUtils.readFileToByteArray(new File(FileUtils.getCurrentUserHomePath() + "/Downloads/icon.png"));
+        byte[] sourceByteArray = FileUtils.readFileToByteArray(new File(FileUtils.getCurrentUserHomePath() + "/Downloads/520dcdcf-932c-4d19-bfc8-b7b00d592f8f.jpeg"));
         ImageWatermark.Param.ParamBuilder paramBuilder = ImageWatermark.Param.builder()
-                .icon(icon)
-                .source(source)
-                .output(output)
+                .icon(iconByteArray)
+                .source(sourceByteArray)
                 .degree(null)
-                .imageName("aaa")
                 .imageType("jpeg");
-        ImageWatermark.markImageBySingleIcon(paramBuilder.build());
-        PicUtils.compressPicForScale(output+"aaa.jpeg",output+"aaa_1.jpeg",500,0.8,999999999,99999999);
+        byte[] watermarkByteArray = ImageWatermark.markImageBySingleIcon(paramBuilder.build());
+        byte[] compressByteArray = PicUtils.compressPicForScale(watermarkByteArray, 500, 0.8, 999999999, 99999999);
+        FileUtils.writeByteArrayToFile(new File(FileUtils.getCurrentUserHomePath() + "/Downloads/" + "aaa_1.jpeg"), compressByteArray);
     }
 }
