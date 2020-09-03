@@ -62,7 +62,7 @@ public class ImageWatermark {
 
             //x,y轴默认是从0坐标开始
             int x = (width - icWeight) / 2;
-            int y = (height - icHeight) / 2;
+            int y = 0;
 
             //设置对线段的锯齿状边缘处理
             g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
@@ -78,7 +78,7 @@ public class ImageWatermark {
             //得到Image对象。
             Image con = imgIcon.getImage();
             //透明度，最小值为0，最大值为1
-            float clarity = 0.6f;
+            float clarity = 1f;
             g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP, clarity));
             //表示水印图片的坐标位置(x,y)
             //g.drawImage(con, 300, 220, null);
