@@ -5,20 +5,20 @@ import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.annotation.write.style.ColumnWidth;
 import com.alibaba.excel.write.metadata.WriteSheet;
+import com.google.common.collect.Lists;
 import io.github.harvies.charon.picture.ImageWatermark;
 import io.github.harvies.charon.picture.PicUtils;
-import io.github.harvies.charon.util.*;
+import io.github.harvies.charon.util.FileUtils;
+import io.github.harvies.charon.util.JsonUtils;
+import io.github.harvies.charon.util.StringUtils;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import net.dongliu.requests.Requests;
-import net.dongliu.requests.body.Part;
+import org.apache.commons.collections4.CollectionUtils;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Slf4j
@@ -83,15 +83,15 @@ public class AAATest {
         private String storeName2;
 
         @ExcelProperty(index = 14, value = "营业执照照片链接")
-        @ColumnWidth(value = 80)
+        @ColumnWidth(value = 10)
         private String businessLicense;
 
         @ExcelProperty(index = 15, value = "门头图照片链接")
-        @ColumnWidth(value = 100)
+        @ColumnWidth(value = 10)
         private String headPicture;
 
         @ExcelProperty(index = 16, value = "工位图照片链接")
-        @ColumnWidth(value = 100)
+        @ColumnWidth(value = 10)
         private String workStationPicture;
     }
 
@@ -109,22 +109,30 @@ public class AAATest {
                 .sheet(0)
                 .head(Head.class)
                 .doReadSync();
-        System.err.println(list);
 
-        ExcelWriter excelWriter = EasyExcelFactory.write(FileUtils.getCurrentUserHomePath() + "/Downloads/2020-09-03-17-04-50_EXPORT_XLSX_1429245_302_0_已打标.xlsx")
-                .head(Head.class)
-                .build();
-        WriteSheet writeSheet = new WriteSheet();
-        writeSheet.setSheetNo(0);
-        writeSheet.setSheetName("工作表1");
-        for (Head head : list) {
-            if (list.indexOf(head) == 1) {
-                break;
-            }
-            try {
-                log.info("当前处理 门店ID:[{}]", head.getStoreId());
-                List<HeadPicture> headPictureList = new ArrayList<>();
-                for (HeadPicture headPicture : JsonUtils.parseArray(head.getHeadPicture(), HeadPicture.class)) {
+        List<List<Head>> partition = Lists.partition(list, 33);
+
+        for (int i = 0; i < partition.size(); i++) {
+            log.info("当前页数:[{}]", i);
+//            if (i == 10) {
+//                break;
+//            }
+            String picPath = FileUtils.getCurrentUserHomePath() + "/Downloads/平安/" + i + "/";
+            FileUtils.forceMkdir(new File(picPath));
+            ExcelWriter excelWriter = EasyExcelFactory.write(picPath + "网点入库批量申请模板.xlsx")
+                    .head(Head.class)
+                    .build();
+            WriteSheet writeSheet = new WriteSheet();
+            writeSheet.setSheetNo(0);
+            writeSheet.setSheetName("Sheet1");
+            for (Head head : partition.get(i)) {
+                try {
+                    log.info("当前处理 门店ID:[{}]", head.getStoreId());
+                    List<HeadPicture> headPictures = JsonUtils.parseArray(head.getHeadPicture(), HeadPicture.class);
+                    if (CollectionUtils.isEmpty(headPictures)) {
+                        continue;
+                    }
+                    HeadPicture headPicture = headPictures.get(0);
                     if (StringUtils.startsWith(headPicture.getUrl(), "//")) {
                         headPicture.setUrl("http:" + headPicture.getUrl());
                     }
@@ -136,30 +144,34 @@ public class AAATest {
                             .imageType("jpeg");
                     byte[] watermarkByteArray = ImageWatermark.markImageBySingleIcon(paramBuilder.build());
                     byte[] compressBytes = PicUtils.compressPicForScale(watermarkByteArray, 500, 0.9, 99999999, 99999999);
-//                    FileUtils.writeByteArrayToFile(new File(FileUtils.getCurrentUserHomePath() + "/Downloads/aaaa.jpeg"), compressBytes);
-                    String readToText = Requests.post(PropertiesUtils.getDefaultProperty("charon.oss.url")).timeout(60000)
-                            .multiPartBody(
-                                    Part.file("file", RandomUtils.uuid() + ".jpg", compressBytes))
-                            .send().readToText();
-                    String data = JsonUtils.parseObject(readToText).getJSONArray("data").getString(0);
-                    System.err.println("url:" + data);
-                    HeadPicture processedHeadPicture = new HeadPicture();
-                    processedHeadPicture.setUrl(data);
-                    processedHeadPicture.setValue("");
-                    headPictureList.add(processedHeadPicture);
+                    FileUtils.writeByteArrayToFile(new File(picPath + head.getStoreId() + "门头照.jpg"), compressBytes);
+                    head.setHeadPicture(head.getStoreId() + "门头照");
+
+                    if (StringUtils.isNotBlank(head.getWorkStationPicture())) {
+                        if (StringUtils.startsWith(head.getWorkStationPicture(), "//")) {
+                            head.setWorkStationPicture("http:" + head.getWorkStationPicture());
+                        }
+                        FileUtils.writeByteArrayToFile(new File(picPath + head.getStoreId() + "工位照.jpg"), Requests.get(head.getWorkStationPicture()).timeout(60000).send().readToBytes());
+                        head.setWorkStationPicture(head.getStoreId() + "工位照");
+                    }
+                    if (StringUtils.isNotBlank(head.getBusinessLicense())) {
+                        if (StringUtils.startsWith(head.getBusinessLicense(), "//")) {
+                            head.setBusinessLicense("http:" + head.getBusinessLicense());
+                        }
+                        try {
+                            FileUtils.writeByteArrayToFile(new File(picPath + head.getStoreId() + "营业执照.jpg"), Requests.get(head.getBusinessLicense()).timeout(60000).send().readToBytes());
+                            head.setBusinessLicense(head.getStoreId() + "营业执照");
+                        } catch (Exception e) {
+                            head.setBusinessLicense("");
+                        }
+                    }
+                } catch (Exception e) {
+                    log.info("处理异常 storeId:[{}]", head.getStoreId(), e);
                 }
-                Head writeHead = new Head();
-                BeanCopierUtils.copy(head, writeHead);
-                writeHead.setHeadPicture(JsonUtils.toJSONString(headPictureList));
-
-                excelWriter.write(Collections.singletonList(writeHead), writeSheet);
-
-                FileUtils.writeStringToFile(new File(FileUtils.getCurrentUserHomePath() + "/Downloads/处理成功.txt"), JsonUtils.toJSONString(writeHead) + "\r\n", StandardCharsets.UTF_8, true);
-            } catch (Exception e) {
-                log.info("处理异常 storeId:[{}]", head.getStoreId(), e);
-                FileUtils.writeStringToFile(new File(FileUtils.getCurrentUserHomePath() + "/Downloads/处理失败.txt"), JsonUtils.toJSONString(head) + "\r\n", StandardCharsets.UTF_8, true);
             }
+            excelWriter.write(partition.get(i), writeSheet);
+            excelWriter.finish();
         }
-        excelWriter.finish();
+
     }
 }
