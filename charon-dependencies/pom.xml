@@ -213,6 +213,11 @@
                 <artifactId>javassist</artifactId>
                 <version>${javassist.version}</version>
             </dependency>
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>${cglib.version}</version>
+            </dependency>
 
             <!-- httpclient-->
             <dependency>
@@ -435,6 +440,11 @@
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
                 <artifactId>charon-oss-core</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-http</artifactId>
                 <version>${charon.version}</version>
             </dependency>
             <dependency>

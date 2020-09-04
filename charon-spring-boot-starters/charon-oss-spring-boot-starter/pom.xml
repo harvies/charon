@@ -20,6 +20,10 @@
             <artifactId>charon-oss-core</artifactId>
         </dependency>
         <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-http</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.kohsuke</groupId>
             <artifactId>github-api</artifactId>
             <scope>test</scope>

@@ -1,5 +1,7 @@
-package io.github.harvies.charon.util;
+package io.github.harvies.charon.http;
 
+import io.github.harvies.charon.util.FileUtils;
+import io.github.harvies.charon.util.PropertiesUtils;
 import lombok.extern.slf4j.Slf4j;
 import net.dongliu.requests.RawResponse;
 import net.dongliu.requests.Requests;
