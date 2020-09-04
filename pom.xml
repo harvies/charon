@@ -31,6 +31,7 @@
         <module>charon-spider</module>
         <module>examples</module>
         <module>charon-dlock</module>
+        <module>charon-file</module>
     </modules>
 
     <dependencies>
