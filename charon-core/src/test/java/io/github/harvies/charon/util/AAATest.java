@@ -115,7 +115,7 @@ public class AAATest {
         writeSheet.setSheetNo(0);
         writeSheet.setSheetName("工作表1");
         for (Head head : list) {
-            if (list.indexOf(head) == 99) {
+            if (list.indexOf(head) == 9) {
                 break;
             }
             try {
@@ -150,9 +150,11 @@ public class AAATest {
                 writeHead.setHeadPicture(JsonUtils.toJSONString(headPictureList));
 
                 excelWriter.write(Collections.singletonList(writeHead), writeSheet);
+
+                FileUtils.writeStringToFile(new File(FileUtils.getCurrentUserHomePath() + "/Downloads/处理成功.txt"), JsonUtils.toJSONString(writeHead) + "\r\n", StandardCharsets.UTF_8, true);
             } catch (Exception e) {
                 log.info("处理异常 storeId:[{}]", head.getStoreId(), e);
-                FileUtils.writeStringToFile(new File(FileUtils.getCurrentUserHomePath() + "/Downloads/处理失败.txt"), head.getStoreId(), StandardCharsets.UTF_8);
+                FileUtils.writeStringToFile(new File(FileUtils.getCurrentUserHomePath() + "/Downloads/处理失败.txt"), JsonUtils.toJSONString(head) + "\r\n", StandardCharsets.UTF_8, true);
             }
         }
         excelWriter.finish();

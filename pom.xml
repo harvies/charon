@@ -32,6 +32,7 @@
         <module>examples</module>
         <module>charon-dlock</module>
         <module>charon-file</module>
+        <module>charon-tests</module>
     </modules>
 
     <dependencies>
