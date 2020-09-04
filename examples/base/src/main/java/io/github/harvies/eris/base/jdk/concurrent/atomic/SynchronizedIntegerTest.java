@@ -1,6 +1,6 @@
 package io.github.harvies.eris.base.jdk.concurrent.atomic;
 
-import io.github.harvies.eris.base.annotations.NotThreadSafe;
+import io.github.harvies.charon.annotations.NotThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
 /**

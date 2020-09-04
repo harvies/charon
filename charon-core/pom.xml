@@ -83,13 +83,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!--图像缩略图 -->
-        <dependency>
-            <groupId>net.coobird</groupId>
-            <artifactId>thumbnailator</artifactId>
-            <scope>test</scope>
-        </dependency>
-
     </dependencies>
 
 </project>

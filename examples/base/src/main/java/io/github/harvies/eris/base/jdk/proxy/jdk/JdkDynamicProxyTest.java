@@ -1,6 +1,6 @@
 package io.github.harvies.eris.base.jdk.proxy.jdk;
 
-import io.github.harvies.eris.base.annotations.RunSuccess;
+import io.github.harvies.charon.annotations.RunSuccess;
 import io.github.harvies.eris.base.jdk.proxy.Hello;
 import io.github.harvies.eris.base.jdk.proxy.HelloImpl;
 

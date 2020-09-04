@@ -1,4 +1,4 @@
-package io.github.harvies.charon.util;
+package io.github.harvies.charon.picture;
 
 import lombok.Cleanup;
 import lombok.extern.slf4j.Slf4j;

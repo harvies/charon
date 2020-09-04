@@ -1,6 +1,6 @@
 package io.github.harvies.eris.base.jdk.concurrent.atomic;
 
-import io.github.harvies.eris.base.annotations.ThreadSafe;
+import io.github.harvies.charon.annotations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.atomic.AtomicLong;

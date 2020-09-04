@@ -1,8 +1,11 @@
-package io.github.harvies.charon.util;
+package io.github.harvies.charon.excel;
 
 import com.alibaba.excel.EasyExcelFactory;
+import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.annotation.write.style.ColumnWidth;
+import com.alibaba.excel.write.metadata.WriteSheet;
+import io.github.harvies.charon.util.FileUtils;
 import lombok.Data;
 import org.junit.jupiter.api.Test;
 
@@ -34,5 +37,13 @@ public class ExcelTest {
                 .head(Head.class)
                 .doReadSync();
         System.err.println(list);
+        ExcelWriter excelWriter = EasyExcelFactory.write(FileUtils.getCurrentUserHomePath() + "/Downloads/图片地址_write.xlsx")
+                .head(Head.class)
+                .build();
+        WriteSheet writeSheet = new WriteSheet();
+        writeSheet.setSheetNo(0);
+        writeSheet.setSheetName("工作表1");
+        excelWriter.write(list, writeSheet);
+        excelWriter.finish();
     }
 }

@@ -1,6 +1,6 @@
 package io.github.harvies.eris.base.algorithm.leetcode.twosum;
 
-import io.github.harvies.eris.base.annotations.Complexity;
+import io.github.harvies.charon.annotations.Complexity;
 
 import java.util.HashMap;
 import java.util.Map;

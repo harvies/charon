@@ -13,7 +13,14 @@
     <packaging>pom</packaging>
     <modules>
         <module>charon-excel</module>
+        <module>charon-picture</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-core</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

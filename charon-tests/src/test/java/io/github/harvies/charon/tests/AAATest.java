@@ -1,10 +1,13 @@
-package io.github.harvies.charon.util;
+package io.github.harvies.charon.tests;
 
 import com.alibaba.excel.EasyExcelFactory;
 import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.annotation.write.style.ColumnWidth;
 import com.alibaba.excel.write.metadata.WriteSheet;
+import io.github.harvies.charon.picture.ImageWatermark;
+import io.github.harvies.charon.picture.PicUtils;
+import io.github.harvies.charon.util.*;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import net.dongliu.requests.Requests;
@@ -115,7 +118,7 @@ public class AAATest {
         writeSheet.setSheetNo(0);
         writeSheet.setSheetName("工作表1");
         for (Head head : list) {
-            if (list.indexOf(head) == 9) {
+            if (list.indexOf(head) == 1) {
                 break;
             }
             try {

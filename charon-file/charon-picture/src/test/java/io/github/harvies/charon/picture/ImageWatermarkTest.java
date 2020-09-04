@@ -1,5 +1,6 @@
-package io.github.harvies.charon.util;
+package io.github.harvies.charon.picture;
 
+import io.github.harvies.charon.util.FileUtils;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;

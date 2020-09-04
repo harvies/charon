@@ -437,6 +437,16 @@
                 <artifactId>charon-oss-core</artifactId>
                 <version>${charon.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-excel</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-picture</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
             <!-- charon-spring-boot-starters-->
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
@@ -551,7 +561,7 @@
                 <artifactId>jol-core</artifactId>
                 <version>0.13</version>
             </dependency>
-            
+
             <!--图像缩略图 -->
             <dependency>
                 <groupId>net.coobird</groupId>

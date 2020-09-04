@@ -1,6 +1,6 @@
 package io.github.harvies.eris.base.algorithm.leetcode.validanagram;
 
-import io.github.harvies.eris.base.annotations.Complexity;
+import io.github.harvies.charon.annotations.Complexity;
 
 /**
  * 有效的字母异位词 242

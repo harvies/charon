@@ -1,6 +1,6 @@
 package io.github.harvies.eris.base.jdk.proxy.jdk;
 
-import io.github.harvies.eris.base.annotations.RunFailed;
+import io.github.harvies.charon.annotations.RunFailed;
 import io.github.harvies.eris.base.jdk.proxy.HelloImplNoInterface;
 
 /**

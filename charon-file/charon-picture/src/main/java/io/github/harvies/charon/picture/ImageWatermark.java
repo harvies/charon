@@ -1,4 +1,4 @@
-package io.github.harvies.charon.util;
+package io.github.harvies.charon.picture;
 
 import lombok.Builder;
 import lombok.Cleanup;
@@ -27,7 +27,7 @@ public class ImageWatermark {
      */
     @Builder
     @Data
-    static class Param {
+    public static class Param {
         private byte[] icon;
         private byte[] source;
         private String imageName;

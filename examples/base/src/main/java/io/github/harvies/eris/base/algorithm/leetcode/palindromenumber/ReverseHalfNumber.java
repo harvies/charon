@@ -1,6 +1,6 @@
 package io.github.harvies.eris.base.algorithm.leetcode.palindromenumber;
 
-import io.github.harvies.eris.base.annotations.Complexity;
+import io.github.harvies.charon.annotations.Complexity;
 
 /**
  * 反转一半的数字
