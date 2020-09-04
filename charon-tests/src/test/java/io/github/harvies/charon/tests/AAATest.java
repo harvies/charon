@@ -112,7 +112,7 @@ public class AAATest {
 
         List<List<Head>> partition = Lists.partition(list, 33);
 
-        for (int i = 0; i < partition.size(); i++) {
+        for (int i = 60; i < partition.size(); i++) {
             log.info("当前页数:[{}]", i);
 //            if (i == 10) {
 //                break;
