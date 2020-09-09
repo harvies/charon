@@ -46,4 +46,6 @@ services:
           memory: 300M
           cpus: '1'
     environment:
-      SW_OAP_ADDRESS: oap:12800
+      SW_OAP_ADDRESS: sw.dev.kikera.org:12800
+    extra_hosts:
+      - "sw.dev.kikera.org:10.144.106.92"
