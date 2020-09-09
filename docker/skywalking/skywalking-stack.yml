@@ -27,13 +27,13 @@ services:
       resources:
         limits:
           memory: 400M
-          cpus: '2'
+          cpus: '1'
     environment:
       SW_STORAGE: elasticsearch7
       SW_STORAGE_ES_CLUSTER_NODES: es.dev.kikera.org:9200
     extra_hosts:
-      - "sw.dev.kikera.org:172.26.106.92"
-      - "es.dev.kikera.org:172.26.106.92"
+      - "sw.dev.kikera.org:10.144.106.92"
+      - "es.dev.kikera.org:10.144.106.92"
   ui:
     image: apache/skywalking-ui:8.1.0
     restart: always
@@ -44,6 +44,6 @@ services:
       resources:
         limits:
           memory: 300M
-          cpus: '2'
+          cpus: '1'
     environment:
       SW_OAP_ADDRESS: oap:12800

@@ -10,12 +10,12 @@ dubbo:
     name: dubbo
     port: 18080
   registry:
-    address: zookeeper://${zookeeperServerLists}
+    address: zookeeper://${charon.zk.url}
     file: ${user.home}/dubbo-cache/${spring.application.name}/dubbo.cache
     id: zk
   scan:
     basePackages: io.github.harvies.charon.dubbo
   metadata-report:
-    address: zookeeper://${zookeeperServerLists}
+    address: zookeeper://${charon.zk.url}
   consumer:
     check: false

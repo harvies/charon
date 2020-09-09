@@ -5,7 +5,7 @@ charon:
 elasticjob:
   reg-center:
     namespace: ${charon.application.name}
-    server-lists: ${zookeeperServerLists}
+    server-lists: ${charon.zk.url}
   jobs:
     simpleJob:
       elasticJobClass: io.github.harvies.charon.elasticjob.lite.job.SpringBootSimpleJob

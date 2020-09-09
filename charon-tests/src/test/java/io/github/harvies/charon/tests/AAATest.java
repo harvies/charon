@@ -105,19 +105,19 @@ public class AAATest {
     @Test
     public void test() throws IOException {
         byte[] iconByteArray = FileUtils.readFileToByteArray(new File(FileUtils.getCurrentUserHomePath() + "/Downloads/icon.png"));
-        List<Head> list = EasyExcelFactory.read(FileUtils.getCurrentUserHomePath() + "/Downloads/2020-09-03-17-04-50_EXPORT_XLSX_1429245_302_0.xlsx")
+        List<Head> list = EasyExcelFactory.read(FileUtils.getCurrentUserHomePath() + "/Downloads/洗车门店数据-含门店地址.xlsx")
                 .sheet(0)
                 .head(Head.class)
                 .doReadSync();
 
         List<List<Head>> partition = Lists.partition(list, 33);
 
-        for (int i = 60; i < partition.size(); i++) {
+        for (int i = 0; i < partition.size(); i++) {
             log.info("当前页数:[{}]", i);
 //            if (i == 10) {
 //                break;
 //            }
-            String picPath = FileUtils.getCurrentUserHomePath() + "/Downloads/平安/" + i + "/";
+            String picPath = FileUtils.getCurrentUserHomePath() + "/Downloads/平安-洗车/" + i + "/";
             FileUtils.forceMkdir(new File(picPath));
             ExcelWriter excelWriter = EasyExcelFactory.write(picPath + "网点入库批量申请模板.xlsx")
                     .head(Head.class)
