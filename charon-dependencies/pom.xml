@@ -690,9 +690,11 @@
                         <noCache>true</noCache>
                         <serverId>docker-aliyun</serverId>
                         <dockerHost>http://docker.dev.kikera.org:9999</dockerHost>
+<!--                        <registryUrl>https://index.docker.io/v1/</registryUrl>-->
                         <registryUrl>registry.cn-hangzhou.aliyuncs.com</registryUrl>
                         <imageName>registry.cn-hangzhou.aliyuncs.com/harvies/${project.artifactId}</imageName>
                         <baseImage>registry.cn-hangzhou.aliyuncs.com/harvies/jdk:latest</baseImage>
+                        <forceTags>true</forceTags>
                         <imageTags>
                             <imageTag>${project.version}</imageTag>
                             <imageTag>latest</imageTag>
