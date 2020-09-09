@@ -697,7 +697,7 @@
                             <imageTag>latest</imageTag>
                         </imageTags>
                         <entryPoint>
-                            ["java","${JAVA_OPTS.Xms}","${JAVA_OPTS.Xmx}","-Djava.security.egd=file:/dev/./urandom","-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005","-javaagent:/opt/skywalking/agent/skywalking-agent.jar","-jar","/${project.build.finalName}.jar"]
+                            ["java","${JAVA_OPTS.Xms}","${JAVA_OPTS.Xmx}","-Djava.security.egd=file:/dev/./urandom","-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5005","-javaagent:/opt/skywalking/agent/skywalking-agent.jar","-jar","/${project.build.finalName}.jar"]
                         </entryPoint>
                         <workdir>/</workdir>
                         <exposes>
