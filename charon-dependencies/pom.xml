@@ -54,7 +54,7 @@
         <jsqlparser.version>3.1</jsqlparser.version>
         <ognl.version>3.2.10</ognl.version>
         <apollo-client.version>1.6.0</apollo-client.version>
-        <skywalking.version>8.0.1</skywalking.version>
+        <skywalking.version>8.1.0</skywalking.version>
         <charon.version>0.0.5-SNAPSHOT</charon.version>
         <spring-boot-admin-starter.version>2.2.3</spring-boot-admin-starter.version>
         <javamelody.version>1.85.0</javamelody.version>
