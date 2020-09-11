@@ -18,7 +18,7 @@
         <project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
         <archetype.encoding>${encoding}</archetype.encoding>
 
-        <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
+        <spring-boot.version>2.1.9.RELEASE</spring-boot.version>
         <spring-cloud.version>Hoxton.SR6</spring-cloud.version>
         <sofa-boot.version>3.3.2</sofa-boot.version>
         <elastic-job.version>3.0.0-alpha</elastic-job.version>

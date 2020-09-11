@@ -1,12 +1,10 @@
 package io.github.harvies.charon.spring.boot.web;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.web.context.WebServerInitializedEvent;
 import org.springframework.boot.web.server.WebServer;
 import org.springframework.boot.web.servlet.context.ServletWebServerInitializedEvent;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
-import org.springframework.web.context.support.ServletRequestHandledEvent;
 
 /**
  * SpringWeb启动完成监听器
@@ -21,7 +19,7 @@ public class CharonWebApplicationListener implements ApplicationListener<Applica
             WebServer webServer = ((ServletWebServerInitializedEvent) event).getWebServer();
             int port = webServer.getPort();
             log.info("web server started web server port is [{}]", port);
-            webServer.shutDownGracefully(result -> log.info("shutdownComplete result:[{}]", result));
+//            webServer.shutDownGracefully(result -> log.info("shutdownComplete result:[{}]", result));
         }
 
     }
