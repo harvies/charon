@@ -8,11 +8,10 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class ResultDTO<T> extends BaseResult {
     /**
      * 返回值
      */
-    @NonNull
     private T data;
 }
