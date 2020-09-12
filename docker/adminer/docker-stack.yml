@@ -3,10 +3,10 @@ version: '3.7'
 
 services:
   adminer:
-    image: harvies/adminer:latest
+    image: adminer:latest
     restart: always
     ports:
-      - 81:80
+      - 81:8080
     deploy:
       replicas: 1
       placement:
