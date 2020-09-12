@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:3.12
 
 LABEL maintainer="Milan Sulc <sulcmil@gmail.com>"
 
@@ -6,8 +6,10 @@ ENV ADMINER_VERSION=4.7.7
 ENV MEMORY=256M
 ENV UPLOAD=2048M
 
-RUN echo '@testing http://nl.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories && \
-    echo '@community http://nl.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories && \
+RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g"  /etc/apk/repositories
+
+RUN echo '@testing http://mirrors.aliyun.com/alpine/edge/testing' >> /etc/apk/repositories && \
+    echo '@community http://mirrors.aliyun.com/alpine/edge/community' >> /etc/apk/repositories && \
     apk update && \
     apk upgrade && \
     apk add \

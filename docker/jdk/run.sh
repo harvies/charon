@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker run -it harvies/jdk:latest /bin/bash
+docker run -it registry.cn-hangzhou.aliyuncs.com/harvies/jdk:latest /bin/bash
