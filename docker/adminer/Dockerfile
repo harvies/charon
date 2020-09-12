@@ -25,6 +25,9 @@ RUN echo '@testing http://nl.alpinelinux.org/alpine/edge/testing' >> /etc/apk/re
     rm -rf /var/cache/apk/*
 
 ADD index.php /srv/index.php
+ADD designs /srv/
+ADD plugins /srv/
+ADD plugins-enabled /srv/
 ADD info-scott.php /srv/info-scott.php
 
 WORKDIR /srv
