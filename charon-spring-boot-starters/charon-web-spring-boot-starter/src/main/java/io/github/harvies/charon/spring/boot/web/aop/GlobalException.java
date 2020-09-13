@@ -7,11 +7,8 @@ import lombok.Data;
  */
 @Data
 public class GlobalException extends RuntimeException {
-    private String result;
-
-    public GlobalException(String result) {
-        super(result);
-        this.result = result;
-
+    
+    public GlobalException(String message) {
+        super(message);
     }
 }

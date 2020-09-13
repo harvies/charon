@@ -12,7 +12,7 @@ public class Results {
     }
 
     public static <T> ResultDTO<T> failed(T t) {
-        ResultDTO<T> resultDTO = new ResultDTO<T>(t);
+        ResultDTO<T> resultDTO = new ResultDTO<>(t);
         resultDTO.setCode(ResultEnum.FAILED.getCode());
         resultDTO.setMsg(ResultEnum.FAILED.getMsg());
         return resultDTO;
@@ -25,4 +25,6 @@ public class Results {
         resultDTO.setMsg(ResultEnum.SUCCESS.getMsg());
         return resultDTO;
     }
+    
+    
 }
