@@ -2,6 +2,7 @@ package io.github.harvies.charon.spring.boot.web.result;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.apache.skywalking.apm.toolkit.trace.TraceContext;
 
 import java.io.Serializable;
 
@@ -10,7 +11,7 @@ import java.io.Serializable;
 public abstract class BaseResult implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private String traceId;
+    private String traceId = TraceContext.traceId();
 
     /**
      * 状态码
