@@ -16,6 +16,8 @@
         <module>spring-boot-mq</module>
         <module>spring-boot-web</module>
         <module>spring-boot-cache</module>
+        <module>spring-boot-demo</module>
+        <module>spring-boot-api</module>
     </modules>
 
     <dependencies>
