@@ -2,7 +2,11 @@
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
-
+    
+    <pluginGroups>
+        <pluginGroup>com.google.cloud.tools</pluginGroup>
+    </pluginGroups>
+    
     <mirrors>
         <mirror>
             <id>mirror</id>
@@ -32,7 +36,7 @@
                 <email>cr0n6e@gmail.com</email>
             </configuration>
         </server>
-        
+
         <server>
             <id>docker-aliyun</id>
             <username>cr0n6e@gmail.com</username>

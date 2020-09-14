@@ -690,7 +690,7 @@
                         <noCache>true</noCache>
                         <serverId>docker-aliyun</serverId>
                         <dockerHost>http://docker.dev.kikera.org:9999</dockerHost>
-<!--                        <registryUrl>https://index.docker.io/v1/</registryUrl>-->
+                        <!--                        <registryUrl>https://index.docker.io/v1/</registryUrl>-->
                         <registryUrl>registry.cn-hangzhou.aliyuncs.com</registryUrl>
                         <imageName>registry.cn-hangzhou.aliyuncs.com/harvies/${project.artifactId}</imageName>
                         <baseImage>registry.cn-hangzhou.aliyuncs.com/harvies/jdk:latest</baseImage>
@@ -714,6 +714,25 @@
                                 <include>${project.build.finalName}.jar</include>
                             </resource>
                         </resources>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>com.google.cloud.tools</groupId>
+                    <artifactId>jib-maven-plugin</artifactId>
+                    <version>2.5.2</version>
+                    <configuration>
+                        <allowInsecureRegistries>true</allowInsecureRegistries>
+                        <from>
+                            <image>registry.cn-hangzhou.aliyuncs.com/harvies/jdk:latest</image>
+                        </from>
+                        <to>
+                            <image>registry.cn-hangzhou.aliyuncs.com/harvies/${project.artifactId}:${project.version}
+                            </image>
+                            <tags>
+                                <tag>latest</tag>
+                            </tags>
+                        </to>
                     </configuration>
                 </plugin>
             </plugins>
