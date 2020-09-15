@@ -29,15 +29,6 @@
         </server>
 
         <server>
-            <id>docker-hub</id>
-            <username>harvies</username>
-            <password>xxxxxx</password>
-            <configuration>
-                <email>cr0n6e@gmail.com</email>
-            </configuration>
-        </server>
-
-        <server>
             <id>registry.cn-hangzhou.aliyuncs.com</id>
             <username>cr0n6e@gmail.com</username>
             <password>Lisi@123</password>
