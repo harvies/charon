@@ -18,7 +18,7 @@
         <project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
         <archetype.encoding>${encoding}</archetype.encoding>
 
-        <spring-boot.version>2.1.9.RELEASE</spring-boot.version>
+        <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
         <spring-cloud.version>Hoxton.SR6</spring-cloud.version>
         <sofa-boot.version>3.3.2</sofa-boot.version>
         <elastic-job.version>3.0.0-alpha</elastic-job.version>
@@ -67,8 +67,6 @@
         <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
         <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
 
-        <JAVA_OPTS.Xmx>-Xmx512m</JAVA_OPTS.Xmx>
-        <JAVA_OPTS.Xms>-Xms512m</JAVA_OPTS.Xms>
         <web.port>8080</web.port>
 
     </properties>
@@ -681,42 +679,6 @@
                         </execution>
                     </executions>
                 </plugin>
-
-                <plugin>
-                    <groupId>com.spotify</groupId>
-                    <artifactId>docker-maven-plugin</artifactId>
-                    <version>1.2.2</version>
-                    <configuration>
-                        <noCache>true</noCache>
-                        <serverId>docker-aliyun</serverId>
-                        <dockerHost>http://docker.dev.kikera.org:9999</dockerHost>
-                        <!--                        <registryUrl>https://index.docker.io/v1/</registryUrl>-->
-                        <registryUrl>registry.cn-hangzhou.aliyuncs.com</registryUrl>
-                        <imageName>registry.cn-hangzhou.aliyuncs.com/harvies/${project.artifactId}</imageName>
-                        <baseImage>registry.cn-hangzhou.aliyuncs.com/harvies/jdk:latest</baseImage>
-                        <forceTags>true</forceTags>
-                        <imageTags>
-                            <imageTag>${project.version}</imageTag>
-                            <imageTag>latest</imageTag>
-                        </imageTags>
-                        <entryPoint>
-                            ["java","${JAVA_OPTS.Xms}","${JAVA_OPTS.Xmx}","-Djava.security.egd=file:/dev/./urandom","-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5005","-javaagent:/opt/skywalking/agent/skywalking-agent.jar","-jar","/${project.build.finalName}.jar"]
-                        </entryPoint>
-                        <workdir>/</workdir>
-                        <exposes>
-                            <expose>${web.port}</expose>
-                        </exposes>
-                        <!-- copy the service's jar file from target into the root directory of the image -->
-                        <resources>
-                            <resource>
-                                <targetPath>/</targetPath>
-                                <directory>${project.build.directory}</directory>
-                                <include>${project.build.finalName}.jar</include>
-                            </resource>
-                        </resources>
-                    </configuration>
-                </plugin>
-
                 <plugin>
                     <groupId>com.google.cloud.tools</groupId>
                     <artifactId>jib-maven-plugin</artifactId>
@@ -733,6 +695,18 @@
                                 <tag>latest</tag>
                             </tags>
                         </to>
+                        <container>
+                            <jvmFlags>
+                                <jvmFlag>-Xms512M</jvmFlag>
+                                <jvmFlag>-Xms512M</jvmFlag>
+                                <jvmFlag>-Djava.security.egd=file:/dev/./urandom</jvmFlag>
+                                <jvmFlag>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5005</jvmFlag>
+                                <jvmFlag>-javaagent:/opt/skywalking/agent/skywalking-agent.jar</jvmFlag>
+                            </jvmFlags>
+                            <ports>
+                                <port>${web.port}</port>
+                            </ports>
+                        </container>
                     </configuration>
                 </plugin>
             </plugins>
