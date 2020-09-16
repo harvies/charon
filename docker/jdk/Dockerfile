@@ -17,7 +17,7 @@ RUN wget https://mirrors.aliyun.com/apache/skywalking/${SKYWALKING_VERSION}/apac
     && tar -zxf apache-skywalking-apm-es7-${SKYWALKING_VERSION}.tar.gz && mkdir /opt/skywalking \ 
     && mv apache-skywalking-apm-bin-es7/agent/ /opt/skywalking/ \ 
     &&  rm -rf apache-skywalking-apm-bin-es7 apache-skywalking-apm-es7-${SKYWALKING_VERSION}.tar.gz \
-    && wget -O /opt/skywalking/agent/config/agent.config https://harvies-cdn.oss-cn-hangzhou.aliyuncs.com/config/skywalking/agent.config \
+    && wget -O /opt/skywalking/agent/config/agent.config https://code.aliyun.com/harvies/oss/raw/master/configs/skywalking/agent.config \
     && wget -O /opt/skywalking/agent/plugins/apm-mongodb-4.x-plugin-8.2.0-SNAPSHOT.jar https://harvies-cdn.oss-cn-hangzhou.aliyuncs.com/apm-mongodb-4.x-plugin-8.2.0-SNAPSHOT.jar
     
 WORKDIR /
