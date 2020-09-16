@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build --no-cache  -t registry.cn-hangzhou.aliyuncs.com/harvies/jdk:latest .
+docker build --pull --no-cache  -t registry.cn-hangzhou.aliyuncs.com/harvies/jdk:latest .
