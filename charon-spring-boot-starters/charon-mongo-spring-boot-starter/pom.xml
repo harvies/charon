@@ -19,6 +19,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-web-spring-boot-starter</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
 </project>
