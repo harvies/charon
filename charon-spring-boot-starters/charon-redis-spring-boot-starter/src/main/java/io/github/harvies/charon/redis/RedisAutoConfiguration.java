@@ -17,11 +17,11 @@ import java.util.List;
 
 @Configuration(proxyBeanMethods = false)
 @EnableConfigurationProperties({RedisProperties.class})
+@ConditionalOnClass(Redisson.class)
 public class RedisAutoConfiguration {
 
     @Bean(destroyMethod = "shutdown")
     @ConditionalOnMissingBean(RedissonClient.class)
-    @ConditionalOnClass(Redisson.class)
     public RedissonClient redisson(RedisProperties redisProperties) {
         Config config = new Config();
         //timeout default 3000;
