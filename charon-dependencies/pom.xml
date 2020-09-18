@@ -698,7 +698,7 @@
                         <container>
                             <jvmFlags>
                                 <jvmFlag>-Xms512M</jvmFlag>
-                                <jvmFlag>-Xms512M</jvmFlag>
+                                <jvmFlag>-Xmx512M</jvmFlag>
                                 <jvmFlag>-Djava.security.egd=file:/dev/./urandom</jvmFlag>
                                 <jvmFlag>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5005</jvmFlag>
                                 <jvmFlag>-javaagent:/opt/skywalking/agent/skywalking-agent.jar</jvmFlag>
