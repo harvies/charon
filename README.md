@@ -34,15 +34,19 @@
   -  [charon-spring-boot-admin-client-starter](./charon-spring-boot-starters/charon-spring-boot-admin-client-starter) 集成spring-boot-amin-client
 - [docker](./docker) 常用docker镜像
 
+
+## Maven 配置文件
+https://code.aliyun.com/harvies/configs/raw/75d678e4c5a0c1b847d44edb469a342aa76bd9cb/.m2/settings.xml
+
 ## 编译
 
 ```bash
-mvn clean install -DskipTests -U -s '.maven/settings.xml'
+mvn clean install -DskipTests -U -s 'xxxx/settings.xml'
 ```
 
 ## 部署
 ```bash
-mvn clean deploy -DskipTests -U -s '.maven/settings.xml'
+mvn clean deploy -DskipTests -U -s 'xxx/settings.xml'
 ```
 
 ## 常用工具
