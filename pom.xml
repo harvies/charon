@@ -29,7 +29,6 @@
         <module>charon-agent</module>
         <module>charon-attach</module>
         <module>charon-spider</module>
-        <module>examples</module>
         <module>charon-dlock</module>
         <module>charon-file</module>
         <module>charon-tests</module>

@@ -320,6 +320,14 @@
                 <version>1.2.72</version>
             </dependency>
 
+            <!--xml-->
+            <dependency>
+                <groupId>org.dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>2.0.0</version>
+                <scope>compile</scope>
+            </dependency>
+
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>easyexcel</artifactId>
@@ -700,7 +708,8 @@
                                 <jvmFlag>-Xms512M</jvmFlag>
                                 <jvmFlag>-Xmx512M</jvmFlag>
                                 <jvmFlag>-Djava.security.egd=file:/dev/./urandom</jvmFlag>
-                                <jvmFlag>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5005</jvmFlag>
+                                <jvmFlag>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5005
+                                </jvmFlag>
                                 <jvmFlag>-javaagent:/opt/skywalking/agent/skywalking-agent.jar</jvmFlag>
                             </jvmFlags>
                             <ports>
