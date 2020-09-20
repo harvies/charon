@@ -23,4 +23,10 @@ class FileUtilsTest {
         String pathSeparator = FileUtils.getPathSeparator();
         assertNotNull(pathSeparator);
     }
+
+    @Test
+    void getTmpDir() {
+        String tmpDir = FileUtils.getTmpDir();
+        assertNotNull(tmpDir);
+    }
 }

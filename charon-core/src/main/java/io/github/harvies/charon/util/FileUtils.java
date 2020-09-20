@@ -40,6 +40,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 
     /**
      * 获取操作系统临时目录
+     * example: /var/folders/ch/p2kq0ygs0hv24fd8swp1skqh0000gn/T/
      *
      * @return 临时目录
      */
