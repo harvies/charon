@@ -1,4 +1,4 @@
-package io.github.harvies.charon.dto;
+package io.github.harvies.charon.model;
 
 import java.io.Serializable;
 
