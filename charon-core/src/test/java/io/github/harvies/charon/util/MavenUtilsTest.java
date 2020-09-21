@@ -7,6 +7,7 @@ import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MavenUtilsTest {
@@ -26,7 +27,8 @@ public class MavenUtilsTest {
 
     @Test
     void compareVersion() {
-        int i = MavenUtils.compareVersion("3.8.0","3.10");
-        System.err.println(i);
+        assertTrue(MavenUtils.compareVersion("3.8.0", "3.10") < 0);
+        assertTrue(MavenUtils.compareVersion("2.7.0-rc2", "2.7.0") < 0);
+        assertEquals(0, MavenUtils.compareVersion("2.7.0", "2.7.0"));
     }
 }

@@ -33,4 +33,11 @@ public class MavenArtifact implements Serializable {
      * 最早被移除的版本
      */
     private MavenArtifact firstRemovedArtifact;
+
+    private String metaDataUrl;
+    private String mirrorMetaDataUrl;
+
+    private String latest;
+    private String release;
+    private String lastUpdated;
 }
