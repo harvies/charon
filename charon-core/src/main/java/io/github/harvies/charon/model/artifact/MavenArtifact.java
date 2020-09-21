@@ -34,8 +34,8 @@ public class MavenArtifact implements Serializable {
      */
     private MavenArtifact firstRemovedArtifact;
 
-    private String metaDataUrl;
-    private String mirrorMetaDataUrl;
+    private String metadataUrl;
+    private String mirrorMetadataUrl;
 
     private String latest;
     private String release;

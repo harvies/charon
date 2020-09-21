@@ -31,8 +31,8 @@ public class MavenUtils {
             log.info("info error groupId:[{}] artifactId:[{}]", groupId, artifactId, e);
             return mavenArtifact;
         }
-        mavenArtifact.setMetaDataUrl(REPO_ROOT_URL + groupIdUrl + "/" + artifactId + "/maven-metadata.xml");
-        mavenArtifact.setMirrorMetaDataUrl(metaDataUrl);
+        mavenArtifact.setMetadataUrl(REPO_ROOT_URL + groupIdUrl + "/" + artifactId + "/maven-metadata.xml");
+        mavenArtifact.setMirrorMetadataUrl(metaDataUrl);
         JSONObject jsonObject = JsonUtils.parseObject(JsonUtils.toJSONString(map));
         JSONObject versioning = jsonObject.getJSONObject("versioning");
         mavenArtifact.setLatest(jsonObject.getString("version"));
