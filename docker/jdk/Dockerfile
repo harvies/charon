@@ -11,7 +11,7 @@ RUN curl -L https://cdn.jsdelivr.net/gh/harvies/arthas-install@master/install_ar
  
 # Add SkyWalking-Agent	
 #ONBUILD
-RUN wget -O /opt/skywalking-agent.tar.gz https://harvies-cdn.oss-cn-hangzhou.aliyuncs.com/skywalking-agent.tar.gz /
+RUN wget -O /opt/skywalking-agent.tar.gz https://harvies-cdn.oss-cn-hangzhou.aliyuncs.com/skywalking-agent.tar.gz \
  && rm -rf /opt/skywalking-agent.tar.gz
     
 WORKDIR /
