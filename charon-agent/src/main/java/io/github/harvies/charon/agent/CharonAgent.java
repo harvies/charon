@@ -1,6 +1,8 @@
 package io.github.harvies.charon.agent;
 
 import java.lang.instrument.Instrumentation;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class CharonAgent {
     /**
@@ -9,24 +11,17 @@ public class CharonAgent {
      */
     public static void premain(String agentOps, Instrumentation inst) {
         System.out.println("=========premain方法执行========");
-        System.out.println(agentOps);
-        // 添加Transformer
-        inst.addTransformer(new CharonTransformer());
-        System.out.println("=========premain方法执行完毕========");
+//        System.out.println(agentOps);
+//        // 添加Transformer
+//        inst.addTransformer(new CharonTransformer());
+//        System.out.println("=========premain方法执行完毕========");
+        init();
     }
 
-    /**
-     * 如果不存在 premain(String agentOps, Instrumentation inst) 则会执行 premain(String
-     * agentOps)
-     */
-    public static void premain(String agentOps) {
-
-        System.out.println("====premain方法执行2====");
-        System.out.println(agentOps);
+    public static void init() {
+        Executors.newScheduledThreadPool(1).scheduleAtFixedRate(() -> {
+            Metric.printMemoryInfo();
+            Metric.printGCInfo();
+        }, 0, 5000, TimeUnit.MILLISECONDS);
     }
-
-    public static void main(String[] args) {
-
-    }
-
 }

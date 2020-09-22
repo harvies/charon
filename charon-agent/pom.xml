@@ -16,6 +16,19 @@
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
         </dependency>
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy-agent</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -27,13 +40,14 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
+                    <finalName>charon-agent</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
                     <!-- MainClass in mainfest make a executable jar -->
                     <archive>
                         <manifestEntries>
                             <Premain-Class>io.github.harvies.charon.agent.CharonAgent</Premain-Class>
                         </manifestEntries>
                     </archive>
-
                 </configuration>
                 <executions>
                     <execution>
