@@ -76,7 +76,7 @@ public class MavenUtilsTest {
     void setArtifactInfo() {
         MavenArtifact mavenArtifact = new MavenArtifact()
                 .setGroupId("org.mongodb")
-                .setArtifactId("mongodb-java-drive")
+                .setArtifactId("mongo-java-driver")
                 .setAliasArtifactList(
                         Arrays.asList(
                                 new MavenArtifact().setGroupId("org.mongodb").setArtifactId("mongodb-driver-sync"),
