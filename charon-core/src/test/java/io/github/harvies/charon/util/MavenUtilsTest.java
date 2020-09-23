@@ -80,8 +80,8 @@ public class MavenUtilsTest {
                 .setAliasArtifactList(
                         Arrays.asList(
                                 new MavenArtifact().setGroupId("org.mongodb").setArtifactId("mongodb-driver-sync"),
-                                new MavenArtifact().setGroupId("org.mongodb").setArtifactId("mongodb-driver-core")
-//                                new MavenArtifact().setGroupId("org.mongodb").setArtifactId("bson")
+                                new MavenArtifact().setGroupId("org.mongodb").setArtifactId("mongodb-driver-core"),
+                                new MavenArtifact().setGroupId("org.mongodb").setArtifactId("bson")
                         )
                 );
         MavenUtils.setArtifactInfo("com.mongodb.operation.AggregateOperationImpl", mavenArtifact);

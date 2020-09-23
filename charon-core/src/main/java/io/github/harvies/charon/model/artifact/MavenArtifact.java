@@ -40,6 +40,4 @@ public class MavenArtifact implements Serializable {
     private String latest;
     private String release;
     private String lastUpdated;
-    
-    private boolean existsTargetClass;
 }

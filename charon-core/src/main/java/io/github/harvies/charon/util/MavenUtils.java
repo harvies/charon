@@ -106,13 +106,17 @@ public class MavenUtils {
         stringArrayList.sort(MavenUtils::compareVersion);
         for (String version : stringArrayList) {
             List<MavenArtifact> mavenArtifacts = artifactArrayListMultimap.get(version);
+            //同一版本所有包都不存在该类的次数
+            int notExistsNum = 0;
             for (MavenArtifact artifact : mavenArtifacts) {
                 if (!artifact.getVersionList().contains(version)) {
                     continue;
                 }
                 List<String> allClassNameListByMavenArtifact = getAllClassNameListByMavenArtifact(artifact.getGroupId(), artifact.getArtifactId(), version);
                 boolean contains = allClassNameListByMavenArtifact.contains(className);
-                artifact.setExistsTargetClass(contains);
+                if (!contains) {
+                    notExistsNum++;
+                }
                 if (mavenArtifact.getFirstAddedArtifact() == null && contains) {
                     MavenArtifact firstAddedArtifact = new MavenArtifact()
                             .setGroupId(artifact.getGroupId())
@@ -124,7 +128,7 @@ public class MavenUtils {
             }
             boolean remove = mavenArtifact.getFirstAddedArtifact() != null
                     && compareVersion(version, mavenArtifact.getFirstAddedArtifact().getVersion()) > 0
-                    && mavenArtifacts.stream().filter(mavenArtifact1 -> !mavenArtifact1.isExistsTargetClass()).count() == mavenArtifacts.size();
+                    && notExistsNum == mavenArtifacts.size();
             if (remove) {
                 mavenArtifact.setFirstRemovedVersion(version);
                 break;
