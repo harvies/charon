@@ -6,6 +6,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Lists;
 import io.github.harvies.charon.model.artifact.MavenArtifact;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import net.dongliu.requests.Requests;
 import org.apache.commons.lang3.StringUtils;
@@ -176,18 +177,27 @@ public class MavenUtils {
         return getAllClassNameListByMavenArtifact(mavenArtifact.getGroupId(), mavenArtifact.getArtifactId(), mavenArtifact.getVersion());
     }
 
+    public static String getCacheDirectory() {
+        return FileUtils.getCurrentUserHomePath() + "/.m1";
+    }
+
+    @SneakyThrows
     public static List<String> getAllClassNameListByMavenArtifact(String groupId, String artifactId, String version) {
         String jarFileUrl = MavenUtils.getJarFileUrl(groupId, artifactId, version);
-        File file = new File(FileUtils.getTmpDir() + RandomUtils.uuid());
-        try {
+        String substring = jarFileUrl.substring(REPO_ROOT_MIRROR_URL.length() - 1);
+        String directoryPath = FileUtils.getDirectoryPath(substring);
+        File filePath = new File(getCacheDirectory() + directoryPath);
+        FileUtils.forceMkdir(filePath);
+        File file = new File(filePath.getPath() + File.separator + new File(substring).getName());
+        if (!file.exists()) {
             byte[] bytes = Requests.get(jarFileUrl).socksTimeout(10000).send().readToBytes();
             FileUtils.writeByteArrayToFile(file, bytes);
+        }
+        try {
             return JarUtils.getClassNameListByJarFile(file);
         } catch (Exception e) {
-            log.info("getAllClassNameList error groupId:[{}] artifactId:[{}] version:[{}]", groupId, artifactId, version);
-        } finally {
-            file.delete();
+            file.exists();
+            return Collections.emptyList();
         }
-        return Collections.emptyList();
     }
 }

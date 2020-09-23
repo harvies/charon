@@ -47,4 +47,15 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
     public static String getTmpDir() {
         return System.getProperty("java.io.tmpdir");
     }
+
+    /**
+     * 根据文件路径获取目录路径
+     * /org/mongodb/mongo-java-driver/3.8.0/mongo-java-driver-3.8.0.jar
+     *
+     * @param filePath
+     * @return
+     */
+    public static String getDirectoryPath(String filePath) {
+        return StringUtils.substring(filePath, 0, StringUtils.lastIndexOf(filePath, "/"));
+    }
 }
