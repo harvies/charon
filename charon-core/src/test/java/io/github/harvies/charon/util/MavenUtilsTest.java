@@ -42,7 +42,7 @@ public class MavenUtilsTest {
     void getAllClassNameList() {
         MavenArtifact mavenArtifact = new MavenArtifact()
                 .setGroupId("org.mongodb")
-                .setArtifactId("mongo-drive-driver")
+                .setArtifactId("mongo-java-driver")
                 .setVersion("3.8.0");
         List<String> allClassNameList = MavenUtils.getAllClassNameListByMavenArtifact(mavenArtifact);
         System.err.println(allClassNameList.size());
@@ -80,8 +80,8 @@ public class MavenUtilsTest {
                 .setAliasArtifactList(
                         Arrays.asList(
                                 new MavenArtifact().setGroupId("org.mongodb").setArtifactId("mongodb-driver-sync"),
-                                new MavenArtifact().setGroupId("org.mongodb").setArtifactId("mongodb-driver-core"),
-                                new MavenArtifact().setGroupId("org.mongodb").setArtifactId("bson")
+                                new MavenArtifact().setGroupId("org.mongodb").setArtifactId("mongodb-driver-core")
+//                                new MavenArtifact().setGroupId("org.mongodb").setArtifactId("bson")
                         )
                 );
         MavenUtils.setArtifactInfo("com.mongodb.operation.AggregateOperationImpl", mavenArtifact);

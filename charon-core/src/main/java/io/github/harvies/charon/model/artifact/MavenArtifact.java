@@ -32,7 +32,7 @@ public class MavenArtifact implements Serializable {
     /**
      * 最早被移除的版本
      */
-    private MavenArtifact firstRemovedArtifact;
+    private String firstRemovedVersion;
 
     private String metadataUrl;
     private String mirrorMetadataUrl;
@@ -40,4 +40,6 @@ public class MavenArtifact implements Serializable {
     private String latest;
     private String release;
     private String lastUpdated;
+    
+    private boolean existsTargetClass;
 }
