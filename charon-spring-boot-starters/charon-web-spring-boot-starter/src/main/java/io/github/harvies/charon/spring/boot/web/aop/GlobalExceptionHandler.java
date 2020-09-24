@@ -18,7 +18,7 @@ public class GlobalExceptionHandler {
             return Results.failed(e.getMessage());
         }
         log.warn("exceptionHandler", e);
-        return Results.failed(e.getMessage());
+        return Results.unknownError();
     }
 
 }

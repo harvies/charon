@@ -18,6 +18,17 @@ public class Results {
         return resultDTO;
     }
 
+    public static <T> ResultDTO<T> unknownError(T t) {
+        ResultDTO<T> resultDTO = new ResultDTO<>(t);
+        resultDTO.setCode(ResultEnum.UNKNOWN_ERROR.getCode());
+        resultDTO.setMsg(ResultEnum.UNKNOWN_ERROR.getMsg());
+        return resultDTO;
+    }
+
+    public static ResultDTO<String> unknownError() {
+        return unknownError("system exception!");
+    }
+
     public static <T> PageResultDTO<T> success(List<T> list, long totalCount) {
         PageResultDTO<T> resultDTO = new PageResultDTO<>(list);
         resultDTO.setTotal(totalCount);

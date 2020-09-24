@@ -4,7 +4,7 @@ package io.github.harvies.charon.spring.boot.web.result;
  * @author harvies
  */
 public enum ResultEnum {
-    UNKNOWN_ERROR("-1", "未知错误"),
+    UNKNOWN_ERROR("-1", "系统异常"),
     SUCCESS("0", "请求成功"),
     FAILED("1", "请求失败"),
     ;
