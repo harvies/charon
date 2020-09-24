@@ -18,17 +18,17 @@ public class MavenUtilsTest {
     private MavenArtifact oldMavenArtifact = new MavenArtifact()
             .setGroupId("org.mongodb")
             .setArtifactId("mongo-java-driver")
-            .setVersion("3.7.0");
+            .setVersion("3.6.0");
 
     private MavenArtifact currentMavenArtifact = new MavenArtifact()
             .setGroupId("org.mongodb")
             .setArtifactId("mongo-java-driver")
-            .setVersion("3.8.0");
+            .setVersion("3.7.0");
 
     private MavenArtifact newMavenArtifact = new MavenArtifact()
             .setGroupId("org.mongodb")
-            .setArtifactId("mongodb-driver-core")
-            .setVersion("4.0.0");
+            .setArtifactId("mongo-java-driver")
+            .setVersion("3.8.0");
 
     private List<MavenArtifact> newMavenArtifactList = Arrays.asList(newMavenArtifact, new MavenArtifact()
             .setGroupId("org.mongodb")
@@ -84,13 +84,13 @@ public class MavenUtilsTest {
                                 new MavenArtifact().setGroupId("org.mongodb").setArtifactId("bson")
                         )
                 );
-        MavenUtils.setArtifactInfo("com.mongodb.operation.AggregateOperationImpl", mavenArtifact);
+        MavenUtils.setArtifactInfo("com.mongodb.client.MongoClientImpl", mavenArtifact);
         System.err.println(JsonUtils.toJSONString(mavenArtifact));
     }
 
     @Test
     void exists() {
-        boolean exists = MavenUtils.exists("com.mongodb.operation.AggregateOperationImpl", currentMavenArtifact);
+        boolean exists = MavenUtils.exists("com.mongodb.client.MongoClientImpl", oldMavenArtifact);
         System.err.println(exists);
     }
 
