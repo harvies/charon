@@ -196,7 +196,7 @@ public class MavenUtils {
         try {
             return JarUtils.getClassNameListByJarFile(file);
         } catch (Exception e) {
-            file.exists();
+            file.delete();
             return Collections.emptyList();
         }
     }
