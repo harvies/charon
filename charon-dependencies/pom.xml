@@ -728,8 +728,8 @@
                                 </SW_AGENT_COLLECTOR_BACKEND_SERVICES>
                             </environment>
                             <jvmFlags>
-                                <jvmFlag>-Xms512M</jvmFlag>
-                                <jvmFlag>-Xmx512M</jvmFlag>
+                                <jvmFlag>${Xms}</jvmFlag>
+                                <jvmFlag>${Xmx}</jvmFlag>
                                 <jvmFlag>-Djava.security.egd=file:/dev/./urandom</jvmFlag>
                                 <jvmFlag>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5005
                                 </jvmFlag>
@@ -751,6 +751,23 @@
         </pluginManagement>
     </build>
     <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <Xms>-Xms300M</Xms>
+                <Xmx>-Xmx300M</Xmx>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <Xms>-Xms512M</Xms>
+                <Xmx>-Xmx512M</Xmx>
+            </properties>
+        </profile>
         <profile>
             <id>default-tools</id>
             <activation>
