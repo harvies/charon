@@ -10,8 +10,12 @@ import java.util.Properties;
 @Slf4j
 public class PropertiesUtils {
 
+    public static String getDefaultPath() {
+        return "/opt/charon/charon.properties";
+    }
+
     public static Properties getDefaultProperties() {
-        String path = io.github.harvies.charon.util.FileUtils.getCurrentUserHomePath() + "/.charon.properties";
+        String path = getDefaultPath();
         return getProperties(new File(path));
     }
 

@@ -17,7 +17,7 @@
 - [charon-socks-proxy-server](./charon-socks-proxy-server)  使用netty实现的socks5代理，摘自netty example
 - [charon-spring-boot-admin-server](./charon-spring-boot-admin-server) spring-boot-admin服务端
 - [charon-spring-boot-starters](./charon-spring-boot-starters)  charon-spring-boot-starter父模块
-  -  [charon-spring-boot-starter](./charon-spring-boot-starters/charon-spring-boot-starter)  拓展spring-boot-starter,其他starter依赖此模块,新增配置.charon.properties加载(方便本地调试)
+  -  [charon-spring-boot-starter](./charon-spring-boot-starters/charon-spring-boot-starter)  拓展spring-boot-starter,其他starter依赖此模块,新增配置/opt/charon/charon.properties加载(方便本地调试)
   -  [charon-web-spring-boot-starter](./charon-spring-boot-starters/charon-web-spring-boot-starter) 拓展spring-boot-starter,新增健康检查Controller及线程查看等运维工具
   -  [charon-apollo-spring-boot-starter](./charon-spring-boot-starters/charon-apollo-spring-boot-starter) 集成apollo
   -  [charon-dubbo-spring-boot-starter](./charon-spring-boot-starters/charon-dubbo-spring-boot-starter) 集成dubbo
