@@ -6,4 +6,4 @@ git status
 git add .
 git commit -am "$note"
 git pull --rebase
-git push --mirror
+git push origin/master
