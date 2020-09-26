@@ -22,7 +22,7 @@ public class Consumer {
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("please_rename_unique_group_name");
 
         // 设置NameServer的地址
-        consumer.setNamesrvAddr("localhost:9876");
+        consumer.setNamesrvAddr("192.168.7.77:9876");
 
         // 订阅一个或者多个Topic，以及Tag来过滤需要消费的消息
         consumer.subscribe("TopicTest", "*");
