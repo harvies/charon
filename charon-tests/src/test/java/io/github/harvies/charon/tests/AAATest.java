@@ -104,8 +104,8 @@ public class AAATest {
 
     @Test
     public void test() throws IOException {
-        byte[] iconByteArray = FileUtils.readFileToByteArray(new File(FileUtils.getCurrentUserHomePath() + "/Downloads/icon.png"));
-        List<Head> list = EasyExcelFactory.read(FileUtils.getCurrentUserHomePath() + "/Downloads/洗车门店数据-含门店地址.xlsx")
+        byte[] iconByteArray = FileUtils.readFileToByteArray(new File(FileUtils.getCurrentUserHomePath() + "/icon.png"));
+        List<Head> list = EasyExcelFactory.read(FileUtils.getCurrentUserHomePath() + "/Downloads/test2.xlsx")
                 .sheet(0)
                 .head(Head.class)
                 .doReadSync();

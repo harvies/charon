@@ -71,6 +71,8 @@
         <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
 
         <web.port>8080</web.port>
+        <Xms>-Xms300M</Xms>
+        <Xmx>-Xmx300M</Xmx>
 
     </properties>
     <dependencyManagement>
