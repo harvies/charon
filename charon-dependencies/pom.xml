@@ -420,7 +420,7 @@
             <!-- charon -->
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
-                <artifactId>charon-facade</artifactId>
+                <artifactId>charon-api</artifactId>
                 <version>${charon.version}</version>
             </dependency>
             <dependency>
