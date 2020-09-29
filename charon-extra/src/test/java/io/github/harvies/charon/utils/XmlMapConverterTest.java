@@ -1,4 +1,4 @@
-package io.github.harvies.charon.util;
+package io.github.harvies.charon.utils;
 
 import org.junit.jupiter.api.Test;
 

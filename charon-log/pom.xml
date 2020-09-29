@@ -5,7 +5,7 @@
     <parent>
         <artifactId>charon-parent</artifactId>
         <groupId>io.github.harvies.charon</groupId>
-        <version>0.0.5-SNAPSHOT</version>
+        <version>0.0.6-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -20,6 +20,10 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-core</artifactId>
         </dependency>
     </dependencies>
 

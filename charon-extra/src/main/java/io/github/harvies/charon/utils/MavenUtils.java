@@ -1,11 +1,13 @@
-package io.github.harvies.charon.util;
+package io.github.harvies.charon.utils;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Lists;
-import io.github.harvies.charon.model.artifact.MavenArtifact;
+import io.github.harvies.charon.utils.artifact.MavenArtifact;
+import io.github.harvies.charon.util.FileUtils;
+import io.github.harvies.charon.util.JarUtils;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import net.dongliu.requests.Requests;

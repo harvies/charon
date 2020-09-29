@@ -20,7 +20,7 @@ RUN  yum clean all && rm -rf /tmp/* /var/cache/yum/*
 
 # install arthas
 RUN curl -L https://cdn.jsdelivr.net/gh/harvies/arthas-install@master/install_arthas.sh |sh
-## https://harvies-cdn.oss-cn-hangzhou.aliyuncs.com/charon-socks-proxy-server-0.0.5-SNAPSHOT-jar-with-dependencies.jar
+## https://harvies-cdn.oss-cn-hangzhou.aliyuncs.com/charon-socks-proxy-server-0.0.6-SNAPSHOT-jar-with-dependencies.jar
  
 ARG SKYWALKING_VERSION="8.1.0"
  

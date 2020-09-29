@@ -6,7 +6,7 @@
 
     <artifactId>charon-dependencies</artifactId>
     <groupId>io.github.harvies.charon</groupId>
-    <version>0.0.5-SNAPSHOT</version>
+    <version>0.0.6-SNAPSHOT</version>
     <packaging>pom</packaging>
     <properties>
         <!-- Compiler properties -->
@@ -55,7 +55,7 @@
         <ognl.version>3.2.10</ognl.version>
         <apollo-client.version>1.6.0</apollo-client.version>
         <skywalking.version>8.1.0</skywalking.version>
-        <charon.version>0.0.5-SNAPSHOT</charon.version>
+        <charon.version>0.0.6-SNAPSHOT</charon.version>
         <spring-boot-admin-starter.version>2.2.3</spring-boot-admin-starter.version>
         <javamelody.version>1.85.0</javamelody.version>
 
@@ -430,6 +430,11 @@
             </dependency>
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-extra</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
                 <artifactId>charon-apollo</artifactId>
                 <version>${charon.version}</version>
             </dependency>
@@ -761,6 +766,13 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <!-- 批量修改pom版本号-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
     <profiles>
         <profile>

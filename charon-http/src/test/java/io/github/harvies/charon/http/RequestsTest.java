@@ -30,7 +30,7 @@ public class RequestsTest {
     public void post() {
         String readToText = Requests.post(PropertiesUtils.getDefaultProperty("charon.oss.url"))
                 .multiPartBody(
-                        Part.file("file", new File(FileUtils.getCurrentUserHomePath() + "/Downloads/aaaa.jpeg")))
+                        Part.file("file", new File(FileUtils.getCurrentUserHomePath() + "/baidu.png")))
                 .send().readToText();
         System.err.println(readToText);
     }

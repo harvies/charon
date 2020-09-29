@@ -1,6 +1,6 @@
-package io.github.harvies.charon.util;
+package io.github.harvies.charon.utils;
 
-import io.github.harvies.charon.model.artifact.MavenArtifact;
+import io.github.harvies.charon.utils.artifact.MavenArtifact;
 import net.dongliu.requests.Requests;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MavenUtilsTest {
-
 
     private MavenArtifact oldMavenArtifact = new MavenArtifact()
             .setGroupId("org.mongodb")

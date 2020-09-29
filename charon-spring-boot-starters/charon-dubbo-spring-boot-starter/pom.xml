@@ -5,7 +5,7 @@
     <parent>
         <artifactId>charon-spring-boot-starters</artifactId>
         <groupId>io.github.harvies.charon</groupId>
-        <version>0.0.5-SNAPSHOT</version>
+        <version>0.0.6-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -19,7 +19,7 @@
         <dependency>
             <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-dubbo</artifactId>
-            <version>0.0.5-SNAPSHOT</version>
+            <version>0.0.6-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
                     <artifactId>slf4j-log4j12</artifactId>

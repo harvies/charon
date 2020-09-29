@@ -1,4 +1,4 @@
-package io.github.harvies.charon.util;
+package io.github.harvies.charon.utils;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
