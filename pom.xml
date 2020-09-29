@@ -17,7 +17,7 @@
     <modules>
         <module>charon-dependencies</module>
         <module>charon-core</module>
-        <module>charon-facade</module>
+        <module>charon-api</module>
         <module>charon-dubbo</module>
         <module>charon-spring-boot-starters</module>
         <module>charon-apollo</module>
