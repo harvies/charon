@@ -1,4 +1,4 @@
-package io.github.harvies.charon.util.artifact;
+package io.github.harvies.charon.dto.artifact;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
