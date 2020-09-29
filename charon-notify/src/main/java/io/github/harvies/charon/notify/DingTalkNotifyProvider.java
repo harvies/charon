@@ -9,6 +9,7 @@ import net.dongliu.requests.Requests;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * 钉钉消息通知服务
@@ -40,10 +41,10 @@ public class DingTalkNotifyProvider implements NotifyProvider {
                 .headers(headerMap)
                 .send().readToText();
         JSONObject jsonObject = JsonUtils.parseObject(result);
-        log.info("dingtalk send result:[{}]",result);
+        log.info("dingtalk send result:[{}]", result);
         if (jsonObject == null) {
             return false;
         }
-        return jsonObject.getInteger("errcode") == 0;
+        return Objects.equals(jsonObject.getInteger("errcode"), 0);
     }
 }
