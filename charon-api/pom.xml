@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
-    <artifactId>charon-facade</artifactId>
+    <artifactId>charon-api</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
