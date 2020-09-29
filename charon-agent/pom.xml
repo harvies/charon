@@ -25,14 +25,8 @@
             <artifactId>byte-buddy-agent</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <scope>test</scope>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-log</artifactId>
         </dependency>
         <dependency>
             <groupId>io.github.harvies.charon</groupId>
