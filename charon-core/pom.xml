@@ -42,17 +42,10 @@
             <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-json</artifactId>
         </dependency>
-        <!-- log-->
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-log</artifactId>
         </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <scope>compile</scope>
-        </dependency>
-
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
