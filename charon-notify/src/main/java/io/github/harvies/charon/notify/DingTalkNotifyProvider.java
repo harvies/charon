@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import io.github.harvies.charon.util.JsonUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import net.dongliu.requests.Requests;
 
 import java.util.HashMap;
@@ -12,6 +13,7 @@ import java.util.Map;
 /**
  * 钉钉消息通知服务
  */
+@Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class DingTalkNotifyProvider implements NotifyProvider {
     /**
@@ -38,6 +40,7 @@ public class DingTalkNotifyProvider implements NotifyProvider {
                 .headers(headerMap)
                 .send().readToText();
         JSONObject jsonObject = JsonUtils.parseObject(result);
+        log.info("dingtalk send result:[{}]",result);
         if (jsonObject == null) {
             return false;
         }
