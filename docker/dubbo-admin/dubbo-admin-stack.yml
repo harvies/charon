@@ -13,12 +13,13 @@ services:
         limits:
           cpus: '2'
     environment:
-      - admin.registry.address=zookeeper://zk.dev.kikera.top:2181
-      - admin.config-center=zookeeper://zk.dev.kikera.top:2181
-      - admin.metadata-report.address=zookeeper://zk.dev.kikera.top:2181
+      - admin.registry.address=zookeeper://zk.dev.kikera.org:2181
+      - admin.config-center=zookeeper://zk.dev.kikera.org:2181
+      - admin.metadata-report.address=zookeeper://zk.dev.kikera.org:2181
       - admin.check.authority=true
       - admin.root.user.name=admin
       - admin.root.user.password=Lisi@123
+    dns: 121.199.57.1
     networks:
       - default
 networks:

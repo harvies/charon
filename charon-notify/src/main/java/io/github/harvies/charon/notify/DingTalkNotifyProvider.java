@@ -1,5 +1,6 @@
 package io.github.harvies.charon.notify;
 
+import com.alibaba.fastjson.JSONObject;
 import io.github.harvies.charon.util.JsonUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -36,6 +37,10 @@ public class DingTalkNotifyProvider implements NotifyProvider {
                 .body(JsonUtils.toJSONString(data))
                 .headers(headerMap)
                 .send().readToText();
-        return JsonUtils.parseObject(result).getInteger("errcode") == 0;
+        JSONObject jsonObject = JsonUtils.parseObject(result);
+        if (jsonObject == null) {
+            return false;
+        }
+        return jsonObject.getInteger("errcode") == 0;
     }
 }
