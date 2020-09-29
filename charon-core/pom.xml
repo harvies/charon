@@ -39,8 +39,8 @@
         </dependency>
         <!-- json -->
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-json</artifactId>
         </dependency>
         <!-- log-->
         <dependency>

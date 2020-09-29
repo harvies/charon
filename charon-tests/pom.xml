@@ -28,6 +28,14 @@
             <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-http</artifactId>
         </dependency>
+
+        <!-- asm -->
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
 </project>

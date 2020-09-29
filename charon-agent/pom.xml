@@ -34,6 +34,10 @@
             <artifactId>logback-classic</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-json</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

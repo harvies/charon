@@ -39,6 +39,7 @@ public class CharonAgent {
 
         new AgentBuilder
                 .Default()
+//                .ignore(nameStartsWith("io.github.harvies.charon.util.JsonUtils."))
                 .type(
                         ElementMatchers.nameStartsWith("io.github.harvies.blazars")
                                 .or(ElementMatchers.nameStartsWith("io.github.harvies.charon"))
