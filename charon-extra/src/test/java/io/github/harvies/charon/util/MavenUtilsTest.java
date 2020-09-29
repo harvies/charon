@@ -1,6 +1,6 @@
-package io.github.harvies.charon.utils;
+package io.github.harvies.charon.util;
 
-import io.github.harvies.charon.utils.artifact.MavenArtifact;
+import io.github.harvies.charon.util.artifact.MavenArtifact;
 import net.dongliu.requests.Requests;
 import org.junit.jupiter.api.Test;
 
