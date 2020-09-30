@@ -1,4 +1,4 @@
-package io.github.harvies.eris.dubbo.spi;
+package io.github.harvies.charon.dubbo.spi;
 
 import org.apache.dubbo.common.extension.SPI;
 
