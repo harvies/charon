@@ -1,8 +1,7 @@
-package io.github.harvies.eris.rpc.dubbo.consumer;
+package io.github.harvies.charon.dubbo;
 
 
 import io.github.harvies.charon.util.PropertiesUtils;
-import io.github.harvies.eris.dubbo.client.service.HelloService;
 import org.apache.dubbo.common.constants.CommonConstants;
 import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.ReferenceConfig;

@@ -1,9 +1,7 @@
-package io.github.harvies.eris.rpc.dubbo.provider;
+package io.github.harvies.charon.dubbo;
 
 
 import io.github.harvies.charon.util.PropertiesUtils;
-import io.github.harvies.eris.dubbo.client.service.HelloService;
-import io.github.harvies.eris.rpc.dubbo.provider.service.impl.HelloServiceImpl;
 import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.RegistryConfig;
 import org.apache.dubbo.config.ServiceConfig;

@@ -1,7 +1,5 @@
-package io.github.harvies.eris.rpc.dubbo.provider.service.impl;
+package io.github.harvies.charon.dubbo;
 
-
-import io.github.harvies.eris.dubbo.client.service.HelloService;
 
 /**
  * Quick Start demo implement
