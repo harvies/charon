@@ -73,9 +73,10 @@
         <web.port>8080</web.port>
         <Xms>-Xms256M</Xms>
         <Xmx>-Xmx256M</Xmx>
-        <MetaspaceSize>-XX:MetaspaceSize=128m</MetaspaceSize>
-        <MaxMetaspaceSize>-XX:MaxMetaspaceSize=128m</MaxMetaspaceSize>
-        <MaxDirectMemorySize>-XX:MaxDirectMemorySize=128m</MaxDirectMemorySize>
+        <MetaspaceSize>-XX:MetaspaceSize=256m</MetaspaceSize>
+        <MaxMetaspaceSize>-XX:MaxMetaspaceSize=256m</MaxMetaspaceSize>
+        <!-- not work-->
+        <MaxDirectMemorySize>-XX:MaxDirectMemorySize=256m</MaxDirectMemorySize>
 
     </properties>
     <dependencyManagement>
