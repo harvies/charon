@@ -37,6 +37,8 @@
         <module>charon-log</module>
         <module>charon-extra</module>
         <module>charon-rocketmq</module>
+        <module>charon-rocketmq-broker</module>
+        <module>charon-rockermq-namesrv</module>
     </modules>
 
     <dependencies>

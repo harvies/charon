@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.harvies.eris.rocketmq.broker;
+package io.github.harvies.charon.rocketmq;
 
 import org.apache.rocketmq.broker.BrokerStartup;
 import org.apache.rocketmq.common.MixAll;
@@ -25,12 +25,12 @@ import org.apache.rocketmq.common.MixAll;
 public class BrokerBootstrap {
 
     public static void main(String[] args) {
-        System.setProperty(MixAll.ROCKETMQ_HOME_PROPERTY, "examples/rocketmq");
+        System.setProperty(MixAll.ROCKETMQ_HOME_PROPERTY, "/Users/harvies/IdeaProjects/charon/rocketmq_home/");
         System.setProperty(MixAll.NAMESRV_ADDR_PROPERTY, "localhost:9876");
 
         args = new String[2];
         args[0] = "-c";
-        args[1] = "examples/rocketmq/conf/broker.conf";
+        args[1] = "/Users/harvies/IdeaProjects/charon/rocketmq_home/conf/broker.conf";
         BrokerStartup.main(args);
     }
 
