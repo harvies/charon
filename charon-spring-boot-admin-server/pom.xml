@@ -9,11 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <properties>
-        <JAVA_OPTS.Xmx>-Xmx200m</JAVA_OPTS.Xmx>
-        <JAVA_OPTS.Xms>-Xms200m</JAVA_OPTS.Xms>
-    </properties>
-
     <artifactId>charon-spring-boot-admin-server</artifactId>
     <dependencies>
         <dependency>
@@ -31,11 +26,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-apollo-spring-boot-starter</artifactId>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
     <build>
