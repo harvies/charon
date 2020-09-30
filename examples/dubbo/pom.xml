@@ -12,10 +12,8 @@
     <artifactId>dubbo</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>dubbo-api</module>
         <module>dubbo-client</module>
         <module>dubbo-spring</module>
-        <module>dubbo-demo</module>
     </modules>
     <dependencies>
         <dependency>
