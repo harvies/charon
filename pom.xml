@@ -36,6 +36,7 @@
         <module>charon-json</module>
         <module>charon-log</module>
         <module>charon-extra</module>
+        <module>charon-rocketmq</module>
     </modules>
 
     <dependencies>
