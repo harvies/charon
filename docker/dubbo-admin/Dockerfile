@@ -21,5 +21,5 @@ RUN mvn --batch-mode clean package -Dmaven.test.skip=true
 FROM harvies/jdk8
 LABEL maintainer="dev@dubbo.apache.org"
 COPY --from=0 /source/dubbo-admin-develop/dubbo-admin-distribution/target/dubbo-admin-0.2.0-SNAPSHOT.jar /app.jar
-ENTRYPOINT ["/sbin/tini", "--","java","-XX:+UnlockExperimentalVMOptions","-XX:+UseCGroupMemoryLimitForHeap","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ENTRYPOINT ["/sbin/tini", "--","java","-Xms256m","-Xmx256m","-XX:+UnlockExperimentalVMOptions","-XX:+UseCGroupMemoryLimitForHeap","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 EXPOSE 8080
