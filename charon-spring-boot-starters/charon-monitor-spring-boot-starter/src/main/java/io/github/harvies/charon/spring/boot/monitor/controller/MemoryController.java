@@ -16,7 +16,7 @@ import java.lang.management.MemoryUsage;
 public class MemoryController {
 
     @RequestMapping(value = "/heapMemoryUsage", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResultDTO<MemoryUsage> threadDump() {
+    public ResultDTO<MemoryUsage> heapMemoryUsage() {
         return Results.success(ManagementFactory.getMemoryMXBean().getHeapMemoryUsage());
     }
 
