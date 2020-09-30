@@ -1,0 +1,1 @@
+docker run -e "JAVA_OPTS=-Drocketmq.namesrv.addr=namesrv0.dev.kikera.org:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false" -p 8091:8080 -t docker pull apacherocketmq/rocketmq-console:2.0.0

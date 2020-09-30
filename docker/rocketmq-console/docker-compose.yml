@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  dubbo-proxy:
+    image: apacherocketmq/rocketmq-console:2.0.0
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+    ports:
+      - 8091:8080
+    environment:
+      JAVA_OPTS: -Drocketmq.namesrv.addr=namesrv0.dev.kikera.org:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false
+    dns: 121.199.57.1
+networks:
+  default:
+    external:
+      name: dev_overlay
