@@ -1,5 +1,7 @@
 package io.github.harvies.charon.rocketmq.base.consumergroup.samegroup;
 
+import io.github.harvies.charon.rocketmq.Constants;
+import io.github.harvies.charon.util.PropertiesUtils;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
@@ -22,7 +24,7 @@ public class ConsumerTwo {
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("consumerGroup1");
 
         // 设置NameServer的地址
-        consumer.setNamesrvAddr("localhost:9876");
+        consumer.setNamesrvAddr(PropertiesUtils.getDefaultProperty(Constants.NAME_SRV_ADDR));
 
         // 订阅一个或者多个Topic，以及Tag来过滤需要消费的消息
         consumer.subscribe("TopicTest", "*");

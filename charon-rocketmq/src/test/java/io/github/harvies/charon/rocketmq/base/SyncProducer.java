@@ -21,7 +21,7 @@ public class SyncProducer {
         producer.setNamesrvAddr(PropertiesUtils.getDefaultProperty(Constants.NAME_SRV_ADDR));
         // 启动Producer实例
         producer.start();
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 5; i++) {
             // 创建消息，并指定Topic，Tag和消息体
             Message msg = new Message("TopicTest" /* Topic */,
                     "TagA" /* Tag */,
