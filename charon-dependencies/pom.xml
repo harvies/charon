@@ -71,8 +71,10 @@
         <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
 
         <web.port>8080</web.port>
-        <Xms>-Xms300M</Xms>
-        <Xmx>-Xmx300M</Xmx>
+        <Xms>-Xms256M</Xms>
+        <Xmx>-Xmx256M</Xmx>
+        <MetaspaceSize>--XX:MetaspaceSize=128m</MetaspaceSize>
+        <MaxMetaspaceSize>-XX:MaxMetaspaceSize=128m</MaxMetaspaceSize>
 
     </properties>
     <dependencyManagement>
@@ -770,6 +772,8 @@
                             <jvmFlags>
                                 <jvmFlag>${Xms}</jvmFlag>
                                 <jvmFlag>${Xmx}</jvmFlag>
+                                <jvmFlag>${MetaspaceSize}</jvmFlag>
+                                <jvmFlag>${MaxMetaspaceSize}</jvmFlag>
                                 <jvmFlag>-Djava.security.egd=file:/dev/./urandom</jvmFlag>
                                 <jvmFlag>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5005
                                 </jvmFlag>
