@@ -812,8 +812,8 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <Xms>-Xms300M</Xms>
-                <Xmx>-Xmx300M</Xmx>
+                <Xms>-Xms256M</Xms>
+                <Xmx>-Xmx256M</Xmx>
             </properties>
         </profile>
         <profile>
