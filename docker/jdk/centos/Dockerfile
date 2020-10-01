@@ -1,6 +1,6 @@
 FROM centos:7
 
-MAINTAINER cr0n6e@gmail.com
+LABEL maintainer="delverjw@gmail.com"
 
 ## 中文支持
 ENV LANG=en_US.UTF-8 \

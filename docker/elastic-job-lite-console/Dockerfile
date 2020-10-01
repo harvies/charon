@@ -1,6 +1,6 @@
 FROM maven:3.5-jdk-8-slim
 
-MAINTAINER szss
+LABEL maintainer="delverjw@gmail.com"
 #设置时区
 ENV TZ Asia/Shanghai
 # 映射端口

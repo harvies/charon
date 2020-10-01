@@ -1,5 +1,5 @@
-FROM harvies/jdk8:latest
-MAINTAINER cr0n6e@gmail.com
+FROM harvies/jdk:latest
+LABEL maintainer="delverjw@gmail.com"
 WORKDIR /source
 RUN git clone https://github.com/harvies/dubbo-proxy.git
 WORKDIR /source/dubbo-proxy

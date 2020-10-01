@@ -1,5 +1,5 @@
 FROM alpine:3.12
-MAINTAINER cr0n6e@gmail.com
+LABEL maintainer="delverjw@gmail.com"
 
 ## 更换镜像
 RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g"  /etc/apk/repositories

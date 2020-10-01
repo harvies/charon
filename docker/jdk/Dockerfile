@@ -1,5 +1,5 @@
 FROM registry.cn-hangzhou.aliyuncs.com/harvies/alpine:latest
-MAINTAINER cr0n6e@gmail.com
+LABEL maintainer="delverjw@gmail.com"
 
 ## jdk
 ENV JAVA_HOME=/usr/lib/jvm/default-jvm
