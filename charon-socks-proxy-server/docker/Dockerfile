@@ -1,4 +1,4 @@
-FROM harvies/jdk8:latest
+FROM harvies/jdk:latest
 WORKDIR /source
 RUN git clone https://github.com/harvies/charon.git
 WORKDIR /source/charon/charon-socks-proxy-server
