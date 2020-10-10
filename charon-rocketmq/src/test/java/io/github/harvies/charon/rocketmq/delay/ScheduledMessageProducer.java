@@ -1,5 +1,7 @@
 package io.github.harvies.charon.rocketmq.delay;
 
+import io.github.harvies.charon.rocketmq.Constants;
+import io.github.harvies.charon.util.PropertiesUtils;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.common.message.Message;
 
@@ -12,7 +14,7 @@ public class ScheduledMessageProducer {
     public static void main(String[] args) throws Exception {
         // 实例化一个生产者来产生延时消息
         DefaultMQProducer producer = new DefaultMQProducer("ExampleProducerGroup");
-        producer.setNamesrvAddr("127.0.0.1:9876");
+        producer.setNamesrvAddr(PropertiesUtils.getDefaultProperty(Constants.NAME_SRV_ADDR));
         // 启动生产者
         producer.start();
         int totalMessagesToSend = 100;

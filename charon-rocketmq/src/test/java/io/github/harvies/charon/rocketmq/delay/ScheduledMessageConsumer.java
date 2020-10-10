@@ -1,5 +1,7 @@
 package io.github.harvies.charon.rocketmq.delay;
 
+import io.github.harvies.charon.rocketmq.Constants;
+import io.github.harvies.charon.util.PropertiesUtils;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
@@ -15,7 +17,7 @@ public class ScheduledMessageConsumer {
     public static void main(String[] args) throws Exception {
         // 实例化消费者
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("ExampleConsumer");
-        consumer.setNamesrvAddr("127.0.0.1:9876");
+        consumer.setNamesrvAddr(PropertiesUtils.getDefaultProperty(Constants.NAME_SRV_ADDR));
         // 订阅Topics
         consumer.subscribe("TestTopic", "*");
         // 注册消息监听者
