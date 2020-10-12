@@ -11,8 +11,6 @@
 > a÷b=q...r
 > 13÷3=4...1
 > 其中，a为被除数，b为除数，q为商数，r为余数。
- 
- 其中，{\displaystyle a}a为被除数，{\displaystyle b}b为除数，{\displaystyle q}q为商数，{\displaystyle r}r为余数。
 ```
 整数部分：
 59 ÷ 2 = 29 ... 1
