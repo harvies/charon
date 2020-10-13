@@ -1,4 +1,4 @@
-package io.github.harvies.charon.tests.nio;
+package io.github.harvies.charon.tests.base.jdk.io.nio;
 
 import org.junit.jupiter.api.Test;
 
