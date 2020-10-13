@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
  */
 public class CommandUsingRequestCacheInvalidation {
 
-    /* represents a remote data store */
+    /* represents a remote data store.json */
     private static volatile String prefixStoredOnRemoteDataStore = "ValueBeforeSet_";
 
     public static class GetterCommand extends HystrixCommand<String> {

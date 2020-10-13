@@ -232,5 +232,22 @@ app class load----------------------
 ```
 可以看出AppClassLoader可加载/lib/,/jre/lib/,/jre/lib/ext/,classpath下的类
 
+### 获取AppClassLoader的方式
+- Thread.currentThread().getContextClassLoader()
+- ClassLoader.getSystemClassLoader()
+
+```java
+  @Test
+    public void getAppClassLoader() {
+        System.out.println(Thread.currentThread().getContextClassLoader());
+        System.out.println(ClassLoader.getSystemClassLoader());
+    }
+```
+```shell script
+sun.misc.Launcher$AppClassLoader@18b4aac2
+sun.misc.Launcher$AppClassLoader@18b4aac2
+
+```
+
 ## 参考
 https://blog.csdn.net/feiyingHiei/article/details/86553614 
