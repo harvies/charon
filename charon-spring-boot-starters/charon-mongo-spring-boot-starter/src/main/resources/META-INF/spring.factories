@@ -1,4 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-io.github.harvies.charon.mongo.MongoAutoConfiguration
+  io.github.harvies.charon.mongo.MongoAutoConfiguration
 org.springframework.boot.env.EnvironmentPostProcessor=\
   io.github.harvies.charon.mongo.MongoAutoConfiguration
