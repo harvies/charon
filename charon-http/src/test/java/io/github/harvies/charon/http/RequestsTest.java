@@ -12,6 +12,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
 
 /**
  * @author harvies
@@ -33,6 +35,13 @@ public class RequestsTest {
                         Part.file("file", new File(FileUtils.getCurrentUserHomePath() + "/baidu.png")))
                 .send().readToText();
         System.err.println(readToText);
+    }
+
+    @Test
+    public void google() {
+        Proxy proxy = new Proxy(Proxy.Type.SOCKS, InetSocketAddress.createUnresolved("52.207.229.227", 9050));
+        String readToText = Requests.get("https://www.google.com").proxy(proxy).send().readToText();
+        System.out.println(readToText);
     }
 
     @Test
