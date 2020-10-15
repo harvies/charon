@@ -102,35 +102,48 @@ public ConfigurableApplicationContext run(String... args) {
    Collection<SpringBootExceptionReporter> exceptionReporters = new ArrayList<>();
    //设置Headless属性，默认true
    configureHeadlessProperty();
-   //从META-INF/spring.factories加载并创建SpringApplicationRunListener实现类
+   //从META-INF/spring.factories加载并创建 SpringApplicationRunListener 实现类
    SpringApplicationRunListeners listeners = getRunListeners(args);
    //调用所有SpringApplicationRunListener实现类的starting方法
    listeners.starting();
    try {
       ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);
-      //准备环境信息
+      //准备环境信息(配置文件加载等)
       ConfigurableEnvironment environment = prepareEnvironment(listeners, applicationArguments);
+      //todo 暂不知道用途
       configureIgnoreBeanInfo(environment);
+      //打印banner信息
       Banner printedBanner = printBanner(environment);
+      //通过反射创建Spring上下文，默认是 org.springframework.context.annotation.AnnotationConfigApplicationContext
       context = createApplicationContext();
+      //从META-INF/spring.factories加载并创建 异常报告 SpringBootExceptionReporter 实现类(默认是 FailureAnalyzers )
       exceptionReporters = getSpringFactoriesInstances(SpringBootExceptionReporter.class,
             new Class[] { ConfigurableApplicationContext.class }, context);
+      //准备上下文
       prepareContext(context, environment, listeners, applicationArguments, printedBanner);
+      //刷新上下文
       refreshContext(context);
+      //后置处理
       afterRefresh(context, applicationArguments);
+      //停止计时
       stopWatch.stop();
+      //打印启动日志
       if (this.logStartupInfo) {
          new StartupInfoLogger(this.mainApplicationClass).logStarted(getApplicationLog(), stopWatch);
       }
+      //发送 ApplicationStartedEvent ，AvailabilityChangeEvent 准备就绪状态 事件
       listeners.started(context);
+      //调用ApplicationRunner/CommandLineRunner run方法
       callRunners(context, applicationArguments);
    }
    catch (Throwable ex) {
+      //启动异常处理，注册 SpringBootExceptionHandler，发送 ExitCodeEvent 事件
       handleRunFailure(context, ex, exceptionReporters, listeners);
       throw new IllegalStateException(ex);
    }
 
    try {
+      //发送 ApplicationReadyEvent 事件
       listeners.running(context);
    }
    catch (Throwable ex) {
@@ -164,8 +177,9 @@ private ConfigurableEnvironment prepareEnvironment(SpringApplicationRunListeners
    ConfigurableEnvironment environment = getOrCreateEnvironment();
    configureEnvironment(environment, applicationArguments.getSourceArgs());
    ConfigurationPropertySources.attach(environment);
-   //环境信息准备
+   //环境信息准备(配置文件加载等)
    listeners.environmentPrepared(environment);
+   //从环境信息里绑定参数到SpringApplication对象
    bindToSpringApplication(environment);
    if (!this.isCustomEnvironment) {
       environment = new EnvironmentConverter(getClassLoader()).convertEnvironmentIfNecessary(environment,
