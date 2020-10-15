@@ -13,7 +13,6 @@ import java.util.List;
 public class CharonMongoSpringBootTest extends BaseTest {
 
     @Resource
-    @Lazy
     private List<MongoTemplate> mongoTemplateList;
 
     @Test

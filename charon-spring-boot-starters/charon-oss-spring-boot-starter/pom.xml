@@ -33,11 +33,6 @@
             <artifactId>aliyun-sdk-oss</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-apollo-spring-boot-starter</artifactId>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
 </project>

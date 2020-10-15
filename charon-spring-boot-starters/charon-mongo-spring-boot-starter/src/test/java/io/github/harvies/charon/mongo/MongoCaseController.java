@@ -4,7 +4,6 @@ import com.mongodb.client.MongoDatabase;
 import io.github.harvies.charon.spring.boot.web.result.ResultDTO;
 import io.github.harvies.charon.spring.boot.web.result.Results;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +22,6 @@ public class MongoCaseController {
 
 
     @Resource
-    //io.github.harvies.charon.mongo.MongoAutoConfiguration.init执行晚于bean注入
-    @Lazy
     private List<MongoTemplate> mongoTemplateList;
 
     @RequestMapping("/case")

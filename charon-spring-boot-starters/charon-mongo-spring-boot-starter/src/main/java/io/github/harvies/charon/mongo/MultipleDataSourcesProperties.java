@@ -3,7 +3,6 @@ package io.github.harvies.charon.mongo;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.autoconfigure.mongo.MongoProperties;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -13,7 +12,6 @@ import java.util.Map;
  */
 @Getter
 @Setter
-@ConfigurationProperties(prefix = "spring.data.mongodb")
 public class MultipleDataSourcesProperties {
 
     /**
