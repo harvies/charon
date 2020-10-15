@@ -34,4 +34,10 @@ public class RequestsTest {
                 .send().readToText();
         System.err.println(readToText);
     }
+
+    @Test
+    public void rssHub() {
+        String readToText = Requests.get("https://rsshub.app/guanggoo/index").send().readToText();
+        System.out.println(readToText);
+    }
 }

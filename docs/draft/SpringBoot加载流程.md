@@ -239,3 +239,46 @@ application.properties & application.yaml文件即是在此时被加载，我们
 Binder.get(environment).bind("spring.output.ansi.enabled", AnsiOutput.Enabled.class)
 
 ![](https://harvies-oss.oss-cn-hangzhou.aliyuncs.com/2020/10/15/20201615151600047-image.png)
+
+
+### createApplicationContext
+
+
+### prepareContext
+```java
+private void prepareContext(ConfigurableApplicationContext context, ConfigurableEnvironment environment,
+			SpringApplicationRunListeners listeners, ApplicationArguments applicationArguments, Banner printedBanner) {
+		context.setEnvironment(environment);
+		postProcessApplicationContext(context);
+		applyInitializers(context);
+		listeners.contextPrepared(context);
+		if (this.logStartupInfo) {
+			logStartupInfo(context.getParent() == null);
+			logStartupProfileInfo(context);
+		}
+		// Add boot specific singleton beans
+		ConfigurableListableBeanFactory beanFactory = context.getBeanFactory();
+		beanFactory.registerSingleton("springApplicationArguments", applicationArguments);
+		if (printedBanner != null) {
+			beanFactory.registerSingleton("springBootBanner", printedBanner);
+		}
+		if (beanFactory instanceof DefaultListableBeanFactory) {
+			((DefaultListableBeanFactory) beanFactory)
+					.setAllowBeanDefinitionOverriding(this.allowBeanDefinitionOverriding);
+		}
+		if (this.lazyInitialization) {
+			context.addBeanFactoryPostProcessor(new LazyInitializationBeanFactoryPostProcessor());
+		}
+		// Load the sources
+		Set<Object> sources = getAllSources();
+		Assert.notEmpty(sources, "Sources must not be empty");
+		load(context, sources.toArray(new Object[0]));
+		listeners.contextLoaded(context);
+	}
+```
+
+
+### refreshContext
+
+
+### afterRefresh
