@@ -13,7 +13,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-namespace-data-mybatis-plus</module>
-        <module>spring-namespace-demo</module>
         <module>spring-namespace-data-mybatis</module>
     </modules>
 
