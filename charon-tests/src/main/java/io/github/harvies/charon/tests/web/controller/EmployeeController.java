@@ -1,11 +1,11 @@
-package io.github.harvies.eris.spring.mvc.controller;
+package io.github.harvies.charon.tests.web.controller;
 
+import io.github.harvies.charon.tests.web.service.EmployeeManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import io.github.harvies.eris.spring.mvc.service.EmployeeManager;
 
 @Controller
 @RequestMapping("/employee-module")

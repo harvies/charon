@@ -1,6 +1,6 @@
-package io.github.harvies.eris.spring.mvc.dao;
+package io.github.harvies.charon.tests.web.dao;
 
-import io.github.harvies.eris.spring.mvc.model.EmployeeVO;
+import io.github.harvies.charon.tests.web.model.EmployeeVO;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

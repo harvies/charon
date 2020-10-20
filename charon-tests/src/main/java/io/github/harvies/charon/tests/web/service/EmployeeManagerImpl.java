@@ -1,7 +1,7 @@
-package io.github.harvies.eris.spring.mvc.service;
+package io.github.harvies.charon.tests.web.service;
 
-import io.github.harvies.eris.spring.mvc.dao.EmployeeDAO;
-import io.github.harvies.eris.spring.mvc.model.EmployeeVO;
+import io.github.harvies.charon.tests.web.dao.EmployeeDAO;
+import io.github.harvies.charon.tests.web.model.EmployeeVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

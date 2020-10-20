@@ -1,4 +1,4 @@
-package io.github.harvies.eris.spring.mvc.model;
+package io.github.harvies.charon.tests.web.model;
 
 import java.io.Serializable;
 

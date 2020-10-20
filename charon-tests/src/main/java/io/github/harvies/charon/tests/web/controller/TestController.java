@@ -1,11 +1,10 @@
-package io.github.harvies.eris.spring.mvc.controller;
+package io.github.harvies.charon.tests.web.controller;
 
-import io.github.harvies.eris.spring.mvc.model.EmployeeVO;
-import io.github.harvies.eris.spring.mvc.service.EmployeeManager;
+import io.github.harvies.charon.tests.web.model.EmployeeVO;
+import io.github.harvies.charon.tests.web.service.EmployeeManager;
 import lombok.Cleanup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,8 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
