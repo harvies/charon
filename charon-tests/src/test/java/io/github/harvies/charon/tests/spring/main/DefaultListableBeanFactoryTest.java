@@ -13,7 +13,7 @@ public class DefaultListableBeanFactoryTest {
     public static void main(String[] args) {
         DefaultListableBeanFactory defaultListableBeanFactory = new DefaultListableBeanFactory();
         BeanDefinition beanDefinition = new GenericBeanDefinition();
-        beanDefinition.setBeanClassName("io.github.harvies.eris.spring.namespace.demo.service.impl.UserServiceImpl");
+        beanDefinition.setBeanClassName("io.github.harvies.charon.tests.spring.service.impl.UserServiceImpl");
         defaultListableBeanFactory.registerBeanDefinition("userService", beanDefinition);
 
         UserService userService = (UserService) defaultListableBeanFactory.getBean("userService");
