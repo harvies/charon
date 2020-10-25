@@ -767,6 +767,7 @@
                         </extraDirectories>
 
                         <container>
+                            <!--                            <mainClass>com.xxx.Application</mainClass>-->
                             <environment>
                                 <SW_AGENT_COLLECTOR_BACKEND_SERVICES>sw.dev.kikera.org:11800
                                 </SW_AGENT_COLLECTOR_BACKEND_SERVICES>
@@ -846,21 +847,21 @@
                 </dependency>
             </dependencies>
         </profile>
-<!--        <profile>-->
-<!--            <id>java9-tools</id>-->
-<!--            <activation>-->
-<!--                <jdk>[1.9,]</jdk>-->
-<!--            </activation>-->
-<!--            <dependencies>-->
-<!--                <dependency>-->
-<!--                    <groupId>com.sun</groupId>-->
-<!--                    <artifactId>tools</artifactId>-->
-<!--                    <version>${java.version}</version>-->
-<!--                    <scope>system</scope>-->
-<!--                    <optional>true</optional>-->
-<!--                    <systemPath>${java.home}/lib/jrt-fs.jar</systemPath>-->
-<!--                </dependency>-->
-<!--            </dependencies>-->
-<!--        </profile>-->
+        <!--        <profile>-->
+        <!--            <id>java9-tools</id>-->
+        <!--            <activation>-->
+        <!--                <jdk>[1.9,]</jdk>-->
+        <!--            </activation>-->
+        <!--            <dependencies>-->
+        <!--                <dependency>-->
+        <!--                    <groupId>com.sun</groupId>-->
+        <!--                    <artifactId>tools</artifactId>-->
+        <!--                    <version>${java.version}</version>-->
+        <!--                    <scope>system</scope>-->
+        <!--                    <optional>true</optional>-->
+        <!--                    <systemPath>${java.home}/lib/jrt-fs.jar</systemPath>-->
+        <!--                </dependency>-->
+        <!--            </dependencies>-->
+        <!--        </profile>-->
     </profiles>
 </project>
