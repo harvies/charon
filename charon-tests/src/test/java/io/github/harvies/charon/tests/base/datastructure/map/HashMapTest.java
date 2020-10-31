@@ -29,11 +29,7 @@ public class HashMapTest {
     @Test
     public void testHash() {
         int length = 16;
-        System.out.println(index(length, hash("1")));
-        System.out.println(index(length, hash("2")));
-        System.out.println(index(length, hash("3")));
-        System.out.println(index(length, hash("4")));
-        System.out.println(index(length, hash("5")));
+        System.out.println(index(length, hash(343223432)));
     }
 
     private int hash(Object key) {
@@ -46,6 +42,6 @@ public class HashMapTest {
     }
 
     public static void main(String[] args) {
-        System.out.println(Integer.valueOf(2147483647).hashCode());
+        System.out.println(Integer.valueOf(343223432).hashCode());
     }
 }
