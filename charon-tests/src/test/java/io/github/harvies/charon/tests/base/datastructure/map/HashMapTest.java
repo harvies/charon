@@ -25,4 +25,27 @@ public class HashMapTest {
         }
         System.err.println(map);
     }
+
+    @Test
+    public void testHash() {
+        int length = 16;
+        System.out.println(index(length, hash("1")));
+        System.out.println(index(length, hash("2")));
+        System.out.println(index(length, hash("3")));
+        System.out.println(index(length, hash("4")));
+        System.out.println(index(length, hash("5")));
+    }
+
+    private int hash(Object key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+    }
+
+    private int index(int n, int hash) {
+        return (n - 1) & hash;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Integer.valueOf(2147483647).hashCode());
+    }
 }

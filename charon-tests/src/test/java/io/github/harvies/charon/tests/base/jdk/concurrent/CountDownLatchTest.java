@@ -1,8 +1,11 @@
 package io.github.harvies.charon.tests.base.jdk.concurrent;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 
 /**
  * CountDownLatch（线程计数器,闭锁 ）
@@ -13,11 +16,13 @@ import java.util.concurrent.Executors;
  * @author harvies
  */
 public class CountDownLatchTest {
-    private static final int threadNum = 5;
-    private static CountDownLatch countDownLatch = new CountDownLatch(threadNum);
-    private static ExecutorService executorService = Executors.newFixedThreadPool(threadNum);
 
     public static void main(String[] args) throws InterruptedException {
+        int threadNum = 5;
+        CountDownLatch countDownLatch = new CountDownLatch(threadNum);
+        ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat("test-pool").build();
+        ExecutorService executorService = Executors.newFixedThreadPool(threadNum, threadFactory);
+
         for (int i = 0; i < threadNum; i++) {
             executorService.execute(() -> {
                 try {
@@ -27,6 +32,7 @@ public class CountDownLatchTest {
                 }
             });
         }
+        Thread.currentThread().setName("test-main");
         countDownLatch.await();
         executorService.shutdown();
         System.err.println("exit");
