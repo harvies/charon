@@ -1,4 +1,4 @@
-FROM nextcloud:20.0.0RC1
+FROM nextcloud:20.0.1
 LABEL maintainer="delverjw@gmail.com"
 
 # ffmpeg 视频缩略图
