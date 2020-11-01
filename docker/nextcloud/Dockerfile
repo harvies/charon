@@ -1,5 +1,5 @@
 FROM nextcloud:20.0.1
 LABEL maintainer="delverjw@gmail.com"
 
-# ffmpeg 视频缩略图
-RUN apt-get update -y && apt-get install -y unrar-free p7zip p7zip-full ffmpeg libreoffice && apt-get -y clean
+# libreoffice
+RUN apt-get update -y && apt-get install -y unrar-free p7zip p7zip-full ffmpeg  && apt-get -y clean
