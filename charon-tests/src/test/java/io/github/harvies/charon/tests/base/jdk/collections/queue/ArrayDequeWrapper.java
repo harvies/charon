@@ -10,6 +10,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ArrayDequeWrapper<E> extends ArrayDeque<E> {
+    public ArrayDequeWrapper() {
+    }
 
     public ArrayDequeWrapper(int numElements) {
         super(numElements);
@@ -25,6 +27,26 @@ public class ArrayDequeWrapper<E> extends ArrayDeque<E> {
     }
 
     @Override
+    public E pollFirst() {
+        List<String> before = getPrint(null);
+        E e = super.pollFirst();
+        List<String> after = getPrint(e);
+        System.out.println("before:" + before + "," + "after:" + after);
+        System.out.println("-----------");
+        return e;
+    }
+
+    @Override
+    public E pollLast() {
+        List<String> before = getPrint(null);
+        E e = super.pollLast();
+        List<String> after = getPrint(e);
+        System.out.println("before:" + before + "," + "after:" + after);
+        System.out.println("-----------");
+        return e;
+    }
+
+    @Override
     public void addLast(E e) {
         List<String> before = getPrint(e);
         super.addLast(e);
@@ -35,7 +57,9 @@ public class ArrayDequeWrapper<E> extends ArrayDeque<E> {
     @SneakyThrows
     private List<String> getPrint(E e) {
         List<String> list = getFieldValueList(this, Arrays.asList("elements", "head", "tail"));
-        list.add("element:" + e);
+        if (e != null) {
+            list.add("element:" + e);
+        }
         return list;
     }
 
