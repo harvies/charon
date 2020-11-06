@@ -58,6 +58,7 @@
         <charon.version>0.0.6-SNAPSHOT</charon.version>
         <spring-boot-admin-starter.version>2.2.3</spring-boot-admin-starter.version>
         <javamelody.version>1.85.0</javamelody.version>
+        <calcite.version>1.26.0</calcite.version>
 
         <junit.version>5.6.2</junit.version>
         <hamcrest.version>1.3</hamcrest.version>
@@ -635,6 +636,18 @@
                 <groupId>com.rometools</groupId>
                 <artifactId>rome</artifactId>
                 <version>1.15.0</version>
+            </dependency>
+
+            <!-- calcite-->
+            <dependency>
+                <groupId>org.apache.calcite</groupId>
+                <artifactId>calcite-core</artifactId>
+                <version>${calcite.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.calcite</groupId>
+                <artifactId>calcite-elasticsearch</artifactId>
+                <version>${calcite.version}</version>
             </dependency>
 
         </dependencies>

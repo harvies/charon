@@ -23,13 +23,35 @@ public class ArrayDequeTest {
         System.out.println(deque);
     }
 
+    @Test
+    public void testArrayQueueCalculateSize(){
+        int MIN_INITIAL_CAPACITY=8;
+        int numElements=9;
+        System.out.println(numElements);
+        int initialCapacity = MIN_INITIAL_CAPACITY;
+        // Find the best power of two to hold elements.
+        // Tests "<=" because arrays aren't kept full.
+        if (numElements >= initialCapacity) {
+            initialCapacity = numElements;
+            initialCapacity |= (initialCapacity >>>  1);
+            initialCapacity |= (initialCapacity >>>  2);
+            initialCapacity |= (initialCapacity >>>  4);
+            initialCapacity |= (initialCapacity >>>  8);
+            initialCapacity |= (initialCapacity >>> 16);
+            initialCapacity++;
+            System.out.println(initialCapacity);
+
+            if (initialCapacity < 0)   // Too many elements, must back off
+                initialCapacity >>>= 1;// Good luck allocating 2 ^ 30 elements
+        }
+        System.out.println(initialCapacity);
+    }
+
     public static void main(String[] args) {
-        //15=16-1=2^4-1
-        System.out.println(1 & 15);
-        System.out.println(2 & 15);
-        System.out.println(3 & 15);
-        System.out.println(4 & 15);
-        System.out.println(15 & 15);
-        System.out.println(-1 & 7);
+        System.out.println(1|8);
+        System.out.println(2|8);
+        System.out.println(7|8);
+        System.out.println(8|8);
+        System.out.println(9|8);
     }
 }
