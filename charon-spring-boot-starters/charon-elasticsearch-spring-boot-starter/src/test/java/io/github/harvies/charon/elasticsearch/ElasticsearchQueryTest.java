@@ -27,7 +27,7 @@ public class ElasticsearchQueryTest {
         RestClient restClient = RestClient
                 .builder(new HttpHost(PropertiesUtils.getDefaultProperty("charon.elasticsearch.standalone.host"), Integer.parseInt(PropertiesUtils.getDefaultProperty("charon.elasticsearch.standalone.port"))))        // es默认9200端口
                 .build();
-        ElasticsearchSchema esSchema = new ElasticsearchSchema(restClient, new ObjectMapper(), "customer");
+        ElasticsearchSchema customerSchema = new ElasticsearchSchema(restClient, new ObjectMapper(), "customer");
         // 设置连接参数
         info = new Properties();
         info.setProperty("caseSensitive", "false");        // SQL大小写不敏感
@@ -38,9 +38,9 @@ public class ElasticsearchQueryTest {
         // 取得RootSchema RootSchema是所有Schema的父Schema
         SchemaPlus rootSchema = calciteConnection.getRootSchema();
         // 添加schema
-        rootSchema.add("es", esSchema);
+        rootSchema.add("es", customerSchema);
         // 编写SQL
-        String sql = "select * from es.customer";
+        String sql = "select * from es.customer ";
         // 执行查询
         statement = connection.createStatement();
         resultSet = statement.executeQuery(sql);
