@@ -1,0 +1,10 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {"match": {"content": "Elasticsearch"}},
+        {"match": {"user.username": "Jack"}}
+      ]
+    }
+  }
+}

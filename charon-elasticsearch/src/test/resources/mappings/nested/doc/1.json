@@ -1,0 +1,9 @@
+{
+  "content": "I like Elasticsearch",
+  "time": "2019-01-01T00:00:00",
+  "user": {
+    "userid": 1,
+    "username": "Jack",
+    "city": "Shanghai"
+  }
+}

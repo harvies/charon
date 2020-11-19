@@ -1,0 +1,25 @@
+{
+  "mappings": {
+    "properties": {
+      "content": {
+        "type": "text"
+      },
+      "time": {
+        "type": "date"
+      },
+      "user": {
+        "properties": {
+          "city": {
+            "type": "text"
+          },
+          "userid": {
+            "type": "long"
+          },
+          "username": {
+            "type": "keyword"
+          }
+        }
+      }
+    }
+  }
+}
