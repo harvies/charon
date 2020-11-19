@@ -42,6 +42,15 @@ public class NestedTest extends BaseTest {
         System.out.println(response);
     }
     @Test
+    public void index2() throws Exception {
+        Request request = new Request("PUT", indexName + "/_doc/2");
+        URL url = ClassLoader.getSystemResource("mappings/nested/doc/2.json");
+        String json = FileUtils.readFileToString(new File(url.toURI()), "UTF-8");
+        request.setJsonEntity(json);
+        Response response = restClient.performRequest(request);
+        System.out.println(response);
+    }
+    @Test
     public void search() throws Exception {
         Request request = new Request("POST", indexName + "/_search");
         URL url = ClassLoader.getSystemResource("mappings/nested/search/1.json");
