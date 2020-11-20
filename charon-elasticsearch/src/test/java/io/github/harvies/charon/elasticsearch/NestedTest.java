@@ -25,8 +25,7 @@ public class NestedTest extends BaseTest {
     @Test
     public void mapping() throws Exception {
         Request request = new Request("PUT", indexName);
-        URL url = ClassLoader.getSystemResource("mappings/nested/mappings.json");
-        String json = FileUtils.readFileToString(new File(url.toURI()), "UTF-8");
+        String json = FileUtils.readClassPathFile("mappings/nested/mappings.json", "UTF-8");
         request.setJsonEntity(json);
         Response response = restClient.performRequest(request);
         System.out.println(response);
@@ -35,26 +34,25 @@ public class NestedTest extends BaseTest {
     @Test
     public void index() throws Exception {
         Request request = new Request("PUT", indexName + "/_doc/1");
-        URL url = ClassLoader.getSystemResource("mappings/nested/doc/1.json");
-        String json = FileUtils.readFileToString(new File(url.toURI()), "UTF-8");
+        String json = FileUtils.readClassPathFile("mappings/nested/doc/1.json", "UTF-8");
         request.setJsonEntity(json);
         Response response = restClient.performRequest(request);
         System.out.println(response);
     }
+
     @Test
     public void index2() throws Exception {
         Request request = new Request("PUT", indexName + "/_doc/2");
-        URL url = ClassLoader.getSystemResource("mappings/nested/doc/2.json");
-        String json = FileUtils.readFileToString(new File(url.toURI()), "UTF-8");
+        String json = FileUtils.readClassPathFile("mappings/nested/doc/2.json", "UTF-8");
         request.setJsonEntity(json);
         Response response = restClient.performRequest(request);
         System.out.println(response);
     }
+
     @Test
     public void search() throws Exception {
         Request request = new Request("POST", indexName + "/_search");
-        URL url = ClassLoader.getSystemResource("mappings/nested/search/1.json");
-        String json = FileUtils.readFileToString(new File(url.toURI()), "UTF-8");
+        String json = FileUtils.readClassPathFile("mappings/nested/search/1.json", "UTF-8");
         request.setJsonEntity(json);
         Response response = restClient.performRequest(request);
         System.out.println(response);

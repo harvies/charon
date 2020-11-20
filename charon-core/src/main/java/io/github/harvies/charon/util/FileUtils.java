@@ -1,6 +1,9 @@
 package io.github.harvies.charon.util;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 public class FileUtils extends org.apache.commons.io.FileUtils {
     /**
@@ -57,5 +60,16 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
      */
     public static String getDirectoryPath(String filePath) {
         return StringUtils.substring(filePath, 0, StringUtils.lastIndexOf(filePath, "/"));
+    }
+
+    /**
+     * 读取classPath下的文件内容
+     *
+     * @param filePath classPath下相对路径
+     * @return 文件内容
+     */
+    public static String readClassPathFile(String filePath, String encoding) throws URISyntaxException, IOException {
+        URL url = ClassLoader.getSystemResource(filePath);
+        return FileUtils.readFileToString(new File(url.toURI()), encoding);
     }
 }
