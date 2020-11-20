@@ -30,6 +30,7 @@
         <module>charon-swagger-spring-boot-starter</module>
         <module>charon-mybatis-spring-boot-starter</module>
         <module>charon-rocketmq-spring-boot-starter</module>
+        <module>charon-canal-client-spring-boot-starter</module>
     </modules>
     <dependencies>
         <dependency>

@@ -1,4 +1,4 @@
-package io.github.harvies.charon.tests.canal;
+package io.github.harvies.charon.canal;
 
 import com.alibaba.otter.canal.client.CanalConnector;
 import com.alibaba.otter.canal.client.CanalConnectors;
