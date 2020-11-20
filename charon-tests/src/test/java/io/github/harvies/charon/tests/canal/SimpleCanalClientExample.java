@@ -16,7 +16,7 @@ public class SimpleCanalClientExample {
     public static void main(String args[]) {
         // 创建链接
         CanalConnector connector = CanalConnectors.newSingleConnector(new InetSocketAddress(PropertiesUtils.getDefaultProperty("charon.canal.host"),
-                Integer.parseInt(PropertiesUtils.getDefaultProperty("charon.canal.port"))), "example", PropertiesUtils.getDefaultProperty("charon.mysql.username"), PropertiesUtils.getDefaultProperty("charon.mysql.password"));
+                Integer.parseInt(PropertiesUtils.getDefaultProperty("charon.canal.port"))), "example", null,null);
         int batchSize = 1000;
         int emptyCount = 0;
         try {
