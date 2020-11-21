@@ -51,7 +51,7 @@ public class SimpleCanalClientExample {
         }
     }
 
-    private static void printEntry(List<Entry> entrys) {
+    public static void printEntry(List<Entry> entrys) {
         for (Entry entry : entrys) {
             if (entry.getEntryType() == EntryType.TRANSACTIONBEGIN || entry.getEntryType() == EntryType.TRANSACTIONEND) {
                 continue;

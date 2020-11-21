@@ -1,0 +1,12 @@
+charon:
+  application:
+    name: charon-canal-client-spring-boot
+  env: dev
+  canal:
+    host: localhost
+    port: 11111
+    destinations:
+      hp:
+        filter: 'test.t_user'
+      dev:
+        filter: '.*\..*'
