@@ -26,73 +26,99 @@ public class AAATest {
 
     @Data
     public static class Head {
-        @ExcelProperty(index = 0, value = "门店名称")
+        @ExcelProperty(index = 0, value = "网点名称")
         @ColumnWidth(value = 30)
         private String storeName;
 
-        @ExcelProperty(index = 1, value = "纳税人识别号")
-        @ColumnWidth(value = 25)
+        @ExcelProperty(index = 1, value = "企业代码类型")
+        @ColumnWidth(value = 10)
+        private String codeType;
+
+        @ExcelProperty(index = 2, value = "企业代码")
+        @ColumnWidth(value = 20)
         private String registrationNumber;
 
-        @ExcelProperty(index = 2, value = "省")
+        @ExcelProperty(index = 3, value = "网点类型（一级类目）")
+        @ColumnWidth(value = 10)
+        private String one;
+
+        @ExcelProperty(index = 4, value = "网点类型（二级类目）")
+        @ColumnWidth(value = 10)
+        private String two;
+
+        @ExcelProperty(index = 5, value = "网点区域（省）")
         @ColumnWidth(value = 10)
         private String providerId;
 
-        @ExcelProperty(index = 3, value = "市")
+        @ExcelProperty(index = 6, value = "网点区域（市）")
         @ColumnWidth(value = 10)
         private String cityId;
 
-        @ExcelProperty(index = 4, value = "区")
+        @ExcelProperty(index = 7, value = "网点区域（区）")
         @ColumnWidth(value = 10)
         private String areaId;
 
-        @ExcelProperty(index = 5, value = "详细地址")
+        @ExcelProperty(index = 8, value = "网点地址")
         @ColumnWidth(value = 30)
         private String address;
 
-        @ExcelProperty(index = 6, value = "门店经度")
+        @ExcelProperty(index = 9, value = "经纬度地图")
+        @ColumnWidth(value = 10)
+        private String ld;
+
+        @ExcelProperty(index = 10, value = "网点经度")
         @ColumnWidth(value = 20)
         private String latitude;
 
-        @ExcelProperty(index = 7, value = "门店纬度")
+        @ExcelProperty(index = 11, value = "网点纬度")
         @ColumnWidth(value = 20)
         private String dimension;
 
-        @ExcelProperty(index = 8, value = "负责人姓名")
+        @ExcelProperty(index = 12, value = "联系人")
         @ColumnWidth(value = 10)
         private String managerName;
 
-        @ExcelProperty(index = 9, value = "联系固话")
+        @ExcelProperty(index = 13, value = "客服电话")
         @ColumnWidth(value = 15)
         private String tel;
 
-        @ExcelProperty(index = 10, value = "对外联系手机号")
+        @ExcelProperty(index = 14, value = "联系人手机号")
         @ColumnWidth(value = 15)
         private String phone;
 
-        @ExcelProperty(index = 11, value = "营业时间")
+        @ExcelProperty(index = 15, value = "营业时间")
         @ColumnWidth(value = 10)
         private String businessTime;
 
-        @ExcelProperty(index = 12, value = "门店ID")
+        @ExcelProperty(index = 16, value = "网点介绍")
+        @ColumnWidth(value = 10)
+        private String storeDesc;
+
+        @ExcelProperty(index = 17, value = "第三方网点ID(选填)")
         @ColumnWidth(value = 10)
         private String storeId;
-
-        @ExcelProperty(index = 13, value = "门店名称")
+        @ExcelProperty(index = 18, value = "第三方网点名称(选填)")
         @ColumnWidth(value = 30)
-        private String storeName2;
+        private String storeName3;
+        @ExcelProperty(index = 19, value = "第三方网点类型(选填)")
+        @ColumnWidth(value = 30)
+        private String storeType;
 
-        @ExcelProperty(index = 14, value = "营业执照照片链接")
+        @ExcelProperty(index = 20, value = "营业执照照片名称")
         @ColumnWidth(value = 10)
         private String businessLicense;
 
-        @ExcelProperty(index = 15, value = "门头图照片链接")
+        @ExcelProperty(index = 21, value = "网点图片名称")
         @ColumnWidth(value = 10)
         private String headPicture;
 
-        @ExcelProperty(index = 16, value = "工位图照片链接")
+        @ExcelProperty(index = 22, value = "详情图片名称（选填）")
         @ColumnWidth(value = 10)
         private String workStationPicture;
+
+        @ExcelProperty(index = 23, value = "申请资料名称（选填）")
+        @ColumnWidth(value = 10)
+        private String workStationPicture1;
     }
 
     @Data
@@ -105,7 +131,7 @@ public class AAATest {
     @Test
     public void test() throws IOException {
         byte[] iconByteArray = FileUtils.readFileToByteArray(new File(FileUtils.getCurrentUserHomePath() + "/icon.png"));
-        List<Head> list = EasyExcelFactory.read(FileUtils.getCurrentUserHomePath() + "/Downloads/test9.28.xlsx")
+        List<Head> list = EasyExcelFactory.read(FileUtils.getCurrentUserHomePath() + "/Downloads/网点上架批量申请模板11.21.xlsx")
                 .sheet(0)
                 .head(Head.class)
                 .doReadSync();

@@ -17,13 +17,13 @@ public class JdbcTempleTest extends BaseTest {
     public void createTable() {
         jdbcTemplate.execute("DROP TABLE IF EXISTS t_customer");
         jdbcTemplate.execute("CREATE TABLE t_customer(" +
-                "id SERIAL, first_name VARCHAR(255), last_name VARCHAR(255))");
+                "id bigint(20), first_name VARCHAR(255), last_name VARCHAR(255))");
     }
 
     @Test
     public void insert() {
         for (int i = 0; i < 17; i++) {
-            int update = jdbcTemplate.update("INSERT INTO t_customer(first_name, last_name) VALUES (?,?)", "first_name_" + i, "last_name_" + i);
+            int update = jdbcTemplate.update("INSERT INTO t_customer(id,first_name, last_name) VALUES (?,?,?)", i,"first_name_" + i, "last_name_" + i);
             log.warn("update rows:{}", update);
         }
 
