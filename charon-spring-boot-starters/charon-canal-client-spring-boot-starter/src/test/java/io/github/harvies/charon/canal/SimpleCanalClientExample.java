@@ -16,7 +16,7 @@ public class SimpleCanalClientExample {
     public static void main(String args[]) {
         // 创建链接
         CanalConnector connector = CanalConnectors.newSingleConnector(new InetSocketAddress(PropertiesUtils.getDefaultProperty("charon.canal.host"),
-                Integer.parseInt(PropertiesUtils.getDefaultProperty("charon.canal.port"))), "dev", null,null);
+                Integer.parseInt(PropertiesUtils.getDefaultProperty("charon.canal.port"))), "dev", null, null);
         int batchSize = 1000;
         int emptyCount = 0;
         try {
@@ -66,10 +66,10 @@ public class SimpleCanalClientExample {
             }
 
             EventType eventType = rowChage.getEventType();
-            System.out.println(String.format("================&gt; binlog[%s:%s] , name[%s,%s] , eventType : %s",
+            System.out.println(String.format("================&gt; binlog[%s:%s] , name[%s,%s] , eventType : %s , delay : %s ms",
                     entry.getHeader().getLogfileName(), entry.getHeader().getLogfileOffset(),
                     entry.getHeader().getSchemaName(), entry.getHeader().getTableName(),
-                    eventType));
+                    eventType, System.currentTimeMillis() - entry.getHeader().getExecuteTime()));
 
             for (RowData rowData : rowChage.getRowDatasList()) {
                 if (eventType == EventType.DELETE) {
