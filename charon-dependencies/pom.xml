@@ -802,7 +802,7 @@
                                 <jvmFlag>${MetaspaceSize}</jvmFlag>
                                 <jvmFlag>${MaxMetaspaceSize}</jvmFlag>
                                 <jvmFlag>${MaxDirectMemorySize}</jvmFlag>
-                                <jvmFlag>-XX:PrintGC</jvmFlag>
+                                <jvmFlag>-XX:+PrintGC</jvmFlag>
                                 <jvmFlag>-XX:+PrintGCDetails</jvmFlag>
                                 <jvmFlag>-XX:+PrintHeapAtGC</jvmFlag>
                                 <jvmFlag>-XX:+PrintGCTimeStamps</jvmFlag>
