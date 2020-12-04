@@ -805,9 +805,9 @@
                                 <jvmFlag>-XX:+PrintGC</jvmFlag>
                                 <jvmFlag>-XX:+PrintGCDetails</jvmFlag>
                                 <jvmFlag>-Xlog:gc+heap=trace</jvmFlag><!--jdk9前是-XX:+PrintHeapAtGC-->
-                                <jvmFlag>-XX:+PrintGCTimeStamps</jvmFlag>
-                                <jvmFlag>-XX:+PrintGCApplicationConcurrentTime</jvmFlag>
-                                <jvmFlag>-XX:+PrintGCApplicationStoppedTime</jvmFlag>
+<!--                                <jvmFlag>-XX:+PrintGCTimeStamps</jvmFlag>-->
+<!--                                <jvmFlag>-XX:+PrintGCApplicationConcurrentTime</jvmFlag>-->
+<!--                                <jvmFlag>-XX:+PrintGCApplicationStoppedTime</jvmFlag>-->
                                 <jvmFlag>-Xlog:ref*=debug</jvmFlag><!-- jdk9前是-XX:+PrintReferenceGC-->
                                 <jvmFlag>-Xlog:gc:gc.log</jvmFlag><!--jdk9前是-XLoggc:gc.log-->
                                 <jvmFlag>-Djava.security.egd=file:/dev/./urandom</jvmFlag>
