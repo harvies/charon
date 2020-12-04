@@ -27,8 +27,8 @@
         <mybatis-spring.version>2.0.2</mybatis-spring.version>
         <mybatis-spring-boot-starter.version>2.1.0</mybatis-spring-boot-starter.version>
         <druid.version>1.1.16</druid.version>
-                 <shardingsphere.version>5.0.0-alpha</shardingsphere.version>
-<!--        <shardingsphere.version>4.1.1</shardingsphere.version>-->
+        <shardingsphere.version>5.0.0-alpha</shardingsphere.version>
+        <!--        <shardingsphere.version>4.1.1</shardingsphere.version>-->
         <HikariCP.version>3.2.0</HikariCP.version>
         <h2.version>1.4.199</h2.version>
         <logback.version>1.2.3</logback.version>
@@ -804,12 +804,12 @@
                                 <jvmFlag>${MaxDirectMemorySize}</jvmFlag>
                                 <jvmFlag>-XX:+PrintGC</jvmFlag>
                                 <jvmFlag>-XX:+PrintGCDetails</jvmFlag>
-                                <jvmFlag>-XX:+PrintHeapAtGC</jvmFlag>
+                                <jvmFlag>-Xlog:gc+heap=trace</jvmFlag><!--jdk9前是-XX:+PrintHeapAtGC-->
                                 <jvmFlag>-XX:+PrintGCTimeStamps</jvmFlag>
                                 <jvmFlag>-XX:+PrintGCApplicationConcurrentTime</jvmFlag>
                                 <jvmFlag>-XX:+PrintGCApplicationStoppedTime</jvmFlag>
-                                <jvmFlag>-XX:+PrintReferenceGC</jvmFlag>
-                                <jvmFlag>-XLoggc:gc.log</jvmFlag>
+                                <jvmFlag>-Xlog:ref*=debug</jvmFlag><!-- jdk9前是-XX:+PrintReferenceGC-->
+                                <jvmFlag>-Xlog:gc:gc.log</jvmFlag><!--jdk9前是-XLoggc:gc.log-->
                                 <jvmFlag>-Djava.security.egd=file:/dev/./urandom</jvmFlag>
                                 <jvmFlag>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5005
                                 </jvmFlag>
