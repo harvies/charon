@@ -802,6 +802,14 @@
                                 <jvmFlag>${MetaspaceSize}</jvmFlag>
                                 <jvmFlag>${MaxMetaspaceSize}</jvmFlag>
                                 <jvmFlag>${MaxDirectMemorySize}</jvmFlag>
+                                <jvmFlag>-XX:PrintGC</jvmFlag>
+                                <jvmFlag>-XX:+PrintGCDetails</jvmFlag>
+                                <jvmFlag>-XX:+PrintHeapAtGC</jvmFlag>
+                                <jvmFlag>-XX:+PrintGCTimeStamps</jvmFlag>
+                                <jvmFlag>-XX:+PrintGCApplicationConcurrentTime</jvmFlag>
+                                <jvmFlag>-XX:+PrintGCApplicationStoppedTime</jvmFlag>
+                                <jvmFlag>-XX:+PrintReferenceGC</jvmFlag>
+                                <jvmFlag>-XLoggc:gc.log</jvmFlag>
                                 <jvmFlag>-Djava.security.egd=file:/dev/./urandom</jvmFlag>
                                 <jvmFlag>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5005
                                 </jvmFlag>
