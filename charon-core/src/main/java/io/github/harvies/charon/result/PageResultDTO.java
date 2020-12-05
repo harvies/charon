@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spring.boot.web.result;
+package io.github.harvies.charon.result;
 
 import lombok.*;
 
@@ -11,7 +11,6 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-@Deprecated
 public class PageResultDTO<T> extends BaseResult {
 
     /**

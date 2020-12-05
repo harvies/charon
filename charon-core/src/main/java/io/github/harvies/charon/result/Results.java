@@ -1,8 +1,7 @@
-package io.github.harvies.charon.spring.boot.web.result;
+package io.github.harvies.charon.result;
 
 import java.util.List;
 
-@Deprecated
 public class Results {
 
     public static <T> ResultDTO<T> success(T t) {

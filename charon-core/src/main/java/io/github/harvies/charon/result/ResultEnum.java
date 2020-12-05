@@ -1,9 +1,8 @@
-package io.github.harvies.charon.spring.boot.web.result;
+package io.github.harvies.charon.result;
 
 /**
  * @author harvies
  */
-@Deprecated
 public enum ResultEnum {
     UNKNOWN_ERROR("-1", "系统异常"),
     SUCCESS("0", "请求成功"),
