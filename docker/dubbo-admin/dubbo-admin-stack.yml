@@ -18,7 +18,7 @@ services:
       - admin.metadata-report.address=zookeeper://zk.dev.kikera.org:2181
       - admin.check.authority=true
       - admin.root.user.name=admin
-      - admin.root.user.password=Lisi@123
+      - admin.root.user.password=
     dns: 121.199.57.1
     networks:
       - default

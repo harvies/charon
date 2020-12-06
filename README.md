@@ -36,7 +36,7 @@
 
 
 ## Maven 配置文件
-https://code.aliyun.com/harvies/configs/raw/75d678e4c5a0c1b847d44edb469a342aa76bd9cb/.m2/settings.xml
+https://raw.githubusercontent.com/harvies/software/master/.m2/settings.xml
 
 ## 编译
 
@@ -48,18 +48,3 @@ mvn clean install -DskipTests -U -s 'xxxx/settings.xml'
 ```bash
 mvn clean deploy -DskipTests -U -s 'xxx/settings.xml'
 ```
-
-## 常用工具
-
-### oh-my-zsh(zsh配置管理工具)
-```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-### arthas(Java诊断工具)
-```
-curl -O https://alibaba.github.io/arthas/arthas-boot.jar
-
-java -jar arthas-boot.jar -repo-mirror aliyun
-
-```
-### htop(系统监控)

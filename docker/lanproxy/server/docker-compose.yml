@@ -7,6 +7,6 @@ services:
       # 配置你的账号
       - LANPROXY_USERNAME=admin
       # 配置你的密码
-      - LANPROXY_PASSWORD=Lisi@123
+      - LANPROXY_PASSWORD=admin
     restart: always
     network_mode: host

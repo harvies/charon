@@ -15,9 +15,9 @@ services:
           memory: 500M
           cpus: '2'
     environment:
-      SPRING_DATASOURCE_URL: 'jdbc:mysql://mysql.dev.kikera.top:3306/ApolloConfigDB?characterEncoding=utf8'
+      SPRING_DATASOURCE_URL: 'jdbc:mysql://mysql.dev.kikera.org:3306/ApolloConfigDB?characterEncoding=utf8'
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: Lisi@123
+      SPRING_DATASOURCE_PASSWORD:
       spring.cloud.inetutils.preferred-networks: 10.0.3
 
   apollo-adminservice:
@@ -33,9 +33,9 @@ services:
           memory: 500M
           cpus: '2'
     environment:
-      SPRING_DATASOURCE_URL: 'jdbc:mysql://mysql.dev.kikera.top:3306/ApolloConfigDB?characterEncoding=utf8'
+      SPRING_DATASOURCE_URL: 'jdbc:mysql://mysql.dev.kikera.org:3306/ApolloConfigDB?characterEncoding=utf8'
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: Lisi@123
+      SPRING_DATASOURCE_PASSWORD:
       spring.cloud.inetutils.preferred-networks: 10.0.3
   apollo-portal:
     image: apolloconfig/apollo-portal:latest
@@ -50,9 +50,9 @@ services:
           memory: 500M
           cpus: '2'
     environment:
-      SPRING_DATASOURCE_URL: 'jdbc:mysql://mysql.dev.kikera.top:3306/ApolloPortalDB?characterEncoding=utf8'
+      SPRING_DATASOURCE_URL: 'jdbc:mysql://mysql.dev.kikera.org:3306/ApolloPortalDB?characterEncoding=utf8'
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: Lisi@123
+      SPRING_DATASOURCE_PASSWORD:
       spring.cloud.inetutils.preferred-networks: 10.0.3
 networks:
   default:
