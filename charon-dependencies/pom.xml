@@ -813,7 +813,7 @@
                                 <jvmFlag>-Djava.security.egd=file:/dev/./urandom</jvmFlag>
                                 <jvmFlag>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5005
                                 </jvmFlag>
-                                <jvmFlag>-javaagent:/opt/skywalking-agent/skywalking-agent.jar</jvmFlag>
+<!--                                <jvmFlag>-javaagent:/opt/skywalking-agent/skywalking-agent.jar</jvmFlag>-->
                                 <jvmFlag>-Dskywalking.plugin.mongodb.trace_param=true</jvmFlag>
                                 <jvmFlag>-Dplugin.mysql.trace_sql_parameters=true</jvmFlag>
                                 <jvmFlag>-Dplugin.mariadb.trace_sql_parameters=true</jvmFlag>
