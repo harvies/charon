@@ -43,6 +43,7 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
+                    <!-- 重命名可执行jar-->
                     <finalName>charon-agent</finalName>
                     <appendAssemblyId>false</appendAssemblyId>
                     <!-- MainClass in mainfest make a executable jar -->
