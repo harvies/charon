@@ -4,7 +4,7 @@ LABEL maintainer="delverjw@gmail.com"
 ## jdk
 ENV JAVA_HOME=/usr/lib/jvm/default-jvm
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
-RUN apk add --no-cache openjdk11
+RUN apk add --no-cache openjdk8
 
 # install arthas
 RUN curl -L https://cdn.jsdelivr.net/gh/harvies/arthas-install@master/install_arthas.sh |sh
