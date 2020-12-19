@@ -12,6 +12,7 @@ import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.mongo.MongoProperties;
+import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.boot.context.properties.bind.Binder;
 import org.springframework.boot.env.EnvironmentPostProcessor;
 import org.springframework.context.annotation.Configuration;
@@ -29,10 +30,17 @@ public class MongoAutoConfiguration implements BeanDefinitionRegistryPostProcess
 
     private static MultipleDataSourcesProperties multipleDataSourcesProperties = null;
 
+    private static final String MONGO_PREFIX = "spring.data.mongodb";
+
     @Override
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
         log.info("加载mongo多数据源配置 begin");
-        multipleDataSourcesProperties = Binder.get(environment).bind("spring.data.mongodb", MultipleDataSourcesProperties.class).get();
+        BindResult<MultipleDataSourcesProperties> bindResult = Binder.get(environment).bind(MONGO_PREFIX, MultipleDataSourcesProperties.class);
+        if (!bindResult.isBound()) {
+            log.warn("properties [{}] is not found,skip init!", MONGO_PREFIX);
+            return;
+        }
+        multipleDataSourcesProperties = bindResult.get();
         log.info("加载mongo多数据源配置 end data:[{}]", multipleDataSourcesProperties);
     }
 
