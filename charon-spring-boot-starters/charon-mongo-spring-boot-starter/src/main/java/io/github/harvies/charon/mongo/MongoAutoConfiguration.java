@@ -46,6 +46,9 @@ public class MongoAutoConfiguration implements BeanDefinitionRegistryPostProcess
 
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry beanDefinitionRegistry) throws BeansException {
+        if (multipleDataSourcesProperties == null) {
+            return;
+        }
         Map<String, MongoProperties> dataSources = multipleDataSourcesProperties.getDataSources();
         for (Map.Entry<String, MongoProperties> stringMongoPropertiesEntry : dataSources.entrySet()) {
             String dataSourceName = stringMongoPropertiesEntry.getKey();
