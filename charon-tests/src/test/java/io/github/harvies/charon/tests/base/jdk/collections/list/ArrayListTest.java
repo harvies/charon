@@ -1,7 +1,8 @@
 package io.github.harvies.charon.tests.base.jdk.collections.list;
 
+import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,5 +40,21 @@ public class ArrayListTest {
         } catch (Exception e) {
             log.warn("e", e);
         }
+    }
+
+    @Test
+    public void removeAll() {
+        List<Integer> listA = Lists.newArrayList(1, 2, 3);
+        List<Integer> listB = Lists.newArrayList(1, 2);
+        listA.removeAll(listB);
+        System.out.println(listA); //[3]
+    }
+
+    @Test
+    public void retainAll() {
+        List<Integer> listA = Lists.newArrayList(1, 2, 3);
+        List<Integer> listB = Lists.newArrayList(1, 2);
+        listA.retainAll(listB);
+        System.out.println(listA); //[1,2]
     }
 }
