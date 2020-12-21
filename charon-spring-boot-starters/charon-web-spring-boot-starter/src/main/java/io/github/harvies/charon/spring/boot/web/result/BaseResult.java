@@ -1,25 +1,8 @@
 package io.github.harvies.charon.spring.boot.web.result;
 
-import lombok.Data;
-import lombok.experimental.Accessors;
-import org.apache.skywalking.apm.toolkit.trace.TraceContext;
-
 import java.io.Serializable;
 
-@Data
-@Accessors(chain = true)
 @Deprecated
-public abstract class BaseResult implements Serializable {
-    private static final long serialVersionUID = 1L;
+public abstract class BaseResult extends io.github.harvies.charon.result.BaseResult implements Serializable {
 
-    private String traceId = TraceContext.traceId();
-
-    /**
-     * 状态码
-     */
-    private String code;
-    /**
-     * 状态信息
-     */
-    private String msg;
 }

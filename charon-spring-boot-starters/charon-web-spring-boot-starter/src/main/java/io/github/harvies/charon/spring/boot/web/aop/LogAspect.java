@@ -1,6 +1,6 @@
 package io.github.harvies.charon.spring.boot.web.aop;
 
-import io.github.harvies.charon.spring.boot.web.result.BaseResult;
+import io.github.harvies.charon.result.BaseResult;
 import io.github.harvies.charon.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
