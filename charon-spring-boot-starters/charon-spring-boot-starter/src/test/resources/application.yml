@@ -6,4 +6,4 @@ spring:
     banner-mode: console
 charon:
   application:
-    name: charon-spring-boot
+    name: charon

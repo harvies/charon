@@ -39,6 +39,7 @@
         <module>charon-rocketmq-broker</module>
         <module>charon-rockermq-namesrv</module>
         <module>charon-elasticsearch</module>
+        <module>charon-config</module>
     </modules>
 
     <dependencies>

@@ -494,6 +494,21 @@
                 <artifactId>charon-picture</artifactId>
                 <version>${charon.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-config-core</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-config-server</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-config-client</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
             <!-- charon-spring-boot-starters-->
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>

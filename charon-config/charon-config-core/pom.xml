@@ -3,28 +3,25 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>charon-spring-boot-starters</artifactId>
+        <artifactId>charon-config</artifactId>
         <groupId>io.github.harvies.charon</groupId>
         <version>0.0.6-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>charon-spring-boot-starter</artifactId>
-    <version>0.0.6-SNAPSHOT</version>
-
+    <artifactId>charon-config-core</artifactId>
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
         <dependency>
             <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-core</artifactId>
-            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-config-client</artifactId>
+            <artifactId>charon-log</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
         </dependency>
     </dependencies>
 </project>

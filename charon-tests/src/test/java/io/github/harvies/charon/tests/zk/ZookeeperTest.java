@@ -5,6 +5,7 @@ import org.apache.curator.framework.CuratorFramework;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Slf4j
@@ -35,13 +36,13 @@ public class ZookeeperTest {
      */
     @Test
     public void create() throws Exception {
-        String test = client.create().forPath(testPath, "testData".getBytes("UTF-8"));
+        String test = client.create().forPath(testPath, "testData".getBytes(StandardCharsets.UTF_8));
         System.err.println(test);
     }
 
     @Test
     public void update() throws Exception {
-        String test = client.create().orSetData().forPath(testPath, "testDataUpdate11".getBytes("UTF-8"));
+        String test = client.create().orSetData().forPath(testPath, "testDataUpdate11".getBytes(StandardCharsets.UTF_8));
         System.err.println(test);
     }
 
@@ -53,7 +54,7 @@ public class ZookeeperTest {
     @Test
     public void getData() throws Exception {
         byte[] bytes = client.getData().forPath(testPath);
-        System.err.println(new String(bytes, "UTF-8"));
+        System.err.println(new String(bytes, StandardCharsets.UTF_8));
     }
 
     /**
