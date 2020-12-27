@@ -1,9 +1,7 @@
 package io.github.harvies.charon.spring.boot;
 
-import io.github.harvies.charon.config.App;
-import io.github.harvies.charon.config.DefaultConfigService;
-import io.github.harvies.charon.config.EnvEnum;
-import io.github.harvies.charon.config.ZkUtils;
+import io.github.harvies.charon.config.*;
+import io.github.harvies.charon.config.event.ConfigChangeEvent;
 import io.github.harvies.charon.util.PropertiesUtils;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +21,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Enumeration;
 import java.util.Properties;
+import java.util.concurrent.locks.LockSupport;
 
 @Slf4j
 public class CharonSpringBootEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
@@ -101,9 +100,22 @@ public class CharonSpringBootEnvironmentPostProcessor implements EnvironmentPost
 
     private void loadPropertiesFromConfigCenter(String appName, String env, DefaultConfigService defaultConfigService) {
         Properties properties = defaultConfigService.get(new App().setAppName(appName).setEnv(EnvEnum.of(env)));
-        PropertiesPropertySource propertySource = new PropertiesPropertySource("charon-spring-boot-config-center-" + appName, properties);
+        String key = "charon-spring-boot-config-center-" + appName;
+        PropertiesPropertySource propertySource = new PropertiesPropertySource(key, properties);
         //配置放到最前
         environment.getPropertySources().addFirst(propertySource);
         log.info("load [{}] item config from config center success!,env:[{}] appName:[{}],data:[{}]", properties.size(), env, appName, properties);
+        App app = new App().setAppName(appName).setEnv(EnvEnum.of(env));
+        Thread thread = new Thread(() -> {
+            defaultConfigService.watch(app, event -> {
+                if (event instanceof ConfigChangeEvent) {
+                    this.environment.getPropertySources().addFirst(new PropertiesPropertySource(key, defaultConfigService.get(app)));
+                }
+            });
+            LockSupport.park();
+        });
+        thread.setName("config-center-listen-thread");
+        thread.setDaemon(true);
+        thread.start();
     }
 }
