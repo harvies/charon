@@ -1,28 +1,20 @@
-import org.apache.curator.RetryPolicy;
+package io.github.harvies.charon.tests.zk;
+
+import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
-import org.apache.curator.framework.CuratorFrameworkFactory;
-import org.apache.curator.retry.ExponentialBackoffRetry;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+@Slf4j
 public class ZookeeperTest {
-    private static final String zookeeperConnectionString = "zk.dev.kikera.top:2181";
-    private static final String testPath = "/test";
+    public static final String testPath = "/test";
     private static CuratorFramework client = null;
 
     @BeforeAll
     public static void before() {
-        RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
-        client = CuratorFrameworkFactory.builder()
-                .connectString(zookeeperConnectionString)
-                //设置重试策略
-                .retryPolicy(retryPolicy)
-                .build();
-        //Start the client. Most mutator methods will not work until the client is started
-        client.start();
+        client = ZkUtils.getClient();
     }
 
     /**
@@ -47,6 +39,12 @@ public class ZookeeperTest {
         System.err.println(test);
     }
 
+    @Test
+    public void update() throws Exception {
+        String test = client.create().orSetData().forPath(testPath, "testDataUpdate11".getBytes("UTF-8"));
+        System.err.println(test);
+    }
+
     /**
      * 获取指定节点下的数据
      *
@@ -63,8 +61,9 @@ public class ZookeeperTest {
      *
      * @throws Exception
      */
-    @AfterAll
-    public static void delete() throws Exception {
+    @Test
+    public void delete() throws Exception {
         client.delete().forPath(testPath);
     }
+
 }

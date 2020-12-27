@@ -19,7 +19,6 @@
         <module>dubbo</module>
         <module>sofa-rpc</module>
         <module>sofa-boot</module>
-        <module>zookeeper</module>
         <module>tomcat</module>
         <module>spring</module>
     </modules>
