@@ -1,0 +1,32 @@
+# Use root/example as user/password credentials
+version: '3.7'
+
+services:
+  adminer:
+    image: canal/canal-server:latest
+    restart: always
+    ports:
+      - 11111:11111
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          memory: 256M
+      placement:
+        constraints: [node.labels.name == hp]
+    networks:
+      - default
+    environment:
+      canal.instance.master.address: 192.168.7.77:3306
+      canal.instance.dbUsername: root
+      canal.instance.dbPassword: 
+      canal.instance.connectionCharset: 'UTF-8'
+      canal.instance.tsdb.enable: 'true'
+      canal.instance.gtidon: 'false'
+      canal.instance.filter.regex: '.*\\..*'
+networks:
+  default:
+    external:
+      name: dev_overlay

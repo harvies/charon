@@ -46,7 +46,7 @@ output {
     <contextName>application</contextName>
     <timestamp key="TIMESTAMP" datePattern="yyyy-MM-dd"/>
     <property name="LOGPATH" value="log"/>
-    <springProperty scope="context" name="appName" source="charon.application.name" defaultValue="localhost.log"/>
+    <springProperty scope="context" name="appName" source="charon.application.name" defaultValue="app"/>
     <springProperty scope="context" name="logstashHost" source="charon.logstash.host" defaultValue="localhost"/>
     <springProperty scope="context" name="logstashPort" source="charon.logstash.port" defaultValue="10514"/>
     <!-- 输出到控制台 -->
@@ -81,7 +81,7 @@ output {
         <param name="Encoding" value="UTF-8"/>
         <remoteHost>${logstashHost}</remoteHost>
         <port>${logstashPort}</port>
-        <!-- <filter class="com.program.interceptor.ELKFilter"/>-->//引入过滤类
+        <!-- <filter class="com.program.interceptor.ELKFilter"/>-->
         <!-- encoder is required -->
         <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder">
             <customFields>{"appName":"${appName}"}</customFields>
