@@ -1,11 +1,8 @@
 package io.github.harvies.charon.spring.boot;
 
-import io.github.harvies.charon.config.*;
-import io.github.harvies.charon.config.event.ConfigChangeEvent;
 import io.github.harvies.charon.util.PropertiesUtils;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.context.config.ConfigFileApplicationListener;
 import org.springframework.boot.env.EnvironmentPostProcessor;
@@ -21,7 +18,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Enumeration;
 import java.util.Properties;
-import java.util.concurrent.locks.LockSupport;
 
 @Slf4j
 public class CharonSpringBootEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
@@ -39,8 +35,6 @@ public class CharonSpringBootEnvironmentPostProcessor implements EnvironmentPost
         this.environment = environment;
         log.info("set charon-spring-boot properties begin");
         loadProperties();
-        //从配置中心加载配置
-        loadPropertiesFromConfigCenter();
         log.info("set charon-spring-boot properties end");
     }
 
@@ -80,42 +74,5 @@ public class CharonSpringBootEnvironmentPostProcessor implements EnvironmentPost
             throw new IllegalArgumentException("Unable to load properties from location [" +
                     CHARON_PROPERTIES_RESOURCE_LOCATION + "]", ex);
         }
-    }
-
-    private void loadPropertiesFromConfigCenter() {
-        String appName = environment.getProperty("spring.application.name");
-        String env = environment.getProperty("charon.env");
-        if (StringUtils.isAnyBlank(appName, env)) {
-            log.warn("appName or env is not config");
-            return;
-        }
-        DefaultConfigService defaultConfigService = new DefaultConfigService.Builder()
-                .setCuratorFramework(ZkUtils.getClient())
-                .build();
-        //common config
-        loadPropertiesFromConfigCenter("common", env, defaultConfigService);
-        // app config
-        loadPropertiesFromConfigCenter(appName, env, defaultConfigService);
-    }
-
-    private void loadPropertiesFromConfigCenter(String appName, String env, DefaultConfigService defaultConfigService) {
-        Properties properties = defaultConfigService.get(new App().setAppName(appName).setEnv(EnvEnum.of(env)));
-        String key = "charon-spring-boot-config-center-" + appName;
-        PropertiesPropertySource propertySource = new PropertiesPropertySource(key, properties);
-        //配置放到最前
-        environment.getPropertySources().addFirst(propertySource);
-        log.info("load [{}] item config from config center success!,env:[{}] appName:[{}],data:[{}]", properties.size(), env, appName, properties);
-        App app = new App().setAppName(appName).setEnv(EnvEnum.of(env));
-        Thread thread = new Thread(() -> {
-            defaultConfigService.watch(app, event -> {
-                if (event instanceof ConfigChangeEvent) {
-                    this.environment.getPropertySources().addFirst(new PropertiesPropertySource(key, defaultConfigService.get(app)));
-                }
-            });
-            LockSupport.park();
-        });
-        thread.setName("config-center-listen-thread");
-        thread.setDaemon(true);
-        thread.start();
     }
 }

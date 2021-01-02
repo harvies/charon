@@ -1,0 +1,4 @@
+charon:
+  application:
+    name: charon-config
+  env: dev
