@@ -11,15 +11,17 @@ services:
       replicas: 1
       resources:
         limits:
-          cpus: '2'
+          memory: 300M
+        reservations:
+          memory: 300M
     environment:
       - admin.registry.address=zookeeper://zk.dev.kikera.org:2181
       - admin.config-center=zookeeper://zk.dev.kikera.org:2181
       - admin.metadata-report.address=zookeeper://zk.dev.kikera.org:2181
-      - admin.check.authority=true
+      - admin.check.authority=false
       - admin.root.user.name=admin
       - admin.root.user.password=
-    dns: 121.199.57.1
+    dns: 192.168.7.77
     networks:
       - default
 networks:

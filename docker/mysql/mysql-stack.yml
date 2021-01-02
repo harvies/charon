@@ -3,14 +3,15 @@ version: '3.7'
 
 services:
   mysql:
-    image: mysql:5.7
+    image: mysql:8.0
     volumes:
-      - mysql_data:/var/lib/mysql
+      - /data/mysql:/var/lib/mysql
     restart: always
+#    command: --skip-grant-tables  ## 跳过密码验证启动，找回密码时使用
     ports:
-      - 33061:3306
+      - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD:
+      MYSQL_ROOT_PASSWORD: 
       MYSQL_DATABASE: test
       MYSQL_USER: test
       MYSQL_PASSWORD:
@@ -20,26 +21,12 @@ services:
       replicas: 1
       resources:
         limits:
-          memory: 500M
+          memory: 400M
         reservations:
-          memory: 300M
+          memory: 400M
       placement:
         constraints:
-          - engine.labels.host == aliyun
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 81:8080
-    deploy:
-      replicas: 1
-      placement:
-        constraints:
-          - engine.labels.host == aliyun
-    networks:
-      - default
-volumes:
-  mysql_data:
+          - node.labels.name == hp
 networks:
   default:
     external:

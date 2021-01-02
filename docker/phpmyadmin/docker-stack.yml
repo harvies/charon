@@ -1,0 +1,20 @@
+# Use root/example as user/password credentials
+version: '3.7'
+
+services:
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    ports:
+      - 82:80
+    deploy:
+      replicas: 1
+    networks:
+      - default
+    environment:
+      PMA_ARBITRARY: 1
+    dns: 192.168.7.77
+networks:
+  default:
+    external:
+      name: dev_overlay
