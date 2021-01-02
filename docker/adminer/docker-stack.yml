@@ -15,7 +15,7 @@ services:
       - default
     environment:
       ADMINER_PLUGINS: 'tables-filter dump-date dump-json dump-zip json-column sql-log'
-      ADMINER_DEFAULT_SERVER: 10.144.106.92
+      ADMINER_DEFAULT_SERVER: 192.168.7.77
 networks:
   default:
     external:
