@@ -595,6 +595,11 @@
                 <artifactId>charon-rocketmq-spring-boot-starter</artifactId>
                 <version>${charon.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-config-spring-boot-starter</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
 
             <!-- spring-boot-admin-->
             <dependency>
