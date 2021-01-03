@@ -19,7 +19,7 @@ public class LogFilter implements Filter {
         }
         Result invoke = invoker.invoke(invocation);
         RpcContext rpcContext = RpcContext.getContext();
-        log.info("invoker end:[{}] rpcContext:[{}] invoker[{}] invocation:[{}] invoke:[{}] traceId:[{}] cast:[{}] ms", JsonUtils.toJSONString(rpcContext), JsonUtils.toJSONString(invoker), JsonUtils.toJSONString(invocation), JsonUtils.toJSONString(invoke), invocation.getAttachment("traceId"), stopwatch.elapsed().toMillis());
+        log.info("invoker end: rpcContext:[{}] invoker[{}] invocation:[{}] invoke:[{}] traceId:[{}] cast:[{}] ms", JsonUtils.toJSONString(rpcContext), JsonUtils.toJSONString(invoker), JsonUtils.toJSONString(invocation), JsonUtils.toJSONString(invoke), invocation.getAttachment("traceId"), stopwatch.elapsed().toMillis());
         return invoke;
     }
 }
