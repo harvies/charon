@@ -19,6 +19,12 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-json</artifactId>
+            <scope>compile</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
         </dependency>

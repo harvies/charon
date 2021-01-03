@@ -1,6 +1,7 @@
 package io.github.harvies.charon.dubbo.filters;
 
 import com.google.common.base.Stopwatch;
+import io.github.harvies.charon.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.common.extension.Activate;
@@ -17,7 +18,8 @@ public class LogFilter implements Filter {
             invocation.setAttachment("traceId", TraceContext.traceId());
         }
         Result invoke = invoker.invoke(invocation);
-        log.info("invoker end:[{}] invocation:[{}] traceId:[{}] cast:[{}] ms", invoker, invocation, invocation.getAttachment("traceId"), stopwatch.elapsed().toMillis());
+        RpcContext rpcContext = RpcContext.getContext();
+        log.info("invoker end:[{}] rpcContext:[{}] invoker[{}] invocation:[{}]  traceId:[{}] cast:[{}] ms", JsonUtils.toJSONString(rpcContext), JsonUtils.toJSONString(invoker), JsonUtils.toJSONString(invocation), invocation.getAttachment("traceId"), stopwatch.elapsed().toMillis());
         return invoke;
     }
 }
