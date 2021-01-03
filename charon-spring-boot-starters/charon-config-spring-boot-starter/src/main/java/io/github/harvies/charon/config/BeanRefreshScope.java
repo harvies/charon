@@ -4,6 +4,7 @@ import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.config.Scope;
 
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class BeanRefreshScope implements Scope {
 
@@ -12,7 +13,12 @@ public class BeanRefreshScope implements Scope {
     private static final BeanRefreshScope INSTANCE = new BeanRefreshScope();
 
     //来个map用来缓存bean
-    private ConcurrentHashMap<String, Object> beanMap = new ConcurrentHashMap<>(); //@1
+    private static final ConcurrentHashMap<String, Object> BEAN_MAP = new ConcurrentHashMap<>(); //@1
+
+    /**
+     * 读写锁，防止写入的时候同时创建多个实例
+     */
+    public static final ReentrantReadWriteLock CACHE_LOCK = new ReentrantReadWriteLock();
 
     private BeanRefreshScope() {
     }
@@ -25,17 +31,22 @@ public class BeanRefreshScope implements Scope {
      * 清理当前
      */
     public static void clean() {
-        INSTANCE.beanMap.clear();
+        BEAN_MAP.clear();
     }
 
     @Override
     public Object get(String name, ObjectFactory<?> objectFactory) {
-        Object bean = beanMap.get(name);
-        if (bean == null) {
-            bean = objectFactory.getObject();
-            beanMap.put(name, bean);
+        CACHE_LOCK.readLock().lock();
+        try {
+            Object bean = BEAN_MAP.get(name);
+            if (bean == null) {
+                bean = objectFactory.getObject();
+                BEAN_MAP.put(name, bean);
+            }
+            return bean;
+        } finally {
+            CACHE_LOCK.readLock().unlock();
         }
-        return bean;
     }
 
     @Override
