@@ -1,2 +1,5 @@
 org.springframework.boot.env.EnvironmentPostProcessor=\
   io.github.harvies.charon.config.CharonConfigEnvironmentPostProcessor
+# AutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+ io.github.harvies.charon.config.RefreshAutoConfiguration

@@ -64,6 +64,8 @@ public class CharonConfigEnvironmentPostProcessor implements EnvironmentPostProc
             defaultConfigService.watch(app, event -> {
                 if (event instanceof ConfigChangeEvent) {
                     this.environment.getPropertySources().addFirst(new PropertiesPropertySource(key, defaultConfigService.get(app)));
+                    //清空BeanRefreshScope中所有bean的缓存,下次再获取bean的时候重新实例化(重写解析@Value)
+                    BeanRefreshScope.clean();
                 }
             });
             LockSupport.park();
