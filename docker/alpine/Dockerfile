@@ -12,6 +12,6 @@ RUN apk add tzdata && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime  \
 RUN apk add fontconfig ttf-dejavu
 
 ## 常用包
-RUN apk add git curl wget bash busybox-extras tini
+RUN apk add git curl wget bash busybox-extras tini sysstat
 
 WORKDIR /
