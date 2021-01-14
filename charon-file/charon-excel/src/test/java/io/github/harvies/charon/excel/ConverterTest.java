@@ -36,7 +36,6 @@ public class ConverterTest {
     public static class Head {
         //        private String a;
         @ExcelProperty(value = "b", converter = ListStringConverter.class)
-        @HeadStyle(horizontalAlignment = HorizontalAlignment.FILL)
         private List<String> b;
         @ExcelProperty(value = "c", converter = ListStringConverter.class)
         private List<Integer> c;
