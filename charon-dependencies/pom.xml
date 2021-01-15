@@ -118,7 +118,7 @@
             <dependency>
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-spring-boot-web-starter</artifactId>
-                <version>1.7.0</version>
+                <version>1.4.0</version>
             </dependency>
             <dependency>
                 <groupId>org.redisson</groupId>
@@ -813,8 +813,8 @@
                         <container>
                             <!--                            <mainClass>com.xxx.Application</mainClass>-->
                             <environment>
-                                <SW_AGENT_COLLECTOR_BACKEND_SERVICES>sw.dev.kikera.org:11800
-                                </SW_AGENT_COLLECTOR_BACKEND_SERVICES>
+                                <SW_AGENT_COLLECTOR_BACKEND_SERVICES>sw.dev.kikera.org:11800</SW_AGENT_COLLECTOR_BACKEND_SERVICES>
+                                <SW_TRACE_SAMPLE_RATE>1000</SW_TRACE_SAMPLE_RATE>
                             </environment>
                             <jvmFlags>
                                 <jvmFlag>${Xms}</jvmFlag>
