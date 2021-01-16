@@ -814,7 +814,6 @@
                             <!--                            <mainClass>com.xxx.Application</mainClass>-->
                             <environment>
                                 <SW_AGENT_COLLECTOR_BACKEND_SERVICES>sw.dev.kikera.org:11800</SW_AGENT_COLLECTOR_BACKEND_SERVICES>
-                                <SW_TRACE_SAMPLE_RATE>1000</SW_TRACE_SAMPLE_RATE>
                             </environment>
                             <jvmFlags>
                                 <jvmFlag>${Xms}</jvmFlag>
