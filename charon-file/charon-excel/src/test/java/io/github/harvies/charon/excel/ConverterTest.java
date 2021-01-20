@@ -8,7 +8,6 @@ import com.alibaba.excel.write.metadata.style.WriteCellStyle;
 import com.alibaba.excel.write.style.HorizontalCellStyleStrategy;
 import io.github.harvies.charon.util.FileUtils;
 import lombok.Data;
-import org.apache.poi.ss.usermodel.HorizontalAlignment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,6 +21,7 @@ public class ConverterTest {
 //        head.setA("aaa");
         head.setB(Arrays.asList("ccccccccc", "dddddddd", "ccccccccc", "dddddddd", "ccccccccc", "dddddddd", "ccccccccc", "dddddddd"));
         head.setC(Arrays.asList(111111111, 1222222222, 1222222222, 1222222222, 1222222222, 1222222222, 1222222222));
+        head.setD(true);
         list.add(head);
         // 头的策略
         WriteCellStyle headWriteCellStyle = new WriteCellStyle();
@@ -41,7 +41,7 @@ public class ConverterTest {
 //        contentWriteFont.setFontHeightInPoints((short) 20);
 //        contentWriteCellStyle.setWriteFont(contentWriteFont);
         //单元格不溢出
-        contentWriteCellStyle.setHorizontalAlignment(HorizontalAlignment.FILL);
+//        contentWriteCellStyle.setHorizontalAlignment(HorizontalAlignment.FILL);
         HorizontalCellStyleStrategy horizontalCellStyleStrategy =
                 new HorizontalCellStyleStrategy(headWriteCellStyle, contentWriteCellStyle);
         ExcelWriter excelWriter = EasyExcelFactory.write(FileUtils.getCurrentUserHomePath() + "/Downloads/test_write.xlsx")
@@ -62,5 +62,7 @@ public class ConverterTest {
         private List<String> b;
         @ExcelProperty(value = "c", converter = ListStringConverter.class)
         private List<Integer> c;
+        @ExcelProperty(value = "d", converter = BooleanConverter.class)
+        private boolean d;
     }
 }
