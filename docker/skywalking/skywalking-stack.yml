@@ -31,6 +31,13 @@ services:
     environment:
       SW_STORAGE: elasticsearch7
       SW_STORAGE_ES_CLUSTER_NODES: es.dev.kikera.org:9200
+      SW_NAMESPACE: 'dev_sw_es7'
+      SW_STORAGE_ES_ADVANCED: '"{\"index.refresh_interval\":\"5s\",\"index.unassigned.node_left.delayed_timeout\":\"5d\",\"index.number_of_shards\":\"1\",\"index.translog.flush_threshold_size\":\"1000mb\",\"index.translog.sync_interval\":\"120s\",\"index.translog.durability\":\"async\",\"index.number_of_replicas\":\"0\",\"index.merge.policy.segments_per_tier\":\"24\",\"index.merge.policy.max_merged_segment\":\"1gb\"}"'
+      SW_STORAGE_ES_RECORD_DATA_TTL: 2
+      SW_STORAGE_ES_OTHER_METRIC_DATA_TTL: 7
+      SW_CORE_MONTH_METRIC_DATA_TTL: 1
+      SW_STORAGE_ES_SUPER_DATASET_INDEX_SHARDS_FACTOR: 1
+      SW_STORAGE_ES_INDEX_REPLICAS_NUMBER: 0
       SW_HEALTH_CHECKER: default
       SW_TELEMETRY: prometheus
     healthcheck:
