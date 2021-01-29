@@ -1,8 +1,12 @@
 package io.github.harvies.charon.tests.base.apache.commons.io;
 
+import io.github.harvies.charon.util.FileUtils;
+import lombok.Cleanup;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.LineIterator;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -25,5 +29,14 @@ public class IOUtilsTest {
             }
         }
         System.err.println(strings);
+    }
+
+    @Test
+    public void test2() throws IOException {
+        @Cleanup LineIterator lineIterator = FileUtils.lineIterator(new File(FileUtils.getCurrentUserHomePath() + "/111"));
+        while (lineIterator.hasNext()) {
+            String next = lineIterator.next();
+            System.out.println(next);
+        }
     }
 }

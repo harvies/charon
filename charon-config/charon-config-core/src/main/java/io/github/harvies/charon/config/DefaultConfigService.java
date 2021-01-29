@@ -2,6 +2,7 @@ package io.github.harvies.charon.config;
 
 import io.github.harvies.charon.config.event.ConfigChangeEvent;
 import lombok.AccessLevel;
+import lombok.Cleanup;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -11,6 +12,8 @@ import org.apache.curator.framework.api.CuratorWatcher;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Properties;
 
@@ -32,7 +35,9 @@ public class DefaultConfigService implements ConfigService {
             return properties;
         }
         try {
-            properties.load(new ByteArrayInputStream(bytes));
+            @Cleanup ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
+            @Cleanup InputStreamReader inputStreamReader = new InputStreamReader(byteArrayInputStream, StandardCharsets.UTF_8);
+            properties.load(inputStreamReader);
         } catch (IOException e) {
             log.warn("config invalid!");
         }

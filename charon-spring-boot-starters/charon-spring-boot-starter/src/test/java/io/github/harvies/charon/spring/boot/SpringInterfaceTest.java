@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -14,6 +15,10 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class SpringInterfaceTest implements ApplicationContextAware, EnvironmentAware, BeanPostProcessor, InitializingBean, DisposableBean {
+
+    @Value("${aaa}")
+    private String property;
+    
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         log.info("实现ApplicationContextAware接口，容器启动时会传入Spring上下文");
@@ -44,7 +49,7 @@ public class SpringInterfaceTest implements ApplicationContextAware, Environment
 
     @Override
     public void afterPropertiesSet() {
-        log.info("实现 InitializingBean 接口，Bean属性设置后，实例化前被调用");
+        log.info("实现 InitializingBean 接口，Bean属性设置后，实例化前被调用 property:[{}]", property);
     }
 
     @Override
