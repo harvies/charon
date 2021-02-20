@@ -13,7 +13,6 @@ import java.util.Set;
  * http://dubbo.apache.org/zh-cn/docs/dev/principals/dummy.html
  * 有多个版本的相同jar包，会出现新版本的 A 类，调用了旧版本的 B 类，而且和JVM加载顺序有关，问题带有偶然性，误导性，遇到这种莫名其妙的问题，最头疼，所以，第一条，先把它防住，在每个 jar 包中挑一个一定会加载的类，加上重复类检查
  *
- * @see org.apache.dubbo.common.Version#checkDuplicate(Class)
  */
 @Slf4j
 public final class Duplicate {
@@ -24,7 +23,6 @@ public final class Duplicate {
     /**
      * 检查重复的配置文件
      *
-     * @param cls
      */
     public static void checkDuplicate(Class<?> cls) {
         checkDuplicate(cls.getName().replace('.', '/') + ".class");
@@ -33,7 +31,6 @@ public final class Duplicate {
     /**
      * 检查重复的jar包
      *
-     * @param path
      */
     public static void checkDuplicate(String path) {
         try {

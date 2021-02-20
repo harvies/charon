@@ -4,7 +4,6 @@ package io.github.harvies.charon.util;
  * 描述: Twitter的分布式自增ID雪花算法snowflake (Java版)
  *
  * @author yanpenglei
- * @create 2018-03-13 12:37
  **/
 public class SnowFlake {
 
@@ -53,7 +52,6 @@ public class SnowFlake {
     /**
      * 产生下一个ID
      *
-     * @return
      */
     public synchronized long nextId() {
         long currStamp = getNewstmp();

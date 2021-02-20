@@ -67,10 +67,10 @@ public class MavenUtils {
     /**
      * 版本号比较
      *
-     * @param v1
-     * @param v2
+     * @param v1 v1
+     * @param v2 v2
      * @return 0代表相等，x代表左边大，-x代表右边大
-     * MavenUtils.compareVersion("2.7.0-rc2", "2.7.0")<0
+     * example: MavenUtils.compareVersion("2.7.0-rc2", "2.7.0") &lt; 0
      */
     public static int compareVersion(String v1, String v2) {
         return new ComparableVersion(v1).compareTo(new ComparableVersion(v2));
@@ -78,10 +78,8 @@ public class MavenUtils {
 
     /**
      * 某版本的包中是否存在某类
-     *
-     * @param className
-     * @param mavenArtifact
-     * @return
+     * @param className className
+     * @param mavenArtifact mavenArtifact
      */
     public static boolean exists(String className, MavenArtifact mavenArtifact) {
         return getAllClassNameListByMavenArtifact(mavenArtifact).contains(className);

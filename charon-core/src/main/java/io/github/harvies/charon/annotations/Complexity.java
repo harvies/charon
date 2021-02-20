@@ -15,14 +15,12 @@ public @interface Complexity {
     /**
      * 空间
      *
-     * @return
      */
     String space();
 
     /**
      * 时间
      *
-     * @return
      */
     String time();
 }

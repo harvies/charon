@@ -30,25 +30,25 @@ public class XmlMapConverter {
     }
 
     /**
-     * MAP->XML
+     * MAP-&gt;XML
      *
      * @param map      map
      * @param rootName 根节点名称
      * @return XML(String)
-     * @throws Exception
+     * @throws Exception Exception
      */
     public static String mapToXml(Map<String, Object> map, String rootName) throws Exception {
         return mapToXml(map, rootName, DEFAULT_OUTPUT_FORMAT);
     }
 
     /**
-     * MAP->XML
+     * MAP-&gt;XML
      *
      * @param map          map
      * @param rootName     根节点名称
      * @param outputFormat 输出格式
      * @return XML(String)
-     * @throws Exception
+     * @throws Exception e
      */
     public static String mapToXml(Map<String, Object> map, String rootName, OutputFormat outputFormat) throws Exception {
         if (map == null) {

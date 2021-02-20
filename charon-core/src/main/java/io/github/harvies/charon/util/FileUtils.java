@@ -22,7 +22,6 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
      * <p>
      * unix下是/ windows下是\\
      *
-     * @return
      */
     public static String getSeparator() {
         return File.separator;
@@ -35,7 +34,6 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
      * <p>
      * linux下是: windows下是;
      *
-     * @return
      */
     public static String getPathSeparator() {
         return File.pathSeparator;
@@ -55,8 +53,6 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
      * 根据文件路径获取目录路径
      * /org/mongodb/mongo-java-driver/3.8.0/mongo-java-driver-3.8.0.jar
      *
-     * @param filePath
-     * @return
      */
     public static String getDirectoryPath(String filePath) {
         return StringUtils.substring(filePath, 0, StringUtils.lastIndexOf(filePath, "/"));
