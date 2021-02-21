@@ -2,6 +2,7 @@ package io.github.harvies.charon.config;
 
 import io.github.harvies.charon.config.annotation.RefreshScope;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -11,7 +12,7 @@ import java.util.concurrent.CountDownLatch;
 
 @Slf4j
 @RefreshScope
-class CharonConfigTest extends BaseTest {
+public class CharonConfigTest extends BaseTest {
 
     @Resource
     private Environment environment;
@@ -26,6 +27,7 @@ class CharonConfigTest extends BaseTest {
     private Config config;
 
     @Test
+    @Disabled
     void test() throws InterruptedException {
         int size = 10;
         CountDownLatch countDownLatch = new CountDownLatch(size);
