@@ -101,6 +101,13 @@ public class MavenUtilsTest {
     }
 
     @Test
+    public void getVersionList2() {
+        List<String> versionList = MavenUtils.getVersionList("io.github.harvies.charon", "charon-core");
+        System.err.println(JsonUtils.toJSONString(versionList));
+        assertTrue(versionList.size() > 0);
+    }
+
+    @Test
     void getJarFileUrl() {
         String jarFileUrl = MavenUtils.getJarFileUrl("org.mongodb", "mongodb-driver-core", "4.1.0");
         assertThat(Requests.head(jarFileUrl).send().statusCode(), is(200));

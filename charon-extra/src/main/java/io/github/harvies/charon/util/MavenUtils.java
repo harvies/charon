@@ -41,10 +41,17 @@ public class MavenUtils {
         mavenArtifact.setLatest(jsonObject.getString("version"));
         mavenArtifact.setRelease(versioning.getString("release"));
         mavenArtifact.setLastUpdated(versioning.getString("lastUpdated"));
-        JSONArray jsonArray = versioning.getJSONObject("versions").getJSONArray("version");
-        List<String> strings = jsonArray.toJavaList(String.class);
-        strings.sort(MavenUtils::compareVersion);
-        mavenArtifact.setVersionList(strings);
+        JSONObject versions = versioning.getJSONObject("versions");
+        Object version = versions.get("version");
+        JSONArray jsonArray;
+        if (version instanceof JSONArray) {
+            jsonArray = versions.getJSONArray("version");
+            List<String> strings = jsonArray.toJavaList(String.class);
+            strings.sort(MavenUtils::compareVersion);
+            mavenArtifact.setVersionList(strings);
+        } else {
+            mavenArtifact.setVersionList(Collections.singletonList((String) version));
+        }
         return mavenArtifact;
     }
 
