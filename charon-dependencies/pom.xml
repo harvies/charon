@@ -26,7 +26,7 @@
         <mybatis-plus.version>3.4.1</mybatis-plus.version>
         <mybatis-spring.version>2.0.2</mybatis-spring.version>
         <mybatis-spring-boot-starter.version>2.1.0</mybatis-spring-boot-starter.version>
-        <druid.version>1.1.16</druid.version>
+        <druid.version>1.2.4</druid.version>
         <shardingsphere.version>5.0.0-alpha</shardingsphere.version>
         <!--        <shardingsphere.version>4.1.1</shardingsphere.version>-->
         <HikariCP.version>3.2.0</HikariCP.version>
