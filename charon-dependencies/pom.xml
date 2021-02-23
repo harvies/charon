@@ -53,7 +53,7 @@
         <javassist.version>3.27.0-GA</javassist.version>
         <jsqlparser.version>3.1</jsqlparser.version>
         <ognl.version>3.2.10</ognl.version>
-        <apollo-client.version>1.6.0</apollo-client.version>
+        <apollo-client.version>1.7.0</apollo-client.version>
         <skywalking.version>8.3.0</skywalking.version>
         <charon.version>0.0.7-SNAPSHOT</charon.version>
         <spring-boot-admin-starter.version>2.3.1</spring-boot-admin-starter.version>
