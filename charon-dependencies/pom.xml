@@ -57,7 +57,7 @@
         <skywalking.version>8.3.0</skywalking.version>
         <charon.version>0.0.7-SNAPSHOT</charon.version>
         <spring-boot-admin-starter.version>2.3.1</spring-boot-admin-starter.version>
-        <javamelody.version>1.85.0</javamelody.version>
+        <javamelody.version>1.86.0</javamelody.version>
         <calcite.version>1.26.0</calcite.version>
 
         <junit.version>5.7.0</junit.version>
