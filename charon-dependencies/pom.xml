@@ -23,13 +23,13 @@
         <sofa-boot.version>3.3.2</sofa-boot.version>
         <elastic-job.version>3.0.0-alpha</elastic-job.version>
         <mybatis.version>3.5.6</mybatis.version>
-        <mybatis-plus.version>3.4.1</mybatis-plus.version>
+        <mybatis-plus.version>3.4.2</mybatis-plus.version>
         <mybatis-spring.version>2.0.6</mybatis-spring.version>
         <mybatis-spring-boot-starter.version>2.1.0</mybatis-spring-boot-starter.version>
         <druid.version>1.2.4</druid.version>
         <shardingsphere.version>5.0.0-alpha</shardingsphere.version>
         <!--        <shardingsphere.version>4.1.1</shardingsphere.version>-->
-        <HikariCP.version>3.2.0</HikariCP.version>
+        <HikariCP.version>3.4.5</HikariCP.version>
         <h2.version>1.4.200</h2.version>
         <logback.version>1.2.3</logback.version>
         <log4j.version>1.7.30</log4j.version>
@@ -54,10 +54,10 @@
         <jsqlparser.version>3.1</jsqlparser.version>
         <ognl.version>3.2.10</ognl.version>
         <apollo-client.version>1.7.0</apollo-client.version>
-        <skywalking.version>8.3.0</skywalking.version>
+        <skywalking.version>8.4.0</skywalking.version>
         <charon.version>0.0.7-SNAPSHOT</charon.version>
         <spring-boot-admin-starter.version>2.3.1</spring-boot-admin-starter.version>
-        <javamelody.version>1.85.0</javamelody.version>
+        <javamelody.version>1.86.0</javamelody.version>
         <calcite.version>1.26.0</calcite.version>
 
         <junit.version>5.7.0</junit.version>
@@ -665,7 +665,7 @@
             <dependency>
                 <groupId>net.coobird</groupId>
                 <artifactId>thumbnailator</artifactId>
-                <version>0.4.12</version>
+                <version>0.4.13</version>
             </dependency>
 
             <dependency>
