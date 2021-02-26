@@ -32,7 +32,6 @@
         <module>charon-file</module>
         <module>charon-http</module>
         <module>charon-json</module>
-        <module>charon-log</module>
         <module>charon-extra</module>
         <module>charon-rocketmq</module>
         <module>charon-rocketmq-broker</module>

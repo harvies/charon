@@ -26,10 +26,6 @@
             <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-core</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-log</artifactId>
-        </dependency>
     </dependencies>
 
 </project>

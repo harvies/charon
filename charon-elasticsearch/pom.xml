@@ -22,7 +22,7 @@
         </dependency>
         <dependency>
             <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-log</artifactId>
+            <artifactId>charon-core</artifactId>
         </dependency>
     </dependencies>
 </project>
