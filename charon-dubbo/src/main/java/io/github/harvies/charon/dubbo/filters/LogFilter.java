@@ -8,6 +8,10 @@ import org.apache.dubbo.common.extension.Activate;
 import org.apache.dubbo.rpc.*;
 import org.apache.skywalking.apm.toolkit.trace.TraceContext;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
 @Slf4j
 @Activate
 public class LogFilter implements Filter {
@@ -17,9 +21,24 @@ public class LogFilter implements Filter {
         if (StringUtils.isBlank(invocation.getAttachment("traceId"))) {
             invocation.setAttachment("traceId", TraceContext.traceId());
         }
-        Result invoke = invoker.invoke(invocation);
+        Result result = invoker.invoke(invocation);
+        doLog(result, stopwatch);
+        return result;
+    }
+
+    private void doLog(Result result, Stopwatch stopwatch) {
         RpcContext rpcContext = RpcContext.getContext();
-        log.info("invoker end: rpcContext:[{}]  invocation:[{}] invoke:[{}] traceId:[{}] cast:[{}] ms", JsonUtils.toJSONString(rpcContext), JsonUtils.toJSONString(invocation), JsonUtils.toJSONString(invoke), invocation.getAttachment("traceId"), stopwatch.elapsed().toMillis());
-        return invoke;
+        Map<String, Object> map = new HashMap<>();
+        map.put("result", result.getValue());
+        map.put("attachments", rpcContext.getObjectAttachments());
+        map.put("url", rpcContext.getUrl());
+        map.put("methodName", rpcContext.getMethodName());
+        map.put("parameterTypes", rpcContext.getParameterTypes());
+        map.put("arguments", rpcContext.getArguments());
+        map.put("localAddress", rpcContext.getLocalAddress());
+        map.put("remoteAddress", rpcContext.getRemoteAddress());
+        map.put("remoteApplicationName", rpcContext.getRemoteApplicationName());
+        map.put("cast", stopwatch.elapsed(TimeUnit.MILLISECONDS) + " ms");
+        log.info(JsonUtils.toJSONString(map));
     }
 }
