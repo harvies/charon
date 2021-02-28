@@ -32,12 +32,12 @@ public class DingTalkNotifyProvider implements NotifyProvider {
         data.put("msgtype", "markdown");
         Map<String, Object> textObject = new HashMap<>();
         textObject.put("title", title);
-        //上限20000byte
         textObject.put("text", text);
         data.put("markdown", textObject);
         Map<String, String> headerMap = new HashMap<>();
         headerMap.put("Content-Type", "application/json");
         String result = Requests.post(dingTalkProperties.getWebHookUrl())
+                //上限20000byte
                 .body(JsonUtils.toJSONString(data))
                 .headers(headerMap)
                 .send().readToText();
