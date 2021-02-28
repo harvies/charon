@@ -43,7 +43,7 @@ public class DingTalkNotifyProvider implements NotifyProvider {
                 .headers(headerMap)
                 .send().readToText();
         JSONObject jsonObject = JsonUtils.parseObject(result);
-        log.info("dingtalk send result:[{}]", result);
+        log.info("dingtalk send title:[{}] text:[{}] result:[{}]", title, text, result);
         if (jsonObject == null) {
             return false;
         }
