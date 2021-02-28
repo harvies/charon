@@ -6,7 +6,6 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.dongliu.requests.Requests;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +33,7 @@ public class DingTalkNotifyProvider implements NotifyProvider {
         Map<String, Object> textObject = new HashMap<>();
         textObject.put("title", title);
         //上限20000byte
-        textObject.put("text", StringUtils.substring(text, 0, 6666));
+        textObject.put("text", text);
         data.put("markdown", textObject);
         Map<String, String> headerMap = new HashMap<>();
         headerMap.put("Content-Type", "application/json");
