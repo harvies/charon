@@ -37,4 +37,10 @@ class FileUtilsTest {
         String directoryPath = FileUtils.getDirectoryPath("/org/mongodb/mongo-java-driver/3.8.0/mongo-java-driver-3.8.0.jar");
         assertThat(directoryPath, is("/org/mongodb/mongo-java-driver/3.8.0"));
     }
+
+    @Test
+    void testGetCurrentUserHomePath() {
+        String path = FileUtils.getClassPathAbsolutePath();
+        assertNotNull(path);
+    }
 }

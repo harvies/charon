@@ -38,6 +38,7 @@
         <module>charon-rockermq-namesrv</module>
         <module>charon-elasticsearch</module>
         <module>charon-config</module>
+        <module>charon-zookeeper</module>
     </modules>
 
     <dependencies>
