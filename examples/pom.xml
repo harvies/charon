@@ -16,7 +16,6 @@
         <module>rpc-simple</module>
         <module>netty</module>
         <module>github</module>
-        <module>dubbo</module>
         <module>sofa-rpc</module>
         <module>sofa-boot</module>
         <module>tomcat</module>
