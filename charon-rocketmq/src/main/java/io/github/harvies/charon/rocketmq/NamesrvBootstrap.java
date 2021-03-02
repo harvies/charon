@@ -16,6 +16,7 @@
  */
 package io.github.harvies.charon.rocketmq;
 
+import io.github.harvies.charon.util.FileUtils;
 import org.apache.rocketmq.common.MixAll;
 import org.apache.rocketmq.namesrv.NamesrvStartup;
 
@@ -25,7 +26,7 @@ import org.apache.rocketmq.namesrv.NamesrvStartup;
 public class NamesrvBootstrap {
 
     public static void main(String[] args) {
-        System.setProperty(MixAll.ROCKETMQ_HOME_PROPERTY,"/Users/harvies/IdeaProjects/charon/rocketmq_home/");
+        System.setProperty(MixAll.ROCKETMQ_HOME_PROPERTY, FileUtils.getClassPathAbsolutePath());
         NamesrvStartup.main0(args);
     }
 

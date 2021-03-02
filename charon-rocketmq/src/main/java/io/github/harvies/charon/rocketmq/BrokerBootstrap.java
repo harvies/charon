@@ -16,6 +16,7 @@
  */
 package io.github.harvies.charon.rocketmq;
 
+import io.github.harvies.charon.util.FileUtils;
 import org.apache.rocketmq.broker.BrokerStartup;
 import org.apache.rocketmq.common.MixAll;
 
@@ -25,12 +26,12 @@ import org.apache.rocketmq.common.MixAll;
 public class BrokerBootstrap {
 
     public static void main(String[] args) {
-        System.setProperty(MixAll.ROCKETMQ_HOME_PROPERTY, "/Users/harvies/IdeaProjects/charon/rocketmq_home/");
+        System.setProperty(MixAll.ROCKETMQ_HOME_PROPERTY, FileUtils.getClassPathAbsolutePath());
         System.setProperty(MixAll.NAMESRV_ADDR_PROPERTY, "localhost:9876");
 
         args = new String[2];
         args[0] = "-c";
-        args[1] = "/Users/harvies/IdeaProjects/charon/rocketmq_home/conf/broker.conf";
+        args[1] = FileUtils.getClassPathAbsolutePath() + "/conf/broker.conf";
         BrokerStartup.main(args);
     }
 

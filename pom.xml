@@ -34,8 +34,6 @@
         <module>charon-json</module>
         <module>charon-extra</module>
         <module>charon-rocketmq</module>
-        <module>charon-rocketmq-broker</module>
-        <module>charon-rockermq-namesrv</module>
         <module>charon-elasticsearch</module>
         <module>charon-config</module>
         <module>charon-zookeeper</module>
