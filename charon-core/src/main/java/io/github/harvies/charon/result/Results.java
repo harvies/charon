@@ -5,16 +5,21 @@ import java.util.List;
 public class Results {
 
     public static <T> ResultDTO<T> success(T t) {
-        ResultDTO<T> resultDTO = new ResultDTO<T>(t);
+        ResultDTO<T> resultDTO = new ResultDTO<>(t);
         resultDTO.setCode(ResultEnum.SUCCESS.getCode());
         resultDTO.setMsg(ResultEnum.SUCCESS.getMsg());
         return resultDTO;
     }
 
-    public static <T> ResultDTO<T> failed(T t) {
-        ResultDTO<T> resultDTO = new ResultDTO<>(t);
+    /**
+     *
+     * @param msg 失败原因
+     * @return
+     */
+    public static <T> ResultDTO<T> failed(String msg) {
+        ResultDTO<T> resultDTO = new ResultDTO<>(null);
         resultDTO.setCode(ResultEnum.FAILED.getCode());
-        resultDTO.setMsg(ResultEnum.FAILED.getMsg());
+        resultDTO.setMsg(msg);
         return resultDTO;
     }
 
