@@ -35,7 +35,6 @@ public class LogAspect {
     /**
      * 方法执行前
      *
-     * @param joinPoint
      * @throws Exception
      */
     @Before("controllerMethod()")

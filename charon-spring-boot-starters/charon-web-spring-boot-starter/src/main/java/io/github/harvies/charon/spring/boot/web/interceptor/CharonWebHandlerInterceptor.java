@@ -1,7 +1,7 @@
 package io.github.harvies.charon.spring.boot.web.interceptor;
 
 import com.google.common.base.Stopwatch;
-import io.github.harvies.charon.spring.boot.web.utils.HttpServletUtils;
+import io.github.harvies.charon.spring.boot.web.utils.IpUtils;
 import io.github.harvies.charon.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.skywalking.apm.toolkit.trace.TraceContext;
@@ -10,6 +10,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 public class CharonWebHandlerInterceptor implements HandlerInterceptor {
@@ -39,12 +42,20 @@ public class CharonWebHandlerInterceptor implements HandlerInterceptor {
     }
 
     public String getDescription(HttpServletRequest request) {
-        return "traceId=" + TraceContext.traceId() +
-                ";uri=" + request.getRequestURI() +
-                ";method=" + request.getMethod() +
-                ";params=" + JsonUtils.toJSONString(request.getParameterMap()) +
-                ";client=" + HttpServletUtils.getIp(request) + ":" + request.getRemotePort() +
-                ";session=" + request.getRequestedSessionId() +
-                ";user=" + request.getRemoteUser();
+        Map<String, Object> map = new HashMap<>();
+        map.put("traceId", TraceContext.traceId());
+        map.put("uri", request.getRequestURI());
+        map.put("method", request.getMethod());
+        map.put("params", request.getParameterMap());
+        map.put("client", IpUtils.getIpAddr(request) + ":" + request.getRemotePort());
+        Enumeration<String> headerNames = request.getHeaderNames();
+        Map<String, String> headerMap = new HashMap<>();
+        while (headerNames.hasMoreElements()) {
+            String headerName = headerNames.nextElement();
+            headerMap.put(headerName, request.getHeader(headerName));
+        }
+        map.put("headers", headerMap);
+        map.put("cookies", request.getCookies());
+        return JsonUtils.toJSONString(map);
     }
 }
