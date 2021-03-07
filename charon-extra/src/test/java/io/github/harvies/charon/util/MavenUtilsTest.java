@@ -119,9 +119,4 @@ public class MavenUtilsTest {
         assertTrue(MavenUtils.compareVersion("2.7.0-rc2", "2.7.0") < 0);
         assertEquals(0, MavenUtils.compareVersion("2.7.0", "2.7.0"));
     }
-    
-    @Test
-    void test111(){
-        Maven
-    }
 }
