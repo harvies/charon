@@ -1,6 +1,5 @@
 package io.github.harvies.charon.config;
 
-import io.github.harvies.charon.config.event.ConfigChangeEvent;
 import lombok.AccessLevel;
 import lombok.Cleanup;
 import lombok.NoArgsConstructor;
@@ -8,7 +7,6 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
-import org.apache.curator.framework.api.CuratorWatcher;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -66,9 +64,9 @@ public class DefaultConfigService implements ConfigService {
 
     @Override
     public void watch(App app, ConfigWatcher configWatcher) {
-        CuratorWatcher curatorWatcher = event -> configWatcher.process(new ConfigChangeEvent(event.getPath()));
+        DefaultConfigWatcher defaultConfigWatcher = new DefaultConfigWatcher(configWatcher);
         try {
-            curatorFramework.watchers().add().usingWatcher(curatorWatcher).forPath(app.key());
+            curatorFramework.watchers().add().usingWatcher(defaultConfigWatcher).forPath(app.key());
         } catch (Exception e) {
             log.warn("watch exception app:[{}]", app, e);
         }
@@ -85,5 +83,4 @@ public class DefaultConfigService implements ConfigService {
             return defaultConfigService;
         }
     }
-
 }
