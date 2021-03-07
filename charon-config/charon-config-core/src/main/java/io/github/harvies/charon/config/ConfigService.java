@@ -1,6 +1,5 @@
 package io.github.harvies.charon.config;
 
-import java.util.Map;
 import java.util.Properties;
 
 public interface ConfigService {
@@ -9,11 +8,11 @@ public interface ConfigService {
 
     String get(App app, String configKey);
 
-    Map<String, String> update(App app, ConfigData configData);
+    void update(App app, ConfigData configData);
 
-    Map<String, String> delete(App app, String configKey);
+    void delete(App app, String configKey);
 
-    Map<String, String> deleteAll(App app);
+    void deleteAll(App app);
 
     void watch(App app, ConfigWatcher configWatcher);
 }

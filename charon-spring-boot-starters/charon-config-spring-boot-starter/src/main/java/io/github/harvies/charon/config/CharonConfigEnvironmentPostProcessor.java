@@ -17,6 +17,7 @@ import java.util.concurrent.locks.LockSupport;
 @Slf4j
 public class CharonConfigEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
 
+    public static final String COMMON = "common";
     private ConfigurableEnvironment environment;
 
     @SneakyThrows
@@ -43,27 +44,33 @@ public class CharonConfigEnvironmentPostProcessor implements EnvironmentPostProc
             log.warn("appName or env is not config");
             return;
         }
-        DefaultConfigService defaultConfigService = new DefaultConfigService.Builder()
-                .setCuratorFramework(ZkUtils.getClient())
-                .build();
         //common config
-        loadPropertiesFromConfigCenter("common", env, defaultConfigService);
+        loadPropertiesFromConfigCenter(COMMON, env);
         // app config
-        loadPropertiesFromConfigCenter(appName, env, defaultConfigService);
+        loadPropertiesFromConfigCenter(appName, env);
     }
 
-    private void loadPropertiesFromConfigCenter(String appName, String env, DefaultConfigService defaultConfigService) {
-        Properties properties = defaultConfigService.get(new App().setAppName(appName).setEnv(EnvEnum.of(env)));
-        String key = "charon-spring-boot-config-center-" + appName;
+    private void loadPropertiesFromConfigCenter(String appName, String env) {
+        App app = new App().setAppName(appName)
+                .setEnv(EnvEnum.of(env));
+        DefaultConfigClient configClient = new DefaultConfigClient.Builder()
+                .setApp(app)
+                .setCuratorFramework(ZkUtils.getClient()).build();
+        loadPropertiesFromConfigCenter(configClient);
+    }
+
+    private void loadPropertiesFromConfigCenter(ConfigClient configClient) {
+        App app = configClient.getApp();
+        Properties properties = configClient.get();
+        String key = "charon-spring-boot-config-center-" + app.getAppName();
         PropertiesPropertySource propertySource = new PropertiesPropertySource(key, properties);
         //配置放到最前
         environment.getPropertySources().addFirst(propertySource);
-        log.info("load [{}] item config from config center success!,env:[{}] appName:[{}],data:[{}]", properties.size(), env, appName, properties);
-        App app = new App().setAppName(appName).setEnv(EnvEnum.of(env));
+        log.info("load [{}] item config from config center success!,env:[{}] appName:[{}],data:[{}]", properties.size(), app.getEnv(), app.getAppName(), properties);
         Thread thread = new Thread(() -> {
-            defaultConfigService.watch(app, event -> {
+            configClient.watch(event -> {
                 if (event instanceof ConfigChangeEvent) {
-                    this.environment.getPropertySources().addFirst(new PropertiesPropertySource(key, defaultConfigService.get(app)));
+                    this.environment.getPropertySources().addFirst(new PropertiesPropertySource(key, configClient.get()));
                     //清空BeanRefreshScope中所有bean的缓存,下次再获取bean的时候重新实例化(重写解析@Value)
                     BeanRefreshScope.CACHE_LOCK.writeLock().lock();
                     try {
@@ -76,7 +83,7 @@ public class CharonConfigEnvironmentPostProcessor implements EnvironmentPostProc
             });
             LockSupport.park();
         });
-        thread.setName("config-center-listen-thread");
+        thread.setName("config-center-listen-thread-" + app.getEnv().getCode() + "-" + app.getAppName());
         thread.setDaemon(true);
         thread.start();
     }

@@ -1,18 +1,15 @@
 package io.github.harvies.charon.config;
 
-import lombok.AccessLevel;
-import lombok.Cleanup;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.Map;
 import java.util.Properties;
 
 @Slf4j
@@ -27,7 +24,7 @@ public class DefaultConfigService implements ConfigService {
         Properties properties = new Properties();
         byte[] bytes;
         try {
-            bytes = curatorFramework.getData().forPath(app.key());
+            bytes = curatorFramework.getData().forPath(app.path());
         } catch (Exception e) {
             log.warn("node not exists!");
             return properties;
@@ -47,34 +44,48 @@ public class DefaultConfigService implements ConfigService {
         return get(app).getProperty(configKey);
     }
 
+    @SneakyThrows
     @Override
-    public Map<String, String> update(App app, ConfigData configData) {
-        return null;
+    public void update(App app, ConfigData configData) {
+        Properties properties = get(app);
+        properties.put(configData.getKey(), configData.getValue());
+        writePropertiesToZk(app, properties);
     }
 
+    @SneakyThrows
     @Override
-    public Map<String, String> delete(App app, String configKey) {
-        return null;
+    public void delete(App app, String configKey) {
+        Properties properties = get(app);
+        properties.remove(configKey);
+        writePropertiesToZk(app, properties);
     }
 
+    private void writePropertiesToZk(App app, Properties properties) throws Exception {
+        @Cleanup ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        properties.store(byteArrayOutputStream, null);
+        curatorFramework.create().orSetData().forPath(app.path(), byteArrayOutputStream.toByteArray());
+    }
+
+    @SneakyThrows
     @Override
-    public Map<String, String> deleteAll(App app) {
-        return null;
+    public void deleteAll(App app) {
+        curatorFramework.delete().forPath(app.path());
     }
 
     @Override
     public void watch(App app, ConfigWatcher configWatcher) {
         DefaultConfigWatcher defaultConfigWatcher = new DefaultConfigWatcher(configWatcher);
         try {
-            curatorFramework.watchers().add().usingWatcher(defaultConfigWatcher).forPath(app.key());
+            curatorFramework.watchers().add().usingWatcher(defaultConfigWatcher).forPath(app.path());
         } catch (Exception e) {
             log.warn("watch exception app:[{}]", app, e);
         }
     }
 
-    public static class Builder {
-        @Setter
-        @Accessors(chain = true)
+    @Setter
+    @Accessors(chain = true)
+    protected static class Builder {
+
         private CuratorFramework curatorFramework;
 
         public DefaultConfigService build() {

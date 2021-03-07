@@ -21,10 +21,32 @@ class DefaultConfigServiceTest {
     }
 
     @Test
+    public void get2() {
+        String value = defaultConfigService.get(app, "aaaaa");
+        log.info("value:[{}]", value);
+    }
+
+
+    @Test
     void watch() {
-        defaultConfigService.watch(app, event -> {
-            log.warn("event:[]", event);
-        });
+        defaultConfigService.watch(app, event -> log.warn("event:[{}]", event));
         LockSupport.park();
     }
+
+    @Test
+    void update() {
+        String key = "testKey";
+        defaultConfigService.update(app, new ConfigData().setKey(key).setValue("testValue"));
+    }
+
+    @Test
+    void delete() {
+        defaultConfigService.delete(app, "testKey");
+    }
+
+    @Test
+    void deleteAll() {
+        defaultConfigService.deleteAll(app);
+    }
+
 }

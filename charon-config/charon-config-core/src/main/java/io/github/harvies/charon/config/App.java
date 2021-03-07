@@ -9,7 +9,7 @@ public class App {
     private EnvEnum env;
     private String appName;
 
-    public String key() {
+    public String path() {
         return "/charon/configs/" + env.getCode() + "/" + appName;
     }
 }
