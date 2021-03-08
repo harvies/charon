@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableConfigurationProperties({CharonBootProperties.class, CharonBootApplicationProperties.class})
-@ComponentScan(basePackages = {"io.github.harvies.charon.spring.boot"})
+@ComponentScan(basePackages = {"io.github.harvies.charon"})
 public class CharonBootConfiguration {
 
     @Bean

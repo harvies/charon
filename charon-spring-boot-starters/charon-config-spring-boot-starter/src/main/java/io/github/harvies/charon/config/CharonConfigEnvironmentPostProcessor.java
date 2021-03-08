@@ -1,6 +1,7 @@
 package io.github.harvies.charon.config;
 
 import io.github.harvies.charon.config.event.ConfigChangeEvent;
+import io.github.harvies.charon.spring.boot.SpringContextHolder;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -78,7 +79,8 @@ public class CharonConfigEnvironmentPostProcessor implements EnvironmentPostProc
                     } finally {
                         BeanRefreshScope.CACHE_LOCK.writeLock().unlock();
                     }
-
+                    //更新@Value注解修饰字段值
+                    valueAnnotationProcessor();
                 }
             });
             LockSupport.park();
@@ -86,5 +88,9 @@ public class CharonConfigEnvironmentPostProcessor implements EnvironmentPostProc
         thread.setName("config-center-listen-thread-" + app.getEnv().getCode() + "-" + app.getAppName());
         thread.setDaemon(true);
         thread.start();
+    }
+
+    private void valueAnnotationProcessor() {
+        SpringContextHolder.getBean(ValueAnnotationProcessor.class).processor();
     }
 }
