@@ -19,7 +19,6 @@
       拓展spring-boot-starter,其他starter依赖此模块,新增配置/opt/charon/charon.properties加载(方便本地调试)
     - [charon-web-spring-boot-starter](./charon-spring-boot-starters/charon-web-spring-boot-starter)
       拓展spring-boot-starter,新增健康检查Controller及线程查看等运维工具
-    - [charon-apollo-spring-boot-starter](./charon-spring-boot-starters/charon-apollo-spring-boot-starter) 集成apollo
     - [charon-dubbo-spring-boot-starter](./charon-spring-boot-starters/charon-dubbo-spring-boot-starter) 集成dubbo
     - [charon-elasticjob-lite-spring-boot-starter](./charon-spring-boot-starters/charon-elasticjob-lite-spring-boot-starter)
       集成elasticjob-lite

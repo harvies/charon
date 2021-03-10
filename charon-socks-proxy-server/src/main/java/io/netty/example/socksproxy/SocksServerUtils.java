@@ -22,6 +22,7 @@ public final class SocksServerUtils {
 
     /**
      * Closes the specified channel after all queued write requests are flushed.
+     * @param ch ch
      */
     public static void closeOnFlush(Channel ch) {
         if (ch.isActive()) {
@@ -29,5 +30,6 @@ public final class SocksServerUtils {
         }
     }
 
-    private SocksServerUtils() { }
+    private SocksServerUtils() {
+    }
 }

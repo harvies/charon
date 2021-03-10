@@ -27,6 +27,9 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
+                    <!-- 重命名可执行jar-->
+                    <finalName>charon-socks-proxy-server</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
                     <!-- MainClass in mainfest make a executable jar -->
                     <archive>
                         <manifest>
