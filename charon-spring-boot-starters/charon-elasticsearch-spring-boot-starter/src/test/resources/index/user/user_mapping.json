@@ -1,0 +1,13 @@
+{
+  "properties": {
+    "id": {
+      "type": "keyword"
+    },
+    "username": {
+      "type": "keyword"
+    },
+    "password": {
+      "type": "keyword"
+    }
+  }
+}

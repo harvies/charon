@@ -1,25 +1,26 @@
 package io.github.harvies.charon.elasticsearch;
 
-import io.github.harvies.charon.elasticsearch.repository.CustomerRepository;
+import io.github.harvies.charon.util.FileUtils;
+import io.github.harvies.charon.util.JsonUtils;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
+import org.springframework.data.elasticsearch.core.IndexOperations;
+import org.springframework.data.elasticsearch.core.document.Document;
+import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
+import org.springframework.data.elasticsearch.core.query.IndexQuery;
 
 import javax.annotation.Resource;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 @Slf4j
 public class CharonElasticSearchSpringBootTest extends BaseTest {
 
-    @Resource
-    private ElasticsearchOperations elasticsearchOperations;
+    private static final String indexName = "test0310";
 
     @Resource
-    private CustomerRepository repository;
+    private ElasticsearchOperations elasticsearchOperations;
 
     @Test
     public void elasticsearchOperations() {
@@ -27,42 +28,42 @@ public class CharonElasticSearchSpringBootTest extends BaseTest {
     }
 
     @Test
-    public void test() {
-        repository.deleteAll();
-        saveCustomers();
-        fetchAllCustomers();
-        fetchIndividualCustomers();
+    void deleteIndex() {
+        elasticsearchOperations.indexOps(IndexCoordinates.of(indexName)).delete();
     }
 
     @SneakyThrows
     @Test
-    public void test2() {
-        int size = 100000;
-        CountDownLatch countDownLatch = new CountDownLatch(size);
-        ExecutorService executorService = Executors.newFixedThreadPool(20);
-        for (int i = 0; i < size; i++) {
-            int finalI = i;
-            executorService.execute(() -> {
-                repository.save(new Customer("Alice" + finalI, "Smith" + finalI));
-                log.info("save success");
-                countDownLatch.countDown();
-            });
-        }
-        countDownLatch.await();
+    void createIndex() {
+        IndexOperations indexOperations = elasticsearchOperations.indexOps(IndexCoordinates.of(indexName));
+        indexOperations.create(Document.parse(
+                FileUtils.readClassPathFile("index/user/user_settings.json", "UTF-8")
+        ));
     }
 
-    private void saveCustomers() {
-        repository.save(new Customer("Alice", "Smith"));
-        repository.save(new Customer("Bob", "Smith"));
+    @SneakyThrows
+    @Test
+    void putMapping() {
+        IndexOperations indexOperations = elasticsearchOperations.indexOps(IndexCoordinates.of(indexName));
+        indexOperations.putMapping(Document.parse(
+                FileUtils.readClassPathFile("index/user/user_mapping.json", "UTF-8")
+        ));
     }
 
-    private void fetchAllCustomers() {
-        Iterable<Customer> all = repository.findAll();
-        all.forEach(customer -> log.warn("all customer:{}", customer));
+    @Test
+    void index() {
+        User user = new User()
+                .setId(1L)
+                .setUsername("user1")
+                .setPassword("pass1");
+        IndexQuery indexQuery = new IndexQuery();
+        indexQuery.setId("1");
+        indexQuery.setSource(JsonUtils.toJSONString(user));
+        elasticsearchOperations.index(indexQuery, IndexCoordinates.of(indexName));
     }
 
-    private void fetchIndividualCustomers() {
-        log.warn("firstName:{}", repository.findByFirstName("Alice"));
-        log.warn("lastName:{}", repository.findByLastName("Smith"));
+    @Test
+    void delete() {
+        elasticsearchOperations.delete("1", IndexCoordinates.of(indexName));
     }
 }
