@@ -8,12 +8,17 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.IndexOperations;
+import org.springframework.data.elasticsearch.core.SearchHit;
+import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.data.elasticsearch.core.document.Document;
 import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
+import org.springframework.data.elasticsearch.core.query.Criteria;
+import org.springframework.data.elasticsearch.core.query.CriteriaQuery;
 import org.springframework.data.elasticsearch.core.query.IndexQuery;
 
 import javax.annotation.Resource;
 import java.util.Arrays;
+import java.util.List;
 
 @Slf4j
 public class CharonElasticSearchSpringBootTest extends BaseTest {
@@ -62,6 +67,14 @@ public class CharonElasticSearchSpringBootTest extends BaseTest {
         indexQuery.setId("1");
         indexQuery.setSource(JsonUtils.toJSONString(user));
         elasticsearchOperations.index(indexQuery, IndexCoordinates.of(indexName));
+    }
+
+    @Test
+    void query() {
+        CriteriaQuery criteriaQuery = new CriteriaQuery(Criteria.where("tagList").in("123", "234", "345"));
+        SearchHits<User> hits = elasticsearchOperations.search(criteriaQuery, User.class, IndexCoordinates.of(indexName));
+        List<SearchHit<User>> searchHits = hits.getSearchHits();
+        System.out.println(searchHits);
     }
 
     @Test
