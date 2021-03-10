@@ -17,10 +17,6 @@
         </dependency>
         <dependency>
             <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-json</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-http</artifactId>
         </dependency>
         <dependency>

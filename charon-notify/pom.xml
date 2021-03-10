@@ -21,10 +21,6 @@
             <artifactId>charon-http</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-json</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
             <scope>provided</scope>

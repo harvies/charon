@@ -11,8 +11,8 @@
 
     <artifactId>charon-config</artifactId>
     <packaging>pom</packaging>
+    
     <modules>
-        <module>charon-config-server</module>
         <module>charon-config-client</module>
         <module>charon-config-core</module>
     </modules>

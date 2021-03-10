@@ -28,10 +28,6 @@
             <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-core</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-json</artifactId>
-        </dependency>
     </dependencies>
     <build>
         <plugins>

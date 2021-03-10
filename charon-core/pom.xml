@@ -90,6 +90,13 @@
             <scope>compile</scope>
         </dependency>
 
+        <!-- json begin -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+        <!-- json end -->
+
     </dependencies>
 
 </project>

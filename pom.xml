@@ -25,12 +25,10 @@
         <module>charon-oss</module>
         <module>charon-socks-proxy-server</module>
         <module>charon-agent</module>
-        <module>charon-attach</module>
         <module>charon-spider</module>
         <module>charon-dlock</module>
         <module>charon-file</module>
         <module>charon-http</module>
-        <module>charon-json</module>
         <module>charon-extra</module>
         <module>charon-rocketmq</module>
         <module>charon-elasticsearch</module>
