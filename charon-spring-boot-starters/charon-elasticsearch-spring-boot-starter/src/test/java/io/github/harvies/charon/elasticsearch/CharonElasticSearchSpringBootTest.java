@@ -13,6 +13,7 @@ import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
 import org.springframework.data.elasticsearch.core.query.IndexQuery;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
 
 @Slf4j
 public class CharonElasticSearchSpringBootTest extends BaseTest {
@@ -55,7 +56,8 @@ public class CharonElasticSearchSpringBootTest extends BaseTest {
         User user = new User()
                 .setId(1L)
                 .setUsername("user1")
-                .setPassword("pass1");
+                .setPassword("pass1")
+                .setTagList(Arrays.asList("123", "345"));
         IndexQuery indexQuery = new IndexQuery();
         indexQuery.setId("1");
         indexQuery.setSource(JsonUtils.toJSONString(user));

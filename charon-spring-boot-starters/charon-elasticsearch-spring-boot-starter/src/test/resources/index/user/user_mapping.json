@@ -8,6 +8,9 @@
     },
     "password": {
       "type": "keyword"
+    },
+    "tagList": {
+      "type": "keyword"
     }
   }
 }
