@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Consumer extends BaseTest {
     
-    @DubboReference
+    @DubboReference(timeout = 3000)
     private EchoService echoService;
 
     @Test

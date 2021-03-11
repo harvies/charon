@@ -1,6 +1,7 @@
 package io.github.harvies.charon.config;
 
 import io.github.harvies.charon.config.event.ConfigChangeEvent;
+import io.github.harvies.charon.config.event.ConfigProcessSuccessEvent;
 import io.github.harvies.charon.spring.boot.SpringContextHolder;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -8,6 +9,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.context.config.ConfigFileApplicationListener;
 import org.springframework.boot.env.EnvironmentPostProcessor;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.PropertiesPropertySource;
@@ -16,10 +19,11 @@ import java.util.Properties;
 import java.util.concurrent.locks.LockSupport;
 
 @Slf4j
-public class CharonConfigEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
+public class CharonConfigEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered, ApplicationEventPublisherAware {
 
     public static final String COMMON = "common";
     private ConfigurableEnvironment environment;
+    private ApplicationEventPublisher applicationEventPublisher;
 
     @SneakyThrows
     @Override
@@ -81,6 +85,9 @@ public class CharonConfigEnvironmentPostProcessor implements EnvironmentPostProc
                     }
                     //更新@Value注解修饰字段值
                     valueAnnotationProcessor();
+                    //发送配置处理成功事件
+                    ConfigProcessSuccessEvent configProcessSuccessEvent = new ConfigProcessSuccessEvent(event);
+                    applicationEventPublisher.publishEvent(configProcessSuccessEvent);
                 }
             });
             LockSupport.park();
@@ -92,5 +99,10 @@ public class CharonConfigEnvironmentPostProcessor implements EnvironmentPostProc
 
     private void valueAnnotationProcessor() {
         SpringContextHolder.getBean(ValueAnnotationProcessor.class).processor();
+    }
+
+    @Override
+    public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
+        this.applicationEventPublisher = applicationEventPublisher;
     }
 }
