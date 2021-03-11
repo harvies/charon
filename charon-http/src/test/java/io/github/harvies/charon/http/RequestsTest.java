@@ -2,6 +2,7 @@ package io.github.harvies.charon.http;
 
 import io.github.harvies.charon.util.FileUtils;
 import io.github.harvies.charon.util.PropertiesUtils;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import net.dongliu.requests.RawResponse;
 import net.dongliu.requests.Requests;
@@ -17,6 +18,9 @@ import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @author harvies
@@ -64,5 +68,25 @@ public class RequestsTest {
         System.out.println(loginResult);
         String result = session.get("https://issues.apache.org/jira/secure/ViewProfile.jspa").send().readToText();
         System.out.println(result);
+    }
+
+    @SneakyThrows
+    @Test
+    void pressureTest() {
+        int time = 5;
+        int threadNum = 2;
+        String url = "http://localhost:8080/user/get/1";
+        ExecutorService executorService = Executors.newFixedThreadPool(threadNum);
+        CountDownLatch countDownLatch = new CountDownLatch(time);
+        for (int i = 0; i < time; i++) {
+            executorService.execute(() -> {
+                try {
+                    Requests.get(url).send();
+                } finally {
+                    countDownLatch.countDown();
+                }
+            });
+        }
+        countDownLatch.await();
     }
 }

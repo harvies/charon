@@ -54,8 +54,6 @@ public class CharonWebHandlerInterceptor implements HandlerInterceptor {
             String headerName = headerNames.nextElement();
             headerMap.put(headerName, request.getHeader(headerName));
         }
-        map.put("headers", headerMap);
-        map.put("cookies", request.getCookies());
         return JsonUtils.toJSONString(map);
     }
 }
