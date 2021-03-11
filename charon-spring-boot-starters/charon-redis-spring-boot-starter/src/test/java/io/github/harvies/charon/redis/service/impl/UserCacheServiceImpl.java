@@ -29,13 +29,18 @@ public class UserCacheServiceImpl implements UserCacheService {
     @Override
     public UserDTO get(Long id) {
         String cacheKey = USER_CACHE_ID_KEY_PREFIX + id;
+        //@1查缓存
         UserDTO userDTO = redissonClient.<UserDTO>getBucket(cacheKey).get();
         if (userDTO == null) {
             RLock lock = redissonClient.getLock(LOCK_KEY);
             try {
+                //@2缓存没查到则获取锁
                 lock.lock();
+                log.info("获取锁成功");
+                //@3在加锁(redisson默认加锁30s,通过看门狗续期)代码里再查一次缓存(为了查第一个线程写入的数据)
                 UserDTO userDTONew = redissonClient.<UserDTO>getBucket(cacheKey).get();
                 if (userDTONew == null) {
+                    //@4第二次还没查到缓存则执行写缓存
                     UserDTO userDTOFromDB = userDAO.get(id);
                     //模拟业务逻辑
                     try {
@@ -48,6 +53,7 @@ public class UserCacheServiceImpl implements UserCacheService {
                 }
                 return userDTONew;
             } finally {
+                //@5释放锁
                 lock.unlock();
             }
         }
