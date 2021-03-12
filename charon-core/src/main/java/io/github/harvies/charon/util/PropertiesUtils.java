@@ -4,13 +4,20 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
 @Slf4j
 public class PropertiesUtils {
 
+    private static final String CONFIG_PATH = "CHARON_CONFIG_PATH";
+
     public static String getDefaultPath() {
+        String configPath = System.getenv(CONFIG_PATH);
+        if (StringUtils.isNotBlank(configPath)) {
+            return configPath;
+        }
         return "/opt/charon/charon.properties";
     }
 
@@ -27,7 +34,9 @@ public class PropertiesUtils {
         Properties properties = new Properties();
         String path = file.getAbsolutePath();
         try {
-            properties.load(FileUtils.openInputStream(file));
+            try (FileInputStream fileInputStream = FileUtils.openInputStream(file)) {
+                properties.load(fileInputStream);
+            }
         } catch (IOException e) {
             log.warn("file: {} not found!", path);
         }
