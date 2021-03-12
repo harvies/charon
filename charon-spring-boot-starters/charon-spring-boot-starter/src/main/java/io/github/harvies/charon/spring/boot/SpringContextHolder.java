@@ -1,12 +1,19 @@
 package io.github.harvies.charon.spring.boot;
 
+import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.Validate;
 import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * 以静态变量保存Spring ApplicationContext, 可在任何代码任何地方任何时候取出ApplicationContext.
@@ -24,6 +31,19 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
     public static ApplicationContext getApplicationContext() {
         assertContextInjected();
         return applicationContext;
+    }
+
+    public static List<String> getBeanNameList() {
+        AutowireCapableBeanFactory autowireCapableBeanFactory = SpringContextHolder.getApplicationContext().getAutowireCapableBeanFactory();
+        ArrayList<String> beanNameList = Lists.newArrayList();
+        if (autowireCapableBeanFactory instanceof ConfigurableListableBeanFactory) {
+            Iterator<String> beanNamesIterator = ((ConfigurableListableBeanFactory) autowireCapableBeanFactory).getBeanNamesIterator();
+            while (beanNamesIterator.hasNext()) {
+                String next = beanNamesIterator.next();
+                beanNameList.add(next);
+            }
+        }
+        return beanNameList;
     }
 
     /**
