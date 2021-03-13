@@ -7,13 +7,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Consumer extends BaseTest {
-    
-    @DubboReference(timeout = 3000)
+class Consumer extends BaseTest {
+
+    @DubboReference(timeout = 1000, injvm = false)
     private EchoService echoService;
 
     @Test
-    public void test() {
+    void test() {
         assertEquals(echoService.echo("hello"), "hello");
     }
 }

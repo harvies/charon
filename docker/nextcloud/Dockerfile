@@ -1,4 +1,4 @@
-FROM nextcloud:20.0.3
+FROM nextcloud:21.0.0
 LABEL maintainer="delverjw@gmail.com"
 
 # libreoffice ttf-dejavu
