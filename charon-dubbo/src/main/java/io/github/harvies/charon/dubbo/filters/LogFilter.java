@@ -11,11 +11,13 @@ import org.apache.skywalking.apm.toolkit.trace.TraceContext;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Activate
 public class LogFilter implements Filter {
+    
     private static final String TRACE_ID = "traceId";
 
     @Override
@@ -23,7 +25,7 @@ public class LogFilter implements Filter {
         Stopwatch stopwatch = Stopwatch.createStarted();
         if (StringUtils.isBlank(invocation.getAttachment(TRACE_ID))) {
             String traceId = TraceContext.traceId();
-            if (StringUtils.isBlank(traceId)) {
+            if (StringUtils.isBlank(traceId) || Objects.equals("Ignored_Trace", traceId)) {
                 traceId = RandomUtils.uuid();
             }
             invocation.getObjectAttachments().put(TRACE_ID, traceId);
