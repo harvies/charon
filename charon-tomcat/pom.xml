@@ -8,13 +8,17 @@
         <version>0.0.7-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <packaging>pom</packaging>
 
-    <artifactId>charon-tests</artifactId>
+    <artifactId>charon-tomcat</artifactId>
 
-    <modules>
-        <module>charon-github</module>
-        <module>charon-test</module>
-        <module>charon-web</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+        </dependency>
+    </dependencies>
 </project>
