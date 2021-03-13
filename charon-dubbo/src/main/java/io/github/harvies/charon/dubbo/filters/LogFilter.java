@@ -26,7 +26,7 @@ public class LogFilter implements Filter {
             if (StringUtils.isBlank(traceId)) {
                 traceId = RandomUtils.uuid();
             }
-            invocation.getObjectAttachments().put(traceId, traceId);
+            invocation.getObjectAttachments().put(TRACE_ID, traceId);
         }
         Result result = invoker.invoke(invocation);
         doLog(invoker, invocation, result, stopwatch);
