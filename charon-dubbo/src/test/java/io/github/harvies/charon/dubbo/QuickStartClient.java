@@ -23,6 +23,7 @@ public class QuickStartClient {
         reference.setInterface(HelloService.class);
         //设置客户端超时,默认1s
         reference.setTimeout(CommonConstants.DEFAULT_TIMEOUT);
+        reference.setFilter("log");
         HelloService service = reference.get();
         String message = service.sayHello("dubbo");
         System.out.println(message);

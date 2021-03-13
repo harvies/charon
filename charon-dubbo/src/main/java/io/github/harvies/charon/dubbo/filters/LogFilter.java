@@ -2,6 +2,7 @@ package io.github.harvies.charon.dubbo.filters;
 
 import com.google.common.base.Stopwatch;
 import io.github.harvies.charon.util.JsonUtils;
+import io.github.harvies.charon.util.RandomUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.common.extension.Activate;
@@ -15,23 +16,30 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @Activate
 public class LogFilter implements Filter {
+    private static final String TRACE_ID = "traceId";
+
     @Override
     public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
         Stopwatch stopwatch = Stopwatch.createStarted();
-        if (StringUtils.isBlank(invocation.getAttachment("traceId"))) {
-            invocation.setAttachment("traceId", TraceContext.traceId());
+        if (StringUtils.isBlank(invocation.getAttachment(TRACE_ID))) {
+            String traceId = TraceContext.traceId();
+            if (StringUtils.isBlank(traceId)) {
+                traceId = RandomUtils.uuid();
+            }
+            invocation.getObjectAttachments().put(traceId, traceId);
         }
         Result result = invoker.invoke(invocation);
-        doLog(result, stopwatch);
+        doLog(invoker, invocation, result, stopwatch);
         return result;
     }
 
-    private void doLog(Result result, Stopwatch stopwatch) {
+    private void doLog(Invoker invoker, Invocation invocation, Result result, Stopwatch stopwatch) {
         RpcContext rpcContext = RpcContext.getContext();
         Map<String, Object> map = new HashMap<>();
         map.put("result", result.getValue());
-        map.put("attachments", rpcContext.getObjectAttachments());
-        map.put("url", rpcContext.getUrl());
+        Map<String, Object> objectAttachments = invocation.getObjectAttachments();
+        map.put(TRACE_ID, objectAttachments.get(TRACE_ID));
+        map.put("url", invoker.getUrl());
         map.put("methodName", rpcContext.getMethodName());
         map.put("parameterTypes", rpcContext.getParameterTypes());
         map.put("arguments", rpcContext.getArguments());

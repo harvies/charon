@@ -24,6 +24,7 @@ public class QuickStartServer {
         service.setCluster("failover");
         //失败自动切换默认重试2次
         service.setRetries(2);
+        service.setFilter("log");
 //        service.setSerialization();
         service.export();
         service.setTimeout(10000);
