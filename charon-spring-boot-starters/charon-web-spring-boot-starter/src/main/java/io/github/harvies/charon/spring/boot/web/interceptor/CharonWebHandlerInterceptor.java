@@ -3,8 +3,8 @@ package io.github.harvies.charon.spring.boot.web.interceptor;
 import com.google.common.base.Stopwatch;
 import io.github.harvies.charon.spring.boot.web.utils.IpUtils;
 import io.github.harvies.charon.util.JsonUtils;
+import io.github.harvies.charon.util.TraceUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.skywalking.apm.toolkit.trace.TraceContext;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,6 +23,7 @@ public class CharonWebHandlerInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         Stopwatch started = Stopwatch.createStarted();
         stopWatchThreadLocal.set(started);
+        TraceUtils.getTraceId();
         return true;
     }
 
@@ -38,12 +39,13 @@ public class CharonWebHandlerInterceptor implements HandlerInterceptor {
             log.info("请求参数:[{}] ,耗时 [{}] millis", getDescription(request), millis);
         } finally {
             stopWatchThreadLocal.remove();
+            TraceUtils.removeTraceId();
         }
     }
 
     public String getDescription(HttpServletRequest request) {
         Map<String, Object> map = new HashMap<>();
-        map.put("traceId", TraceContext.traceId());
+        map.put("traceId", TraceUtils.getTraceId());
         map.put("uri", request.getRequestURI());
         map.put("method", request.getMethod());
         map.put("params", request.getParameterMap());

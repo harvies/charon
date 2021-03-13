@@ -2,32 +2,27 @@ package io.github.harvies.charon.dubbo.filters;
 
 import com.google.common.base.Stopwatch;
 import io.github.harvies.charon.util.JsonUtils;
-import io.github.harvies.charon.util.RandomUtils;
+import io.github.harvies.charon.util.TraceUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.common.extension.Activate;
 import org.apache.dubbo.rpc.*;
-import org.apache.skywalking.apm.toolkit.trace.TraceContext;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Activate
 public class LogFilter implements Filter {
-    
+
     private static final String TRACE_ID = "traceId";
 
     @Override
     public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
         Stopwatch stopwatch = Stopwatch.createStarted();
         if (StringUtils.isBlank(invocation.getAttachment(TRACE_ID))) {
-            String traceId = TraceContext.traceId();
-            if (StringUtils.isBlank(traceId) || Objects.equals("Ignored_Trace", traceId)) {
-                traceId = RandomUtils.uuid();
-            }
+            String traceId = TraceUtils.getTraceId();
             invocation.getObjectAttachments().put(TRACE_ID, traceId);
         }
         Result result = invoker.invoke(invocation);
