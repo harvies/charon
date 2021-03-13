@@ -16,5 +16,8 @@
         <module>charon-github</module>
         <module>charon-test</module>
         <module>charon-web</module>
+        <module>charon-netty</module>
+        <module>charon-tomcat</module>
+        <module>charon-zookeeper</module>
     </modules>
 </project>

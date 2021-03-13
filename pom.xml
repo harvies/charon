@@ -33,9 +33,6 @@
         <module>charon-rocketmq</module>
         <module>charon-elasticsearch</module>
         <module>charon-config</module>
-        <module>charon-zookeeper</module>
-        <module>charon-tomcat</module>
-        <module>charon-netty</module>
     </modules>
 
     <dependencies>
