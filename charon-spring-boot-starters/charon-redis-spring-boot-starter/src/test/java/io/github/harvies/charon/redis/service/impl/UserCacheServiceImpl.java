@@ -33,9 +33,9 @@ public class UserCacheServiceImpl implements UserCacheService {
         UserDTO userDTO = redissonClient.<UserDTO>getBucket(cacheKey).get();
         if (userDTO == null) {
             RLock lock = redissonClient.getLock(LOCK_KEY);
+            //@2缓存没查到则获取锁
+            lock.lock();
             try {
-                //@2缓存没查到则获取锁
-                lock.lock();
                 log.info("获取锁成功");
                 //@3在加锁(redisson默认加锁30s,通过看门狗续期)代码里再查一次缓存(为了查第一个线程写入的数据)
                 UserDTO userDTONew = redissonClient.<UserDTO>getBucket(cacheKey).get();
