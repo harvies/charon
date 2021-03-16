@@ -16,9 +16,9 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class SpringInterfaceTest implements ApplicationContextAware, EnvironmentAware, BeanPostProcessor, InitializingBean, DisposableBean {
 
-    @Value("${aaa}")
+    @Value("${aaa:}")
     private String property;
-    
+
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         log.info("实现ApplicationContextAware接口，容器启动时会传入Spring上下文");
