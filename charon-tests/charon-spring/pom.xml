@@ -3,22 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>charon-parent</artifactId>
+        <artifactId>charon-tests</artifactId>
         <groupId>io.github.harvies.charon</groupId>
         <version>0.0.7-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>charon-spring</artifactId>
     <packaging>pom</packaging>
-
-    <artifactId>charon-tests</artifactId>
-
     <modules>
-        <module>charon-github</module>
-        <module>charon-test</module>
-        <module>charon-web</module>
-        <module>charon-netty</module>
-        <module>charon-tomcat</module>
-        <module>charon-zookeeper</module>
-        <module>charon-spring</module>
+        <module>charon-spring-factorybean</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
 </project>
