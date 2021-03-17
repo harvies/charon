@@ -1,6 +1,6 @@
-package io.github.harvies.charon.spring.boot.config;
+package io.github.harvies.charon.spring.boot.lifecycle.config;
 
-import io.github.harvies.charon.spring.boot.BeanA;
+import io.github.harvies.charon.spring.boot.lifecycle.BeanA;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

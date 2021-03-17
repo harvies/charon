@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spring.boot;
+package io.github.harvies.charon.spring.boot.lifecycle;
 
 import lombok.Getter;
 import lombok.Setter;

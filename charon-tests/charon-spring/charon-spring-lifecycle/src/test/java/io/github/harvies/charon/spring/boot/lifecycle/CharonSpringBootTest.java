@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spring.boot;
+package io.github.harvies.charon.spring.boot.lifecycle;
 
 import org.junit.Assert;
 import org.junit.Test;
