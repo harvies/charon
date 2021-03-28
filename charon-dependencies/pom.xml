@@ -38,7 +38,7 @@
         <lombok.version>1.18.6</lombok.version>
         <guava.version>27.1-jre</guava.version>
         <curator.version>5.1.0</curator.version><!--高版本curator对应高版本zookeeper(3.5.5) -->
-        <zookeeper.version>3.6.1</zookeeper.version>
+        <zookeeper.version>3.7.0</zookeeper.version>
         <netty.version>4.1.58.Final</netty.version>
         <dubbo.version>2.7.8</dubbo.version>
         <arthas.version>3.3.7</arthas.version>
