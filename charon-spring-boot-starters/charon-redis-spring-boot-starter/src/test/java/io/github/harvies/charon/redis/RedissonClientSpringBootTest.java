@@ -3,6 +3,7 @@ package io.github.harvies.charon.redis;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.redisson.api.RBlockingQueue;
 import org.redisson.api.RScoredSortedSet;
 import org.redisson.api.RedissonClient;
 import org.redisson.api.SortOrder;
@@ -41,5 +42,23 @@ public class RedissonClientSpringBootTest extends BaseTest {
         sortSet.addScore("key2", 3);
         Set<Object> objects = sortSet.readSort("score", SortOrder.DESC, 0, 2);
         System.out.println(objects);//[key2, key1]
+    }
+    
+    @Test
+    public void test3(){
+        RBlockingQueue<String> blockingQueue = redissonClient.getBlockingQueue("aaa");
+        try {
+            blockingQueue.put("aaa");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        while (true){
+            try {
+                String take = blockingQueue.take();
+                System.out.println(take);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

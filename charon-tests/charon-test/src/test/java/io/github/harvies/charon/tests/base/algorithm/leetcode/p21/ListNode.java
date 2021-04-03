@@ -6,17 +6,17 @@ import java.util.Objects;
 
 @ToString
 public class ListNode {
-    int val;
-    ListNode next;
+    public Integer val;
+    public ListNode next;
 
     ListNode() {
     }
 
-    ListNode(int val) {
+    ListNode(Integer val) {
         this.val = val;
     }
 
-    ListNode(int val, ListNode next) {
+    ListNode(Integer val, ListNode next) {
         this.val = val;
         this.next = next;
     }

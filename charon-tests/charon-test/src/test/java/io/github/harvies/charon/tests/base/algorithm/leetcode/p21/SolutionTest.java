@@ -20,14 +20,14 @@ class SolutionTest {
     }
 
     private void extracted(Solution solution) {
-        ListNode listNode1 = ListUtils.arrayToListNode(new int[]{1, 2, 4});
-        ListNode listNode2 = ListUtils.arrayToListNode(new int[]
+        ListNode listNode1 = ListUtils.arrayToListNode(new Integer[]{1, 2, 4});
+        ListNode listNode2 = ListUtils.arrayToListNode(new Integer[]
                 {1, 3, 4});
         System.out.println(listNode1);
         System.out.println(listNode2);
         ListNode actual = solution.mergeTwoLists(listNode1, listNode2);
         System.out.println(actual);
-        ListNode expect = ListUtils.arrayToListNode(new int[]{1, 1, 2, 3, 4, 4});
+        ListNode expect = ListUtils.arrayToListNode(new Integer[]{1, 1, 2, 3, 4, 4});
         assertThat(actual, is(expect));
     }
 }

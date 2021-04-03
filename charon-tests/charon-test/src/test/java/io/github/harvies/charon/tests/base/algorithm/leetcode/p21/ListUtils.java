@@ -2,7 +2,7 @@ package io.github.harvies.charon.tests.base.algorithm.leetcode.p21;
 
 public class ListUtils {
     //数组转换成链表
-    public static ListNode arrayToListNode(int[] s) {
+    public static ListNode arrayToListNode(Integer[] s) {
         ListNode root = new ListNode(s[0]);//生成链表的根节点，并将数组的第一个元素的值赋给链表的根节点
         ListNode other = root;//生成另一个节点，并让other指向root节点，other在此作为一个临时变量，相当于指针
         for (int i = 1; i < s.length; i++) {//由于已给root赋值，所以i从1开始
@@ -24,16 +24,16 @@ public class ListUtils {
     }
 
     //输出数组
-    public static void printArrays(int[] ints) {
+    public static void printArrays(Integer[] ints) {
         for (int x : ints) {
             System.out.print(x + " ");
         }
     }
 
     //将链表转换成数组
-    public static int[] listNodeToArray(ListNode l) {
+    public static Integer[] listNodeToArray(ListNode l) {
         int size = listNodeSize(l);
-        int[] ints = new int[size];
+        Integer[] ints = new Integer[size];
         int index = 0;
         while (l != null) {
             ints[index] = l.val;
@@ -44,7 +44,7 @@ public class ListUtils {
     }
 
     //求链表的长度
-    public static int listNodeSize(ListNode l) {
+    public static Integer listNodeSize(ListNode l) {
         int size = 0;
         while (l != null) {
             size++;
