@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CharonSpringBootWebTest extends BaseTest {
+class CharonSpringBootWebTest extends BaseTest {
 
     @LocalServerPort
     private int port;
@@ -20,7 +20,7 @@ public class CharonSpringBootWebTest extends BaseTest {
     private RestTemplateBuilder restTemplateBuilder;
 
     @Test
-    public void testHealthStatus() {
+    void testHealthStatus() {
         String forObject = restTemplateBuilder.build().getForObject(host + port + "/health/status?a=b", String.class);
         assertEquals(Constants.SUCCESS, forObject);
     }

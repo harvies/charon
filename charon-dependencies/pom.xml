@@ -574,11 +574,6 @@
             </dependency>
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
-                <artifactId>charon-monitor-spring-boot-starter</artifactId>
-                <version>${charon.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.harvies.charon</groupId>
                 <artifactId>charon-elk-spring-boot-starter</artifactId>
                 <version>${charon.version}</version>
             </dependency>

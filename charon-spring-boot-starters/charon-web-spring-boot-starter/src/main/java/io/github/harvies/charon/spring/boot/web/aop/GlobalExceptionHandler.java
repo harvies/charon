@@ -1,7 +1,7 @@
 package io.github.harvies.charon.spring.boot.web.aop;
 
-import io.github.harvies.charon.spring.boot.web.result.ResultDTO;
-import io.github.harvies.charon.spring.boot.web.result.Results;
+import io.github.harvies.charon.result.ResultDTO;
+import io.github.harvies.charon.result.Results;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -14,10 +14,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public ResultDTO<String> exceptionHandler(Exception e) {
+        log.debug("exceptionHandler", e);
         if (e instanceof GlobalException) {
             return Results.failed(e.getMessage());
         }
-        log.warn("exceptionHandler", e);
         return Results.unknownError();
     }
 

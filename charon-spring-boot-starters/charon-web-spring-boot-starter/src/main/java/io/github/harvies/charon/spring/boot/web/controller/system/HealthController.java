@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spring.boot.web.controller.monitor;
+package io.github.harvies.charon.spring.boot.web.controller.system;
 
 import io.github.harvies.charon.spring.boot.web.Constants;
 import lombok.extern.slf4j.Slf4j;

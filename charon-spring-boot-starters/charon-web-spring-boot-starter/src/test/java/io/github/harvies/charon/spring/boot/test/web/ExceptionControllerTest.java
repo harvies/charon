@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Slf4j
-public class ExceptionControllerTest extends BaseTest {
+class ExceptionControllerTest extends BaseTest {
     @LocalServerPort
     private int port;
 
@@ -22,7 +22,7 @@ public class ExceptionControllerTest extends BaseTest {
     private RestTemplateBuilder restTemplateBuilder;
 
     @Test
-    public void assertGlobalExceptionHandler() {
+    void assertGlobalExceptionHandler() {
         String forObject = restTemplateBuilder.build().getForObject(host + port + "/exception/global", String.class);
         JSONObject jsonObject = JsonUtils.parseObject(forObject);
         assertEquals(TestExceptionController.RESULT, jsonObject.getString("data"));

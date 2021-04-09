@@ -19,7 +19,6 @@
         <module>charon-spring-boot-admin-client-starter</module>
         <module>charon-fastjson-spring-boot-starter</module>
         <module>charon-notify-spring-boot-starter</module>
-        <module>charon-monitor-spring-boot-starter</module>
         <module>charon-oss-spring-boot-starter</module>
         <module>charon-elasticjob-lite-spring-boot-starter</module>
         <module>charon-mongo-spring-boot-starter</module>
