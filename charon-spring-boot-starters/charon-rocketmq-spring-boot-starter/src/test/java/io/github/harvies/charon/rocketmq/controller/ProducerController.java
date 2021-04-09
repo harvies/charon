@@ -1,36 +1,34 @@
-package io.github.harvies.charon.rocketmq.producer;
+package io.github.harvies.charon.rocketmq.controller;
 
-import io.github.harvies.charon.rocketmq.BaseTest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;
-import org.apache.rocketmq.client.producer.SendStatus;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
-import org.junit.jupiter.api.Test;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-
 @Slf4j
-class SyncProducerTest extends BaseTest {
+@RestController
+@RequestMapping(value = "/producer")
+public class ProducerController {
     @Resource
     private RocketMQTemplate rocketMQTemplate;
 
-    @Test
-    void syncSend() {
+    @RequestMapping(value = "/syncSend")
+    public SendResult syncSend() {
         SendResult sendResult = rocketMQTemplate.syncSend("TopicTest:TagA", "Hello RocketMQ");
         log.info("sendResult:[{}]", sendResult);
-        assertThat(sendResult.getSendStatus().name(), is(SendStatus.SEND_OK.name()));
+        return sendResult;
     }
 
-    @Test
-    void asyncSend() {
-        String randomGraph = RandomStringUtils.randomGraph(1000);
+    @RequestMapping(value = "/asyncSend")
+    public void asyncSend() {
+        String randomGraph = RandomStringUtils.randomNumeric(1000);
         rocketMQTemplate.asyncSend("TopicTest:TagA", randomGraph, new SendCallback() {
             @Override
             public void onSuccess(SendResult sendResult) {
@@ -44,10 +42,10 @@ class SyncProducerTest extends BaseTest {
         });
     }
 
-    @Test
-    void scheduledMessageSend() {
+    @RequestMapping(value = "/scheduledMessageSend")
+    public void scheduledMessageSend() {
         //随机1000个字符
-        String randomGraph = RandomStringUtils.randomGraph(1000);
+        String randomGraph = RandomStringUtils.randomNumeric(1000);
 
         Message<String> message = MessageBuilder.withPayload(randomGraph).build();
         /**
@@ -65,20 +63,17 @@ class SyncProducerTest extends BaseTest {
                 log.warn("scheduledMessageSend onException: string:{}", randomGraph, throwable);
             }
 
-        }, 3000, 4);
+        }, 3000, 2);
     }
-
 
     /**
      * 按消息hash分发到不同队列
      *
      */
-    @Test
-    void syncSendOrderly() {
+    @RequestMapping(value = "/syncSendOrderly")
+    public void syncSendOrderly() {
         String randomNumeric = RandomStringUtils.randomNumeric(5);
-        System.err.println("hashKey:" + randomNumeric);
         SendResult sendResult = rocketMQTemplate.syncSendOrderly("TopicTest:TagA", randomNumeric, "800599963929");
         log.warn("sendResult:{}", sendResult);
     }
-
 }

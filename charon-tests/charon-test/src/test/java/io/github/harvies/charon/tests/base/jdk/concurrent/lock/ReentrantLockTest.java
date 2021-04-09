@@ -2,44 +2,29 @@ package io.github.harvies.charon.tests.base.jdk.concurrent.lock;
 
 import java.util.concurrent.locks.ReentrantLock;
 
-/**
- * 可重入锁，也叫做递归锁，指的是同一线程 外层函数获得锁之后 ，内层递归函数仍然有获取该锁的代码，但不受影响。
- * 在JAVA环境下 ReentrantLock 和synchronized 都是 可重入锁
- * 出处:http://ifeve.com/java_lock_see4/
- *
- * @author harvies
- */
-public class ReentrantLockTest implements Runnable {
-    ReentrantLock lock = new ReentrantLock();
+public class ReentrantLockTest {
 
-    public void get() {
-        try {
-            lock.lock();
-            System.out.println(Thread.currentThread().getId());
-            set();
-        } finally {
-            lock.unlock();
-        }
-    }
-
-    public void set() {
-        try {
-            lock.lock();
-            System.out.println(Thread.currentThread().getId());
-        } finally {
-            lock.unlock();
-        }
-    }
-
-    @Override
-    public void run() {
-        get();
-    }
+    private static final ReentrantLock lock = new ReentrantLock();
 
     public static void main(String[] args) {
-        ReentrantLockTest ss = new ReentrantLockTest();
-        new Thread(ss).start();
-        new Thread(ss).start();
-        new Thread(ss).start();
+        new Thread(ReentrantLockTest::test, "threadA").start();
+        new Thread(ReentrantLockTest::test, "threadB").start();
     }
+
+    private static void test() {
+        lock.lock();
+        try {
+            System.out.println(Thread.currentThread().getName() + "-获取到锁");
+            System.out.println(Thread.currentThread().getName() + "-业务逻辑处理");
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        } finally {
+            System.out.println(Thread.currentThread().getName() + "-释放锁");
+            lock.unlock();
+        }
+    }
+
 }

@@ -14,7 +14,7 @@ public class TraceUtils {
         if (StringUtils.isBlank(string)) {
             String traceId = TraceContext.traceId();
             if (StringUtils.isBlank(traceId) || Objects.equals("Ignored_Trace", traceId)) {
-                traceId = RandomUtils.uuid();
+                traceId = RandomUtils.uuid().replaceAll("-", "");
             }
             localTraceId.set(traceId);
             return traceId;
