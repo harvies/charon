@@ -44,6 +44,6 @@ public class LogFilter implements Filter {
         map.put("remoteAddress", rpcContext.getRemoteAddress());
         map.put("remoteApplicationName", rpcContext.getRemoteApplicationName());
         map.put("cast", stopwatch.elapsed(TimeUnit.MILLISECONDS) + " ms");
-        log.info(JsonUtils.toJSONString(map));
+        log.info("dubbo请求结果:[{}]", JsonUtils.toJSONString(map));
     }
 }
