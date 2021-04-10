@@ -20,10 +20,5 @@
             <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-config-client</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-web-spring-boot-starter</artifactId>
-            <scope>provided</scope>
-        </dependency>
     </dependencies>
 </project>

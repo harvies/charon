@@ -67,6 +67,7 @@ public class CharonConfigEnvironmentPostProcessor implements EnvironmentPostProc
     private void loadPropertiesFromConfigCenter(ConfigClient configClient) {
         App app = configClient.getApp();
         Properties properties = configClient.get();
+        log.info("app:[{}]从配置中心加载到配置:[{}]", configClient.getApp(), properties);
         String key = "charon-spring-boot-config-center-" + app.getAppName();
         PropertiesPropertySource propertySource = new PropertiesPropertySource(key, properties);
         //配置放到最前
