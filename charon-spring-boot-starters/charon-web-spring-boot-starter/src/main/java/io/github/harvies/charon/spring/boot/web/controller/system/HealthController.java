@@ -2,7 +2,6 @@ package io.github.harvies.charon.spring.boot.web.controller.system;
 
 import io.github.harvies.charon.spring.boot.web.Constants;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,10 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/health")
 public class HealthController {
 
-    public String status = Constants.SUCCESS;
-
-    @RequestMapping(value = "/status", produces = MediaType.TEXT_PLAIN_VALUE)
+    @RequestMapping(value = "/status")
     public String status() {
-        return status;
+        return Constants.SUCCESS;
     }
 }
