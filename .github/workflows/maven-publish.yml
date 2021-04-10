@@ -3,7 +3,12 @@
 
 name: Maven Package
 
-on: [push]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ master ]
 #  release:
 #    types: [created]
 
@@ -28,4 +33,4 @@ jobs:
 #        GITHUB_TOKEN: ${{ github.token }}
 
     - name: Notify
-      run: curl 'https://api.kikera.top:4433/notify/send?title=GitHub%20Actions&text=%E9%80%9A%E7%9F%A5-charon%20build%20success!'
+      run: curl 'https://api.kikera.top:4433/notify/send?title=charon-GitHub%20Actions&text=%E9%80%9A%E7%9F%A5-charon%20build%20success!' &
