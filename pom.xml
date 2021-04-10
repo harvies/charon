@@ -26,7 +26,6 @@
         <module>charon-socks-proxy-server</module>
         <module>charon-agent</module>
         <module>charon-spider</module>
-        <module>charon-dlock</module>
         <module>charon-file</module>
         <module>charon-http</module>
         <module>charon-extra</module>
