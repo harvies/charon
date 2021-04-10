@@ -14,7 +14,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public ResultDTO<String> exceptionHandler(Exception e) {
-        log.debug("exceptionHandler", e);
+        log.warn("exceptionHandler", e);
         if (e instanceof GlobalException) {
             return Results.failed(e.getMessage());
         }
