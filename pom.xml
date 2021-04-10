@@ -64,13 +64,4 @@
         </dependency>
     </dependencies>
 
-    <profiles>
-        <profile>
-            <id>tests</id>
-            <modules>
-                <module>charon-tests</module>
-            </modules>
-        </profile>
-    </profiles>
-
 </project>
