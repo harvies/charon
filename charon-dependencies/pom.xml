@@ -18,7 +18,7 @@
         <project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
         <archetype.encoding>${encoding}</archetype.encoding>
 
-        <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
+        <spring-boot.version>2.4.4</spring-boot.version>
         <spring-cloud.version>Hoxton.SR6</spring-cloud.version>
         <sofa-boot.version>3.3.2</sofa-boot.version>
         <elastic-job.version>3.0.0-alpha</elastic-job.version>
@@ -39,7 +39,6 @@
         <guava.version>29.0-jre</guava.version>
         <curator.version>5.1.0</curator.version><!--高版本curator对应高版本zookeeper(3.5.5) -->
         <zookeeper.version>3.7.0</zookeeper.version>
-        <netty.version>4.1.60.Final</netty.version>
         <dubbo.version>2.7.10</dubbo.version>
         <arthas.version>3.3.7</arthas.version>
         <webmagic.version>0.7.4-SNAPSHOT</webmagic.version>
@@ -134,14 +133,6 @@
                 <type>pom</type>
             </dependency>
             <!--            dependencies end-->
-            <!--netty-->
-            <!--            <dependency>-->
-            <!--                <groupId>io.netty</groupId>-->
-            <!--                <artifactId>netty-bom</artifactId>-->
-            <!--                <version>${netty.version}</version>-->
-            <!--                <scope>import</scope>-->
-            <!--                <type>pom</type>-->
-            <!--            </dependency>-->
             <!-- starter begin-->
             <dependency>
                 <groupId>org.apache.rocketmq</groupId>
