@@ -4,11 +4,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
+import org.springframework.stereotype.Component;
 
 /**
  * Spring启动完成监听器
  */
 @Slf4j
+@Component
 public class CharonApplicationListener implements ApplicationListener<ApplicationEvent> {
 
     @Override

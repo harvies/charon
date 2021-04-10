@@ -1,8 +1,8 @@
 package io.github.harvies.charon.mongo;
 
 import com.mongodb.client.MongoDatabase;
-import io.github.harvies.charon.spring.boot.web.result.ResultDTO;
-import io.github.harvies.charon.spring.boot.web.result.Results;
+import io.github.harvies.charon.result.ResultDTO;
+import io.github.harvies.charon.result.Results;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.MediaType;

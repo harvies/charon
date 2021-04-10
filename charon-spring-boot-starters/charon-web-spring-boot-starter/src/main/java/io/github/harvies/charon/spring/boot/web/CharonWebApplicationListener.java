@@ -5,11 +5,13 @@ import org.springframework.boot.web.server.WebServer;
 import org.springframework.boot.web.servlet.context.ServletWebServerInitializedEvent;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
+import org.springframework.stereotype.Component;
 
 /**
  * SpringWeb启动完成监听器
  */
 @Slf4j
+@Component
 public class CharonWebApplicationListener implements ApplicationListener<ApplicationEvent> {
 
     @Override

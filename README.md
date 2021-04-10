@@ -25,8 +25,6 @@
     - [charon-elasticsearch-spring-boot-starter](./charon-spring-boot-starters/charon-elasticsearch-spring-boot-starter)
       集成elasticsearch
     - [charon-elk-spring-boot-starter](./charon-spring-boot-starters/charon-elk-spring-boot-starter) 输出logback日志到elk
-    - [charon-fastjson-spring-boot-starter](./charon-spring-boot-starters/charon-fastjson-spring-boot-starter)
-      springmvc使用fastjson序列化
     - [charon-mongo-spring-boot-starter](./charon-spring-boot-starters/charon-mongo-spring-boot-starter)
       拓展mongo-spring-boot-starter,新增多数据源功能
     - [charon-notify-spring-boot-starter](./charon-spring-boot-starters/charon-notify-spring-boot-starter) 一个推送(通知)

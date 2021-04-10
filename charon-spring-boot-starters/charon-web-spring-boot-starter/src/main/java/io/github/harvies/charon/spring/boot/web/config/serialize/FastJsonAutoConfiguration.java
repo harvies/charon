@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spring.boot.fastjson;
+package io.github.harvies.charon.spring.boot.web.config.serialize;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.support.config.FastJsonConfig;

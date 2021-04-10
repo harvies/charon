@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spring.boot.test.web;
+package io.github.harvies.test.web;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;

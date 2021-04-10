@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spring.boot.fastjson;//package io.github.harvies.charon.spring.boot.gson;
+package io.github.harvies.charon.spring.boot.web.config.serialize;//package io.github.harvies.charon.spring.boot.gson;
 
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import org.springframework.context.annotation.Configuration;

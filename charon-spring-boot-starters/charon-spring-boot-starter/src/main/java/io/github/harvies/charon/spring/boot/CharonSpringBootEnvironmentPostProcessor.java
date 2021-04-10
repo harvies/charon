@@ -12,6 +12,7 @@ import org.springframework.core.env.PropertiesPropertySource;
 import org.springframework.core.io.FileUrlResource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
+import org.springframework.stereotype.Component;
 import org.springframework.util.ClassUtils;
 
 import java.io.IOException;
@@ -20,6 +21,7 @@ import java.util.Enumeration;
 import java.util.Properties;
 
 @Slf4j
+@Component
 public class CharonSpringBootEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
 
     private ConfigurableEnvironment environment;

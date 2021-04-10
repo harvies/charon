@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spring.boot.test.web;
+package io.github.harvies.test.web;
 
 import io.github.harvies.charon.spring.boot.web.Constants;
 import org.junit.jupiter.api.Test;
