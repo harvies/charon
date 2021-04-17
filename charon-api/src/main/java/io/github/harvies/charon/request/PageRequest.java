@@ -12,13 +12,14 @@ public class PageRequest implements Serializable {
 
     private static long serialVersionUID = 1L;
 
-    /**
-     * 偏移量
-     */
-    private int offset = 0;
+    private int pageNo = 1;
 
-    /**
-     * 每页条数
-     */
-    private int limit = 20;
+    private int pageSize = 10;
+
+    public int getPageNo() {
+        if (pageNo < 1) {
+            return 1;
+        }
+        return pageNo;
+    }
 }
