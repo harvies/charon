@@ -7,10 +7,20 @@
       "type": "keyword"
     },
     "password": {
-      "type": "keyword"
+      "type": "keyword",
+      "index": false
     },
     "tagList": {
       "type": "keyword"
+    },
+    "description": {
+      "type": "text",
+      "analyzer": "ik_max_word",
+      "search_analyzer": "ik_smart"
+    },
+    "gmtCreate": {
+      "type": "date",
+      "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
     }
   }
 }

@@ -1,9 +1,13 @@
 package io.github.harvies.charon.elasticsearch;
 
+import com.alibaba.fastjson.JSON;
 import io.github.harvies.charon.util.FileUtils;
 import io.github.harvies.charon.util.JsonUtils;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.elasticsearch.index.query.BoolQueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.TermsQueryBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
@@ -12,24 +16,23 @@ import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.data.elasticsearch.core.document.Document;
 import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
-import org.springframework.data.elasticsearch.core.query.Criteria;
-import org.springframework.data.elasticsearch.core.query.CriteriaQuery;
-import org.springframework.data.elasticsearch.core.query.IndexQuery;
+import org.springframework.data.elasticsearch.core.query.*;
 
 import javax.annotation.Resource;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @Slf4j
-public class CharonElasticSearchSpringBootTest extends BaseTest {
+class CharonElasticSearchSpringBootTest extends BaseTest {
 
-    private static final String indexName = "test0310";
+    private static final String indexName = "user";
 
     @Resource
     private ElasticsearchOperations elasticsearchOperations;
 
     @Test
-    public void elasticsearchOperations() {
+    void elasticsearchOperations() {
         Assertions.assertNotNull(elasticsearchOperations);
     }
 
@@ -62,7 +65,9 @@ public class CharonElasticSearchSpringBootTest extends BaseTest {
                 .setId(1L)
                 .setUsername("user1")
                 .setPassword("pass1")
-                .setTagList(Arrays.asList("123", "345"));
+                .setTagList(Arrays.asList("123", "345"))
+                .setGmtCreate(new Date())
+                .setDescription("世界你好");
         IndexQuery indexQuery = new IndexQuery();
         indexQuery.setId("1");
         indexQuery.setSource(JsonUtils.toJSONString(user));
@@ -70,9 +75,34 @@ public class CharonElasticSearchSpringBootTest extends BaseTest {
     }
 
     @Test
-    void query() {
+    void index2() {
+        User user = new User()
+                .setId(2L)
+                .setUsername("user2")
+                .setPassword("pass2")
+                .setTagList(Arrays.asList("234", "345"))
+                .setGmtCreate(new Date())
+                .setDescription("世界你好2");
+        IndexQuery indexQuery = new IndexQuery();
+        indexQuery.setId("2");
+        indexQuery.setSource(JSON.toJSONStringWithDateFormat(user, "yyyy-MM-dd HH:mm:ss"));
+        elasticsearchOperations.index(indexQuery, IndexCoordinates.of(indexName));
+    }
+
+    @Test
+    void criteriaQuery() {
         CriteriaQuery criteriaQuery = new CriteriaQuery(Criteria.where("tagList").in("123", "234", "345"));
         SearchHits<User> hits = elasticsearchOperations.search(criteriaQuery, User.class, IndexCoordinates.of(indexName));
+        List<SearchHit<User>> searchHits = hits.getSearchHits();
+        System.out.println(searchHits);
+    }
+
+    @Test
+    void nativeSearchQuery() {
+        BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
+        boolQueryBuilder.must(new TermsQueryBuilder("tagList", Arrays.asList("123", "234", "345")));
+        NativeSearchQuery query = new NativeSearchQueryBuilder().withQuery(boolQueryBuilder).build();
+        SearchHits<User> hits = elasticsearchOperations.search(query, User.class, IndexCoordinates.of(indexName));
         List<SearchHit<User>> searchHits = hits.getSearchHits();
         System.out.println(searchHits);
     }

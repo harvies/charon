@@ -3,6 +3,7 @@ package io.github.harvies.charon.elasticsearch;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -12,4 +13,6 @@ public class User {
     private String username;
     private String password;
     private List<String> tagList;
+    private String description;
+    private Date gmtCreate;
 }
