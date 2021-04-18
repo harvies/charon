@@ -16,7 +16,7 @@ class CharonShardingSphereJdbcSpringBootTest extends BaseTest {
 
     @Resource
     private OrderMapper orderMapper;
-
+    
     @Test
     void init() {
         for (int i = 1; i <= 10; i++) {
