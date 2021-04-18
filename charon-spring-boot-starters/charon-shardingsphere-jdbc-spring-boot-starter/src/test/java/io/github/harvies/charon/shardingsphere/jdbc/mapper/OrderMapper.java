@@ -4,4 +4,10 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import io.github.harvies.charon.shardingsphere.jdbc.entity.Order;
 
 public interface OrderMapper extends BaseMapper<Order> {
+
+    void createTableIfNotExists();
+    
+    void truncateTable();
+
+    void dropTable();
 }

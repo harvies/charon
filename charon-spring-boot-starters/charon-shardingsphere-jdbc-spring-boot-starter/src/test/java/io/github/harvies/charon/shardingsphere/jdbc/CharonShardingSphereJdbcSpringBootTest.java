@@ -3,28 +3,19 @@ package io.github.harvies.charon.shardingsphere.jdbc;
 import io.github.harvies.charon.shardingsphere.jdbc.entity.Order;
 import io.github.harvies.charon.shardingsphere.jdbc.mapper.OrderMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.annotation.Resource;
-import javax.sql.DataSource;
 
 @Slf4j
 class CharonShardingSphereJdbcSpringBootTest extends BaseTest {
 
     @Resource
-    private DataSource dataSource;
-    @Resource
     private JdbcTemplate jdbcTemplate;
 
     @Resource
     private OrderMapper orderMapper;
-
-    @Test
-    void test() {
-        Assertions.assertNotNull(dataSource);
-    }
 
     @Test
     void init() {
@@ -52,17 +43,18 @@ class CharonShardingSphereJdbcSpringBootTest extends BaseTest {
     }
 
     @Test
-    void aaa() {
-        jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS t_order (order_id BIGINT AUTO_INCREMENT, user_id INT NOT NULL, address_id BIGINT NOT NULL, status VARCHAR(50), PRIMARY KEY (order_id));");
-    }
-    
-    @Test
-    void drop() {
-        jdbcTemplate.execute("drop table t_order; ");
+    void createTableIfNotExists() {
+        orderMapper.createTableIfNotExists();
     }
 
     @Test
-    void jdbcTemplate() {
-        System.out.println(jdbcTemplate.queryForList("show databases"));
+    void truncateTable() {
+        orderMapper.truncateTable();
     }
+
+    @Test
+    void dropTable() {
+        orderMapper.dropTable();
+    }
+
 }
