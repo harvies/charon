@@ -25,9 +25,14 @@ public class UserController {
         userMapper.dropTable();
     }
 
+    @RequestMapping("/truncateTable")
+    public void truncateTable() {
+        userMapper.truncateTable();
+    }
+
     @RequestMapping("/insert")
     public void insert() {
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 0; i < 100; i++) {
             User user = new User();
             user.setNickname("nickname" + i);
             user.setMobile("mobile" + i);
