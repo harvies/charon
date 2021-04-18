@@ -15,14 +15,14 @@ public class UserController {
     @Resource
     private UserMapper userMapper;
 
-    @RequestMapping("/createTableIfNotExists")
-    public void createTableIfNotExists() {
-        userMapper.createTableIfNotExists();
-    }
-
     @RequestMapping("/dropTable")
     public void dropTable() {
         userMapper.dropTable();
+    }
+
+    @RequestMapping("/createTableIfNotExists")
+    public void createTableIfNotExists() {
+        userMapper.createTableIfNotExists();
     }
 
     @RequestMapping("/truncateTable")
@@ -31,8 +31,8 @@ public class UserController {
     }
 
     @RequestMapping("/insert")
-    public void insert() {
-        for (int i = 0; i < 100; i++) {
+    public void insert(int num) {
+        for (int i = 0; i < num; i++) {
             User user = new User();
             user.setNickname("nickname" + i);
             user.setMobile("mobile" + i);
