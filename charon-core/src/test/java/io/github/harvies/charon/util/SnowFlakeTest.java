@@ -1,17 +1,20 @@
 package io.github.harvies.charon.util;
 
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 @Slf4j
 class SnowFlakeTest {
 
+    @SneakyThrows
     @Test
     void nextId() {
         SnowFlake snowFlake = new SnowFlake(1, 1);
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < 100; i++) {
             long id = snowFlake.nextId();
             print(id);
+            Thread.sleep(100);
         }
     }
 
