@@ -4,6 +4,7 @@ import io.github.harvies.charon.shardingsphere.jdbc.entity.User;
 import io.github.harvies.charon.shardingsphere.jdbc.mapper.UserMapper;
 import io.github.harvies.charon.shardingsphere.jdbc.service.OtherService;
 import io.github.harvies.charon.util.RandomValue;
+import lombok.SneakyThrows;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,6 +36,7 @@ public class UserController {
         userMapper.truncateTable();
     }
 
+    @SneakyThrows
     @RequestMapping("/insert")
     public void insert(int num) {
         for (int i = 0; i < num; i++) {
@@ -43,6 +45,7 @@ public class UserController {
             user.setMobile(RandomValue.getTel());
             user.setGmtCreate(new Date());
             user.setGmtModified(new Date());
+            Thread.sleep(100);
             userMapper.insert(user);
         }
     }

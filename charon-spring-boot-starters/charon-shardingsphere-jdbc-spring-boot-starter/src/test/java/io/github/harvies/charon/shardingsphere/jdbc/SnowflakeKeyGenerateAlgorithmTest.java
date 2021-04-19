@@ -15,7 +15,7 @@ class SnowflakeKeyGenerateAlgorithmTest {
     void nextId() {
         SnowflakeKeyGenerateAlgorithm snowflakeKeyGenerateAlgorithm = new SnowflakeKeyGenerateAlgorithm();
         Properties properties = new Properties();
-        properties.setProperty("max-vibration-offset", "10");
+//        properties.setProperty("max-vibration-offset", "16");
         properties.setProperty("worker-id", "123");
         snowflakeKeyGenerateAlgorithm.setProps(properties);
         snowflakeKeyGenerateAlgorithm.init();
@@ -32,9 +32,11 @@ class SnowflakeKeyGenerateAlgorithmTest {
     }
 
     private void print(long id) {
-        int totalTableNum = 4;
-        int databaseNum=2;
-        log.info("id:[{}] db_{} table_{}", id, id % totalTableNum / databaseNum, id % totalTableNum);
+        //总表数
+        int totalTableNum = 8;
+        //每个库中表的数量
+        int eachDatabaseTableNum = 4;
+        log.info("id:[{}] db_{} table_{}", id, id % totalTableNum / eachDatabaseTableNum, id % totalTableNum);
     }
 
 }
