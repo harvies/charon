@@ -1,16 +1,19 @@
 package io.github.harvies.charon.rocketmq.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
+import org.apache.rocketmq.spring.support.RocketMQHeaders;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.UUID;
 
 @Slf4j
 @RestController
@@ -21,7 +24,11 @@ public class ProducerController {
 
     @RequestMapping(value = "/syncSend")
     public SendResult syncSend() {
-        SendResult sendResult = rocketMQTemplate.syncSend("TopicTest:TagA", "Hello RocketMQ");
+        Message<String> message = MessageBuilder.withPayload("Hello RocketMQ")
+                .setHeader(RocketMQHeaders.KEYS, DigestUtils.md5Hex(UUID.randomUUID().toString()))
+                .build();
+        log.info("syncSend message:[{}]", message);
+        SendResult sendResult = rocketMQTemplate.syncSend("TopicTest:TagA", message);
         log.info("sendResult:[{}]", sendResult);
         return sendResult;
     }

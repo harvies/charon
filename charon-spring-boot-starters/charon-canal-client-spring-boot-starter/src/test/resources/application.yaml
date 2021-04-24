@@ -3,7 +3,7 @@ charon:
     name: charon-canal-client-spring-boot
   env: dev
   canal:
-    host: localhost
+    host: 192.168.7.77
     port: 11111
     destinations:
       hp:
