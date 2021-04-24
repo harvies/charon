@@ -55,4 +55,9 @@ mvn clean install -DskipTests -U -s 'xxxx/settings.xml'
 
 ```bash
 mvn clean deploy -DskipTests -U -s 'xxx/settings.xml' -Possrh
+
+### gpg: signing failed: Inappropriate ioctl for device?
+```bash
+export GPG_TTY=$(tty)
+```
 ```
