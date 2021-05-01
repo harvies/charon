@@ -3,10 +3,8 @@ charon:
     name: charon-canal-client-spring-boot
   env: dev
   canal:
-    host: 192.168.7.77
+    host: canal.dev.kikera.org
     port: 11111
     destinations:
-      hp:
-        filter: 'test.t_user'
-      dev:
+      example:
         filter: '.*\..*'
