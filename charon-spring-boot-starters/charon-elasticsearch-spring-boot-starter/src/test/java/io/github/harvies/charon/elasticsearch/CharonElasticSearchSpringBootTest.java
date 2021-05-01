@@ -26,7 +26,7 @@ import java.util.List;
 @Slf4j
 class CharonElasticSearchSpringBootTest extends BaseTest {
 
-    private static final String indexName = "user";
+    private static final String indexName = "test_user";
 
     @Resource
     private ElasticsearchOperations elasticsearchOperations;
