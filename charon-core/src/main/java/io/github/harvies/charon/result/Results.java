@@ -12,9 +12,7 @@ public class Results {
     }
 
     /**
-     *
      * @param msg 失败原因
-     * @return
      */
     public static <T> ResultDTO<T> failed(String msg) {
         ResultDTO<T> resultDTO = new ResultDTO<>(null);
@@ -41,6 +39,5 @@ public class Results {
         resultDTO.setMsg(ResultEnum.SUCCESS.getMsg());
         return resultDTO;
     }
-
 
 }
