@@ -38,7 +38,7 @@ public class MavenUtils {
         mavenArtifact.setMirrorMetadataUrl(metaDataUrl);
         JSONObject jsonObject = JsonUtils.parseObject(JsonUtils.toJSONString(map));
         JSONObject versioning = jsonObject.getJSONObject("versioning");
-        mavenArtifact.setLatest(jsonObject.getString("version"));
+        mavenArtifact.setLatest(versioning.getString("version"));
         mavenArtifact.setRelease(versioning.getString("release"));
         mavenArtifact.setLastUpdated(versioning.getString("lastUpdated"));
         JSONObject versions = versioning.getJSONObject("versions");
