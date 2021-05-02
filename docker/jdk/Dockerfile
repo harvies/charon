@@ -18,7 +18,7 @@ ARG SKYWALKING_VERSION="8.5.0"
 RUN wget https://mirrors.aliyun.com/apache/skywalking/${SKYWALKING_VERSION}/apache-skywalking-apm-es7-${SKYWALKING_VERSION}.tar.gz \
     && tar -zxf apache-skywalking-apm-es7-${SKYWALKING_VERSION}.tar.gz \
     && mv apache-skywalking-apm-bin-es7/agent /opt/skywalking-agent \
-    &&  rm -rf apache-skywalking-apm-bin-es7 apache-skywalking-apm-es7-${SKYWALKING_VERSION}.tar.gz1
+    &&  rm -rf apache-skywalking-apm-bin-es7 apache-skywalking-apm-es7-${SKYWALKING_VERSION}.tar.gz
     # && wget -O /opt/skywalking-agent/config/agent.config https://gh.kikera.top/https://raw.githubusercontent.com/harvies/oss/master/configs/skywalking/agent.config
 
 WORKDIR /
