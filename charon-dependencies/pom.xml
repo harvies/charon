@@ -899,12 +899,6 @@
                                 <jvmFlag>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5005
                                 </jvmFlag>
                                 <jvmFlag>-javaagent:/opt/skywalking-agent/skywalking-agent.jar</jvmFlag>
-                                <jvmFlag>-Dskywalking.plugin.mongodb.trace_param=true</jvmFlag>
-                                <jvmFlag>-Dskywalking.plugin.mysql.trace_sql_parameters=true</jvmFlag>
-                                <jvmFlag>-Dskywalking.plugin.mariadb.trace_sql_parameters=true</jvmFlag>
-                                <jvmFlag>-Dskywalking.plugin.springmvc.collect_http_params=true</jvmFlag>
-                                <jvmFlag>-Dskywalking.plugin.elasticsearch.trace_dsl=true</jvmFlag>
-                                <jvmFlag>-Dskywalking.agent.is_open_debugging_class=true</jvmFlag>
                             </jvmFlags>
                             <ports>
                                 <port>${web.port}</port>
