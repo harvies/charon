@@ -20,15 +20,17 @@ RUN  yum clean all && rm -rf /tmp/* /var/cache/yum/*
 
 # install arthas
 RUN curl -L https://cdn.jsdelivr.net/gh/harvies/arthas-install@master/install_arthas.sh |sh
-## https://harvies-cdn.oss-cn-hangzhou.aliyuncs.com/charon-socks-proxy-server-0.0.6.jar
- 
-ARG SKYWALKING_VERSION="8.1.0"
- 
-## Add SkyWalking-Agent	
-WORKDIR /opt/skywalking/src	
-RUN wget https://mirrors.aliyun.com/apache/skywalking/${SKYWALKING_VERSION}/apache-skywalking-apm-es7-${SKYWALKING_VERSION}.tar.gz \	
-&& tar -zxf apache-skywalking-apm-es7-${SKYWALKING_VERSION}.tar.gz && mv apache-skywalking-apm-bin-es7/agent .. \
-&& rm -rf /opt/skywalking/src
-RUN wget -O /opt/skywalking/agent/config/agent.config https://raw.githubusercontent.com/harvies/oss/master/configs/skywalking/agent.config 
+
+# Add SkyWalking-Agent
+#ONBUILD
+RUN wget -O /opt/skywalking-agent.tar.gz https://harvies-cdn.oss-cn-hangzhou.aliyuncs.com/skywalking-agent.tar.gz \
+&&  cd /opt/ && tar -zxf skywalking-agent.tar.gz && rm -rf skywalking-agent.tar.gz
+#
+ARG SKYWALKING_VERSION="8.5.0"
+RUN wget https://mirrors.aliyun.com/apache/skywalking/${SKYWALKING_VERSION}/apache-skywalking-apm-es7-${SKYWALKING_VERSION}.tar.gz \
+    && tar -zxf apache-skywalking-apm-es7-${SKYWALKING_VERSION}.tar.gz \
+    && mv apache-skywalking-apm-bin-es7/agent /opt/skywalking-agent \
+    &&  rm -rf apache-skywalking-apm-bin-es7 apache-skywalking-apm-es7-${SKYWALKING_VERSION}.tar.gz \
+    && wget -O /opt/skywalking-agent/config/agent.config https://gh.kikera.top/https://raw.githubusercontent.com/harvies/oss/master/configs/skywalking/agent.config
 
 WORKDIR /

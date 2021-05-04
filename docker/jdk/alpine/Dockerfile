@@ -1,22 +1,10 @@
-FROM centos:7
-
+FROM registry.cn-hangzhou.aliyuncs.com/harvies/alpine:latest
 LABEL maintainer="delverjw@gmail.com"
 
-## 中文支持
-ENV LANG=en_US.UTF-8 \
-    LANGUAGE=en_US:en \
-    LC_ALL=en_US.UTF-8
-    
-RUN yum reinstall -y glibc-common && localedef -c -f UTF-8 -i en_US en_US.utf8
-
-## 时区
-RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-
 ## jdk
-RUN yum install -y wget telnet net-tools java-11-openjdk-devel wqy-microhei-fonts
-
-## clean cache
-RUN  yum clean all && rm -rf /tmp/* /var/cache/yum/*
+ENV JAVA_HOME=/usr/lib/jvm/default-jvm
+ENV PATH="${JAVA_HOME}/bin:${PATH}"
+RUN apk add --no-cache openjdk8
 
 # install arthas
 RUN curl -L https://cdn.jsdelivr.net/gh/harvies/arthas-install@master/install_arthas.sh |sh
