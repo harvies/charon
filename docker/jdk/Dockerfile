@@ -13,7 +13,7 @@ RUN yum reinstall -y glibc-common && localedef -c -f UTF-8 -i en_US en_US.utf8
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 ## jdk
-RUN yum install -y wget telnet net-tools java-8-openjdk-devel wqy-microhei-fonts
+RUN yum install -y wget telnet net-tools java-1.8.0-openjdk-devel.x86_64 wqy-microhei-fonts
 
 ## clean cache
 RUN  yum clean all && rm -rf /tmp/* /var/cache/yum/*
