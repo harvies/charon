@@ -12,19 +12,32 @@
     <artifactId>charon-http</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-core</artifactId>
+        </dependency>
         <!-- http -->
         <dependency>
             <groupId>net.dongliu</groupId>
             <artifactId>requests</artifactId>
         </dependency>
+        <!-- html -->
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
             <scope>provided</scope>
         </dependency>
+        <!-- xml -->
         <dependency>
-            <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-core</artifactId>
+            <groupId>org.dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- rss -->
+        <dependency>
+            <groupId>com.rometools</groupId>
+            <artifactId>rome</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
