@@ -1,5 +1,6 @@
-package io.github.harvies.charon.notify;
+package io.github.harvies.charon.notify.serversauce;
 
+import io.github.harvies.charon.notify.NotifyProvider;
 import io.github.harvies.charon.util.JsonUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

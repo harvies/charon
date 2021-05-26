@@ -17,6 +17,10 @@
         {
           "value": "server-sauce",
           "description": "Server酱."
+        },
+        {
+          "value": "telegram",
+          "description": "Telegram."
         }
       ],
       "providers": [

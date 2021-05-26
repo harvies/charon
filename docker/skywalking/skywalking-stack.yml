@@ -17,7 +17,7 @@
 version: '3.7'
 services:
   oap:
-    image: apache/skywalking-oap-server:8.3.0-es7
+    image: apache/skywalking-oap-server:8.5.0-es7
     restart: always
     ports:
       - 11800:11800
@@ -26,13 +26,15 @@ services:
       replicas: 1
       resources:
         limits:
-          memory: 400M
-          cpus: '1'
+          memory: 1G
+          cpus: '2'
     environment:
-      SW_STORAGE: h2
+      SW_STORAGE: elasticsearch7
       SW_STORAGE_ES_CLUSTER_NODES: es.dev.kikera.org:9200
       SW_NAMESPACE: 'dev_sw_es7'
-      SW_STORAGE_ES_ADVANCED: '"{\"index.refresh_interval\":\"5s\",\"index.unassigned.node_left.delayed_timeout\":\"5d\",\"index.number_of_shards\":\"1\",\"index.translog.flush_threshold_size\":\"10mb\",\"index.translog.sync_interval\":\"10s\",\"index.translog.durability\":\"async\",\"index.number_of_replicas\":\"0\",\"index.merge.policy.segments_per_tier\":\"24\",\"index.merge.policy.max_merged_segment\":\"100m\"}"'
+      SW_ES_USER: 
+      SW_ES_PASSWORD: 
+      SW_STORAGE_ES_ADVANCED: '"{\"index.refresh_interval\":\"120s\",\"index.unassigned.node_left.delayed_timeout\":\"5d\",\"index.number_of_shards\":\"1\",\"index.translog.flush_threshold_size\":\"1000mb\",\"index.translog.sync_interval\":\"120s\",\"index.translog.durability\":\"async\",\"index.number_of_replicas\":\"0\",\"index.merge.policy.segments_per_tier\":\"24\",\"index.merge.policy.max_merged_segment\":\"1000m\"}"'
       SW_STORAGE_ES_RECORD_DATA_TTL: 2
       SW_STORAGE_ES_OTHER_METRIC_DATA_TTL: 3
       SW_CORE_MONTH_METRIC_DATA_TTL: 1
@@ -40,6 +42,7 @@ services:
       SW_STORAGE_ES_INDEX_REPLICAS_NUMBER: 0
       SW_HEALTH_CHECKER: default
       SW_TELEMETRY: prometheus
+      JAVA_OPTS: "-Xms800m -Xmx800m"
     healthcheck:
       test: ["CMD-SHELL", "/skywalking/bin/swctl ch"]
       interval: 30s
@@ -48,7 +51,7 @@ services:
       start_period: 40s
     dns: 192.168.7.77
   ui:
-    image: apache/skywalking-ui:8.3.0
+    image: apache/skywalking-ui:8.5.0
     restart: always
     ports:
       - 8084:8080
@@ -56,8 +59,8 @@ services:
       replicas: 1
       resources:
         limits:
-          memory: 300M
-          cpus: '1'
+          memory: 800M
+          cpus: '2'
     environment:
       SW_OAP_ADDRESS: sw.dev.kikera.org:12800
     dns: 192.168.7.77

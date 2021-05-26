@@ -1,9 +1,6 @@
 package io.github.harvies.charon.result;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 /**
  * @author harvies
@@ -12,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(callSuper = true)
 public class ResultDTO<T> extends BaseResult {
     /**
      * 返回值

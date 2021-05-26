@@ -2,12 +2,14 @@ package io.github.harvies.charon.canal;
 
 import com.alibaba.otter.canal.client.CanalConnector;
 import com.alibaba.otter.canal.protocol.Message;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.Map;
 
 @Component
+@Slf4j
 public class CanalRunner {
     @PostConstruct
     public void init() {
@@ -39,8 +41,7 @@ public class CanalRunner {
                     }
                 } else {
                     emptyCount = 0;
-                    // System.out.printf("message[batchId=%s,size=%s] \n", batchId, size);
-                    SimpleCanalClientExample.printEntry(message.getEntries());
+                    log.info("message batchId=[{}],size [{}] message:[{}]", batchId, size, message);
                 }
 
                 connector.ack(batchId); // 提交确认

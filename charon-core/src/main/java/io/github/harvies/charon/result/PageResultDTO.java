@@ -11,6 +11,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
+@ToString(callSuper = true)
 public class PageResultDTO<T> extends BaseResult {
 
     /**

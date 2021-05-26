@@ -6,18 +6,17 @@ package io.github.harvies.charon.result;
 public enum ResultEnum {
     UNKNOWN_ERROR("-1", "系统异常"),
     SUCCESS("0", "请求成功"),
-    FAILED("1", "请求失败"),
-    ;
+    FAILED("1", "请求失败");
     /**
      * 状态码
      */
-    private String code;
+    private final String code;
     /**
      * 返回信息
      */
-    private String msg;
+    private final String msg;
 
-    private ResultEnum(String code, String msg) {
+    ResultEnum(String code, String msg) {
         this.code = code;
         this.msg = msg;
     }

@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.util.Map;
 
 @Data
 @Accessors(chain = true)
@@ -22,4 +23,9 @@ public abstract class BaseResult implements Serializable {
      * 状态信息
      */
     private String msg;
+
+    /**
+     * 额外信息
+     */
+    private Map<String, Object> extra;
 }

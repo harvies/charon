@@ -1,6 +1,6 @@
 ## 项目介绍
 
-代码库
+自用Java开发工具包
 
 ## 项目要求
 
@@ -28,7 +28,7 @@
     - [charon-mongo-spring-boot-starter](./charon-spring-boot-starters/charon-mongo-spring-boot-starter)
       拓展mongo-spring-boot-starter,新增多数据源功能
     - [charon-notify-spring-boot-starter](./charon-spring-boot-starters/charon-notify-spring-boot-starter) 一个推送(通知)
-      starter，支持钉钉等消息推送
+      starter，支持钉钉,Telegram等消息推送
     - [charon-oss-spring-boot-starter](./charon-spring-boot-starters/charon-oss-spring-boot-starter) 一个oss
       starter，支持阿里云OSS及GitHub
     - [charon-redis-spring-boot-starter](./charon-spring-boot-starters/charon-redis-spring-boot-starter)
