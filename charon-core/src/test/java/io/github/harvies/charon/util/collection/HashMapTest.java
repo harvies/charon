@@ -1,5 +1,6 @@
 package io.github.harvies.charon.util.collection;
 
+import com.google.common.collect.Maps;
 import io.github.harvies.charon.util.reflect.MethodUtils;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -11,17 +12,28 @@ import java.util.Map;
 @Slf4j
 public class HashMapTest {
 
+    int size = 20;
+
     @SneakyThrows
     @Test
-    public void test() {
-        int size = 7;
-//        Map<Integer, Integer> map = Maps.newHashMapWithExpectedSize(13);
-        Map<Integer, Integer> map = new HashMap<>(8);
+    public void newHashMapNoExpectedSize() {
+        Map<Integer, Integer> map = new HashMap<>();
+        common(map);
+    }
+
+    @SneakyThrows
+    @Test
+    public void newHashMapWithExpectedSize() {
+        Map<Integer, Integer> map = Maps.newHashMapWithExpectedSize(size);
+        common(map);
+    }
+
+    private void common(Map<Integer, Integer> map) {
         for (int i = 0; i < size; i++) {
             int beforeCapacity = getCapacity(map);
             map.put(i, i);
-            int currentCapacity = getCapacity(map);
-            log.info("beforeCapacity:[{}] currentCapacity:[{}]", beforeCapacity, currentCapacity);
+            int afterCapacity = getCapacity(map);
+            log.info("index[{}] beforeCapacity:[{}] afterCapacity:[{}]", i, beforeCapacity, afterCapacity);
         }
     }
 
