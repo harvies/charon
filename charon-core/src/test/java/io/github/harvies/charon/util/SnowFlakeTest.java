@@ -26,4 +26,5 @@ class SnowFlakeTest {
     private void print(long id) {
         log.info("id:[{}] db_{} table_{}", id, id % 4 / 2, id % 4);
     }
+
 }
