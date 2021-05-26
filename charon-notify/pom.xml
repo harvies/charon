@@ -25,5 +25,11 @@
             <artifactId>spring-boot</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.telegram</groupId>
+            <artifactId>telegrambots</artifactId>
+            <version>${telegram.version}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>

@@ -19,5 +19,16 @@
             <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-spring-boot-starter</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.telegram</groupId>
+            <artifactId>telegrambots</artifactId>
+            <version>${telegram.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-config-spring-boot-starter</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>
