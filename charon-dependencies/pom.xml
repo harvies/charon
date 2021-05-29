@@ -757,16 +757,16 @@
                     <configuration>
                         <!--在此处配置之后就不需要再安装idea插件和配置Preferences | Build, Execution, Deployment | Compiler | Annotation Processors 了 -->
                         <annotationProcessorPaths>
-                            <path>
-                                <groupId>org.mapstruct</groupId>
-                                <artifactId>mapstruct-processor</artifactId>
-                                <version>${mapstruct.version}</version>
-                            </path>
-                            <!-- other annotation processors -->
+                            <!-- lombok 在mapstruct之前，mapstruct可能依赖lombok生成的get set方法 -->
                             <path>
                                 <groupId>org.projectlombok</groupId>
                                 <artifactId>lombok</artifactId>
                                 <version>${lombok.version}</version>
+                            </path>
+                            <path>
+                                <groupId>org.mapstruct</groupId>
+                                <artifactId>mapstruct-processor</artifactId>
+                                <version>${mapstruct.version}</version>
                             </path>
                             <path>
                                 <groupId>org.springframework.boot</groupId>
