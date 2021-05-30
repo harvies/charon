@@ -1,0 +1,24 @@
+version: '3'
+services:
+  elasticsearch6:
+    image: elasticsearch:6.8.15
+    ports:
+      - 19200:9200
+      - 19300:9300
+    volumes:
+    - /data/elasticsearch6/data:/usr/share/elasticsearch/data
+    - /data/elasticsearch6/plugins:/usr/share/elasticsearch/plugins
+    - /data/elasticsearch6/logs:/usr/share/elasticsearch/logs
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 1G
+      placement:
+        constraints: [ node.labels.name == hp ]
+    environment:
+      discovery.type: single-node
+      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+    dns: 192.168.7.77
