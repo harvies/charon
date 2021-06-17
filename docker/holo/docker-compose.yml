@@ -10,13 +10,13 @@ services:
       replicas: 1
       resources:
         limits:
-          memory: 500M
+          memory: 1G
         reservations:
-          memory: 500M
+          memory: 1G
       placement:
         constraints: [ node.labels.name == hp ]
     environment:
-      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+      ES_JAVA_OPTS: "-Xms768m -Xmx768m"
     dns: 192.168.7.77
 networks:
   default:
