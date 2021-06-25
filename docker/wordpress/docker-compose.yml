@@ -1,37 +1,21 @@
 version: '3'
 
 services:
-  mysql:
-    image: mysql:5.7.28
-    volumes:
-      - mysql_data:/var/lib/mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_DATABASE_PASSWORD}
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
-    networks:
-      - default
-    deploy:
-      placement:
-        constraints:
-          - engine.labels.host == pacificrack
   wordpress:
     image: wordpress:latest
     volumes:
-      - wordpress_data:/var/www/html
+      - /data/wordpress:/var/www/html
     ports:
-      - 30000:80
+      - 86:80
     restart: always
     environment:
-      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_HOST: mysql.dev.kikera.org:3306
       WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_PASSWORD:
     deploy:
       placement:
         constraints:
-          - engine.labels.host == pacificrack
+          - node.labels.name == hp
       replicas: 1
       resources:
         limits:
@@ -41,22 +25,8 @@ services:
           memory: 200M
     networks:
       - default
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 91:8080
-    deploy:
-      placement:
-        constraints:
-          - engine.labels.host == aliyun
-    networks:
-      - default
-volumes:
-  mysql_data:
-  wordpress_data:
-
+    dns: 192.168.7.77
 networks:
   default:
     external:
-      name: prod_overlay
+      name: dev_overlay
