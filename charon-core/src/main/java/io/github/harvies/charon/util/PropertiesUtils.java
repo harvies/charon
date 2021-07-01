@@ -1,7 +1,6 @@
 package io.github.harvies.charon.util;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,6 +16,10 @@ public class PropertiesUtils {
         String configPath = System.getenv(CONFIG_PATH);
         if (StringUtils.isNotBlank(configPath)) {
             return configPath;
+        }
+        String homePath = FileUtils.getCurrentUserHomePath() + "/.charon/charon.properties";
+        if (FileUtils.getFile(homePath).exists()) {
+            return homePath;
         }
         return "/opt/charon/charon.properties";
     }
