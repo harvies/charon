@@ -39,7 +39,7 @@
         <guava.version>29.0-jre</guava.version>
         <curator.version>5.1.0</curator.version><!--高版本curator对应高版本zookeeper(3.5.5) -->
         <zookeeper.version>3.7.0</zookeeper.version>
-        <dubbo.version>2.7.10</dubbo.version>
+        <dubbo.version>2.7.12</dubbo.version>
         <arthas.version>3.3.7</arthas.version>
         <webmagic.version>0.7.4-SNAPSHOT</webmagic.version>
         <redisson.version>3.15.4</redisson.version>
