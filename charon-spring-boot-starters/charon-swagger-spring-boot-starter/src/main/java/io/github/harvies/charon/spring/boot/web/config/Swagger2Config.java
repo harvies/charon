@@ -10,12 +10,12 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 import javax.annotation.Resource;
 
 @Configuration
-@EnableSwagger2
+@EnableSwagger2WebMvc
 @ConditionalOnProperty(name = Constants.SWAGGER_PROPERTIES_PREFIX + ".enabled", havingValue = "true")
 public class Swagger2Config {
 
