@@ -13,6 +13,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.artifact.versioning.ComparableVersion;
 
 import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.*;
 
 @Slf4j
@@ -85,7 +89,8 @@ public class MavenUtils {
 
     /**
      * 某版本的包中是否存在某类
-     * @param className className
+     *
+     * @param className     className
      * @param mavenArtifact mavenArtifact
      */
     public static boolean exists(String className, MavenArtifact mavenArtifact) {
@@ -186,8 +191,7 @@ public class MavenUtils {
         return FileUtils.getCurrentUserHomePath() + "/.m1";
     }
 
-    @SneakyThrows
-    public static List<String> getAllClassNameListByMavenArtifact(String groupId, String artifactId, String version) {
+    public static File getJarFileByMavenArtifact(String groupId, String artifactId, String version) throws IOException {
         String jarFileUrl = MavenUtils.getJarFileUrl(groupId, artifactId, version);
         String substring = jarFileUrl.substring(REPO_ROOT_MIRROR_URL.length() - 1);
         String directoryPath = FileUtils.getDirectoryPath(substring);
@@ -198,6 +202,26 @@ public class MavenUtils {
             byte[] bytes = Requests.get(jarFileUrl).socksTimeout(10000).send().readToBytes();
             FileUtils.writeByteArrayToFile(file, bytes);
         }
+        return file;
+    }
+
+    /**
+     * 获取某个包中某个类的方法签名
+     */
+    public static List<Method> getMethodList(String groupId, String artifactId, String version, String className) throws IOException, ClassNotFoundException {
+//        URL url1 = new URL("file:/Users/harvies/.m2/repository/org/apache/curator/curator-framework/5.1.0/curator-framework-5.1.0.jar");
+        URL url1 = getJarFileByMavenArtifact(groupId, artifactId, version).toURI().toURL();
+        URLClassLoader myClassLoader1 = new URLClassLoader(new URL[]{url1}, Thread.currentThread()
+                .getContextClassLoader());
+        Class<?> myClass1 = myClassLoader1.loadClass(className);
+        Method[] methods = myClass1.getDeclaredMethods();
+        return Arrays.asList(methods);
+    }
+
+
+    @SneakyThrows
+    public static List<String> getAllClassNameListByMavenArtifact(String groupId, String artifactId, String version) {
+        File file = getJarFileByMavenArtifact(groupId, artifactId, version);
         try {
             return JarUtils.getClassNameListByJarFile(file);
         } catch (Exception e) {

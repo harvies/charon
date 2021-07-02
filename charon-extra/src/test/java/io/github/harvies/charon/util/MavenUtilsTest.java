@@ -4,6 +4,8 @@ import io.github.harvies.charon.model.artifact.MavenArtifact;
 import net.dongliu.requests.Requests;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
 
@@ -118,5 +120,13 @@ public class MavenUtilsTest {
         assertTrue(MavenUtils.compareVersion("3.8.0", "3.10") < 0);
         assertTrue(MavenUtils.compareVersion("2.7.0-rc2", "2.7.0") < 0);
         assertEquals(0, MavenUtils.compareVersion("2.7.0", "2.7.0"));
+    }
+
+    @Test
+    void getMethodList() throws IOException, ClassNotFoundException {
+        List<Method> methodList = MavenUtils.getMethodList("org.apache.curator", "curator-recipes", "5.1.0", "org.apache.curator.framework.recipes.atomic.AtomicValue");
+        for (Method method : methodList) {
+            System.out.println(method.getReturnType().getName() + "|" + method.getName() + "|" + Arrays.asList(method.getParameters()));
+        }
     }
 }
