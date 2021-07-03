@@ -1,1 +1,1 @@
-docker stack deploy   --compose-file  docker-stack.yml portainer
+docker stack deploy -c portainer-agent-stack.yml portainer
