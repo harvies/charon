@@ -1,7 +1,7 @@
 # docker脚本合集
 
 ## 
-docker swarm init --advertise-addr 10.144.106.92
+docker swarm init --advertise-addr 192.168.7.77
 
 ## 创建 overlay网络(swarm集群网络) 
 docker network create -d overlay --scope swarm --subnet 10.77.0.0/24 --attachable dev_overlay
