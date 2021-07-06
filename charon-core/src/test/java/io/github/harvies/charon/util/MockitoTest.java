@@ -8,8 +8,7 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class MockitoTest {
     @Test
@@ -17,6 +16,8 @@ public class MockitoTest {
 
         //创建mock对象，参数可以是类，也可以是接口
         List list = Mockito.mock(List.class);
+        //mock真实方法调用
+        //List list = Mockito.mock(List.class,CALLS_REAL_METHODS);
 
         //设置方法的预期返回值 （如果list.get(0) 被调用 ，调用之后返回 helloworld）
         //当然前提是要创建了Mock对象，如这里就是创建了跟 List相关的 Mock对象
@@ -33,6 +34,5 @@ public class MockitoTest {
 
         assertEquals("helloworld", result);
         assertThat(result, is("helloworld"));
-
     }
 }
