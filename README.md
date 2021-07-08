@@ -44,13 +44,13 @@
 ## 编译
 
 ```bash
-mvn clean install -DskipTests -U -s 'xxxx/settings.xml'
+mvn clean install -DskipTests -U
 ```
 
 ## 部署
 
 ```bash
-mvn clean deploy -DskipTests -U -s 'xxx/settings.xml' -Possrh
+mvn clean deploy -DskipTests -U -Possrh
 
 ### gpg: signing failed: Inappropriate ioctl for device?
 ```bash
