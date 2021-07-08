@@ -21,7 +21,7 @@ import java.util.Map;
 @Slf4j
 public class NameTest {
 
-    private static final Proxy http = new Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved("router.kikera.top", 7890));
+    private static final Proxy http = new Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved("hp.kikera.org", 7890));
 
     @Test
     void test() {
