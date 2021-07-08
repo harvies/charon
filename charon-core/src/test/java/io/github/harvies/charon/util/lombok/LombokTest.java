@@ -11,15 +11,15 @@ import org.junit.Test;
  */
 @Slf4j
 public class LombokTest {
-    @Test
-    public void testNonNull() {
-        User user = new User("aaa");
-        try {
-            user.setUsername(null);
-        } catch (Exception e) {
-            log.warn("e", e);
-        }
-    }
+//    @Test
+//    public void testNonNull() {
+//        User user = new User("aaa");
+//        try {
+//            user.setUsername(null);
+//        } catch (Exception e) {
+//            log.warn("e", e);
+//        }
+//    }
 
     /**
      * @author harvies
