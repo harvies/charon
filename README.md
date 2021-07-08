@@ -16,7 +16,8 @@
 - [charon-spring-boot-admin-server](./charon-spring-boot-admin-server) spring-boot-admin服务端
 - [charon-spring-boot-starters](./charon-spring-boot-starters)  charon-spring-boot-starter父模块
     - [charon-spring-boot-starter](./charon-spring-boot-starters/charon-spring-boot-starter)
-      拓展spring-boot-starter,其他starter依赖此模块,新增从 属性 CHARON_CONFIG_PATH 及 ~/.charon/charon.properties, /opt/charon/charon.properties加载，属性指定配置文件名优先于家目录配置文件，优先于/opt目录配置文件
+      拓展spring-boot-starter,其他starter依赖此模块,新增从 属性 CHARON_CONFIG_PATH 及 ~/.charon/charon.properties,
+      /opt/charon/charon.properties加载，属性指定配置文件名优先于家目录配置文件，优先于/opt目录配置文件
     - [charon-web-spring-boot-starter](./charon-spring-boot-starters/charon-web-spring-boot-starter)
       拓展spring-boot-starter,新增健康检查Controller及线程查看等运维工具
     - [charon-dubbo-spring-boot-starter](./charon-spring-boot-starters/charon-dubbo-spring-boot-starter) 集成dubbo
@@ -51,9 +52,10 @@ mvn clean install -DskipTests -U
 
 ```bash
 mvn clean deploy -DskipTests -U -Possrh
+```
 
 ### gpg: signing failed: Inappropriate ioctl for device?
+
 ```bash
 export GPG_TTY=$(tty)
-```
 ```
