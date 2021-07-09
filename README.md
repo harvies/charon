@@ -51,8 +51,21 @@ mvn clean install -DskipTests -U
 ## 部署
 
 ```bash
+
+gpg --keyserver hkp://keyserver.ubuntu.com/ --send-keys 37D2FF9600A3CDD5482C4A1A368EBC0194F0DE96
+
+gpg --keyserver hkp://keyserver.ubuntu.com/ --receive-keys 37D2FF9600A3CDD5482C4A1A368EBC0194F0DE96
+
+export GPG_TTY=$(tty)
+
 mvn clean deploy -DskipTests -U -Possrh
 ```
+
+打开 https://oss.sonatype.org/
+
+![](https://harvies-oss.oss-cn-hangzhou.aliyuncs.com/2021/07/08/20215408225400005-image.png)
+
+点击 close
 
 ### gpg: signing failed: Inappropriate ioctl for device?
 
