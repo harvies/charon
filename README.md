@@ -67,6 +67,8 @@ mvn clean deploy -DskipTests -U -Possrh
 
 点击 close
 
+通过后点击Release
+
 ### gpg: signing failed: Inappropriate ioctl for device?
 
 ```bash
