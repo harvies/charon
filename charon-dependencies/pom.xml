@@ -18,8 +18,8 @@
         <project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
         <archetype.encoding>${encoding}</archetype.encoding>
 
-        <spring-boot.version>2.4.5</spring-boot.version>
-        <spring-cloud.version>Hoxton.SR6</spring-cloud.version>
+        <spring-boot.version>2.4.6</spring-boot.version>
+        <spring-cloud.version>2020.0.3</spring-cloud.version>
         <sofa-boot.version>3.3.2</sofa-boot.version>
         <elastic-job.version>3.0.0-alpha</elastic-job.version>
         <mybatis.version>3.5.6</mybatis.version>
