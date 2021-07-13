@@ -3,23 +3,22 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>charon-parent</artifactId>
+        <artifactId>charon-spring-cloud-starters</artifactId>
         <groupId>io.github.harvies.charon</groupId>
         <version>0.0.9-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <packaging>pom</packaging>
-    <modules>
-        <module>charon-gateway-spring-cloud-starter</module>
-        <module>charon-nacos-spring-cloud-starter</module>
-    </modules>
-    <artifactId>charon-spring-cloud-starters</artifactId>
 
+    <artifactId>charon-nacos-spring-cloud-starter</artifactId>
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-web-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
+
 </project>

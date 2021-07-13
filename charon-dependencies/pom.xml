@@ -18,8 +18,11 @@
         <project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
         <archetype.encoding>${encoding}</archetype.encoding>
 
+        <!-- 版本说明 https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E -->
         <spring-boot.version>2.4.6</spring-boot.version>
         <spring-cloud.version>2020.0.3</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
+
         <sofa-boot.version>3.3.2</sofa-boot.version>
         <elastic-job.version>3.0.0-alpha</elastic-job.version>
         <mybatis.version>3.5.6</mybatis.version>
@@ -122,6 +125,13 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -616,6 +626,11 @@
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
                 <artifactId>charon-mybatis-spring-boot-starter</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-nacos-spring-cloud-starter</artifactId>
                 <version>${charon.version}</version>
             </dependency>
             <!-- spring-boot-admin-->
