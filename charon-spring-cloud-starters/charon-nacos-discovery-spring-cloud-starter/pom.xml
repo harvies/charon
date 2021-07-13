@@ -18,6 +18,10 @@
         </dependency>
         <dependency>
             <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-ribbon-spring-cloud-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-web-spring-boot-starter</artifactId>
             <scope>test</scope>
         </dependency>
