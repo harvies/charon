@@ -135,6 +135,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>0.9.0.RELEASE</version>
+            </dependency>
+
             <!-- rocketmq -->
             <dependency>
                 <groupId>org.apache.rocketmq</groupId>
@@ -630,7 +637,7 @@
             </dependency>
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
-                <artifactId>charon-nacos-spring-cloud-starter</artifactId>
+                <artifactId>charon-nacos-discovery-spring-cloud-starter</artifactId>
                 <version>${charon.version}</version>
             </dependency>
             <!-- spring-boot-admin-->
