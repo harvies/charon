@@ -11,6 +11,7 @@
 
     <artifactId>charon-nacos-discovery-spring-cloud-starter</artifactId>
     <dependencies>
+        <!-- 自动引入ribbon-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
