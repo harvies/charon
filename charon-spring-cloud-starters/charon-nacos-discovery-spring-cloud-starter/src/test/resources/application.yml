@@ -7,6 +7,8 @@ spring:
     nacos:
       discovery:
         server-addr: ${charon.nacos.server-addr}
+        metadata:
+          request_tag: harvies
 logging:
   level:
-    root: debug
+    root: info

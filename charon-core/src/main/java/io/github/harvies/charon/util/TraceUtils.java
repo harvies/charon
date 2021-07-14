@@ -7,22 +7,22 @@ import java.util.Objects;
 
 public class TraceUtils {
 
-    private static ThreadLocal<String> localTraceId = new ThreadLocal<>();
+    private static final ThreadLocal<String> LOCAL_TRACE_ID = new ThreadLocal<>();
 
     public static String getTraceId() {
-        String string = localTraceId.get();
+        String string = LOCAL_TRACE_ID.get();
         if (StringUtils.isBlank(string)) {
             String traceId = TraceContext.traceId();
             if (StringUtils.isBlank(traceId) || Objects.equals("Ignored_Trace", traceId)) {
                 traceId = RandomUtils.uuid().replaceAll("-", "");
             }
-            localTraceId.set(traceId);
+            LOCAL_TRACE_ID.set(traceId);
             return traceId;
         }
         return string;
     }
 
     public static void removeTraceId() {
-        localTraceId.remove();
+        LOCAL_TRACE_ID.remove();
     }
 }

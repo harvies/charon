@@ -21,8 +21,12 @@ import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.AbstractLoadBalancerRule;
 import com.netflix.loadbalancer.ILoadBalancer;
 import com.netflix.loadbalancer.Server;
+import io.github.harvies.charon.util.RequestTag;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.cloud.alibaba.nacos.ribbon.NacosServer;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -33,10 +37,32 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class CharonRule extends AbstractLoadBalancerRule {
 
+    private Server requestTagDeal(ILoadBalancer lb) {
+        String requestTag = RequestTag.get();
+        if (StringUtils.isBlank(requestTag)) {
+            return null;
+        }
+        for (Server reachableServer : lb.getReachableServers()) {
+            if (reachableServer instanceof NacosServer) {
+                String tag = ((NacosServer) reachableServer).getMetadata().get(RequestTag.getTag());
+                if (Objects.equals(requestTag, tag)) {
+                    return reachableServer;
+                }
+            }
+        }
+        return null;
+    }
+
     /**
      * Randomly choose from all living servers
      */
     public Server choose(ILoadBalancer lb, Object key) {
+
+        Server requestTagDealResult = requestTagDeal(lb);
+        if (requestTagDealResult != null) {
+            return requestTagDealResult;
+        }
+
         if (lb == null) {
             return null;
         }

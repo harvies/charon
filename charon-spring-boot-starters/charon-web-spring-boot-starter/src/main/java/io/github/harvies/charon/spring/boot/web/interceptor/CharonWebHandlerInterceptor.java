@@ -1,6 +1,7 @@
 package io.github.harvies.charon.spring.boot.web.interceptor;
 
 import com.google.common.base.Stopwatch;
+import io.github.harvies.charon.util.RequestTag;
 import io.github.harvies.charon.spring.boot.web.utils.IpUtils;
 import io.github.harvies.charon.util.JsonUtils;
 import io.github.harvies.charon.util.TraceUtils;
@@ -17,13 +18,20 @@ import java.util.Map;
 @Slf4j
 public class CharonWebHandlerInterceptor implements HandlerInterceptor {
 
-    private ThreadLocal<Stopwatch> stopWatchThreadLocal = new ThreadLocal<>();
+    /**
+     * 请求计时器
+     */
+    private static final ThreadLocal<Stopwatch> STOP_WATCH_THREAD_LOCAL = new ThreadLocal<>();
+
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        Stopwatch started = Stopwatch.createStarted();
-        stopWatchThreadLocal.set(started);
+        //请求计时
+        STOP_WATCH_THREAD_LOCAL.set(Stopwatch.createStarted());
+        //生成traceId
         TraceUtils.getTraceId();
+        //记录请求标识
+        RequestTag.set(request.getHeader(RequestTag.getTag()));
         return true;
     }
 
@@ -35,11 +43,15 @@ public class CharonWebHandlerInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
         try {
-            long millis = stopWatchThreadLocal.get().elapsed().toMillis();
+            long millis = STOP_WATCH_THREAD_LOCAL.get().elapsed().toMillis();
             log.info("请求参数:[{}] ,耗时 [{}] millis", getDescription(request), millis);
         } finally {
-            stopWatchThreadLocal.remove();
+            //请求计时移除
+            STOP_WATCH_THREAD_LOCAL.remove();
+            //traceId移除
             TraceUtils.removeTraceId();
+            //请求标识移除
+            RequestTag.remove();
         }
     }
 
@@ -56,6 +68,7 @@ public class CharonWebHandlerInterceptor implements HandlerInterceptor {
             String headerName = headerNames.nextElement();
             headerMap.put(headerName, request.getHeader(headerName));
         }
+        map.put("header", headerMap);
         return JsonUtils.toJSONString(map);
     }
 }
