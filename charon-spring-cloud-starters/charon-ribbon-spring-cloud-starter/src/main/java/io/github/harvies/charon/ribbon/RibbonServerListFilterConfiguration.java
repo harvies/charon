@@ -5,8 +5,8 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RibbonServerListFilterConfiguration {
-    @Bean
-    public CharonRule charonRule() {
-        return new CharonRule();
-    }
+//    @Bean
+//    public CharonRule charonRule() {
+//        return new CharonRule();
+//    }
 }
