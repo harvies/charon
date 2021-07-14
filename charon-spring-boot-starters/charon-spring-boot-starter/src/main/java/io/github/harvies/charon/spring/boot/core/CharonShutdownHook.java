@@ -1,6 +1,6 @@
-package io.github.harvies.charon.spring.boot;
+package io.github.harvies.charon.spring.boot.core;
 
-import io.github.harvies.charon.spring.boot.event.CharonBootShutdownEvent;
+import io.github.harvies.charon.spring.boot.core.event.CharonBootShutdownEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationEventPublisher;

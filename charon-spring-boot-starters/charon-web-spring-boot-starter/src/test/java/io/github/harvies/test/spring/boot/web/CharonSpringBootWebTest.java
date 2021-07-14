@@ -1,6 +1,7 @@
-package io.github.harvies.test.web;
+package io.github.harvies.test.spring.boot.web;
 
 import io.github.harvies.charon.spring.boot.web.Constants;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.boot.web.server.LocalServerPort;
@@ -22,6 +23,6 @@ class CharonSpringBootWebTest extends BaseTest {
     @Test
     void testHealthStatus() {
         String forObject = restTemplateBuilder.build().getForObject(host + port + "/health/status?a=b", String.class);
-        assertEquals(Constants.SUCCESS, forObject);
+        Assertions.assertEquals(Constants.SUCCESS, forObject);
     }
 }

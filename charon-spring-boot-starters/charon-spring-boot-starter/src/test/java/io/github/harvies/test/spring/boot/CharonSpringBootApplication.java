@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spring.boot;
+package io.github.harvies.test.spring.boot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

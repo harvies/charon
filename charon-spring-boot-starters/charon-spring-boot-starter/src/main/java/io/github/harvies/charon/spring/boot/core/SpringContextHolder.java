@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spring.boot;
+package io.github.harvies.charon.spring.boot.core;
 
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;

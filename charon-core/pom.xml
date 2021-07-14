@@ -100,6 +100,10 @@
             <artifactId>fastjson</artifactId>
         </dependency>
         <!-- json end -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>transmittable-thread-local</artifactId>
+        </dependency>
 
     </dependencies>
 

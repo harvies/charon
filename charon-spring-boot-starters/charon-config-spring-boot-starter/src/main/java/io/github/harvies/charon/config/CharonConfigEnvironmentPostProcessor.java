@@ -2,7 +2,7 @@ package io.github.harvies.charon.config;
 
 import io.github.harvies.charon.config.event.ConfigChangeEvent;
 import io.github.harvies.charon.config.event.ConfigProcessSuccessEvent;
-import io.github.harvies.charon.spring.boot.SpringContextHolder;
+import io.github.harvies.charon.spring.boot.core.SpringContextHolder;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;

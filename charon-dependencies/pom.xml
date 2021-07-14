@@ -759,7 +759,11 @@
                 <scope>runtime</scope>
             </dependency>
             <!-- other end-->
-
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>2.12.1</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

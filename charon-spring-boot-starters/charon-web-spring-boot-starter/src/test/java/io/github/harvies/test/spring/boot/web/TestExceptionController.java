@@ -1,4 +1,4 @@
-package io.github.harvies.test.web;
+package io.github.harvies.test.spring.boot.web;
 
 import io.github.harvies.charon.spring.boot.web.aop.GlobalException;
 import lombok.extern.slf4j.Slf4j;

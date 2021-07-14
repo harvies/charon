@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spring.boot;
+package io.github.harvies.charon.spring.boot.core;
 
 import io.github.harvies.charon.util.PropertiesUtils;
 import lombok.SneakyThrows;

@@ -1,4 +1,4 @@
-package io.github.harvies.test.web;
+package io.github.harvies.test.spring.boot.web;
 
 import com.alibaba.fastjson.JSONObject;
 import io.github.harvies.charon.util.JsonUtils;

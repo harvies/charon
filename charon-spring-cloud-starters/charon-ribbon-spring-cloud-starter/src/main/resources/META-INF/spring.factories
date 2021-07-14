@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  io.github.harvies.charon.ribbon.RibbonServerListFilterConfiguration
+  io.github.harvies.charon.ribbon.CharonRibbonNacosAutoConfiguration
