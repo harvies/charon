@@ -1,10 +1,12 @@
 package io.github.harvies.charon.spring.boot.web;
 
-import io.github.harvies.charon.spring.boot.web.controller.system.HealthController;
+import io.github.harvies.charon.spring.boot.web.config.serialize.FastJsonAutoConfiguration;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@ImportAutoConfiguration(value = {ControllerConfiguration.class, FastJsonAutoConfiguration.class})
 public class CharonWebAutoConfiguration {
 
     @Bean
@@ -15,10 +17,5 @@ public class CharonWebAutoConfiguration {
     @Bean
     public CharonWebApplicationListener charonWebApplicationListener() {
         return new CharonWebApplicationListener();
-    }
-
-    @Bean
-    public HealthController healthController() {
-        return new HealthController();
     }
 }
