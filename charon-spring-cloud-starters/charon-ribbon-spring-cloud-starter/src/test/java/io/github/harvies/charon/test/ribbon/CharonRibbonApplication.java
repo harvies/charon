@@ -1,4 +1,4 @@
-package io.github.harvies.charon.nacos.discovery;
+package io.github.harvies.charon.test.ribbon;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class NacosDiscoveryApplication {
+public class CharonRibbonApplication {
 
     @LoadBalanced
     @Bean
@@ -23,7 +23,7 @@ public class NacosDiscoveryApplication {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(NacosDiscoveryApplication.class, args);
+        SpringApplication.run(CharonRibbonApplication.class, args);
     }
 
     @RestController

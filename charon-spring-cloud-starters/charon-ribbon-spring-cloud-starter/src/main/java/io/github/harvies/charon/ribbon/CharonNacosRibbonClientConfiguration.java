@@ -18,13 +18,10 @@ package io.github.harvies.charon.ribbon;
 
 import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.alibaba.cloud.nacos.ribbon.ConditionalOnRibbonNacos;
-import com.alibaba.cloud.nacos.ribbon.NacosServerIntrospector;
-import com.alibaba.cloud.nacos.ribbon.NacosServerList;
 import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.ServerList;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import io.github.harvies.charon.nacos.CharonNacosServerList;
 import org.springframework.cloud.netflix.ribbon.PropertiesFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

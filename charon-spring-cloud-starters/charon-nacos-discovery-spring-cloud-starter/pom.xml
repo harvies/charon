@@ -11,19 +11,13 @@
 
     <artifactId>charon-nacos-discovery-spring-cloud-starter</artifactId>
     <dependencies>
-        <!-- 自动引入ribbon-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
         <dependency>
             <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-ribbon-spring-cloud-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-web-spring-boot-starter</artifactId>
-            <scope>test</scope>
+            <artifactId>charon-core</artifactId>
         </dependency>
     </dependencies>
 </project>

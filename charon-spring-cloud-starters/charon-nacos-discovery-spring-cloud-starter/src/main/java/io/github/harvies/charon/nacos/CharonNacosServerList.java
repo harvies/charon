@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.harvies.charon.ribbon;
+package io.github.harvies.charon.nacos;
 
 import java.util.ArrayList;
 import java.util.List;
