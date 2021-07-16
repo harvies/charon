@@ -2,11 +2,13 @@ server:
   port: 8080
 spring:
   application:
-    name: nacos-discovery
+    name: nacos-config
   cloud:
     nacos:
-      discovery:
+      config:
         server-addr: ${charon.nacos.server-addr}
+        ## bug 不配置会有问题
+        prefix: ${spring.application.name}
 logging:
   level:
     root: info

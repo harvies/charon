@@ -21,7 +21,6 @@ import com.alibaba.cloud.nacos.ribbon.ConditionalOnRibbonNacos;
 import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.ServerList;
 
-import io.github.harvies.charon.nacos.CharonNacosServerList;
 import org.springframework.cloud.netflix.ribbon.PropertiesFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
