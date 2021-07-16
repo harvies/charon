@@ -16,10 +16,11 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
-        </dependency>
+        <!-- 2021.1 需要添加cloud依赖-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-starter-bootstrap</artifactId>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-web-spring-boot-starter</artifactId>
