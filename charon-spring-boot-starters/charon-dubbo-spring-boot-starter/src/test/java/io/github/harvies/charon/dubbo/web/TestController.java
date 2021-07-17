@@ -18,7 +18,7 @@ public class TestController {
     private EchoService echoService;
 
     @RequestMapping(value = "/hello")
-    public ResultDTO<String> status() {
+    public ResultDTO<String> hello() {
         return Results.success(echoService.echo(RandomUtils.uuid()));
     }
 }

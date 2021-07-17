@@ -18,49 +18,26 @@
         <module>charon-core</module>
         <module>charon-api</module>
         <module>charon-dubbo</module>
-        <module>charon-spring-boot-starters</module>
         <module>charon-notify</module>
-        <module>charon-spring-boot-admin-server</module>
-        <module>charon-spring-cloud-starters</module>
-        <module>charon-eureka-server</module>
         <module>charon-oss</module>
-        <module>charon-socks-proxy-server</module>
-        <module>charon-agent</module>
         <module>charon-file</module>
         <module>charon-http</module>
         <module>charon-extra</module>
-        <module>charon-rocketmq</module>
         <module>charon-elasticsearch</module>
         <module>charon-config</module>
+        <module>charon-spring-boot-starters</module>
+        <module>charon-spring-cloud-starters</module>
     </modules>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-        </dependency>
-        <!-- remove later-->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-library</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-inline</artifactId>
-        </dependency>
-    </dependencies>
-
+    <profiles>
+        <profile>
+            <id>extra</id>
+            <modules>
+                <module>charon-agent</module>
+                <module>charon-socks-proxy-server</module>
+                <module>charon-eureka-server</module>
+                <module>charon-spring-boot-admin-server</module>
+                <module>charon-rocketmq</module>
+            </modules>
+        </profile>
+    </profiles>
 </project>
