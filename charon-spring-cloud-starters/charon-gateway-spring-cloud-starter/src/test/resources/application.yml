@@ -10,3 +10,9 @@ spring:
       discovery:
         server-addr: ${charon.nacos.server-addr}
         group: 1.0.0
+    gateway:
+      routes:
+        - id: nacos-discovery
+          uri: lb://nacos-discovery
+          predicates:
+            - Path=/echo/**

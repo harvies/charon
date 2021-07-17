@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
 spring:
   application:
     name: nacos-discovery
@@ -7,6 +7,7 @@ spring:
     nacos:
       discovery:
         server-addr: ${charon.nacos.server-addr}
+        group: 1.0.0
 logging:
   level:
     root: info
