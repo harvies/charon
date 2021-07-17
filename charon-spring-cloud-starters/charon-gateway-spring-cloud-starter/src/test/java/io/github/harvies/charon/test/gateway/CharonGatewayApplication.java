@@ -1,4 +1,4 @@
-package io.github.harvies.charon.gateway;
+package io.github.harvies.charon.test.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,11 +16,11 @@ public class CharonGatewayApplication {
     @Bean
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
-                // 请求 http://localhost:8080/json 时会转发请求(header会新增Hello:World)到 http://ip-api.com/json
+                // 请求 http://localhost:8080/get 时会转发请求(header会新增Hello:World)到 https://httpbin.org/get
                 .route(p -> p
-                        .path("/json")
+                        .path("/get")
                         .filters(f -> f.addRequestHeader("Hello", "World"))
-                        .uri("http://ip-api.com")
+                        .uri("https://httpbin.org")
                 )
                 .build();
     }
