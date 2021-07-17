@@ -22,6 +22,7 @@
         <dependency>
             <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-web-spring-boot-starter</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 </project>
