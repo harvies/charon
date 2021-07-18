@@ -1,5 +1,8 @@
 ## java探针
-java  -javaagent:charon-agent.jar 
+
+java -javaagent:charon-agent.jar
+
+-javaagent:/Users/harvies/IdeaProjects/charon/charon-agent/target/charon-agent.jar
 
 https://github.com/hawkingfoo/demo-agent
 https://www.jianshu.com/p/e35bbb047ace

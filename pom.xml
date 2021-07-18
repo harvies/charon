@@ -27,12 +27,12 @@
         <module>charon-config</module>
         <module>charon-spring-boot-starters</module>
         <module>charon-spring-cloud-starters</module>
+        <module>charon-agent</module>
     </modules>
     <profiles>
         <profile>
             <id>extra</id>
             <modules>
-                <module>charon-agent</module>
                 <module>charon-socks-proxy-server</module>
                 <module>charon-eureka-server</module>
                 <module>charon-spring-boot-admin-server</module>
