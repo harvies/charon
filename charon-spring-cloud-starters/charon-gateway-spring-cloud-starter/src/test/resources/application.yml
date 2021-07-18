@@ -29,5 +29,5 @@ management:
 nacos:
   address: ${spring.cloud.nacos.discovery.server-addr}
   data-id: charon-gateway-rule-${spring.profiles.active}
-  group-id: 1.0.0
+  group-id: ${spring.cloud.nacos.discovery.group}
   timeout: 5000
