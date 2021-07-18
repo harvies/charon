@@ -1,6 +1,6 @@
 logging:
   level:
-    root: info
+    root: trace
 management:
   endpoint:
     health:
