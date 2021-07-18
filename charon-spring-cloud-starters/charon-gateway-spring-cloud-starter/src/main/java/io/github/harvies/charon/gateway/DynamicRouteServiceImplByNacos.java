@@ -8,6 +8,7 @@ import com.alibaba.nacos.api.exception.NacosException;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
