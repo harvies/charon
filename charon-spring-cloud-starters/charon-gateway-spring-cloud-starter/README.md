@@ -36,5 +36,3 @@ dataId ${spring.application.name}-route-rule-${spring.profiles.active}
 [Building a Gateway](https://spring.io/guides/gs/gateway/)
 
 [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html)
-
-[基于Nacos实现Spring Cloud Gateway实现动态路由](https://blog.csdn.net/zhangchangbin123/article/details/89310353)
