@@ -38,7 +38,29 @@ dataId ${spring.application.name}-route-rule-${spring.profiles.active}
     ]
   },
   {
-    "filters": [],
+    "id": "charon-ribbon",
+    "uri": "lb://charon-ribbon/",
+    "order": 0,
+    "predicates": [
+      {
+        "args": {
+          "pattern": "/charon-ribbon/**"
+        },
+        "name": "Path"
+      }
+    ],
+    "filters": [
+      {
+        "name": "StripPrefix",
+        "args": [
+          {
+            "parts": "1"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "blazars-web",
     "order": 0,
     "predicates": [
@@ -49,6 +71,16 @@ dataId ${spring.application.name}-route-rule-${spring.profiles.active}
         "name": "Path"
       }
     ],
+    "filters": [
+      {
+        "name": "StripPrefix",
+        "args": [
+          {
+            "parts": "1"
+          }
+        ]
+      }
+    ],
     "uri": "https://api.kikera.top:4433/"
   }
 ]
@@ -57,6 +89,16 @@ dataId ${spring.application.name}-route-rule-${spring.profiles.active}
 > StripPrefix 去除前缀过滤器
 > 访问 http://localhost:8080/charon-feign/hello 时默认会转发给 lb://charon-feign/charon-feign/hello
 > 需要转发给 lb://charon-feign/hello 则需要配置 StripPrefix 过滤器，parts=1是去除上一级前缀
+
+
+![](https://harvies-oss.oss-cn-hangzhou.aliyuncs.com/2021/07/18/20210418180400047-image.png)
+
+![](https://harvies-oss.oss-cn-hangzhou.aliyuncs.com/2021/07/18/20210518180500041-image.png)
+
+根据header头指定group优先路由
+
+请求 http://localhost:8080/charon-feign/echo/hello
+先到网关charon-gateway再到charon-feign再到charon-ribbon
 
 ## 参考
 

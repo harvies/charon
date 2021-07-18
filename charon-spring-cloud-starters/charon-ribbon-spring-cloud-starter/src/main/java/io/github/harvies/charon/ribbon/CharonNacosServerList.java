@@ -55,6 +55,7 @@ public class CharonNacosServerList extends AbstractServerList<NacosServer> {
     private List<NacosServer> getServers() {
         try {
             List<Instance> list = new ArrayList<>();
+            // TODO: 2021/7/18 读取配置中心
             //greenGroup
             String greenGroup = "harvies";
             List<Instance> greenInstances = discoveryProperties.namingServiceInstance()
