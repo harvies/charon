@@ -6,7 +6,7 @@ http://localhost:8080/actuator/gateway/routes
 
 ## 动态路由
 
-dataId ${spring.application.name}-route-rule-${spring.profiles.active}
+dataId : routing-rule
 
 ![](https://harvies-oss.oss-cn-hangzhou.aliyuncs.com/2021/07/18/20214018124000006-image.png)
 
@@ -94,6 +94,8 @@ dataId ${spring.application.name}-route-rule-${spring.profiles.active}
 ![](https://harvies-oss.oss-cn-hangzhou.aliyuncs.com/2021/07/18/20210418180400047-image.png)
 
 ![](https://harvies-oss.oss-cn-hangzhou.aliyuncs.com/2021/07/18/20210518180500041-image.png)
+
+![](https://harvies-oss.oss-cn-hangzhou.aliyuncs.com/2021/07/19/20211619001600016-image.png)
 
 根据header头指定group优先路由
 
