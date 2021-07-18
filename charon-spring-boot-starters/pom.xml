@@ -30,6 +30,7 @@
         <module>charon-canal-client-spring-boot-starter</module>
         <module>charon-config-spring-boot-starter</module>
         <module>charon-shiro-spring-boot-starter</module>
+        <module>charon-webflux-spring-boot-starter</module>
     </modules>
     <dependencies>
         <dependency>

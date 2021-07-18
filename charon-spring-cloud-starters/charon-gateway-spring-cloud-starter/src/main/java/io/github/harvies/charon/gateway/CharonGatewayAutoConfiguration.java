@@ -12,19 +12,8 @@ import org.springframework.context.annotation.Configuration;
 @AutoConfigureBefore(GatewayAutoConfiguration.class)
 public class CharonGatewayAutoConfiguration {
 
-//    @Bean
-//    @ConditionalOnEnabledGlobalFilter
-//    public CharonFilter charonFilter() {
-//        return new CharonFilter();
-//    }
-
     @Bean
     public PersistenceRouteDefinitionRepository persistenceRouteDefinitionRepository() {
         return new PersistenceRouteDefinitionRepository();
     }
-    @Bean
-    public CustomWebFilter customWebFilter() {
-        return new CustomWebFilter();
-    }
-
 }

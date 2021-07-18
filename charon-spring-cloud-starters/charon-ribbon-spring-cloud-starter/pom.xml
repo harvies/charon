@@ -27,13 +27,8 @@
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-webflux-spring-boot-starter</artifactId>
             <optional>true</optional>
         </dependency>
     </dependencies>

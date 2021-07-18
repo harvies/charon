@@ -21,11 +21,6 @@ public class CharonFeignAutoConfiguration {
     }
 
     @Bean
-    public CustomWebFilter customWebFilter() {
-        return new CustomWebFilter();
-    }
-
-    @Bean
     @ConditionalOnMissingBean
     public HttpMessageConverters messageConverters(ObjectProvider<HttpMessageConverter<?>> converters) {
         return new HttpMessageConverters(converters.orderedStream().collect(Collectors.toList()));

@@ -1,4 +1,4 @@
-package io.github.harvies.charon.gateway;
+package io.github.harvies.charon.spring.boot.webflux;
 
 import io.github.harvies.charon.util.RequestTag;
 import lombok.extern.slf4j.Slf4j;
@@ -7,7 +7,6 @@ import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Mono;
 
-// TODO: 2021/7/18 提取出去
 @Slf4j
 public class CustomWebFilter implements WebFilter {
 

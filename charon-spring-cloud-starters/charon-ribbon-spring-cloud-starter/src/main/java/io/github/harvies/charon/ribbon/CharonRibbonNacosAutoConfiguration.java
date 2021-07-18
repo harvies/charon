@@ -43,8 +43,4 @@ import org.springframework.context.annotation.Configuration;
 @AutoConfigureBefore(RibbonNacosAutoConfiguration.class)
 @RibbonClients(defaultConfiguration = CharonNacosRibbonClientConfiguration.class)
 public class CharonRibbonNacosAutoConfiguration {
-    @Bean
-    public CustomWebFilter customWebFilter() {
-        return new CustomWebFilter();
-    }
 }

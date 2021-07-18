@@ -31,5 +31,9 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-webflux-spring-boot-starter</artifactId>
+        </dependency>
     </dependencies>
 </project>
