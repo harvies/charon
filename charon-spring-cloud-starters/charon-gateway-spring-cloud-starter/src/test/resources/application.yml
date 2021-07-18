@@ -16,16 +16,6 @@ spring:
           uri: lb://nacos-discovery
           predicates:
             - Path=/echo/**
-management:
-  endpoint:
-    health:
-      show-details: always
-    shutdown:
-      enabled: true
-  endpoints:
-    web:
-      exposure:
-        include: '*'
 nacos:
   address: ${spring.cloud.nacos.discovery.server-addr}
   data-id: charon-gateway-rule-${spring.profiles.active}
