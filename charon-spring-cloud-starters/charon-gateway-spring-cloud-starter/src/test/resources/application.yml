@@ -5,19 +5,3 @@ spring:
     name: charon-gateway
   profiles:
     active: dev
-  cloud:
-    nacos:
-      discovery:
-        server-addr: ${charon.nacos.server-addr}
-        group: 1.0.0
-    gateway:
-      routes:
-        - id: nacos-discovery
-          uri: lb://nacos-discovery
-          predicates:
-            - Path=/echo/**
-nacos:
-  address: ${spring.cloud.nacos.discovery.server-addr}
-  data-id: charon-gateway-rule-${spring.profiles.active}
-  group-id: ${spring.cloud.nacos.discovery.group}
-  timeout: 5000
