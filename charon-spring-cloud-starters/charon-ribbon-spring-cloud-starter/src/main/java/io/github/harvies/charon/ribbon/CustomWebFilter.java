@@ -1,4 +1,4 @@
-package io.github.harvies.charon.feign;
+package io.github.harvies.charon.ribbon;
 
 import io.github.harvies.charon.util.RequestTag;
 import lombok.extern.slf4j.Slf4j;

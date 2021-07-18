@@ -29,6 +29,15 @@ public class CharonRibbonApplication {
     }
 
     @RestController
+    static class EchoController {
+        @RequestMapping(value = "/echo/{str}", method = RequestMethod.GET)
+        public String echo(@PathVariable(value = "str") String string) {
+            log.info("echo str:[{}]", string);
+            return "Hello Nacos Discovery " + string;
+        }
+    }
+
+    @RestController
     static class TestController {
 
         private final RestTemplate restTemplate;
@@ -38,18 +47,9 @@ public class CharonRibbonApplication {
             this.restTemplate = restTemplate;
         }
 
-        @RequestMapping(value = "/echo/{str}", method = RequestMethod.GET)
+        @RequestMapping(value = "/echo1/{str}", method = RequestMethod.GET)
         public String echo(@PathVariable(value = "str") String str) {
             return restTemplate.getForObject("http://charon-ribbon/echo1/" + str, String.class);
-        }
-    }
-
-    @RestController
-    static class EchoController {
-        @RequestMapping(value = "/echo1/{str}", method = RequestMethod.GET)
-        public String echo(@PathVariable(value = "str") String string) {
-            log.info("echo str:[{}]", string);
-            return "Hello Nacos Discovery " + string;
         }
     }
 }

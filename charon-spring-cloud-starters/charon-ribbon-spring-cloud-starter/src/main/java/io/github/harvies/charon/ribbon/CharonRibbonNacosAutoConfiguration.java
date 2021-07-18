@@ -27,6 +27,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.cloud.netflix.ribbon.RibbonAutoConfiguration;
 import org.springframework.cloud.netflix.ribbon.RibbonClients;
 import org.springframework.cloud.netflix.ribbon.SpringClientFactory;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -42,5 +43,8 @@ import org.springframework.context.annotation.Configuration;
 @AutoConfigureBefore(RibbonNacosAutoConfiguration.class)
 @RibbonClients(defaultConfiguration = CharonNacosRibbonClientConfiguration.class)
 public class CharonRibbonNacosAutoConfiguration {
-
+    @Bean
+    public CustomWebFilter customWebFilter() {
+        return new CustomWebFilter();
+    }
 }
