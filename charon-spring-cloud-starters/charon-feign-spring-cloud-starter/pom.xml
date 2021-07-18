@@ -28,6 +28,10 @@
             <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-ribbon-spring-cloud-starter</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-nacos-config-spring-cloud-starter</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

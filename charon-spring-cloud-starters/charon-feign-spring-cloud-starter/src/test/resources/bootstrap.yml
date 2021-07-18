@@ -1,8 +1,12 @@
 spring:
   cloud:
     nacos:
+      config:
+        server-addr: ${charon.nacos.server-addr}
+        prefix: ${spring.application.name}
+        group: 1.0.0
       discovery:
         server-addr: ${charon.nacos.server-addr}
         group: 1.0.0
         ## 默认30s拉一次配置
-        watch-delay: 3000
+        watch-delay: 30000

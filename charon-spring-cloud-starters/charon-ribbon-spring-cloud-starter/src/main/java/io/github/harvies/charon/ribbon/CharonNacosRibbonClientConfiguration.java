@@ -18,7 +18,10 @@ package io.github.harvies.charon.ribbon;
 
 import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.alibaba.cloud.nacos.ribbon.ConditionalOnRibbonNacos;
+import com.alibaba.nacos.api.config.ConfigService;
+import com.alibaba.nacos.api.naming.NamingService;
 import com.netflix.client.config.IClientConfig;
+import com.netflix.loadbalancer.Server;
 import com.netflix.loadbalancer.ServerList;
 
 import org.springframework.cloud.netflix.ribbon.PropertiesFactory;
@@ -40,6 +43,18 @@ public class CharonNacosRibbonClientConfiguration {
     @Resource
     private PropertiesFactory propertiesFactory;
 
+    @Resource
+    private NacosDiscoveryProperties nacosDiscoveryProperties;
+
+    @Resource
+    private IClientConfig clientConfig;
+
+    @Resource
+    private NamingService namingService;
+
+    @Resource
+    private ConfigService configService;
+
 
     @Bean
     public CharonRule charonRule() {
@@ -47,15 +62,14 @@ public class CharonNacosRibbonClientConfiguration {
     }
 
     @Bean
-    public ServerList<?> ribbonServerList(IClientConfig config,
-                                          NacosDiscoveryProperties nacosDiscoveryProperties) {
-        if (this.propertiesFactory.isSet(ServerList.class, config.getClientName())) {
-            ServerList serverList = this.propertiesFactory.get(ServerList.class, config,
-                    config.getClientName());
+    public ServerList<?> ribbonServerList() {
+        if (this.propertiesFactory.isSet(ServerList.class, clientConfig.getClientName())) {
+            ServerList serverList = this.propertiesFactory.get(ServerList.class, clientConfig,
+                    clientConfig.getClientName());
             return serverList;
         }
-        CharonNacosServerList serverList = new CharonNacosServerList(nacosDiscoveryProperties);
-        serverList.initWithNiwsConfig(config);
+        CharonNacosServerList serverList = new CharonNacosServerList(namingService, configService, nacosDiscoveryProperties);
+        serverList.initWithNiwsConfig(clientConfig);
         return serverList;
     }
 }

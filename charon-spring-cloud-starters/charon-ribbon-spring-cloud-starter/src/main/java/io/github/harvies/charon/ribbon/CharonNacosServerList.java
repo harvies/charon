@@ -21,23 +21,28 @@ import java.util.List;
 
 import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.alibaba.cloud.nacos.ribbon.NacosServer;
+import com.alibaba.nacos.api.config.ConfigService;
+import com.alibaba.nacos.api.exception.NacosException;
+import com.alibaba.nacos.api.naming.NamingService;
 import com.alibaba.nacos.api.naming.pojo.Instance;
 import com.alibaba.nacos.client.naming.utils.CollectionUtils;
 import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.AbstractServerList;
-import io.github.harvies.charon.util.RequestTag;
+import org.apache.commons.lang3.StringUtils;
 
-/**
- * @author xiaojing
- * @author renhaojun
- */
 public class CharonNacosServerList extends AbstractServerList<NacosServer> {
 
     private NacosDiscoveryProperties discoveryProperties;
 
+    private NamingService namingService;
+
+    private ConfigService configService;
+
     private String serviceId;
 
-    public CharonNacosServerList(NacosDiscoveryProperties discoveryProperties) {
+    public CharonNacosServerList(NamingService namingService, ConfigService configService, NacosDiscoveryProperties discoveryProperties) {
+        this.namingService = namingService;
+        this.configService = configService;
         this.discoveryProperties = discoveryProperties;
     }
 
@@ -48,31 +53,40 @@ public class CharonNacosServerList extends AbstractServerList<NacosServer> {
 
     @Override
     public List<NacosServer> getUpdatedListOfServers() {
-        RequestTag.remove();
         return getServers();
     }
 
     private List<NacosServer> getServers() {
         try {
             List<Instance> list = new ArrayList<>();
-            // TODO: 2021/7/18 读取配置中心
-            //greenGroup
-            String greenGroup = "harvies";
-            List<Instance> greenInstances = discoveryProperties.namingServiceInstance()
-                    .selectInstances(serviceId, greenGroup, true);
-            if (!CollectionUtils.isEmpty(greenInstances)) {
-                list.addAll(greenInstances);
-            }
-
+            fillGreenGroup(list);
             String group = discoveryProperties.getGroup();
-            List<Instance> instances = discoveryProperties.namingServiceInstance()
-                    .selectInstances(serviceId, group, true);
+            List<Instance> instances = namingService.selectInstances(serviceId, group, true);
             list.addAll(instances);
             return instancesToServerList(list);
         } catch (Exception e) {
             throw new IllegalStateException(
                     "Can not get service instances from nacos, serviceId=" + serviceId,
                     e);
+        }
+    }
+
+    /**
+     * 将配置的绿色组服务已拉取过来
+     *
+     * @param list
+     * @throws NacosException
+     */
+    private void fillGreenGroup(List<Instance> list) throws NacosException {
+        String greenGroupStr = configService.getConfig("green-group", discoveryProperties.getGroup(), 5000);
+        if (StringUtils.isNotBlank(greenGroupStr)) {
+            String[] greenGroupArr = StringUtils.split(greenGroupStr, ",");
+            for (String greenGroup : greenGroupArr) {
+                List<Instance> greenInstances = namingService.selectInstances(serviceId, greenGroup, true);
+                if (!CollectionUtils.isEmpty(greenInstances)) {
+                    list.addAll(greenInstances);
+                }
+            }
         }
     }
 
