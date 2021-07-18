@@ -643,6 +643,11 @@
             </dependency>
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-feign-spring-cloud-starter</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
                 <artifactId>charon-nacos-discovery-spring-cloud-starter</artifactId>
                 <version>${charon.version}</version>
             </dependency>
