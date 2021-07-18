@@ -16,19 +16,25 @@
 
 package io.github.harvies.charon.gateway;
 
+import io.github.harvies.charon.util.RequestTag;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-
 public class CharonFilter implements GlobalFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        exchange.getAttributes().put("aaa", "bbb");
-        return chain.filter(exchange);
+        String requestTag = RequestTag.get();
+        if (StringUtils.isBlank(requestTag)) {
+            return chain.filter(exchange);
+        }
+        exchange.getRequest().getHeaders().set(RequestTag.getTagName(), requestTag);
+        ServerWebExchange build = exchange.mutate().request(exchange.getRequest()).build();
+        return chain.filter(build);
     }
 
     @Override

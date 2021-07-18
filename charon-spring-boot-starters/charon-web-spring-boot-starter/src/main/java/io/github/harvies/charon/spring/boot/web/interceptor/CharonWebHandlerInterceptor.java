@@ -31,7 +31,7 @@ public class CharonWebHandlerInterceptor implements HandlerInterceptor {
         //生成traceId
         TraceUtils.getTraceId();
         //记录请求标识
-        RequestTag.set(request.getHeader(RequestTag.getTag()));
+        RequestTag.set(request.getHeader(RequestTag.getTagName()));
         return true;
     }
 

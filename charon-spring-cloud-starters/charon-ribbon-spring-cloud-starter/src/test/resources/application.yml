@@ -1,13 +1,7 @@
 server:
-  port: 8081
+  port: 8082
 spring:
   application:
-    name: nacos-discovery
-  cloud:
-    nacos:
-      discovery:
-        server-addr: ${charon.nacos.server-addr}
-        group: 1.0.0
-logging:
-  level:
-    root: info
+    name: charon-ribbon
+  profiles:
+    active: dev

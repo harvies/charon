@@ -40,7 +40,9 @@ public class PersistenceRouteDefinitionRepository implements RouteDefinitionRepo
             log.info("从nacos没有拉取到配置 dataId:[{}] group:[{}]", dataId, nacosConfigProperties.getGroup());
             return Flux.fromIterable(Collections.emptyList());
         }
-        log.info("从nacos拉取最新的网关路由规则 dataId:[{}] group:[{}] config:[{}]", dataId, nacosConfigProperties.getGroup(), config);
+        if (log.isDebugEnabled()) {
+            log.debug("从nacos拉取最新的网关路由规则 dataId:[{}] group:[{}] config:[{}]", dataId, nacosConfigProperties.getGroup(), config);
+        }
         List<RouteDefinition> routeDefinitions = JSON.parseArray(config, RouteDefinition.class);
         return Flux.fromIterable(routeDefinitions);
     }

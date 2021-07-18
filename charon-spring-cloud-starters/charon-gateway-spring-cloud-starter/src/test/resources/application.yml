@@ -5,3 +5,5 @@ spring:
     name: charon-gateway
   profiles:
     active: dev
+#  webflux:
+#    base-path: /charon-gateway

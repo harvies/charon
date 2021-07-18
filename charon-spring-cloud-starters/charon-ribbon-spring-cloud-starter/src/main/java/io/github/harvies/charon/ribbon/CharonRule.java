@@ -23,6 +23,7 @@ import com.netflix.loadbalancer.AbstractLoadBalancerRule;
 import com.netflix.loadbalancer.ILoadBalancer;
 import com.netflix.loadbalancer.Server;
 import io.github.harvies.charon.util.RequestTag;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
@@ -36,10 +37,12 @@ import java.util.stream.Collectors;
  *
  * @author stonse
  */
+@Slf4j
 public class CharonRule extends AbstractLoadBalancerRule {
 
     private Server requestTagDeal(ILoadBalancer lb) {
         String requestTag = RequestTag.get();
+        log.info("requestTagDeal requestTag:[{}]", requestTag);
         if (StringUtils.isBlank(requestTag)) {
             return null;
         }

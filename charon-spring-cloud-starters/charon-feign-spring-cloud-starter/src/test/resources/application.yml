@@ -5,8 +5,3 @@ spring:
     name: charon-feign
   profiles:
     active: dev
-  cloud:
-    nacos:
-      discovery:
-        server-addr: ${charon.nacos.server-addr}
-        group: 1.0.0

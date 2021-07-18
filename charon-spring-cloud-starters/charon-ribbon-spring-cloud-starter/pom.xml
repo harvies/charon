@@ -11,14 +11,14 @@
 
     <artifactId>charon-ribbon-spring-cloud-starter</artifactId>
     <dependencies>
-        <!-- spring-cloud-starter-alibaba-nacos-discovery包含spring-cloud-starter-netflix-ribbon -->
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.cloud</groupId>-->
-        <!--            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-nacos-discovery-spring-cloud-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-nacos-config-spring-cloud-starter</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <!-- https://github.com/alibaba/nacos/issues/4674-->
@@ -27,9 +27,9 @@
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-web-spring-boot-starter</artifactId>
-            <optional>true</optional>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

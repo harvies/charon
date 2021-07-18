@@ -8,7 +8,7 @@ public class RequestTag {
      */
     private static final ThreadLocal<String> REQUEST_TAG = new ThreadLocal<>();
 
-    public static String getTag() {
+    public static String getTagName() {
         return tag;
     }
 
