@@ -1,8 +1,10 @@
-## 查看route
+## 查看routes
 
 ```shell
 http://localhost:8080/actuator/gateway/routes
 ```
+
+## 动态路由
 
 dataId ${spring.application.name}-route-rule-${spring.profiles.active}
 
