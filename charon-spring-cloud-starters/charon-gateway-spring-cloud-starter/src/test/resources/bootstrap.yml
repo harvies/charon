@@ -3,6 +3,7 @@ spring:
     nacos:
       config:
         server-addr: ${charon.nacos.server-addr}
+        namespace: ${spring.profiles.active}
         prefix: ${spring.application.name}
         group: 1.0.0
       discovery:

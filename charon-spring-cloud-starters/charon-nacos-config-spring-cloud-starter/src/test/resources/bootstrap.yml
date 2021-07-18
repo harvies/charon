@@ -3,12 +3,14 @@ server:
 spring:
   application:
     name: nacos-config
+  profiles:
+    active: dev
   cloud:
     nacos:
       config:
         server-addr: ${charon.nacos.server-addr}
-        ## bug 不配置会有问题
-        prefix: ${spring.application.name}
+        namespace: ${spring.profiles.active}
+        group: 1.0.0
 logging:
   level:
     root: info

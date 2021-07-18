@@ -22,19 +22,13 @@ public class PersistenceRouteDefinitionRepository implements RouteDefinitionRepo
 
     @Resource
     private ConfigService configService;
-
-    @Value("${spring.profiles.active}")
-    private String activeProfiles;
-
-    @Value("${spring.application.name}")
-    private String applicationName;
     @Resource
     private NacosConfigProperties nacosConfigProperties;
 
     @SneakyThrows
     @Override
     public Flux<RouteDefinition> getRouteDefinitions() {
-        String dataId = applicationName + "-route-rule-" + activeProfiles;
+        String dataId = "routing-rule";
         String config = configService.getConfig(dataId, nacosConfigProperties.getGroup(), 5000);
         if (StringUtils.isBlank(config)) {
             log.info("从nacos没有拉取到配置 dataId:[{}] group:[{}]", dataId, nacosConfigProperties.getGroup());
