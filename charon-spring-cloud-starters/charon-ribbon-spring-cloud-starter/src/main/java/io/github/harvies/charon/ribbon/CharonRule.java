@@ -76,8 +76,8 @@ public class CharonRule extends AbstractLoadBalancerRule {
             if (Thread.interrupted()) {
                 return null;
             }
-            List<Server> upList = lb.getReachableServers().stream().filter(server1 -> !Objects.equals(StringUtils.split(((NacosServer) server1).getInstance().getServiceName(), "@@")[0], "harvies")).collect(Collectors.toList());
-            List<Server> allList = lb.getAllServers().stream().filter(server1 -> !Objects.equals(StringUtils.split(((NacosServer) server1).getInstance().getServiceName(), "@@")[0], "harvies")).collect(Collectors.toList());
+            List<Server> upList = lb.getReachableServers().stream().filter(server1 -> !Objects.equals(StringUtils.split(((NacosServer) server1).getInstance().getServiceName(), "@@")[0], RequestTag.get())).collect(Collectors.toList());
+            List<Server> allList = lb.getAllServers().stream().filter(server1 -> !Objects.equals(StringUtils.split(((NacosServer) server1).getInstance().getServiceName(), "@@")[0], RequestTag.get())).collect(Collectors.toList());
 
             int serverCount = allList.size();
             if (serverCount == 0) {

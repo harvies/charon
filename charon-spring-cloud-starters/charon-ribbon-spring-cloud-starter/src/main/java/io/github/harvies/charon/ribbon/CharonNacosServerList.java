@@ -18,6 +18,7 @@ package io.github.harvies.charon.ribbon;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.alibaba.cloud.nacos.ribbon.NacosServer;
@@ -82,6 +83,9 @@ public class CharonNacosServerList extends AbstractServerList<NacosServer> {
         if (StringUtils.isNotBlank(greenGroupStr)) {
             String[] greenGroupArr = StringUtils.split(greenGroupStr, ",");
             for (String greenGroup : greenGroupArr) {
+                if (Objects.equals(greenGroup, discoveryProperties.getGroup())) {
+                    continue;
+                }
                 List<Instance> greenInstances = namingService.selectInstances(serviceId, greenGroup, true);
                 if (!CollectionUtils.isEmpty(greenInstances)) {
                     list.addAll(greenInstances);
