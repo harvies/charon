@@ -24,6 +24,8 @@ import com.netflix.loadbalancer.ILoadBalancer;
 import com.netflix.loadbalancer.Server;
 import io.github.harvies.charon.util.RequestTag;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
@@ -46,15 +48,11 @@ public class CharonRule extends AbstractLoadBalancerRule {
         if (StringUtils.isBlank(requestTag)) {
             return null;
         }
-        for (Server reachableServer : lb.getReachableServers()) {
-            if (reachableServer instanceof NacosServer) {
-                String greenGroup = StringUtils.split(((NacosServer) reachableServer).getInstance().getServiceName(), "@@")[0];
-                if (Objects.equals(requestTag, greenGroup)) {
-                    return reachableServer;
-                }
-            }
+        List<Server> collect = lb.getReachableServers().stream().filter(server -> Objects.equals(requestTag, StringUtils.split(((NacosServer) server).getInstance().getServiceName(), "@@")[0])).collect(Collectors.toList());
+        if (CollectionUtils.isEmpty(collect)) {
+            return null;
         }
-        return null;
+        return collect.get(RandomUtils.nextInt(0, collect.size()));
     }
 
     /**
