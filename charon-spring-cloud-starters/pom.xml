@@ -15,6 +15,7 @@
         <module>charon-ribbon-spring-cloud-starter</module>
         <module>charon-nacos-config-spring-cloud-starter</module>
         <module>charon-feign-spring-cloud-starter</module>
+        <module>charon-sleuth-spring-cloud-starter</module>
     </modules>
     <artifactId>charon-spring-cloud-starters</artifactId>
 

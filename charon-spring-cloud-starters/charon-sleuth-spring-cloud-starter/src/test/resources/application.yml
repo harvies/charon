@@ -1,0 +1,7 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: charon-sleuth
+  profiles:
+    active: dev
