@@ -16,5 +16,9 @@
             <artifactId>charon-webflux-spring-boot-starter</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-rpc-spring-cloud-starter</artifactId>
+        </dependency>
     </dependencies>
 </project>
