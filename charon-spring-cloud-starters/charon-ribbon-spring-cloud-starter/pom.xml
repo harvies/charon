@@ -13,27 +13,8 @@
     <dependencies>
         <dependency>
             <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-nacos-discovery-spring-cloud-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-nacos-config-spring-cloud-starter</artifactId>
-        </dependency>
-
-        <!-- https://github.com/alibaba/nacos/issues/4674-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-webflux-spring-boot-starter</artifactId>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

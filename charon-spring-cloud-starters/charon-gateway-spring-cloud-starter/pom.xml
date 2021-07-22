@@ -13,7 +13,7 @@
     <dependencies>
         <dependency>
             <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-nacos-config-spring-cloud-starter</artifactId>
+            <artifactId>charon-rpc-spring-cloud-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -24,16 +24,16 @@
             <artifactId>charon-ribbon-spring-cloud-starter</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-webflux-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-sleuth-spring-cloud-starter</artifactId>
         </dependency>
     </dependencies>
 </project>

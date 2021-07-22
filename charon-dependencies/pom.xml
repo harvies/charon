@@ -666,6 +666,16 @@
                 <artifactId>charon-ribbon-spring-cloud-starter</artifactId>
                 <version>${charon.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-sleuth-spring-cloud-starter</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-rpc-spring-cloud-starter</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
             <!-- spring-boot-admin-->
             <dependency>
                 <groupId>de.codecentric</groupId>

@@ -99,8 +99,8 @@ dataId : routing-rule
 
 根据header头指定group优先路由
 
-请求 http://localhost:8080/charon-feign/echo/hello
-先到网关charon-gateway再到charon-feign再到charon-ribbon
+请求 http://localhost:8080/charon-feign/echo/world
+请求路径 > charon-gateway > charon-feign > charon-ribbon > charon-sleuth
 
 io.github.harvies.charon.spring.boot.webflux.CustomWebFilter 将header中的标识存储到ThreadLocal,feign调用下一个服务时，从ThreadLocal中把标识取出通过io.github.harvies.charon.feign.CharonRequestInterceptor写入到下一个服务，
 
