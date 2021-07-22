@@ -21,9 +21,12 @@ import com.alibaba.cloud.nacos.ribbon.ConditionalOnRibbonNacos;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.naming.NamingService;
 import com.netflix.client.config.IClientConfig;
+import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.Server;
 import com.netflix.loadbalancer.ServerList;
 
+import com.netflix.loadbalancer.ZoneAvoidanceRule;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.cloud.netflix.ribbon.PropertiesFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -57,9 +60,12 @@ public class CharonNacosRibbonClientConfiguration {
 
 
     @Bean
-    public CharonRule charonRule() {
-        return new CharonRule();
+    public IRule ribbonRule() {
+        CharonRule rule = new CharonRule();
+        rule.initWithNiwsConfig(clientConfig);
+        return rule;
     }
+
 
     @Bean
     public ServerList<?> ribbonServerList() {
