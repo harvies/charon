@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.harvies.charon.ribbon;
+package io.github.harvies.charon.gray;
 
 import com.alibaba.cloud.nacos.ConditionalOnNacosDiscoveryEnabled;
-
 import com.alibaba.cloud.nacos.ribbon.ConditionalOnRibbonNacos;
 import com.alibaba.cloud.nacos.ribbon.RibbonNacosAutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
@@ -27,7 +26,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.cloud.netflix.ribbon.RibbonAutoConfiguration;
 import org.springframework.cloud.netflix.ribbon.RibbonClients;
 import org.springframework.cloud.netflix.ribbon.SpringClientFactory;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**

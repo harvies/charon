@@ -1,4 +1,4 @@
-header中包含 request_tag=harvies,会优先匹配metadata包含request_tag=harvies的服务，除非该服务下线，走正常负载均衡
+header中包含 priority-route-group=harvies,会优先匹配metadata包含request_tag=harvies的服务，除非该服务下线，走正常负载均衡
 
 ![](https://harvies-oss.oss-cn-hangzhou.aliyuncs.com/2021/07/14/20215214155200054-image.png)
 

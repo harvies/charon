@@ -14,12 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.harvies.charon.ribbon;
+package io.github.harvies.charon.gray;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
+import com.alibaba.cloud.nacos.NacosConfigProperties;
 import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.alibaba.cloud.nacos.ribbon.NacosServer;
 import com.alibaba.nacos.api.config.ConfigService;
@@ -31,8 +28,13 @@ import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.AbstractServerList;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 public class CharonNacosServerList extends AbstractServerList<NacosServer> {
 
+    private NacosConfigProperties nacosConfigProperties;
     private NacosDiscoveryProperties discoveryProperties;
 
     private NamingService namingService;
@@ -41,9 +43,10 @@ public class CharonNacosServerList extends AbstractServerList<NacosServer> {
 
     private String serviceId;
 
-    public CharonNacosServerList(NamingService namingService, ConfigService configService, NacosDiscoveryProperties discoveryProperties) {
+    public CharonNacosServerList(NamingService namingService, ConfigService configService,NacosConfigProperties nacosConfigProperties, NacosDiscoveryProperties discoveryProperties) {
         this.namingService = namingService;
         this.configService = configService;
+        this.nacosConfigProperties = nacosConfigProperties;
         this.discoveryProperties = discoveryProperties;
     }
 
@@ -79,7 +82,7 @@ public class CharonNacosServerList extends AbstractServerList<NacosServer> {
      * @throws NacosException
      */
     private void fillGreenGroup(List<Instance> list) throws NacosException {
-        String greenGroupStr = configService.getConfig("green-group", discoveryProperties.getGroup(), 5000);
+        String greenGroupStr = configService.getConfig("green-group", nacosConfigProperties.getGroup(), 5000);
         if (StringUtils.isNotBlank(greenGroupStr)) {
             String[] greenGroupArr = StringUtils.split(greenGroupStr, ",");
             for (String greenGroup : greenGroupArr) {

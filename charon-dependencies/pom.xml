@@ -676,6 +676,11 @@
                 <artifactId>charon-rpc-spring-cloud-starter</artifactId>
                 <version>${charon.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-gray-spring-cloud-starter</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
             <!-- spring-boot-admin-->
             <dependency>
                 <groupId>de.codecentric</groupId>

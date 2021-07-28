@@ -1,7 +1,6 @@
 package io.github.harvies.charon.spring.boot.web.interceptor;
 
 import com.google.common.base.Stopwatch;
-import io.github.harvies.charon.util.RequestTag;
 import io.github.harvies.charon.spring.boot.web.utils.IpUtils;
 import io.github.harvies.charon.util.JsonUtils;
 import io.github.harvies.charon.util.TraceUtils;
@@ -30,8 +29,6 @@ public class CharonWebHandlerInterceptor implements HandlerInterceptor {
         STOP_WATCH_THREAD_LOCAL.set(Stopwatch.createStarted());
         //生成traceId
         TraceUtils.getTraceId();
-        //记录请求标识
-        RequestTag.set(request.getHeader(RequestTag.getTagName()));
         return true;
     }
 
@@ -50,8 +47,6 @@ public class CharonWebHandlerInterceptor implements HandlerInterceptor {
             STOP_WATCH_THREAD_LOCAL.remove();
             //traceId移除
             TraceUtils.removeTraceId();
-            //请求标识移除
-            RequestTag.remove();
         }
     }
 

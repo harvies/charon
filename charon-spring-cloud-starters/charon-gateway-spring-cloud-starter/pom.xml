@@ -28,5 +28,10 @@
             <artifactId>charon-webflux-spring-boot-starter</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-gray-spring-cloud-starter</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>

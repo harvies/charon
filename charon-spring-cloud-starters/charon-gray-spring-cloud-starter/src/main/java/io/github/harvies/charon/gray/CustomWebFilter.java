@@ -1,6 +1,5 @@
-package io.github.harvies.charon.spring.boot.webflux;
+package io.github.harvies.charon.gray;
 
-import io.github.harvies.charon.util.RequestTag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
@@ -13,8 +12,8 @@ public class CustomWebFilter implements WebFilter {
     @Override
     public Mono<Void> filter(ServerWebExchange serverWebExchange, WebFilterChain webFilterChain) {
         //将header中标记放入ThreadLocal
-        RequestTag.set(serverWebExchange.getRequest().getHeaders().getFirst(RequestTag.getTagName()));
-        log.info("save requestTag tag:[{}]", RequestTag.get());
+        PriorityRouteGroup.set(serverWebExchange.getRequest().getHeaders().getFirst(PriorityRouteGroup.getTagName()));
+        log.info("save priorityRouteGroup [{}]", PriorityRouteGroup.get());
         return webFilterChain.filter(serverWebExchange);
     }
 }

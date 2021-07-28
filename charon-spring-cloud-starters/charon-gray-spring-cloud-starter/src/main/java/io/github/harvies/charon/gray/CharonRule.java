@@ -15,14 +15,13 @@
  * limitations under the License.
  *
  */
-package io.github.harvies.charon.ribbon;
+package io.github.harvies.charon.gray;
 
 import com.alibaba.cloud.nacos.ribbon.NacosServer;
 import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.AbstractLoadBalancerRule;
 import com.netflix.loadbalancer.ILoadBalancer;
 import com.netflix.loadbalancer.Server;
-import io.github.harvies.charon.util.RequestTag;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.RandomUtils;
@@ -42,13 +41,13 @@ import java.util.stream.Collectors;
 @Slf4j
 public class CharonRule extends AbstractLoadBalancerRule {
 
-    private Server requestTagDeal(ILoadBalancer lb) {
-        String requestTag = RequestTag.get();
-        log.info("requestTagDeal requestTag:[{}]", requestTag);
-        if (StringUtils.isBlank(requestTag)) {
+    private Server priorityRouteGroupDeal(ILoadBalancer lb) {
+        String priorityRouteGroup = PriorityRouteGroup.get();
+        log.info("priorityRouteGroupDeal priorityRouteGroup:[{}]", priorityRouteGroup);
+        if (StringUtils.isBlank(priorityRouteGroup)) {
             return null;
         }
-        List<Server> collect = lb.getReachableServers().stream().filter(server -> Objects.equals(requestTag, StringUtils.split(((NacosServer) server).getInstance().getServiceName(), "@@")[0])).collect(Collectors.toList());
+        List<Server> collect = lb.getReachableServers().stream().filter(server -> Objects.equals(priorityRouteGroup, StringUtils.split(((NacosServer) server).getInstance().getServiceName(), "@@")[0])).collect(Collectors.toList());
         if (CollectionUtils.isEmpty(collect)) {
             return null;
         }
@@ -60,7 +59,7 @@ public class CharonRule extends AbstractLoadBalancerRule {
      */
     public Server choose(ILoadBalancer lb, Object key) {
 
-        Server requestTagDealResult = requestTagDeal(lb);
+        Server requestTagDealResult = priorityRouteGroupDeal(lb);
         if (requestTagDealResult != null) {
             return requestTagDealResult;
         }
@@ -74,8 +73,9 @@ public class CharonRule extends AbstractLoadBalancerRule {
             if (Thread.interrupted()) {
                 return null;
             }
-            List<Server> upList = lb.getReachableServers().stream().filter(server1 -> !Objects.equals(StringUtils.split(((NacosServer) server1).getInstance().getServiceName(), "@@")[0], RequestTag.get())).collect(Collectors.toList());
-            List<Server> allList = lb.getAllServers().stream().filter(server1 -> !Objects.equals(StringUtils.split(((NacosServer) server1).getInstance().getServiceName(), "@@")[0], RequestTag.get())).collect(Collectors.toList());
+            // TODO: 2021/7/28 取默认服务链路版本号
+            List<Server> upList = lb.getReachableServers().stream().filter(server1 -> Objects.equals(StringUtils.split(((NacosServer) server1).getInstance().getServiceName(), "@@")[0], "1.0.0")).collect(Collectors.toList());
+            List<Server> allList = lb.getAllServers().stream().filter(server1 -> Objects.equals(StringUtils.split(((NacosServer) server1).getInstance().getServiceName(), "@@")[0], "1.0.0")).collect(Collectors.toList());
 
             int serverCount = allList.size();
             if (serverCount == 0) {

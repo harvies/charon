@@ -20,5 +20,9 @@
             <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-rpc-spring-cloud-starter</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-gray-spring-cloud-starter</artifactId>
+        </dependency>
     </dependencies>
 </project>

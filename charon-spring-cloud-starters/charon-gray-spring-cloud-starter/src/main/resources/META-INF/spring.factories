@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  io.github.harvies.charon.gray.CharonRibbonNacosAutoConfiguration,\
+  io.github.harvies.charon.gray.CharonGrayAutoConfiguration

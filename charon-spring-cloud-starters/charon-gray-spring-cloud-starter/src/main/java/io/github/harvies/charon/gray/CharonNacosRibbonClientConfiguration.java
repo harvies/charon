@@ -14,19 +14,16 @@
  * limitations under the License.
  */
 
-package io.github.harvies.charon.ribbon;
+package io.github.harvies.charon.gray;
 
+import com.alibaba.cloud.nacos.NacosConfigProperties;
 import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.alibaba.cloud.nacos.ribbon.ConditionalOnRibbonNacos;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.naming.NamingService;
 import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.IRule;
-import com.netflix.loadbalancer.Server;
 import com.netflix.loadbalancer.ServerList;
-
-import com.netflix.loadbalancer.ZoneAvoidanceRule;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.cloud.netflix.ribbon.PropertiesFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -48,6 +45,9 @@ public class CharonNacosRibbonClientConfiguration {
 
     @Resource
     private NacosDiscoveryProperties nacosDiscoveryProperties;
+
+    @Resource
+    private NacosConfigProperties nacosConfigProperties;
 
     @Resource
     private IClientConfig clientConfig;
@@ -74,7 +74,7 @@ public class CharonNacosRibbonClientConfiguration {
                     clientConfig.getClientName());
             return serverList;
         }
-        CharonNacosServerList serverList = new CharonNacosServerList(namingService, configService, nacosDiscoveryProperties);
+        CharonNacosServerList serverList = new CharonNacosServerList(namingService, configService, nacosConfigProperties, nacosDiscoveryProperties);
         serverList.initWithNiwsConfig(clientConfig);
         return serverList;
     }

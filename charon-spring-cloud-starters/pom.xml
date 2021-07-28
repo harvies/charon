@@ -17,6 +17,7 @@
         <module>charon-feign-spring-cloud-starter</module>
         <module>charon-sleuth-spring-cloud-starter</module>
         <module>charon-rpc-spring-cloud-starter</module>
+        <module>charon-gray-spring-cloud-starter</module>
     </modules>
     <artifactId>charon-spring-cloud-starters</artifactId>
 
