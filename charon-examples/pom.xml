@@ -19,5 +19,13 @@
         <module>charon-sleuth-spring-cloud-starter</module>
         <module>charon-nacos-consumer-spring-cloud</module>
         <module>charon-nacos-provider-spring-cloud</module>
+        <module>charon-netty</module>
+        <module>charon-spring</module>
+        <module>charon-zookeeper</module>
+        <module>charon-web</module>
+        <module>charon-tomcat</module>
+        <module>charon-spider</module>
+        <module>charon-github</module>
+        <module>charon-test</module>
     </modules>
 </project>

@@ -1,0 +1,39 @@
+{
+    "address": "熊咀一路7号",
+    "businessTime": "08:00-18:00",
+    "cityId": 420900,
+    "cityName": "孝感市",
+    "createVersion": 379,
+    "districtId": 420902,
+    "districtName": "孝南区",
+    "itemCategoryIds": [
+        201346512,
+        201366201,
+        201329913,
+        201366202
+    ],
+    "latitude": 30.908384,
+    "longitude": 113.938089,
+    "modifyVersion": 379,
+    "nczStoreId": 318903578,
+    "picUrl": "https://img.alicdn.com/imgextra/i1/2200643921837/O1CN01puALiP1PROC38PyXL_!!2200643921837-0-service_platform_picture.jpg",
+    "provinceId": 420000,
+    "provinceName": "湖北省",
+    "sellerId": 2207946515596,
+    "servicedNum": 0,
+    "sortDistance": 0,
+    "status": 0,
+    "storeId": 330431157,
+    "storeName": "小拇指汽车维修保养轮胎(熊咀路店)",
+    "storeTags": [
+        91002,
+        91004
+    ],
+    "tags": [
+        16,
+        17,
+        400002,
+        200009,
+        15
+    ]
+}
