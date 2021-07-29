@@ -25,7 +25,7 @@
         <spring-cloud-alibaba.version>2.2.6.RELEASE</spring-cloud-alibaba.version>
 
         <sofa-boot.version>3.3.2</sofa-boot.version>
-        <elastic-job.version>3.0.0-alpha</elastic-job.version>
+        <elastic-job.version>3.0.0</elastic-job.version>
         <mybatis.version>3.5.6</mybatis.version>
         <mybatis-plus.version>3.4.3.1</mybatis-plus.version>
         <mybatis-spring.version>2.0.6</mybatis-spring.version>
@@ -46,7 +46,7 @@
         <dubbo.version>2.7.10</dubbo.version>
         <arthas.version>3.3.7</arthas.version>
         <webmagic.version>0.7.4-SNAPSHOT</webmagic.version>
-        <redisson.version>3.15.6</redisson.version>
+        <redisson.version>3.16.0</redisson.version>
         <seata.version>0.5.1</seata.version>
         <jpa.version>1.0.0.Final</jpa.version>
         <rocketmq.version>4.9.0</rocketmq.version>
@@ -59,7 +59,7 @@
         <apollo-client.version>1.7.0</apollo-client.version>
         <skywalking.version>8.6.0</skywalking.version>
         <charon.version>0.0.9-SNAPSHOT</charon.version>
-        <spring-boot-admin-starter.version>2.4.2</spring-boot-admin-starter.version>
+        <spring-boot-admin-starter.version>2.4.3</spring-boot-admin-starter.version>
         <javamelody.version>1.85.0</javamelody.version>
         <calcite.version>1.26.0</calcite.version>
         <telegram.version>5.2.0</telegram.version>
