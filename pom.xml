@@ -10,7 +10,7 @@
         <version>0.0.9-SNAPSHOT</version>
         <relativePath>./charon-dependencies</relativePath>
     </parent>
-
+ 
     <artifactId>charon-parent</artifactId>
     <packaging>pom</packaging>
     <modules>
