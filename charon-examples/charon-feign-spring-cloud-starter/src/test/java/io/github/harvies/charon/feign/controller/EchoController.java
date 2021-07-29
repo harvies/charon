@@ -1,7 +1,6 @@
 package io.github.harvies.charon.feign.controller;
 
 import io.github.harvies.charon.feign.client.EchoClient;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;

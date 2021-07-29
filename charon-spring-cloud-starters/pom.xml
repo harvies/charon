@@ -12,10 +12,7 @@
     <modules>
         <module>charon-gateway-spring-cloud-starter</module>
         <module>charon-nacos-discovery-spring-cloud-starter</module>
-        <module>charon-ribbon-spring-cloud-starter</module>
         <module>charon-nacos-config-spring-cloud-starter</module>
-        <module>charon-feign-spring-cloud-starter</module>
-        <module>charon-sleuth-spring-cloud-starter</module>
         <module>charon-rpc-spring-cloud-starter</module>
         <module>charon-gray-spring-cloud-starter</module>
     </modules>
