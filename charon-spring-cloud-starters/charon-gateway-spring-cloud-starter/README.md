@@ -93,7 +93,7 @@ dataId : routing-rule
 
 ![](https://harvies-oss.oss-cn-hangzhou.aliyuncs.com/2021/07/18/20210418180400047-image.png)
 
-![](https://harvies-oss.oss-cn-hangzhou.aliyuncs.com/2021/07/18/20210518180500041-image.png)
+![lALPD3lGuwqikRjNAaXNBHU_1141_421.png](https://i.loli.net/2021/07/29/VNtjHhflwdFXQxs.png)
 
 ![](https://harvies-oss.oss-cn-hangzhou.aliyuncs.com/2021/07/19/20211619001600016-image.png)
 

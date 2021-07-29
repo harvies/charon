@@ -22,6 +22,7 @@ import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.AbstractLoadBalancerRule;
 import com.netflix.loadbalancer.ILoadBalancer;
 import com.netflix.loadbalancer.Server;
+import io.github.harvies.charon.gray.constant.CommonConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.RandomUtils;
@@ -74,8 +75,8 @@ public class CharonRule extends AbstractLoadBalancerRule {
                 return null;
             }
             // TODO: 2021/7/28 取默认服务链路版本号
-            List<Server> upList = lb.getReachableServers().stream().filter(server1 -> Objects.equals(StringUtils.split(((NacosServer) server1).getInstance().getServiceName(), "@@")[0], "1.0.0")).collect(Collectors.toList());
-            List<Server> allList = lb.getAllServers().stream().filter(server1 -> Objects.equals(StringUtils.split(((NacosServer) server1).getInstance().getServiceName(), "@@")[0], "1.0.0")).collect(Collectors.toList());
+            List<Server> upList = lb.getReachableServers().stream().filter(server1 -> Objects.equals(StringUtils.split(((NacosServer) server1).getInstance().getServiceName(), "@@")[0], CommonConstant.VERSION)).collect(Collectors.toList());
+            List<Server> allList = lb.getAllServers().stream().filter(server1 -> Objects.equals(StringUtils.split(((NacosServer) server1).getInstance().getServiceName(), "@@")[0], CommonConstant.VERSION)).collect(Collectors.toList());
 
             int serverCount = allList.size();
             if (serverCount == 0) {

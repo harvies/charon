@@ -26,15 +26,20 @@ import com.alibaba.nacos.api.naming.pojo.Instance;
 import com.alibaba.nacos.client.naming.utils.CollectionUtils;
 import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.AbstractServerList;
+import io.github.harvies.charon.gray.constant.CommonConstant;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author harvies
+ */
 public class CharonNacosServerList extends AbstractServerList<NacosServer> {
 
     private NacosConfigProperties nacosConfigProperties;
+
     private NacosDiscoveryProperties discoveryProperties;
 
     private NamingService namingService;
@@ -43,7 +48,7 @@ public class CharonNacosServerList extends AbstractServerList<NacosServer> {
 
     private String serviceId;
 
-    public CharonNacosServerList(NamingService namingService, ConfigService configService,NacosConfigProperties nacosConfigProperties, NacosDiscoveryProperties discoveryProperties) {
+    public CharonNacosServerList(NamingService namingService, ConfigService configService, NacosConfigProperties nacosConfigProperties, NacosDiscoveryProperties discoveryProperties) {
         this.namingService = namingService;
         this.configService = configService;
         this.nacosConfigProperties = nacosConfigProperties;
@@ -64,8 +69,7 @@ public class CharonNacosServerList extends AbstractServerList<NacosServer> {
         try {
             List<Instance> list = new ArrayList<>();
             fillGreenGroup(list);
-            String group = discoveryProperties.getGroup();
-            List<Instance> instances = namingService.selectInstances(serviceId, group, true);
+            List<Instance> instances = namingService.selectInstances(serviceId, CommonConstant.VERSION, true);
             list.addAll(instances);
             return instancesToServerList(list);
         } catch (Exception e) {
@@ -86,7 +90,7 @@ public class CharonNacosServerList extends AbstractServerList<NacosServer> {
         if (StringUtils.isNotBlank(greenGroupStr)) {
             String[] greenGroupArr = StringUtils.split(greenGroupStr, ",");
             for (String greenGroup : greenGroupArr) {
-                if (Objects.equals(greenGroup, discoveryProperties.getGroup())) {
+                if (Objects.equals(greenGroup, CommonConstant.VERSION)) {
                     continue;
                 }
                 List<Instance> greenInstances = namingService.selectInstances(serviceId, greenGroup, true);
