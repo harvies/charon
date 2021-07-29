@@ -1,0 +1,13 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: service-consumer
+  cloud:
+    nacos:
+      discovery:
+        group: 1.0.0
+        server-addr: ${charon.nacos.server-addr}
+logging:
+  level:
+    root: info

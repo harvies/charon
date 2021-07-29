@@ -17,5 +17,7 @@
         <module>charon-feign-spring-cloud-starter</module>
         <module>charon-ribbon-spring-cloud-starter</module>
         <module>charon-sleuth-spring-cloud-starter</module>
+        <module>charon-nacos-consumer-spring-cloud</module>
+        <module>charon-nacos-provider-spring-cloud</module>
     </modules>
 </project>
