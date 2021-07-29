@@ -1,2 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  io.github.harvies.charon.spring.boot.webflux.CharonWebFluxAutoConfiguration
+org.springframework.context.ApplicationContextInitializer=\
+  io.github.harvies.charon.spring.boot.webflux.CharonBootWebFluxApplicationInitializer
