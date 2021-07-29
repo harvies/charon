@@ -11,6 +11,9 @@
     <packaging>pom</packaging>
     <artifactId>charon-examples</artifactId>
     <modules>
+        <module>charon-eureka-server</module>
+        <module>charon-socks-proxy-server</module>
+        <module>charon-spring-boot-admin-server</module>
         <module>charon-feign-spring-cloud-starter</module>
         <module>charon-ribbon-spring-cloud-starter</module>
         <module>charon-sleuth-spring-cloud-starter</module>
