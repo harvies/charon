@@ -27,5 +27,6 @@
         <module>charon-spider</module>
         <module>charon-github</module>
         <module>charon-test</module>
+        <module>charon-rocketmq</module>
     </modules>
 </project>
