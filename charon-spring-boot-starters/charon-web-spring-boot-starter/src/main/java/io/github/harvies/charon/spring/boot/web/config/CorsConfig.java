@@ -1,5 +1,6 @@
 package io.github.harvies.charon.spring.boot.web.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,9 +14,11 @@ import org.springframework.web.filter.CorsFilter;
  * @author harvies
  */
 @Configuration
+@Slf4j
 public class CorsConfig {
     @Bean
     public FilterRegistrationBean<CorsFilter> corsFilter() {
+        log.info("corsFilter init");
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
