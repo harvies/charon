@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spring.boot.web;
+package io.github.harvies.charon.spring.boot.web.config;
 
 import io.github.harvies.charon.spring.boot.web.interceptor.CharonWebHandlerInterceptor;
 import org.springframework.context.annotation.Configuration;
