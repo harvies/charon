@@ -1,3 +1,8 @@
+## 依赖安装
+```shell
+pip install moviepy
+```
+
 ## 删除已存在的索引
 ```
 ./pro/pro.py search --clear
