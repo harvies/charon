@@ -1,7 +1,9 @@
 ## 依赖安装
 ```shell
-pip install moviepy
+pip3 install moviepy
 ```
+
+https://forum.seafile.com/t/video-thumbnails-not-workinf/5757
 
 ## 删除已存在的索引
 ```
