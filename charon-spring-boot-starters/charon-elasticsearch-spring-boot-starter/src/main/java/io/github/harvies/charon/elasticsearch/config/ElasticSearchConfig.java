@@ -30,6 +30,7 @@ public class ElasticSearchConfig {
         genericConversionService.addConverter(new StringToDateConverter());
         genericConversionService.addConverter(new DateToStringConverter());
         genericConversionService.addConverter(new IntegerToLongConverter());
+        genericConversionService.addConverter(new StringToLongConverter());
         return new MappingElasticsearchConverter(mappingContext, genericConversionService);
     }
 
@@ -47,10 +48,15 @@ public class ElasticSearchConfig {
     static class IntegerToLongConverter implements Converter<Integer, Long> {
         @Override
         public Long convert(Integer source) {
-            if (source == null) {
-                return null;
-            }
             return source.longValue();
+        }
+    }
+
+    @ReadingConverter
+    static class StringToLongConverter implements Converter<String, Long> {
+        @Override
+        public Long convert(String source) {
+            return Long.valueOf(source);
         }
     }
 
