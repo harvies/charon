@@ -20,7 +20,7 @@ public class RssTest {
     @SneakyThrows
     @Test
     void badCase() {
-        @Cleanup InputStreamReader inputStreamReader = new InputStreamReader(Requests.get("http://feed.cnblogs.com/blog/sitehome/rss").send().body());
+        @Cleanup InputStreamReader inputStreamReader = new InputStreamReader(Requests.get("https://tech.youzan.com/rss/").send().body());
         SyndFeed syndFeed = new SyndFeedInput().build(inputStreamReader);
         System.out.println(syndFeed.getEntries().get(0));
     }
@@ -30,7 +30,8 @@ public class RssTest {
     void test() {
         SyndFeedInput syndFeedInput = new SyndFeedInput();
         SAXReader reader = new SAXReader();
-        @Cleanup InputStream inputStream = IOUtils.toInputStream(Requests.get("http://feed.cnblogs.com/blog/sitehome/rss").send().readToText(), Charset.defaultCharset());
+        //https://blog.csdn.net/phoenix2121/article/details/6958176
+        @Cleanup InputStream inputStream = IOUtils.toInputStream(Requests.get("https://tech.youzan.com/rss/").send().readToText().replaceAll("[\\x00-\\x08\\x0b-\\x0c\\x0e-\\x1f]", ""), Charset.defaultCharset());
         Document document = reader.read(inputStream);
         StringReader stringReader = new StringReader(document.asXML());
         SyndFeed syndFeed = syndFeedInput.build(stringReader);
