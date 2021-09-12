@@ -17,7 +17,7 @@
 version: '3.7'
 services:
   oap:
-    image: apache/skywalking-oap-server:8.6.0-es7
+    image: apache/skywalking-oap-server:8.7.0-es7
     restart: always
     ports:
       - 11800:11800
@@ -51,7 +51,7 @@ services:
       start_period: 40s
     dns: 192.168.7.77
   ui:
-    image: apache/skywalking-ui:8.6.0
+    image: apache/skywalking-ui:8.7.0
     restart: always
     ports:
       - 8084:8080
