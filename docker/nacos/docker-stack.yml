@@ -1,0 +1,37 @@
+version: '3.7'
+
+services:
+  nacos:
+    image: nacos/nacos-server:2.0.3
+    restart: always
+    ports:
+      - 8848:8848
+    deploy:
+      replicas: 1
+    networks:
+      - default
+    environment:
+      SPRING_DATASOURCE_PLATFORM: 'mysql'
+      MYSQL_SERVICE_HOST: 'mysql.dev.kikera.org'
+      MYSQL_SERVICE_PORT: 3306
+      MYSQL_SERVICE_DB_NAME: nacos
+      MYSQL_SERVICE_DB_PARAM: 'characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useSSL=false&serverTimezone=UTC'
+      MYSQL_SERVICE_USER: 'nacos'
+      MYSQL_SERVICE_PASSWORD: 'x2JAUw4KVeaUKBD'
+      MYSQL_DATABASE_NUM: 1
+      MODE: standalone
+      JVM_XMX: 512m
+      JVM_XMS: 512m
+      JVM_MMS: 150m
+      JVM_MS: 128m
+      JVM_XMN: 256m
+      NACOS_USER: nacos
+      NACOS_DEBUG: 'y'
+      PREFER_HOST_MODE: ip
+      TIME_ZONE: 'Asia/Shanghai'
+      TOMCAT_ACCESSLOG_ENABLED: 'true'
+    dns: 192.168.7.77
+networks:
+  default:
+    external:
+      name: dev_overlay

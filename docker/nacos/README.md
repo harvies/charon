@@ -1,1 +1,3 @@
-docker run --name nacos-quick -e MODE=standalone -p 8849:8848 -d nacos/nacos-server:2.0.2
+使用mysql前需要先创建表
+https://raw.githubusercontent.com/alibaba/nacos/master/distribution/conf/nacos-mysql.sql
+否则会报 nacos : No DataSource set
