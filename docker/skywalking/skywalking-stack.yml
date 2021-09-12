@@ -62,5 +62,5 @@ services:
           memory: 800M
           cpus: '2'
     environment:
-      SW_OAP_ADDRESS: sw.dev.kikera.org:12800
+      SW_OAP_ADDRESS: http://sw.dev.kikera.org:12800
     dns: 192.168.7.77
