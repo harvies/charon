@@ -20,10 +20,10 @@ public class NotifyAutoConfiguration {
 
     static final String PREFERRED_NOTIFY_PROPERTY = Constants.NOTIFY_PROPERTIES_PREFIX + ".preferred";
 
-    @Value("${charon.proxy.socks5.host:}")
+    @Value("${charon.proxy.socks5.host:127.0.0.1}")
     private String proxyHost;
 
-    @Value("${charon.proxy.socks5.port:}")
+    @Value("${charon.proxy.socks5.port:1080}")
     private int proxyPort;
 
     @Bean
