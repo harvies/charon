@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.skywalking.apm.toolkit.trace.TraceContext;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class TraceUtils {
 
@@ -14,7 +15,7 @@ public class TraceUtils {
         if (StringUtils.isBlank(string)) {
             String traceId = TraceContext.traceId();
             if (StringUtils.isBlank(traceId) || Objects.equals("Ignored_Trace", traceId)) {
-                traceId = RandomUtils.uuid().replaceAll("-", "");
+                traceId = UUID.randomUUID().toString().replaceAll("-", "");
             }
             LOCAL_TRACE_ID.set(traceId);
             return traceId;
