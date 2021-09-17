@@ -79,6 +79,8 @@
         <Xmx>-Xmx256M</Xmx>
         <MetaspaceSize>-XX:MetaspaceSize=256m</MetaspaceSize>
         <MaxMetaspaceSize>-XX:MaxMetaspaceSize=256m</MaxMetaspaceSize>
+        <PermSize>-XX:PermSize=256m</PermSize>
+        <MaxPermSize>-XX:MaxPermSize=256m</MaxPermSize>
         <!-- not work-->
         <MaxDirectMemorySize>-XX:MaxDirectMemorySize=256m</MaxDirectMemorySize>
 
@@ -1000,6 +1002,8 @@
                                 <jvmFlag>${Xmx}</jvmFlag>
                                 <jvmFlag>${MetaspaceSize}</jvmFlag>
                                 <jvmFlag>${MaxMetaspaceSize}</jvmFlag>
+                                <jvmFlag>${PermSize}</jvmFlag>
+                                <jvmFlag>${MaxPermSize}</jvmFlag>
                                 <jvmFlag>${MaxDirectMemorySize}</jvmFlag>
                                 <jvmFlag>-verbose:gc</jvmFlag>
                                 <jvmFlag>-Xloggc:gc.log</jvmFlag>
