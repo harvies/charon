@@ -29,6 +29,6 @@ RUN wget https://mirrors.aliyun.com/apache/skywalking/${SKYWALKING_VERSION}/apac
     &&  rm -rf apache-skywalking-apm-bin-es7 apache-skywalking-apm-es7-${SKYWALKING_VERSION}.tar.gz \
     && mv /opt/skywalking-agent/optional-plugins/* /opt/skywalking-agent/plugins
 
-RUN wget -O /opt/skywalking-agent/config/agent.config https://harvies-oss.oss-cn-hangzhou.aliyuncs.com/2021/05/04/20212804122800039-agent.config
+RUN wget -O /opt/skywalking-agent/config/agent.config https://raw.githubusercontent.com/harvies/oss/master/configs/skywalking/agent.config
 
 WORKDIR /
