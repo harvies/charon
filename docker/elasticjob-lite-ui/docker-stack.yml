@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  elasticjob-lite-ui:
+    image: zhouzhengke/elasticjob-lite-ui:3.0.0
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+    ports:
+      - 8088:8088
+    environment:
+      AUTH_ROOT_NAME: admin
+      AUTH_ROOT_PASSWORD: 1qaz2wsx
+      AUTH_GUEST_NAME: guest
+      AUTH_GUEST_PASSWORD: guest
+      DATASOURCE_DRIVER_CLASS: org.h2.Driver
+      DATASOURCE_URL: 'jdbc:h2:mem:'
+      DATASOURCE_USER: sa
+      DATASOURCE_PASSWORD:
+networks:
+  default:
+    external:
+      name: dev_overlay
