@@ -15,10 +15,6 @@ services:
       AUTH_ROOT_PASSWORD: 1qaz2wsx
       AUTH_GUEST_NAME: guest
       AUTH_GUEST_PASSWORD: guest
-      DATASOURCE_DRIVER_CLASS: org.h2.Driver
-      DATASOURCE_URL: 'jdbc:h2:mem:'
-      DATASOURCE_USER: sa
-      DATASOURCE_PASSWORD:
 networks:
   default:
     external:
