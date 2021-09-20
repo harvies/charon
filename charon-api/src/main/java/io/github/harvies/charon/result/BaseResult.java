@@ -22,7 +22,7 @@ public abstract class BaseResult implements Serializable {
     /**
      * 状态信息
      */
-    private String msg;
+    private String message;
 
     /**
      * 额外信息
