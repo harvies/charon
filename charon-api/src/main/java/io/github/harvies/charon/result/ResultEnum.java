@@ -5,7 +5,7 @@ package io.github.harvies.charon.result;
  */
 public enum ResultEnum {
     UNKNOWN_ERROR("-1", "系统异常"),
-    SUCCESS("0", "请求成功"),
+    SUCCESS("20000", "请求成功"),
     FAILED("1", "请求失败");
     /**
      * 状态码
