@@ -7,7 +7,7 @@ public class Results {
     public static <T> ResultDTO<T> success(T t) {
         ResultDTO<T> resultDTO = new ResultDTO<>(t);
         resultDTO.setCode(ResultEnum.SUCCESS.getCode());
-        resultDTO.setMessage(ResultEnum.SUCCESS.getMsg());
+        resultDTO.setMessage(ResultEnum.SUCCESS.getMessage());
         return resultDTO;
     }
 
@@ -24,7 +24,7 @@ public class Results {
     public static <T> ResultDTO<T> unknownError(T t) {
         ResultDTO<T> resultDTO = new ResultDTO<>(t);
         resultDTO.setCode(ResultEnum.UNKNOWN_ERROR.getCode());
-        resultDTO.setMessage(ResultEnum.UNKNOWN_ERROR.getMsg());
+        resultDTO.setMessage(ResultEnum.UNKNOWN_ERROR.getMessage());
         return resultDTO;
     }
 
@@ -36,7 +36,7 @@ public class Results {
         PageResultDTO<T> resultDTO = new PageResultDTO<>(list);
         resultDTO.setTotal(totalCount);
         resultDTO.setCode(ResultEnum.SUCCESS.getCode());
-        resultDTO.setMessage(ResultEnum.SUCCESS.getMsg());
+        resultDTO.setMessage(ResultEnum.SUCCESS.getMessage());
         return resultDTO;
     }
 

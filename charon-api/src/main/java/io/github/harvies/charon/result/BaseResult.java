@@ -18,7 +18,7 @@ public abstract class BaseResult implements Serializable {
     /**
      * 状态码
      */
-    private String code;
+    private Integer code;
     /**
      * 状态信息
      */
