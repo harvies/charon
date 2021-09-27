@@ -809,6 +809,11 @@
                 <artifactId>telegrambots</artifactId>
                 <version>${telegram.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.kotcrab.remark</groupId>
+                <artifactId>remark</artifactId>
+                <version>1.0.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
