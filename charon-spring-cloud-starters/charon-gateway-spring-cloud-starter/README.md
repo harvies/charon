@@ -87,8 +87,8 @@ dataId : routing-rule
 ```
 
 > StripPrefix 去除前缀过滤器
-> 访问 http://localhost:8080/charon-feign/hello 时默认会转发给 lb://charon-feign/charon-feign/hello
-> 需要转发给 lb://charon-feign/hello 则需要配置 StripPrefix 过滤器，parts=1是去除上一级前缀
+> 访问 http://localhost:8080/charon-feign/echo/hello 时默认会转发给 lb://charon-feign/charon-feign/echo/hello
+> 需要转发给 lb://charon-feign/echo/hello 则需要配置 StripPrefix 过滤器，parts=1是去除上一级前缀
 
 
 ![](https://harvies-oss.oss-cn-hangzhou.aliyuncs.com/2021/07/18/20210418180400047-image.png)
