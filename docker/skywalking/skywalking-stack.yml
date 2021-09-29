@@ -17,7 +17,7 @@
 version: '3.7'
 services:
   oap:
-    image: apache/skywalking-oap-server:8.7.0-es7
+    image: apache/skywalking-oap-server:8.8.0
     restart: always
     ports:
       - 11800:11800
@@ -29,7 +29,7 @@ services:
           memory: 1G
           cpus: '2'
     environment:
-      SW_STORAGE: elasticsearch7
+      SW_STORAGE: elasticsearch
       SW_STORAGE_ES_CLUSTER_NODES: es.dev.kikera.org:9200
       SW_NAMESPACE: 'dev_sw_es7'
       SW_ES_USER: 
@@ -51,7 +51,7 @@ services:
       start_period: 40s
     dns: 192.168.7.77
   ui:
-    image: apache/skywalking-ui:8.7.0
+    image: apache/skywalking-ui:8.8.0
     restart: always
     ports:
       - 8084:8080
