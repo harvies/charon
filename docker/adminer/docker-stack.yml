@@ -9,13 +9,13 @@ services:
       - 81:8080
     deploy:
       replicas: 1
-      placement:
-        constraints: [node.labels.name == hp]
+#     placement:
+#       constraints: [node.labels.name == hp]
     networks:
       - default
     environment:
       ADMINER_PLUGINS: 'tables-filter dump-date dump-json dump-zip json-column sql-log'
-      ADMINER_DEFAULT_SERVER: 192.168.7.77
+      ADMINER_DEFAULT_SERVER: 192.168.7.1
 networks:
   default:
     external:
