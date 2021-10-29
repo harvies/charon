@@ -1,10 +1,10 @@
 version: '3'
 services:
   kibana:
-    image: kibana:7.10.1
+    image: kibana:7.10.2
     ports:
       - 5601:5601
     environment:
       SERVER_NAME: kibana
       ELASTICSEARCH_HOSTS: 'http://es.dev.kikera.org:9200'
-    dns: 192.168.7.77
+    dns: 192.168.7.1
