@@ -17,7 +17,7 @@
 version: '3.7'
 services:
   oap:
-    image: apache/skywalking-oap-server:8.8.0
+    image: apache/skywalking-oap-server:8.8.1
     restart: always
     ports:
       - 11800:11800
@@ -49,9 +49,9 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
-    dns: 192.168.7.77
+    dns: 192.168.7.1
   ui:
-    image: apache/skywalking-ui:8.8.0
+    image: apache/skywalking-ui:8.8.1
     restart: always
     ports:
       - 8084:8080
@@ -63,4 +63,4 @@ services:
           cpus: '2'
     environment:
       SW_OAP_ADDRESS: http://sw.dev.kikera.org:12800
-    dns: 192.168.7.77
+    dns: 192.168.7.1
