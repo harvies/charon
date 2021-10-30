@@ -4,7 +4,7 @@ services:
 
   ## https://hub.docker.com/_/zookeeper
   zoo1:
-    image: zookeeper:3.5.7
+    image: zookeeper:3.6.1
     restart: always
     hostname: zoo1
     ports:
@@ -16,7 +16,7 @@ services:
     networks:
       - default
   zoo2:
-    image: zookeeper:3.5.7
+    image: zookeeper:3.6.1
     restart: always
     hostname: zoo2
     ports:
@@ -28,7 +28,7 @@ services:
     networks:
       - default
   zoo3:
-    image: zookeeper:3.5.7
+    image: zookeeper:3.6.1
     restart: always
     hostname: zoo3
     ports:
@@ -48,8 +48,8 @@ services:
       - 2180:8080
     environment:
       ZK_DEFAULT_NODE: zoo1:2181,zoo2:2181,zoo3:2181
-      USER: root
-      PASSWORD: root
+      USER: scott
+      PASSWORD: scott
     networks:
       - default
 networks:

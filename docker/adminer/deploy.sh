@@ -1,1 +1,3 @@
-docker stack deploy -c docker-stack.yml adminer
+#!/bin/bash
+
+docker stack  deploy -c  docker-stack.yml adminer

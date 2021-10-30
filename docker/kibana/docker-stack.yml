@@ -1,7 +1,7 @@
 version: '3'
 services:
   kibana:
-    image: kibana:7.10.2
+    image: kibana:7.10.1
     ports:
       - 5601:5601
     environment:
