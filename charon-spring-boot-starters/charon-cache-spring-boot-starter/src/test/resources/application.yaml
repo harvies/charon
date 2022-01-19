@@ -1,0 +1,14 @@
+charon:
+  application:
+    name: charon-cache-spring-boot
+  env: dev
+logging:
+  level:
+    root: debug
+jetcache:
+  statIntervalMinutes: 15
+  areaInCacheName: false
+  local:
+    default:
+      type: caffeine
+      keyConvertor: fastjson
