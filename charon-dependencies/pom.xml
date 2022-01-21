@@ -34,7 +34,7 @@
         <shardingsphere.version>5.0.0-alpha</shardingsphere.version>
         <!--        <shardingsphere.version>4.1.1</shardingsphere.version>-->
         <HikariCP.version>3.4.5</HikariCP.version>
-        <h2.version>1.4.200</h2.version>
+        <h2.version>2.1.210</h2.version>
         <logback.version>1.2.3</logback.version>
         <log4j.version>1.7.31</log4j.version>
         <commons-logging.version>1.2</commons-logging.version>
