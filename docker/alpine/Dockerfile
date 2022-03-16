@@ -1,4 +1,4 @@
-FROM alpine:3.12
+FROM alpine:3.13.7
 LABEL maintainer="delverjw@gmail.com"
 
 ## 更换镜像
