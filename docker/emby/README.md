@@ -8,8 +8,8 @@ https://hub.docker.com/r/lovechen/embyserver
 ```bash
 docker run \
 --network=bridge \
--p '9096:8096' \
--p '9920:8920' \
+-p '8096:8096' \
+-p '8920:8920' \
 -p '2900:1900/udp' \
 -p '8359:7359/udp' \
 -v /volume2/docker/emby:/config \
