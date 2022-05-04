@@ -26,7 +26,7 @@ docker run \
 
 old
 ```
-docker run -d --name embyserver --volume /volume2/docker/programdata:/config --volume /volume2/Download:/mnt/Download --volume /volume3/video:/mnt/video --net=host --publish 9096:8096 --publish 9920:8920 --env UID=0 --env GID=0 --env GIDLIST=0 zishuo/embyserver:latest
+docker run -d  --name embyserver --volume /volume2/docker/programdata:/config --volume /volume2/Download:/mnt/Download --volume /volume3/video:/mnt/video --net=bridge --publish 9096:8096 --publish 9920:8920 --env UID=0 --env GID=0 --env GIDLIST=0 zishuo/embyserver:latest
 ```
 
 ### 插件
