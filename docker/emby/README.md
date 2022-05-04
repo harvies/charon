@@ -5,6 +5,7 @@
 https://hub.docker.com/r/lovechen/embyserver
 
 ### 脚本
+
 ```bash
 docker run \
 --network=bridge \
@@ -21,6 +22,11 @@ docker run \
 --restart always \
 --name emby \
 -d lovechen/embyserver:4.7.0.35
+```
+
+old
+```
+docker run -d --name embyserver --volume /volume2/docker/programdata:/config --volume /volume2/Download:/mnt/Download --volume /volume3/video:/mnt/video --net=host --publish 9096:8096 --publish 9920:8920 --env UID=0 --env GID=0 --env GIDLIST=0 zishuo/embyserver:latest
 ```
 
 ### 插件
