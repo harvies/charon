@@ -1,0 +1,12 @@
+version: "3.2"
+services:
+  nginxWebUi-server:
+    image: cym1102/nginxwebui:latest
+    volumes:
+      - type: bind
+        source: "/home/nginxWebUI"
+        target: "/home/nginxWebUI"
+    environment:
+      BOOT_OPTIONS: "--server.port=8080"
+    privileged: true
+    network_mode: "host"
