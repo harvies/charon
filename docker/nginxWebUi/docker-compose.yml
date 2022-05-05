@@ -2,6 +2,7 @@ version: "3.2"
 services:
   nginxWebUi-server:
     image: cym1102/nginxwebui:latest
+    restart: always
     volumes:
       - type: bind
         source: "/home/nginxWebUI"
