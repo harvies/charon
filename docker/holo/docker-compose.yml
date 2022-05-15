@@ -25,7 +25,7 @@ services:
       HALO_ADMIN_PATH: admin
       HALO_CACHE: redis
       SPRING_REDIS_PORT: 65379
-      SPRING_REDIS_DATABASE: 3
+      SPRING_REDIS_DATABASE: 2
       SPRING_REDIS_HOST: redis.dev.kikera.org
       SPRING_REDIS_PASSWORD: rnqdkWfnBHCiCQtq
     dns: 192.168.7.3
