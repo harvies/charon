@@ -11,21 +11,20 @@ services:
     environment:
       WORDPRESS_DB_HOST: mysql.dev.kikera.org:3306
       WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD:
+      WORDPRESS_DB_PASSWORD: QcTVus8wXX9Caz2
     deploy:
       placement:
-        constraints:
-          - node.labels.name == hp
+        constraints: [ node.labels.hostname == ArchLinux1 ]
       replicas: 1
       resources:
         limits:
-          memory: 200M
+          memory: 512M
         reservations:
-          cpus: '0.25'
-          memory: 200M
+          cpus: '1'
+          memory: 512M
     networks:
       - default
-    dns: 192.168.7.77
+    dns: 192.168.7.3
 networks:
   default:
     external:
