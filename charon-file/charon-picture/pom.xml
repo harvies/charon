@@ -17,6 +17,22 @@
             <artifactId>thumbnailator</artifactId>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.biejieshi.compress</groupId>
+            <artifactId>java-png-compress-util</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jmimemagic</groupId>
+            <artifactId>jmimemagic</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
