@@ -819,6 +819,16 @@
                 <artifactId>jetcache-starter-redis</artifactId>
                 <version>2.6.2</version>
             </dependency>
+            <dependency>
+                <groupId>com.biejieshi.compress</groupId>
+                <artifactId>java-png-compress-util</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>jmimemagic</groupId>
+                <artifactId>jmimemagic</artifactId>
+                <version>0.1.2</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
