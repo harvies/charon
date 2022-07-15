@@ -822,7 +822,7 @@
             <dependency>
                 <groupId>com.biejieshi.compress</groupId>
                 <artifactId>java-png-compress-util</artifactId>
-                <version>1.0.0</version>
+                <version>2022.1.0</version>
             </dependency>
             <dependency>
                 <groupId>jmimemagic</groupId>
@@ -860,19 +860,6 @@
             <artifactId>mockito-inline</artifactId>
         </dependency>
     </dependencies>
-
-    <distributionManagement>
-
-        <snapshotRepository>
-            <id>rdc-snapshots</id>
-            <url>https://repo.rdc.aliyun.com/repository/130334-snapshot-p7wPh5/</url>
-        </snapshotRepository>
-        <repository>
-            <id>rdc-releases</id>
-            <url>https://repo.rdc.aliyun.com/repository/130334-release-2FjnAX/</url>
-        </repository>
-
-    </distributionManagement>
 
     <build>
         <pluginManagement>
@@ -1115,7 +1102,21 @@
                 <repository>
                     <id>github</id>
                     <name>GitHub OWNER Apache Maven Packages</name>
-                    <url>https://maven.pkg.github.com/harvies/charon</url>
+                    <url>https://maven.pkg.github.com/harvies/maven_repository</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+
+        <profile>
+            <id>aliyun</id>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>aliyun-snapshots</id>
+                    <url>https://repo.rdc.aliyun.com/repository/130334-snapshot-p7wPh5/</url>
+                </snapshotRepository>
+                <repository>
+                    <id>aliyun-releases</id>
+                    <url>https://repo.rdc.aliyun.com/repository/130334-release-2FjnAX/</url>
                 </repository>
             </distributionManagement>
         </profile>
