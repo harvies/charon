@@ -24,7 +24,7 @@ services:
           memory: 512M
     networks:
       - default
-    dns: 192.168.7.3
+    dns: 192.168.7.1
 networks:
   default:
     external:

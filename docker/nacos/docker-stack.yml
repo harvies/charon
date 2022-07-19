@@ -6,6 +6,12 @@ services:
     restart: always
     ports:
       - 8848:8848
+    healthcheck:
+      test: curl -f http://localhost:8848/nacos/actuator/health |grep 'UP' || exit 1
+      interval: 3s
+      timeout: 1s
+      retries: 3
+      start_period: 10m
     deploy:
       replicas: 1
     networks:
@@ -30,7 +36,7 @@ services:
       PREFER_HOST_MODE: ip
       TIME_ZONE: 'Asia/Shanghai'
       TOMCAT_ACCESSLOG_ENABLED: 'true'
-    dns: 192.168.7.3
+    dns: 192.168.7.1
 networks:
   default:
     external:

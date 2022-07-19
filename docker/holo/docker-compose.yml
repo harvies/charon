@@ -28,7 +28,7 @@ services:
       SPRING_REDIS_DATABASE: 2
       SPRING_REDIS_HOST: redis.dev.kikera.org
       SPRING_REDIS_PASSWORD: rnqdkWfnBHCiCQtq
-    dns: 192.168.7.3
+    dns: 192.168.7.1
 networks:
   default:
     external:
