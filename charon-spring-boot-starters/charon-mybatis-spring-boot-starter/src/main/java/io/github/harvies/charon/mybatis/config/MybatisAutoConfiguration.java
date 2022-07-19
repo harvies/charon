@@ -2,6 +2,7 @@ package io.github.harvies.charon.mybatis.config;
 
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
+import io.github.harvies.charon.mybatis.injector.MySqlInjector;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -28,5 +29,10 @@ public class MybatisAutoConfiguration {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
         interceptor.addInnerInterceptor(paginationInnerInterceptor);
         return interceptor;
+    }
+
+    @Bean
+    public MySqlInjector mySqlInjector() {
+        return new MySqlInjector();
     }
 }
