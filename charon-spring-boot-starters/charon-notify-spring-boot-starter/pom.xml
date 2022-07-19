@@ -25,10 +25,10 @@
             <version>${telegram.version}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>io.github.harvies.charon</groupId>
-            <artifactId>charon-config-spring-boot-starter</artifactId>
-            <scope>test</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>io.github.harvies.charon</groupId>-->
+<!--            <artifactId>charon-config-spring-boot-starter</artifactId>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
     </dependencies>
 </project>
