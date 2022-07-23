@@ -17,9 +17,9 @@ services:
       replicas: 1
       resources:
         limits:
-          memory: 1G
+          memory: 2G
         reservations:
-          memory: 1G
+          memory: 2G
     dns: 192.168.7.1
     networks:
       - default
