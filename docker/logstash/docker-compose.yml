@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  logstash:
+    image: logstash:7.10.1
+    restart: always
+    hostname: logstash
+    ports:
+      - "60514:5044" #设置端口
+    environment:
+      XPACK_MONITORING_ENABLED: "false"
+      pipeline.batch.size: 10
+    configs:
+      - source: logstash.conf
+        target: /usr/share/logstash/pipeline/logstash.conf
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 1G
+    dns: 192.168.7.1
+    networks:
+      - default
+networks:
+  default:
+    external: true
+    name: dev_overlay
+configs:
+  logstash.conf:
+    external: true
