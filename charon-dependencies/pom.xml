@@ -46,7 +46,7 @@
         <dubbo.version>2.7.10</dubbo.version>
         <arthas.version>3.3.7</arthas.version>
         <webmagic.version>0.7.4-SNAPSHOT</webmagic.version>
-        <redisson.version>3.16.0</redisson.version>
+        <redisson.version>3.17.5</redisson.version>
         <seata.version>0.5.1</seata.version>
         <jpa.version>1.0.0.Final</jpa.version>
         <rocketmq.version>4.9.0</rocketmq.version>
