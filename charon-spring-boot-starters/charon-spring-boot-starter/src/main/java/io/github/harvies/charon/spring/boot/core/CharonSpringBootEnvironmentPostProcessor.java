@@ -28,7 +28,7 @@ public class CharonSpringBootEnvironmentPostProcessor implements EnvironmentPost
     /**
      * 配置文件位置，可扫描多个jar
      */
-    public static final String CHARON_PROPERTIES_RESOURCE_LOCATION = "charon/application.properties";
+    public static final String CHARON_PROPERTIES_RESOURCE_LOCATION = "application.properties";
 
 
     @SneakyThrows

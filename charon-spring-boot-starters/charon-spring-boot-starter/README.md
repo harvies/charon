@@ -1,3 +1,3 @@
 ## CharonSpringBootEnvironmentPostProcessor
 
-自动加载 classpath:charon/application.properties放入MutablePropertySources尾部
+自动加载 classpath:application.properties放入MutablePropertySources尾部

@@ -1020,7 +1020,9 @@
                                 <jvmFlag>-Djava.security.egd=file:/dev/./urandom</jvmFlag>
                                 <jvmFlag>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5005
                                 </jvmFlag>
-                                <jvmFlag>-javaagent:/opt/skywalking-agent/skywalking-agent.jar</jvmFlag>
+                                <jvmFlag>
+                                    -javaagent:/opt/skywalking-agent/skywalking-agent.jar=trace.ignore_path='/actuator/health,/actuator/prometheus,Redisson/PING'
+                                </jvmFlag>
                             </jvmFlags>
                             <ports>
                                 <port>${web.port}</port>
