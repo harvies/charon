@@ -6,6 +6,7 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.Map;
+import java.util.Objects;
 
 @Data
 @Accessors(chain = true)
@@ -28,4 +29,8 @@ public abstract class BaseResult implements Serializable {
      * 额外信息
      */
     private Map<String, Object> extra;
+
+    public boolean isSuccessed() {
+        return Objects.equals(this.code, ResultEnum.SUCCESS.getCode());
+    }
 }
