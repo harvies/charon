@@ -8,7 +8,7 @@
 # Documentation:
 #     https://github.com/ArchiveBox/ArchiveBox/wiki/Docker#docker-compose
 
-version: '2.4'
+version: '3.6'
 
 services:
   archivebox:
@@ -16,7 +16,7 @@ services:
     image: ${DOCKER_IMAGE:-archivebox/archivebox:master}
     command: server --quick-init 0.0.0.0:8000
     ports:
-      - 8000:8000
+      - 8300:8000
     environment:
       - ALLOWED_HOSTS=*                   # add any config options you want as env vars
       - MEDIA_MAX_SIZE=750m
@@ -24,8 +24,15 @@ services:
       # - SEARCH_BACKEND_HOST_NAME=sonic
       # - SEARCH_BACKEND_PASSWORD=SecretPassword
     volumes:
-      - /volume2/docker/ArchiveBox:/data
+      - archivebox:/data
       # - ./archivebox:/app/archivebox    # for developers working on archivebox
+volumes:
+  archivebox:
+    driver: local
+    driver_opts:
+      type: "nfs"
+      o: "addr=192.168.7.76,nolock,soft,rw"
+      device: ":/volume2/docker/archivebox"
 
   # To run the Sonic full-text search backend, first download the config file to sonic.cfg
   # curl -O https://raw.githubusercontent.com/ArchiveBox/ArchiveBox/master/etc/sonic.cfg
