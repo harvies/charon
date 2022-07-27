@@ -24,15 +24,17 @@ services:
       # - SEARCH_BACKEND_HOST_NAME=sonic
       # - SEARCH_BACKEND_PASSWORD=SecretPassword
     volumes:
-      - archivebox:/data
+      - /volume2/docker/archivebox:/data
+#      - archivebox:/data    # for nfs
       # - ./archivebox:/app/archivebox    # for developers working on archivebox
-volumes:
-  archivebox:
-    driver: local
-    driver_opts:
-      type: "nfs"
-      o: "addr=192.168.7.76,nolock,soft,rw"
-      device: ":/volume2/docker/archivebox"
+# nfs
+#volumes:
+#  archivebox:
+#    driver: local
+#    driver_opts:
+#      type: "nfs"
+#      o: "addr=192.168.7.76,nolock,soft,rw"
+#      device: ":/volume2/docker/archivebox"
 
   # To run the Sonic full-text search backend, first download the config file to sonic.cfg
   # curl -O https://raw.githubusercontent.com/ArchiveBox/ArchiveBox/master/etc/sonic.cfg
