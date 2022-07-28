@@ -32,6 +32,7 @@
         <module>charon-shiro-spring-boot-starter</module>
         <module>charon-webflux-spring-boot-starter</module>
         <module>charon-cache-spring-boot-starter</module>
+        <module>charon-batch-spring-boot-starter</module>
     </modules>
     <dependencies>
         <dependency>
