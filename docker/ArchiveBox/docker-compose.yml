@@ -15,6 +15,7 @@ services:
     # build: .                              # for developers working on archivebox
     image: ${DOCKER_IMAGE:-archivebox/archivebox:master}
     command: server --quick-init 0.0.0.0:8000
+    restart: always
     ports:
       - 8300:8000
     environment:
