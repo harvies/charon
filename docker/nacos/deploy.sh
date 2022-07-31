@@ -1,1 +1,1 @@
-docker stack deploy -c docker-stack.yml nacos
+docker-compose up
