@@ -1,2 +1,2 @@
 #!/bin/bash
-docker push registry.cn-hangzhou.aliyuncs.com/harvies/jdk:20220802
+docker push registry.cn-hangzhou.aliyuncs.com/harvies/jdk:20210912
