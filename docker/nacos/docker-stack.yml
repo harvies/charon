@@ -14,6 +14,8 @@ services:
       start_period: 3m
     deploy:
       replicas: 1
+    networks:
+      - default
     environment:
       SPRING_DATASOURCE_PLATFORM: 'mysql'
       MYSQL_SERVICE_HOST: 'mysql.dev.kikera.org'
@@ -35,3 +37,7 @@ services:
       TIME_ZONE: 'Asia/Shanghai'
       TOMCAT_ACCESSLOG_ENABLED: 'true'
     dns: 192.168.7.1
+networks:
+  default:
+    external:
+      name: dev_overlay
