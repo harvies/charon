@@ -17,7 +17,7 @@
 version: '3.7'
 services:
   oap:
-    image: apache/skywalking-oap-server:8.8.1
+    image: apache/skywalking-oap-server:9.1.0
     restart: always
     ports:
       - 11800:11800
@@ -32,8 +32,8 @@ services:
       SW_STORAGE: elasticsearch
       SW_STORAGE_ES_CLUSTER_NODES: es.dev.kikera.org:9200
       SW_NAMESPACE: 'dev_sw_es7'
-      SW_ES_USER: 
-      SW_ES_PASSWORD: 
+      SW_ES_USER:
+      SW_ES_PASSWORD:
       SW_STORAGE_ES_ADVANCED: '"{\"index.refresh_interval\":\"120s\",\"index.unassigned.node_left.delayed_timeout\":\"5d\",\"index.number_of_shards\":\"1\",\"index.translog.flush_threshold_size\":\"1000mb\",\"index.translog.sync_interval\":\"120s\",\"index.translog.durability\":\"async\",\"index.number_of_replicas\":\"0\",\"index.merge.policy.segments_per_tier\":\"24\",\"index.merge.policy.max_merged_segment\":\"1000m\"}"'
       SW_STORAGE_ES_RECORD_DATA_TTL: 2
       SW_STORAGE_ES_OTHER_METRIC_DATA_TTL: 3
@@ -51,7 +51,7 @@ services:
       start_period: 40s
     dns: 192.168.7.1
   ui:
-    image: apache/skywalking-ui:8.8.1
+    image: apache/skywalking-ui:9.1.0
     restart: always
     ports:
       - 8084:8080
