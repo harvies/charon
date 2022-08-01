@@ -983,7 +983,7 @@
                     <configuration>
                         <allowInsecureRegistries>true</allowInsecureRegistries>
                         <from>
-                            <image>registry.cn-hangzhou.aliyuncs.com/harvies/jdk:20210912</image>
+                            <image>registry.cn-hangzhou.aliyuncs.com/harvies/jdk:20220802</image>
                         </from>
                         <to>
                             <image>registry.cn-hangzhou.aliyuncs.com/harvies/${project.artifactId}:${project.version}
