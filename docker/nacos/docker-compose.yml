@@ -8,10 +8,10 @@ services:
       - 8848:8848
     healthcheck:
       test: curl -f http://localhost:8848/nacos/actuator/health |grep 'UP' || exit 1
-      interval: 3s
-      timeout: 1s
-      retries: 3
-      start_period: 5m
+      interval: 10s
+      timeout: 5s
+      retries: 60
+      start_period: 3m
     deploy:
       replicas: 1
     environment:
