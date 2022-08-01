@@ -22,13 +22,13 @@ RUN  yum clean all && rm -rf /tmp/* /var/cache/yum/*
 RUN  wget -O /opt/arthas-boot.jar  https://arthas.aliyun.com/arthas-boot.jar
 
 # Add SkyWalking-Agent
-ARG SKYWALKING_VERSION="9.1.0"
+ARG SKYWALKING_VERSION="8.7.0"
 RUN wget https://mirrors.aliyun.com/apache/skywalking/${SKYWALKING_VERSION}/apache-skywalking-apm-es7-${SKYWALKING_VERSION}.tar.gz \
     && tar -zxf apache-skywalking-apm-es7-${SKYWALKING_VERSION}.tar.gz \
     && mv apache-skywalking-apm-bin-es7/agent /opt/skywalking-agent \
     &&  rm -rf apache-skywalking-apm-bin-es7 apache-skywalking-apm-es7-${SKYWALKING_VERSION}.tar.gz \
     && mv /opt/skywalking-agent/optional-plugins/* /opt/skywalking-agent/plugins
 
-# RUN wget -O /opt/skywalking-agent/config/agent.config https://raw.githubusercontent.com/harvies/oss/master/configs/skywalking/agent.config
+RUN wget -O /opt/skywalking-agent/config/agent.config https://raw.githubusercontent.com/harvies/oss/master/configs/skywalking/agent.config
 
 WORKDIR /
