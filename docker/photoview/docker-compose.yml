@@ -24,7 +24,7 @@ services:
       # - MAPBOX_TOKEN=<YOUR TOKEN HERE>
 
     volumes:
-      - api_cache:/app/cache
+      - /data/photos/cache:/app/cache
 
       # Change This: to the directory where your photos are located on your server.
       # If the photos are located at `/home/user/photos`, then change this value
