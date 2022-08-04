@@ -13,15 +13,15 @@ docker run \
 -p '8920:8920' \
 -p '2900:1900/udp' \
 -p '8359:7359/udp' \
--v /volume2/docker/emby:/config \
--v /volume3/video/:/data \
+-v /data/docker/emby:/config \
+-v /data/videos/:/data \
 -e TZ="Asia/Shanghai" \
 -e UID=0 \
 -e GID=0 \
 -e GIDLIST=0 \
 --restart always \
 --name emby \
--d lovechen/embyserver:4.7.0.35
+-d lovechen/embyserver:4.7.5.0
 ```
 
 old
