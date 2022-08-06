@@ -31,3 +31,4 @@ services:
       # to the following: `/home/user/photos:/photos:ro`.
       # You can mount multiple paths, if your photos are spread across multiple directories.
       - /data/photos:/photos:ro
+      - /data/tmp:/tmp
