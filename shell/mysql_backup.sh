@@ -19,7 +19,7 @@ DEL_DAY=3
 DATABASES=("nacos" "blazars" "halodb")
 
 # 创建日期目录
-mkdir $BAK_DIR/$DATE
+mkdir -p $BAK_DIR/$DATE
 
 echo "-------------------$(date +%F_%T) start ---------------"  >>${BAK_DIR}/db_backup.log
 for database in "${DATABASES[@]}"
