@@ -9,7 +9,7 @@ DB_PORT="3306"
 # MYSQL所在目录
 MYSQL_DIR="/usr"
 # 备份文件存放目录
-BAK_DIR="/data/backup/mysql"
+BAK_DIR="/data/backups/mysql"
 # 时间格式化，如 20200902
 DATE=`date +%Y%m%d`
 # 备份脚本保存的天数
