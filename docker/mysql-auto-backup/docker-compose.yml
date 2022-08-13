@@ -5,7 +5,7 @@ services:
     image: taooba/mysql-auto-backup
     volumes:
       - /data/backup/mysql/:/mysql_backups/:rw
-    restart: always
+    restart: unless-stopped
     environment:
       MYSQL_DB_HOST: 'mysql.dev.kikera.org'
       MYSQL_DB_USER: root
