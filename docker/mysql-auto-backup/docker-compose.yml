@@ -2,7 +2,7 @@ version: '3'
 
 services:
   mysql-auto-backup:
-    image: taooba:mysql-auto-backup
+    image: taooba/mysql-auto-backup
     volumes:
       - /data/backup/mysql/:/mysql_backups/:rw
     restart: always
