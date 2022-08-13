@@ -7,13 +7,13 @@ services:
       - /data/backup/mysql/:/mysql_backups/:rw
     restart: always
     environment:
-      MYSQL_DB_HOST: mysql.dev.kikera.org
+      MYSQL_DB_HOST: 'mysql.dev.kikera.org'
       MYSQL_DB_USER: root
       MYSQL_DB_PWD: '8mx3@kHn!CYRF2G'
-      MYSQL_DB_NAME: blazars nacos halodb
-      CRONTAB_TIME: 0 0 1 * * ?
+      MYSQL_DB_NAME: 'blazars nacos halodb'
+      CRONTAB_TIME: '0 0 1 * * ?'
       BACKUP_DAYS: 3
-      MYSQL_BACKUP_CUSTOM_OPTION: -q
+      MYSQL_BACKUP_CUSTOM_OPTION: '-q'
     dns: 192.168.7.1
 
 # https://github.com/taooba/docker-mysql-auto-backup
