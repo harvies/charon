@@ -7,7 +7,7 @@ DB_HOST="127.0.0.1"
 DB_PORT="3306"
 
 # MYSQL所在目录
-MYSQL_DIR="/var/lib/mysql"
+MYSQL_DIR="/usr/bin"
 # 备份文件存放目录
 BAK_DIR="/data/mysql_backups"
 # 时间格式化，如 20200902
