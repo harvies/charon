@@ -1,5 +1,6 @@
 package io.github.harvies.charon.spring.boot.web;
 
+import io.github.harvies.charon.spring.boot.web.aop.GlobalExceptionHandler;
 import io.github.harvies.charon.spring.boot.web.aop.LogAspect;
 import io.github.harvies.charon.spring.boot.web.config.CharonWebMvcConfig;
 import io.github.harvies.charon.spring.boot.web.config.ControllerConfiguration;
@@ -22,5 +23,10 @@ public class CharonWebAutoConfiguration {
     @Bean
     public LogAspect logAspect() {
         return new LogAspect();
+    }
+
+    @Bean
+    public GlobalExceptionHandler globalExceptionHandler() {
+        return new GlobalExceptionHandler();
     }
 }
