@@ -1,6 +1,6 @@
 package io.github.harvies.charon.spring.boot.web.aop;
 
-import io.github.harvies.charon.result.BaseResult;
+import io.github.harvies.charon.model.ApiResult;
 import io.github.harvies.charon.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -76,7 +76,7 @@ public class LogAspect {
      * @param resultVO
      */
     @AfterReturning(returning = "resultVO", pointcut = "controllerMethod()")
-    public void logResultVOInfo(BaseResult resultVO) {
+    public void logResultVOInfo(ApiResult resultVO) {
         log.info("请求结果：" + JsonUtils.toJSONString(resultVO));
     }
 

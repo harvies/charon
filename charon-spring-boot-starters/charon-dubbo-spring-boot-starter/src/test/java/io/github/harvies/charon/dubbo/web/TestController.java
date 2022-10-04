@@ -1,8 +1,7 @@
 package io.github.harvies.charon.dubbo.web;
 
 import io.github.harvies.charon.dubbo.api.EchoService;
-import io.github.harvies.charon.result.ResultDTO;
-import io.github.harvies.charon.result.Results;
+import io.github.harvies.charon.model.ApiResult;
 import io.github.harvies.charon.util.RandomUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
@@ -18,7 +17,7 @@ public class TestController {
     private EchoService echoService;
 
     @RequestMapping(value = "/hello")
-    public ResultDTO<String> hello() {
-        return Results.success(echoService.echo(RandomUtils.uuid()));
+    public ApiResult<String> hello() {
+        return ApiResult.success(echoService.echo(RandomUtils.uuid()));
     }
 }

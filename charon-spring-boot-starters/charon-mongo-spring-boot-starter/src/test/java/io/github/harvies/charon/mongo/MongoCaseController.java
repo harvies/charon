@@ -1,8 +1,7 @@
 package io.github.harvies.charon.mongo;
 
 import com.mongodb.client.MongoDatabase;
-import io.github.harvies.charon.result.ResultDTO;
-import io.github.harvies.charon.result.Results;
+import io.github.harvies.charon.model.ApiResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.MediaType;
@@ -25,12 +24,12 @@ public class MongoCaseController {
     private List<MongoTemplate> mongoTemplateList;
 
     @RequestMapping("/case")
-    public ResultDTO<Boolean> mongodb() {
+    public ApiResult<Boolean> mongodb() {
         for (MongoTemplate mongoTemplate : mongoTemplateList) {
             MongoDatabase mongoDatabase = mongoTemplate.getDb();
             mongoDatabase.listCollectionNames().forEach(s -> log.info("{} dbName:[{}] collectionNames:[{}]", mongoTemplate.hashCode(), mongoDatabase.getName(), s));
             log.info("--------------------");
         }
-        return Results.success(true);
+        return ApiResult.success(true);
     }
 }

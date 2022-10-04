@@ -1,8 +1,8 @@
 package io.github.harvies.charon.dubbo.filters;
 
 import com.google.common.base.Stopwatch;
+import io.github.harvies.charon.model.TraceIdGenerator;
 import io.github.harvies.charon.util.JsonUtils;
-import io.github.harvies.charon.util.TraceUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.common.extension.Activate;
@@ -22,7 +22,7 @@ public class LogFilter implements Filter {
     public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
         Stopwatch stopwatch = Stopwatch.createStarted();
         if (StringUtils.isBlank(invocation.getAttachment(TRACE_ID))) {
-            String traceId = TraceUtils.getTraceId();
+            String traceId = TraceIdGenerator.generate();
             invocation.getObjectAttachments().put(TRACE_ID, traceId);
         }
         Result result = invoker.invoke(invocation);

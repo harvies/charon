@@ -1,6 +1,6 @@
 package io.github.harvies.test.spring.boot.web;
 
-import io.github.harvies.charon.spring.boot.web.aop.GlobalException;
+import io.github.harvies.charon.model.exception.ApiException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +15,6 @@ public class TestExceptionController {
 
     @RequestMapping(value = "/global", produces = MediaType.TEXT_PLAIN_VALUE)
     public String status() {
-        throw new GlobalException(RESULT);
+        throw new ApiException(RESULT);
     }
 }

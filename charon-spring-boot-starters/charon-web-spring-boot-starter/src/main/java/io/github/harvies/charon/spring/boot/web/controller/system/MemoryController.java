@@ -1,7 +1,6 @@
 package io.github.harvies.charon.spring.boot.web.controller.system;
 
-import io.github.harvies.charon.result.ResultDTO;
-import io.github.harvies.charon.result.Results;
+import io.github.harvies.charon.model.ApiResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,13 +14,13 @@ import java.lang.management.MemoryUsage;
 public class MemoryController {
 
     @RequestMapping(value = "/heapMemoryUsage")
-    public ResultDTO<MemoryUsage> heapMemoryUsage() {
-        return Results.success(ManagementFactory.getMemoryMXBean().getHeapMemoryUsage());
+    public ApiResult<MemoryUsage> heapMemoryUsage() {
+        return ApiResult.success(ManagementFactory.getMemoryMXBean().getHeapMemoryUsage());
     }
 
     @RequestMapping(value = "/nonHeapMemoryUsage")
-    public ResultDTO<MemoryUsage> getNonHeapMemoryUsage() {
-        return Results.success(ManagementFactory.getMemoryMXBean().getNonHeapMemoryUsage());
+    public ApiResult<MemoryUsage> getNonHeapMemoryUsage() {
+        return ApiResult.success(ManagementFactory.getMemoryMXBean().getNonHeapMemoryUsage());
     }
 }
 

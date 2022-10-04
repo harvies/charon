@@ -28,6 +28,7 @@
         <module>charon-spring-boot-starters</module>
         <module>charon-spring-cloud-starters</module>
         <module>charon-agent</module>
+        <module>charon-model</module>
     </modules>
     <profiles>
         <profile>

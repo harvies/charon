@@ -1,4 +1,4 @@
-package io.github.harvies.charon.util;
+package io.github.harvies.charon.model;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.skywalking.apm.toolkit.trace.TraceContext;
@@ -6,11 +6,11 @@ import org.apache.skywalking.apm.toolkit.trace.TraceContext;
 import java.util.Objects;
 import java.util.UUID;
 
-public class TraceUtils {
+public class TraceIdGenerator {
 
     private static final ThreadLocal<String> LOCAL_TRACE_ID = new ThreadLocal<>();
 
-    public static String getTraceId() {
+    public static String generate() {
         String string = LOCAL_TRACE_ID.get();
         if (StringUtils.isBlank(string)) {
             String traceId = TraceContext.traceId();

@@ -231,6 +231,11 @@
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>5.8.6</version>
+            </dependency>
             <!-- test-->
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
@@ -485,6 +490,11 @@
             <dependency>
                 <groupId>io.github.harvies.charon</groupId>
                 <artifactId>charon-api</artifactId>
+                <version>${charon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.harvies.charon</groupId>
+                <artifactId>charon-model</artifactId>
                 <version>${charon.version}</version>
             </dependency>
             <dependency>

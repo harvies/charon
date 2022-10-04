@@ -1,0 +1,1 @@
+mvn clean -U compile -DskipTests=true -X
