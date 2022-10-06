@@ -13,7 +13,8 @@ services:
       CHEVERETO_DB_NAME: chevereto
       CHEVERETO_DB_PREFIX: chv_
     volumes:
-      - /volume3/data/chevereto_images:/var/www/html/images:rw
+      - /volume3/data/chevereto/images:/var/www/html/images:rw
+      - ./chevereto.ini:/usr/local/etc/php/conf.d/chevereto.ini
     ports:
       - 8501:80
 networks:
