@@ -12,5 +12,3 @@ services:
     ports:
       - 8503:80
     restart: always
-
-## freshrss P7AMwTsNL9My9i
