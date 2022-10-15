@@ -7,6 +7,8 @@ import com.google.common.collect.Maps;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class HttpUtils {
 
@@ -24,5 +26,16 @@ public class HttpUtils {
             }
         }
         return cookieMap;
+    }
+
+    public static String getFileNameFromUrl(String urlPath) {
+        // 指定文件后缀名称(有需求可以自定义，如doc等等)
+        String suffixes = "jpeg|jpg|png|pdf|xlsx|xls|md|txt";
+        Pattern pat = Pattern.compile("[0-9a-zA-Z_-]+[.](" + suffixes + ")");//正则判断
+        Matcher mc = pat.matcher(urlPath);//条件匹配
+        while (mc.find()) {
+            return mc.group();
+        }
+        return null;
     }
 }
