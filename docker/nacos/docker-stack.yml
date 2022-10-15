@@ -48,4 +48,4 @@ services:
 networks:
   default:
     external:
-      name: dev_overlay
+      name: dev_middleware_overlay
