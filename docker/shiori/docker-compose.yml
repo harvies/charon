@@ -1,0 +1,14 @@
+version: "3"
+services:
+  shiori:
+    image: ghcr.io/go-shiori/shiori
+    container_name: shiori
+    restart: unless-stopped
+    ports:
+      - "8082:8080"
+    environment:
+      SHIORI_DBMS: 'mysql'
+      SHIORI_MYSQL_NAME: 'shiori'
+      SHIORI_MYSQL_USER: 'shiori'
+      SHIORI_MYSQL_PASS: 'P7AMwTsNL9My9i'
+      SHIORI_MYSQL_ADDRESS: 'tcp(mysql.dev.kikera.org:3306)'

@@ -21,7 +21,7 @@ services:
       - SEAFILE_ADMIN_PASSWORD=asecret     # Specifies Seafile admin password, default is 'asecret'
       - SEAFILE_SERVER_LETSENCRYPT=false   # Whether to use https or not
       - SEAFILE_SERVER_HOSTNAME=seafile.kikera.org # Specifies your host name if https is enabled
-    dns: 192.168.7.77
+    dns: 192.168.7.1
 networks:
   default:
     external:

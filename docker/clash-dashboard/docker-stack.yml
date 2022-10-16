@@ -14,7 +14,7 @@ services:
           memory: 300M
         reservations:
           memory: 300M
-    dns: 192.168.7.77
+    dns: 192.168.7.1
     networks:
       - default
 networks:

@@ -13,7 +13,7 @@ services:
       - default
     environment:
       PMA_ARBITRARY: 1
-    dns: 192.168.7.77
+    dns: 192.168.7.1
 networks:
   default:
     external:

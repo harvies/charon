@@ -21,4 +21,4 @@ services:
     environment:
       discovery.type: single-node
       ES_JAVA_OPTS: "-Xms512m -Xmx512m"
-    dns: 192.168.7.77
+    dns: 192.168.7.1

@@ -21,7 +21,7 @@ services:
       - admin.check.authority=false
       - admin.root.user.name=admin
       - admin.root.user.password=
-    dns: 192.168.7.77
+    dns: 192.168.7.1
     networks:
       - default
 networks:
