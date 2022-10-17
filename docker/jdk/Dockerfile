@@ -27,7 +27,7 @@ ARG SKYWALKING_VERSION="8.12.0"
 RUN wget https://mirrors.aliyun.com/apache/skywalking/java-agent/${SKYWALKING_VERSION}/apache-skywalking-java-agent-${SKYWALKING_VERSION}.tgz \
     && tar -zxf apache-skywalking-java-agent-${SKYWALKING_VERSION}.tgz \
     && mv skywalking-agent /opt/skywalking-agent \
-    &&  rm -rf apache-skywalking-java-agent-${SKYWALKING_VERSION}.tgz \
+    &&  rm -rf apache-skywalking-java-agent-${SKYWALKING_VERSION}.tgz
 #    && mv /opt/skywalking-agent/optional-plugins/* /opt/skywalking-agent/plugins
 
 RUN wget -O /opt/skywalking-agent/config/agent.config https://raw.githubusercontent.com/harvies/oss/master/configs/skywalking/agent.config
