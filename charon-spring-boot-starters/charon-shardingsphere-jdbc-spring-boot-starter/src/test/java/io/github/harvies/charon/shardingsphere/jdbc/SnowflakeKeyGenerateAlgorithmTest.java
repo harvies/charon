@@ -17,8 +17,7 @@ class SnowflakeKeyGenerateAlgorithmTest {
         Properties properties = new Properties();
 //        properties.setProperty("max-vibration-offset", "16");
         properties.setProperty("worker-id", "123");
-        snowflakeKeyGenerateAlgorithm.setProps(properties);
-        snowflakeKeyGenerateAlgorithm.init();
+        snowflakeKeyGenerateAlgorithm.init(properties);
         for (int i = 0; i < 100; i++) {
             Long id = (Long) snowflakeKeyGenerateAlgorithm.generateKey();
             Thread.sleep(100);
