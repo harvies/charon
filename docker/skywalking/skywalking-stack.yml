@@ -17,7 +17,7 @@
 version: '3.7'
 services:
   oap:
-    image: apache/skywalking-oap-server:9.1.0
+    image: apache/skywalking-oap-server:9.2.0
     restart: always
     ports:
       - 11800:11800
@@ -26,7 +26,7 @@ services:
       replicas: 1
       resources:
         limits:
-          memory: 1G
+          memory: 2G
           cpus: '2'
     environment:
       SW_STORAGE: elasticsearch
@@ -42,7 +42,7 @@ services:
       SW_STORAGE_ES_INDEX_REPLICAS_NUMBER: 0
       SW_HEALTH_CHECKER: default
       SW_TELEMETRY: prometheus
-      JAVA_OPTS: "-Xms800m -Xmx800m"
+      JAVA_OPTS: "-Xms2G -Xmx2G"
     healthcheck:
       test: ["CMD-SHELL", "/skywalking/bin/swctl ch"]
       interval: 30s
@@ -51,7 +51,7 @@ services:
       start_period: 40s
     dns: 192.168.7.1
   ui:
-    image: apache/skywalking-ui:9.1.0
+    image: apache/skywalking-ui:9.2.0
     restart: always
     ports:
       - 8084:8080
@@ -59,7 +59,7 @@ services:
       replicas: 1
       resources:
         limits:
-          memory: 800M
+          memory: 2G
           cpus: '2'
     environment:
       SW_OAP_ADDRESS: http://sw.dev.kikera.org:12800
