@@ -153,6 +153,15 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
+
+            <dependency>
+                <groupId>org.spockframework</groupId>
+                <artifactId>spock-bom</artifactId>
+                <version>2.1-groovy-2.5</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <!--            dependencies end-->
             <!-- starter begin-->
             <dependency>
