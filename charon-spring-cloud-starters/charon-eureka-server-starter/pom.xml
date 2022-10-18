@@ -14,7 +14,7 @@
         <JAVA_OPTS.Xms>-Xms200m</JAVA_OPTS.Xms>
     </properties>
     
-    <artifactId>charon-eureka-server</artifactId>
+    <artifactId>charon-eureka-server-starter</artifactId>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-server -->
         <dependency>

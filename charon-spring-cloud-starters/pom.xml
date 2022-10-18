@@ -15,6 +15,7 @@
         <module>charon-nacos-config-spring-cloud-starter</module>
         <module>charon-rpc-spring-cloud-starter</module>
         <module>charon-gray-spring-cloud-starter</module>
+        <module>charon-eureka-server-starter</module>
     </modules>
     <artifactId>charon-spring-cloud-starters</artifactId>
 
