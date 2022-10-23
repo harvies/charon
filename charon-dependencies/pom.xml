@@ -853,6 +853,36 @@
                 <artifactId>sardine</artifactId>
                 <version>5.10</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.bitbucket.johness</groupId>
+                <artifactId>java-cef</artifactId>
+                <version>49.87.win64.2</version>
+            </dependency>
+            <!-- 利用第三方开源包cpdetector获取文件编码格式 begin -->
+            <dependency>
+                <groupId>antlr</groupId>
+                <artifactId>antlr</artifactId>
+                <version>2.7.4</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.mozilla.intl/chardet -->
+            <dependency>
+                <groupId>org.mozilla.intl</groupId>
+                <artifactId>chardet</artifactId>
+                <version>1.1</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/jargs/jargs -->
+            <dependency>
+                <groupId>jargs</groupId>
+                <artifactId>jargs</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sourceforge.cpdetector</groupId>
+                <artifactId>cpdetector</artifactId>
+                <version>1.0.10</version>
+            </dependency>
+            <!-- 利用第三方开源包cpdetector获取文件编码格式 end-->
         </dependencies>
     </dependencyManagement>
 

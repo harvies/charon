@@ -46,6 +46,29 @@
             <artifactId>remark</artifactId>
             <scope>provided</scope>
         </dependency>
+
+        <!-- 利用第三方开源包cpdetector获取文件编码格式 begin-->
+        <!-- https://mvnrepository.com/artifact/antlr/antlr -->
+        <dependency>
+            <groupId>antlr</groupId>
+            <artifactId>antlr</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mozilla.intl/chardet -->
+        <dependency>
+            <groupId>org.mozilla.intl</groupId>
+            <artifactId>chardet</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/jargs/jargs -->
+        <dependency>
+            <groupId>jargs</groupId>
+            <artifactId>jargs</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.cpdetector</groupId>
+            <artifactId>cpdetector</artifactId>
+        </dependency>
+        <!-- 利用第三方开源包cpdetector获取文件编码格式 end-->
+
     </dependencies>
 
 </project>

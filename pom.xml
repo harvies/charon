@@ -30,6 +30,7 @@
         <module>charon-agent</module>
         <module>charon-model</module>
         <module>charon-test</module>
+        <module>charon-jcef</module>
     </modules>
     <profiles>
         <profile>
