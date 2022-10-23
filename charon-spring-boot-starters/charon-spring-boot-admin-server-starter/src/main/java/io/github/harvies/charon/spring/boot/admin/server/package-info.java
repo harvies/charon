@@ -1,1 +1,0 @@
-package io.github.harvies.charon.spring.boot.admin.server;
