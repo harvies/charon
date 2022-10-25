@@ -1,4 +1,4 @@
-package com.jingheng.plugin.domain;
+package io.github.harvies.charon.jcef;
 
 import org.cef.network.CefURLRequest;
 
