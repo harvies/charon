@@ -4,11 +4,11 @@
 name: Maven Package
 
 on:
-#   push:
-#     branches: [ master ]
-#   pull_request:
-#     # The branches below must be a subset of the branches above
-#     branches: [ master ]
+   push:
+     branches: [ master ]
+   pull_request:
+     # The branches below must be a subset of the branches above
+     branches: [ master ]
   release:
     types: [ created ]
 
@@ -27,10 +27,10 @@ jobs:
     - name: Build with Maven
       run: mvn -DskipTests -B install
 
-#    - name: Publish to GitHub Packages Apache Maven
-#      run: mvn deploy -DskipTests -s $GITHUB_WORKSPACE/.maven/settings.xml
-#      env:
-#        GITHUB_TOKEN: ${{ github.token }}
+    - name: Publish to GitHub Packages Apache Maven
+      run: mvn deploy -DskipTests -s $GITHUB_WORKSPACE/.maven/settings.xml
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
 
-    - name: Notify
-      run: curl 'https://api.kikera.top:4433/notify/send?title=charon-GitHub%20Actions&text=%E9%80%9A%E7%9F%A5-charon%20build%20success!' &
+#    - name: Notify
+#      run: curl 'https://api.kikera.top:4433/notify/send?title=charon-GitHub%20Actions&text=%E9%80%9A%E7%9F%A5-charon%20build%20success!' &
