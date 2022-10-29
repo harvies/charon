@@ -1,0 +1,1 @@
+mvn clean package -s ~/.m2/settings_self.xml -Paliyun,github -U
