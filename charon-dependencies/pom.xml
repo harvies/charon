@@ -880,6 +880,13 @@
             </dependency>
 
             <!-- 利用第三方开源包cpdetector获取文件编码格式 end-->
+
+            <dependency>
+                <groupId>io.github.mouzt</groupId>
+                <artifactId>bizlog-sdk</artifactId>
+                <version>3.0.2</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
