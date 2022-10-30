@@ -24,4 +24,14 @@ public class PngCompressUtils {
         pngQuant.setQuality(40, quality);
         return Optional.ofNullable(pngQuant.getRemapped(bufferedImage)).orElse(bufferedImage);
     }
+
+    /**
+     * 压缩图片bufferedImage，若无法达到压缩比例，原样返回
+     *
+     * @param bufferedImage 待压缩的bufferedImage
+     * @return 压缩后的bufferedImage
+     */
+    public static BufferedImage compressPng(BufferedImage bufferedImage) {
+        return compressPng(bufferedImage, 80);
+    }
 }

@@ -840,11 +840,6 @@
                 <version>2.6.2</version>
             </dependency>
             <dependency>
-                <groupId>com.biejieshi.compress</groupId>
-                <artifactId>java-png-compress-util</artifactId>
-                <version>2022.1.0</version>
-            </dependency>
-            <dependency>
                 <groupId>jmimemagic</groupId>
                 <artifactId>jmimemagic</artifactId>
                 <version>0.1.2</version>
@@ -1137,10 +1132,25 @@
             </plugin>
         </plugins>
         <resources>
+            <!-- https://blog.csdn.net/qing_mei_xiu/article/details/80661216 -->
             <resource>
                 <directory>src/main/resources</directory>
                 <!-- 开启过滤，用指定的参数替换directory下文件中的参数（@xxx@） -->
                 <filtering>true</filtering>
+                <excludes>
+                    <exclude>**/*.dll</exclude>
+                    <exclude>**/*.jnilib</exclude>
+                    <exclude>**/*.so</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*.dll</include>
+                    <include>**/*.jnilib</include>
+                    <include>**/*.so</include>
+                </includes>
             </resource>
         </resources>
     </build>
