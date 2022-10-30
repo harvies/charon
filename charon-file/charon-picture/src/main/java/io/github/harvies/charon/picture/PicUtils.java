@@ -24,6 +24,7 @@ public class PicUtils {
      * @param desMaxWidth  目标最大宽度
      * @param desMaxHeight 目标最大高度
      * @return 目标文件字节数组
+     * @throws IOException IOException
      */
     public static byte[] compressPicForScale(byte[] srcByte,
                                              long desFileSize, double accuracy, int desMaxWidth, int desMaxHeight) throws IOException {

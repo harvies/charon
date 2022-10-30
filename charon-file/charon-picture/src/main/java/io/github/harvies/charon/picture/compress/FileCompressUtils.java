@@ -30,7 +30,9 @@ public class FileCompressUtils {
     /**
      * 压缩完需执行clean方法，清理生成的文件
      *
-     * @throws Exception
+     * @param inputStreamContext inputStreamContext
+     * @return FileContext FileContext
+     * @throws Exception Exception
      */
     public static FileContext compress(InputStreamContext inputStreamContext) throws Exception {
         File tmpFile = new File(FileConfig.TMP_PATH + "/" + UUID.randomUUID());
@@ -82,6 +84,9 @@ public class FileCompressUtils {
 
     /**
      * 设置输出文件为原文件
+     *
+     * @param fileContext fileContext
+     * @throws IOException IOException
      */
     public static void fillOriginFileToOutputFile(FileContext fileContext) throws IOException {
         File outputFile = new File(fileContext.getWorkSpace() + "/" + fileContext.getName() + "_" + "origin" + "." + fileContext.getSuffix());
@@ -93,7 +98,7 @@ public class FileCompressUtils {
     /**
      * 计算最优压缩比例
      *
-     * @param fileContext
+     * @param fileContext fileContext
      */
     private static void calculateOutputQuality(FileContext fileContext) {
         Integer width = fileContext.getWidth();

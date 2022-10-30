@@ -1,8 +1,5 @@
 package org.pngquant;
 
-import org.pngquant.PngQuant;
-import org.pngquant.PngQuantException;
-
 import java.awt.image.*;
 
 /**
@@ -14,6 +11,9 @@ public class Image extends org.pngquant.LiqObject {
      * Converts BufferedImage to internal representation (pixel data is copied).
      * It's best to use BufferedImage in RGB/RGBA format backed by DataBufferByte.
      * Throws if conversion fails.
+     *
+     * @param image image
+     * @throws PngQuantException PngQuantException
      */
     public Image(BufferedImage image) throws PngQuantException {
         this(new PngQuant(), image);
@@ -64,6 +64,12 @@ public class Image extends org.pngquant.LiqObject {
     /**
      * Guarantees presence of the given color in the palette (subject to setMaxColors())
      * if this image is used for quantization.
+     *
+     * @param r r
+     * @param g g
+     * @param b b
+     * @param a a
+     * @return r
      */
     public native boolean addFixedColor(int r, int g, int b, int a);
 

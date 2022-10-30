@@ -1,9 +1,5 @@
 package org.pngquant;
 
-import org.pngquant.Image;
-import org.pngquant.PngQuant;
-import org.pngquant.PngQuantException;
-
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBuffer;
 import java.awt.image.DataBufferByte;
@@ -16,6 +12,10 @@ public class Result extends org.pngquant.LiqObject {
 
     /**
      * Throws when quantization fails (e.g. due to failing to achieve minimum quality)
+     *
+     * @param pngquant p
+     * @param image    i
+     * @throws PngQuantException PngQuantException
      */
     public Result(PngQuant pngquant, Image image) throws PngQuantException {
         handle = liq_quantize_image(pngquant.handle, image.handle);
@@ -43,6 +43,7 @@ public class Result extends org.pngquant.LiqObject {
     private static native void liq_result_destroy(long handle);
 
     /**
+     * @param orig_image o
      * @return BufferedImage remapped to palette this Result has been created with or null on failure.
      */
     public BufferedImage getRemapped(Image orig_image) {
@@ -69,13 +70,17 @@ public class Result extends org.pngquant.LiqObject {
      * speed settings 1-5 high-quality adaptive dithering is used.
      *
      * @param dither_level Dithering in range 0 (none) and 1 (full)
-     * @link http://pngquant.org/lib/#liq_set_dithering_level
+     * @return a
+     * <a href="http://pngquant.org/lib/#liq_set_dithering_level">...</a>
      * see PngQuant.setSpeed()
      */
     public native boolean setDitheringLevel(float dither_level);
 
     /**
      * The default is 0.45455 (1/2.2) which is PNG's approximation of sRGB.
+     *
+     * @param gamma a
+     * @return a
      */
     public native boolean setGamma(double gamma);
 
@@ -85,13 +90,13 @@ public class Result extends org.pngquant.LiqObject {
      * Mean Square Error of remapping of image used to create this result.
      *
      * @return MSE or -1 if not available
-     * @link http://pngquant.org/lib/#liq_get_quantization_error
+     * <a href="http://pngquant.org/lib/#liq_get_quantization_error">...</a>
      */
     public native double getMeanSquareError();
 
     /**
      * @return Actually achieved quality in 0-100 range on scale compatible with PngQuant.setQuality()
-     * @link http://pngquant.org/lib/#liq_get_quantization_quality
+     * <a href="http://pngquant.org/lib/#liq_get_quantization_quality">...</a>
      */
     public native int getQuality();
 

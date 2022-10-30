@@ -27,6 +27,7 @@ public class PngQuant extends org.pngquant.LiqObject {
     /**
      * 1-shot quantization and remapping with current settings.
      *
+     * @param bufimg b
      * @return 8-bit indexed image or null on failure
      * see quantize()
      */
@@ -42,6 +43,7 @@ public class PngQuant extends org.pngquant.LiqObject {
     }
 
     /**
+     * @param liqimg liqimg
      * @return remapped image or null on failure
      */
     public BufferedImage getRemapped(org.pngquant.Image liqimg) {
@@ -58,8 +60,9 @@ public class PngQuant extends org.pngquant.LiqObject {
      * Performs quantization (chooses optimal palette for the given Image).
      * Returned object can be used to customize remapping and reused to remap other images to the same palette.
      *
+     * @param img img
      * @return null on failure
-     * @link http://pngquant.org/lib/#liq_quantize_image
+     * @see <a href="http://pngquant.org/lib/#liq_quantize_image">...</a>
      */
     public org.pngquant.Result quantize(Image img) {
         try {
@@ -72,14 +75,18 @@ public class PngQuant extends org.pngquant.LiqObject {
     /**
      * Remapped images won't use more than given number of colors (may use less if setQuality() is used)
      *
-     * @link http://pngquant.org/lib/#liq_set_max_colors
+     * @param colors colors
+     * @return bool
+     * @see <a href="http://pngquant.org/lib/#liq_set_max_colors">...</a>
      */
     public native boolean setMaxColors(int colors);
 
     /**
      * Equivalent of setQuality(target/2, target)
      *
-     * @link http://pngquant.org/lib/#liq_set_quality
+     * @param target target
+     * @return bool
+     * @see <a href="http://pngquant.org/lib/#liq_set_quality">...</a>
      */
     public native boolean setQuality(int target);
 
@@ -87,7 +94,10 @@ public class PngQuant extends org.pngquant.LiqObject {
      * Quality in range 0-100. Quantization will fail if minimum quality cannot
      * be achieved with given number of colors.
      *
-     * @link http://pngquant.org/lib/#liq_set_quality
+     * @param max max
+     * @param min min
+     * @return bool
+     * @see <a href="http://pngquant.org/lib/#liq_set_quality">...</a>
      */
     public native boolean setQuality(int min, int max);
 
@@ -95,7 +105,9 @@ public class PngQuant extends org.pngquant.LiqObject {
      * Speed in range 1 (slowest) and 11 (fastest). 3 is the optimum.
      * Higher speeds quantize quicker, but at cost of quality and sometimes larger images.
      *
-     * @link http://pngquant.org/lib/#liq_set_speed
+     * @param speed s
+     * @return r
+     * @see <a href="http://pngquant.org/lib/#liq_set_speed">...</a>
      */
     public native boolean setSpeed(int speed);
 
@@ -103,7 +115,9 @@ public class PngQuant extends org.pngquant.LiqObject {
      * Reduces color precision by truncating number of least significant bits.
      * Slightly improves speed and helps generating images for low-fidelity displays/textures.
      *
-     * @link http://pngquant.org/lib/#liq_set_min_posterization
+     * @param bits b
+     * @return b
+     * @see <a href="http://pngquant.org/lib/#liq_set_min_posterization">...</a>
      */
     public native boolean setMinPosterization(int bits);
 

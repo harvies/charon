@@ -15,6 +15,7 @@ public class PngCompressUtils {
      * 压缩图片bufferedImage，若无法达到压缩比例，原样返回
      *
      * @param bufferedImage 待压缩的bufferedImage
+     * @param quality 压缩质量
      * @return 压缩后的bufferedImage
      */
     public static BufferedImage compressPng(BufferedImage bufferedImage, int quality) {
