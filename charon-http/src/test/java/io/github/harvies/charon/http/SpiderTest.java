@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spider;
+package io.github.harvies.charon.http;
 
 import org.junit.jupiter.api.Test;
 import us.codecraft.webmagic.ResultItems;
@@ -40,7 +40,7 @@ public class SpiderTest {
                 .addPipeline(new ConsolePipeline())
 //                .setScheduler(new RedisPriorityScheduler("localhost"))
                 .thread(5)
-//                .run();
-                .start();
+                .run();
+//                .start();
     }
 }

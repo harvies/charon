@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spider;
+package io.github.harvies.charon.http;
 
 import org.apache.commons.lang3.StringUtils;
 import us.codecraft.webmagic.Page;

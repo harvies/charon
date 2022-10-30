@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spider;
+package io.github.harvies.charon.http;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -91,8 +91,8 @@ public class GithubRepo implements HasKey {
     public static void main(String[] args) {
         OOSpider.create(Site.me().setSleepTime(3000)
                 , new JsonFilePageModelPipeline(),GithubRepo.class)
-                .setScheduler(new RedisPriorityScheduler("localhost"))
-                .addUrl("https://github.com/harvies/example").thread(5).run();
+//                .setScheduler(new RedisPriorityScheduler("localhost"))
+                .addUrl("https://github.com/harvies/charon").thread(5).run();
     }
 
     @Override

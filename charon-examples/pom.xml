@@ -22,9 +22,7 @@
         <module>charon-zookeeper</module>
         <module>charon-web</module>
         <module>charon-tomcat</module>
-        <module>charon-spider</module>
         <module>charon-github</module>
         <module>charon-test</module>
-        <module>charon-rocketmq</module>
     </modules>
 </project>
