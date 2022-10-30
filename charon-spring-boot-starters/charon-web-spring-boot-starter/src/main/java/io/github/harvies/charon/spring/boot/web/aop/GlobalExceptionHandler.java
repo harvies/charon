@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 public class GlobalExceptionHandler {
 
     @PostConstruct
-    public void init(){
+    public void init() {
         log.info("GlobalExceptionHandler init");
     }
 
