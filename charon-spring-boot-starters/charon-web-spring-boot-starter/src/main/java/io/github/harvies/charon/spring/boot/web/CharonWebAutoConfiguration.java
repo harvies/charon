@@ -1,9 +1,7 @@
 package io.github.harvies.charon.spring.boot.web;
 
-import io.github.harvies.charon.spring.boot.web.aop.GlobalExceptionHandler;
 import io.github.harvies.charon.spring.boot.web.aop.LogAspect;
 import io.github.harvies.charon.spring.boot.web.config.CharonWebMvcConfig;
-import io.github.harvies.charon.spring.boot.web.config.ControllerConfiguration;
 import io.github.harvies.charon.spring.boot.web.config.serialize.FastJsonAutoConfiguration;
 import io.github.harvies.charon.spring.boot.web.config.serialize.WebMvcConfig;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
@@ -11,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ImportAutoConfiguration(value = {ControllerConfiguration.class, FastJsonAutoConfiguration.class, CharonWebMvcConfig.class, WebMvcConfig.class})
+@ImportAutoConfiguration(value = {FastJsonAutoConfiguration.class, CharonWebMvcConfig.class, WebMvcConfig.class})
 public class CharonWebAutoConfiguration {
 
     @Bean
@@ -22,10 +20,5 @@ public class CharonWebAutoConfiguration {
     @Bean
     public LogAspect logAspect() {
         return new LogAspect();
-    }
-
-    @Bean
-    public GlobalExceptionHandler globalExceptionHandler() {
-        return new GlobalExceptionHandler();
     }
 }

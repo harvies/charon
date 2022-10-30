@@ -8,7 +8,6 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
@@ -16,7 +15,6 @@ import javax.annotation.PostConstruct;
  * 日志切面类
  */
 @Aspect
-@Component
 @Slf4j
 public class LogAspect {
     @PostConstruct
