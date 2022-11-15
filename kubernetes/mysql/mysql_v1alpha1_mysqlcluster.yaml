@@ -34,7 +34,7 @@ spec:
         cpu: 500m
         memory: 1Gi
       limits:
-        cpu: 1g
+        cpu: 500m
         memory: 2Gi
 
   xenonOpts:
