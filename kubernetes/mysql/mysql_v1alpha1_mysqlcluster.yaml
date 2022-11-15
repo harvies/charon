@@ -31,11 +31,11 @@ spec:
 
     resources:
       requests:
-        cpu: 100m
-        memory: 256Mi
-      limits:
         cpu: 500m
         memory: 1Gi
+      limits:
+        cpu: 1g
+        memory: 2Gi
 
   xenonOpts:
     image: radondb/xenon:v2.3.0
