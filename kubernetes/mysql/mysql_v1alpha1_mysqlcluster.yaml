@@ -29,38 +29,38 @@ spec:
     #      expire_logs_days: "7"
     mysqlConf: {}
 
-    resources:
-      requests:
-        cpu: 500m
-        memory: 1Gi
-      limits:
-        cpu: 500m
-        memory: 2Gi
+#    resources:
+#      requests:
+#        cpu: 500m
+#        memory: 1Gi
+#      limits:
+#        cpu: 500m
+#        memory: 2Gi
 
   xenonOpts:
     image: radondb/xenon:v2.3.0
     admitDefeatHearbeatCount: 5
     electionTimeout: 10000
 
-    resources:
-      requests:
-        cpu: 50m
-        memory: 128Mi
-      limits:
-        cpu: 100m
-        memory: 256Mi
+#    resources:
+#      requests:
+#        cpu: 50m
+#        memory: 128Mi
+#      limits:
+#        cpu: 100m
+#        memory: 256Mi
 
   metricsOpts:
     enabled: false
     image: prom/mysqld-exporter:v0.12.1
 
-    resources:
-      requests:
-        cpu: 10m
-        memory: 32Mi
-      limits:
-        cpu: 100m
-        memory: 128Mi
+#    resources:
+#      requests:
+#        cpu: 10m
+#        memory: 32Mi
+#      limits:
+#        cpu: 100m
+#        memory: 128Mi
 
   podPolicy:
     imagePullPolicy: IfNotPresent
@@ -77,10 +77,10 @@ spec:
     tolerations: []
     schedulerName: ""
     # extraResources defines quotas for containers other than mysql or xenon.
-    extraResources:
-      requests:
-        cpu: 10m
-        memory: 32Mi
+#    extraResources:
+#      requests:
+#        cpu: 10m
+#        memory: 32Mi
 
   persistence:
     enabled: true
