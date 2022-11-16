@@ -80,7 +80,7 @@ spec:
         memory: 32Mi
 
   persistence:
-    enabled: true
+    enabled: false
     accessModes:
     - ReadWriteOnce
     #storageClass: ""
