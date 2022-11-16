@@ -7,7 +7,7 @@ kubectl create namespace mysql
 ## 部署 mysql-operator
 
 ```bash
-helm install dev radondb/mysql-operator --namespace mysql
+helm install --generate-name radondb/mysql-operator --namespace mysql
 ```
 
 ## 部署 RadonDB MySQL 集群

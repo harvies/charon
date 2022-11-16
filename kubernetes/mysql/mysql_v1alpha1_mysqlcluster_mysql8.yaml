@@ -1,7 +1,6 @@
 apiVersion: mysql.radondb.com/v1alpha1
 kind: MysqlCluster
 metadata:
-  name: dev
   namespace: mysql
 spec:
   replicas: 3
