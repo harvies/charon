@@ -1,7 +1,8 @@
 apiVersion: mysql.radondb.com/v1alpha1
 kind: MysqlCluster
 metadata:
-  name: sample
+  name: mysql
+  namespace: mysql
 spec:
   replicas: 3
   mysqlVersion: "8.0"
@@ -80,7 +81,7 @@ spec:
         memory: 32Mi
 
   persistence:
-    enabled: false
+    enabled: true
     accessModes:
     - ReadWriteOnce
     #storageClass: ""
