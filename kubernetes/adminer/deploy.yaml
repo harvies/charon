@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: adminer
+  name: adminer
+  namespace: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: adminer
+  template:
+    metadata:
+      labels:
+        app: adminer
+    spec:
+      containers:
+        - image: adminer
+          imagePullPolicy: IfNotPresent
+          name: adminer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: adminer
+  name: adminer
+  namespace: test
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: adminer
+  type: NodePort
