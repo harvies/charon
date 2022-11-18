@@ -1162,7 +1162,7 @@
             </activation>
             <properties>
                 <ENV>dev</ENV>
-                <NACOS_ADDR>nacos.kikera.org</NACOS_ADDR>
+                <NACOS_ADDR>nacos-headless.nacos.svc.cluster.local:8848</NACOS_ADDR>
                 <LOGSTASH_HOST>logstash.kikera.org</LOGSTASH_HOST>
                 <LOGSTASH_PORT>60514</LOGSTASH_PORT>
                 <Xms>-Xms256M</Xms>
