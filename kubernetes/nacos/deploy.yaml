@@ -14,7 +14,7 @@ metadata:
     app: nacos-headless
 spec:
   type: ClusterIP
-  clusterIP: None
+#  clusterIP: None
   ports:
     - port: 8848
       name: server
