@@ -32,7 +32,8 @@ spec:
     version: v1.23.10
     clusterName: cluster.local
     autoRenewCerts: true
-    containerManager: containerd
+#    containerManager: containerd
+    containerManager: docker
   etcd:
     type: kubekey
   network:
