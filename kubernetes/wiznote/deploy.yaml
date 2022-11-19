@@ -27,7 +27,7 @@ spec:
             claimName: wiz-pv-claim #PVC 存储名称
       containers:
         - name: wizserver
-          image: viticis/wizserver:latest
+          image: wiznote/wizserver:latest
           resources: {}
           imagePullPolicy: Always
           volumeMounts:        #容器内挂载点
