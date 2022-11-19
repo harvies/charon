@@ -7,9 +7,14 @@ spec:
   version: 8.5.1
   volumeClaimDeletePolicy: DeleteOnScaledownOnly
   nodeSets:
-    - name: default
-      count: 3
+    - name: masters
+      count: 1
       config:
+        # On Elasticsearch versions before 7.9.0, replace the node.roles configuration with the following:
+        # node.master: true
+        node.roles: [ "master" ]
+        xpack.ml.enabled: true
+        node.remote_cluster_client: false
         node.store.allow_mmap: false
       volumeClaimTemplates:
         - metadata:
@@ -21,3 +26,25 @@ spec:
               requests:
                 storage: 200Gi
             storageClassName: nfs-client
+    - name: data
+      count: 2
+      config:
+        # On Elasticsearch versions before 7.9.0, replace the node.roles configuration with the following:
+        # node.master: false
+        # node.data: true
+        # node.ingest: true
+        # node.ml: true
+        # node.transform: true
+        node.roles: [ "data", "ingest", "ml", "transform" ]
+        node.remote_cluster_client: false
+        node.store.allow_mmap: false
+        volumeClaimTemplates:
+          - metadata:
+              name: elasticsearch-data # Do not change this name unless you set up a volume mount for the data path.
+            spec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 200Gi
+              storageClassName: nfs-client
