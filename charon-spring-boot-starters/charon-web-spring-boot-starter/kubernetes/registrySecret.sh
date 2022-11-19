@@ -3,3 +3,4 @@ kubectl create secret docker-registry myregistrykey \
 --docker-username=DOCKER_USER \
 --docker-password=DOCKER_PASSWORD \
 --docker-email=DOCKER_EMAIL
+--namespace [namespace]
