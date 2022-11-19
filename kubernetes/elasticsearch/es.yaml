@@ -14,6 +14,18 @@ spec:
       count: 3 # 测试环境1节点就够了，生产 >= 3
       podTemplate:
         spec:
+          containers:
+            - env:
+                - name: ES_JAVA_OPTS
+                  value: -Xms2g -Xmx2g
+              name: elasticsearch
+              resources:
+                limits:
+                  cpu: 2
+                  memory: 2Gi
+                requests:
+                  cpu: 0.5
+                  memory: 2Gi
           initContainers:
             - name: install-plugins
               command:
@@ -27,9 +39,9 @@ spec:
         node.ingest: true
         node.store.allow_mmap: false
         reindex.remote.whitelist: 192.168.7.66:9200
-#        xpack.security.http.ssl.enabled: false
-#        xpack.security.transport.ssl.enabled: false
-#        xpack.security.enabled: false
+      #        xpack.security.http.ssl.enabled: false
+      #        xpack.security.transport.ssl.enabled: false
+      #        xpack.security.enabled: false
       volumeClaimTemplates:
         - metadata:
             name: elasticsearch-data # 这里不要修改，进阶用法参考 ECK 官方文档
