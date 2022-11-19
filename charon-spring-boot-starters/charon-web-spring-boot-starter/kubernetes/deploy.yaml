@@ -22,9 +22,6 @@ spec:
           image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-boot-example:latest
           #本地有的话取本地，没有的话取远程仓库
           imagePullPolicy: Always
-          ports:
-            - name: http
-              containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -35,7 +32,7 @@ spec:
   type: ClusterIP
   selector:
     app: charon-boot-example
-  ports:
-    - name: http
-      port: 8080
-      targetPort: 8080
+#  ports:
+#    - name: http
+#      port: 8080
+#      targetPort: 8080
