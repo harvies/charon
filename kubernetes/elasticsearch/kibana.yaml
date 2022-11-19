@@ -4,7 +4,17 @@ metadata:
   name: kibana
   namespace: elastic-system
 spec:
-  version: 8.5.1
+  version: 7.14.1
   count: 1
   elasticsearchRef:
-    name: elasticsearch
+    name: es # 填上面 elasticsearch 的名称，需要完全一致
+  http:
+    service:
+      spec:
+        type: LoadBalancer # 默认是 ClusterIP，不能直接访问
+        ports:
+          - port: 80 # 这里是把原有的 5601 端口 映射为 80 端口，方便访问以及使用域名解析
+            targetPort: 5601
+    tls:
+      selfSignedCertificate:
+        disabled: true # 如果是生产环境，建议设置 tls 的配置，这样才能加密数据
