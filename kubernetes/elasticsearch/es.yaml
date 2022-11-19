@@ -24,6 +24,8 @@ spec:
         node.store.allow_mmap: false
         reindex.remote.whitelist: 192.168.7.66:9200
         xpack.security.http.ssl.enabled: false
+        xpack.security.transport.ssl.enabled: false
+        xpack.security.enabled: false
       volumeClaimTemplates:
         - metadata:
             name: elasticsearch-data # 这里不要修改，进阶用法参考 ECK 官方文档
