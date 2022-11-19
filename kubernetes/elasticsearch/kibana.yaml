@@ -11,7 +11,8 @@ spec:
   http:
     service:
       spec:
-        type: LoadBalancer # 默认是 ClusterIP，不能直接访问
+#        type: LoadBalancer # 默认是 ClusterIP，不能直接访问
+        type: ClusterIP # 默认是 ClusterIP，不能直接访问
         ports:
           - port: 80 # 这里是把原有的 5601 端口 映射为 80 端口，方便访问以及使用域名解析
             targetPort: 5601
