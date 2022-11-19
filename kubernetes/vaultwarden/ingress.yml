@@ -31,10 +31,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - bitwarden.domain.tld
+    - vault.kikera.org
     secretName: tls-secret
   rules:
-  - host: bitwarden.domain.tld
+  - host: vault.kikera.org
     http:
       paths:
       - path: /

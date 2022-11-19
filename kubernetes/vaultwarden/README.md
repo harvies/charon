@@ -45,7 +45,7 @@ metadata:
 spec:
   tls:
   - hosts:
-    - bitwarden.domain.tld
+    - vault.kikera.org
     secretName: bitwarden-tls
   rules:
   ...
