@@ -13,6 +13,8 @@ spec:
       labels:
         app: charon-boot-example
     spec:
+      imagePullSecrets:
+        - name: aliyuncs-secret
       containers:
         - name: charon-boot-example
           #这里注意是命名空间+仓库名称
