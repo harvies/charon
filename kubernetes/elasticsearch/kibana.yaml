@@ -4,7 +4,7 @@ metadata:
   name: kibana
   namespace: elastic-system
 spec:
-  version: 7.14.1
+  version: 7.10.2
   count: 1
   elasticsearchRef:
     name: es # 填上面 elasticsearch 的名称，需要完全一致
