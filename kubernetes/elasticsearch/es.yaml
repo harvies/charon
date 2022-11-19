@@ -16,7 +16,7 @@ spec:
                 - sh
                 - -c
                 - |
-                  bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.10.2/elasticsearch-analysis-ik-7.10.2.zip
+                  bin/elasticsearch-plugin install https://proxy.zyun.vip/https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.10.2/elasticsearch-analysis-ik-7.10.2.zip
       config:
         node.master: true
         node.data: true
