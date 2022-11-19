@@ -47,6 +47,25 @@ spec:
   revisionHistoryLimit: 10
   progressDeadlineSeconds: 600
 
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: wiz
+  name: wiz
+  namespace: wiznote
+spec:
+  ports:
+    - name: 80-80
+      port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: wiz
+  type: ClusterIP
+
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
