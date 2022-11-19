@@ -8,6 +8,15 @@ spec:
   nodeSets:
     - name: default
       count: 3 # 测试环境1节点就够了，生产 >= 3
+      podTemplate:
+        spec:
+          initContainers:
+            - name: install-plugins
+              command:
+                - sh
+                - -c
+                - |
+                  bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.10.2/elasticsearch-analysis-ik-7.10.2.zip
       config:
         node.master: true
         node.data: true
