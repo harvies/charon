@@ -2,9 +2,9 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   labels:
-    app: blog
-  name: blog
-  namespace: blog
+    app: halo
+  name: halo
+  namespace: halo
 spec:
   storageClassName: nfs-client
   accessModes:
@@ -17,16 +17,16 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: blog
-  name: blog
-  namespace: blog
+    app: halo
+  name: halo
+  namespace: halo
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: blog
+      app: halo
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -39,7 +39,7 @@ spec:
         prometheus.io/scrape: "true"
       creationTimestamp: null
       labels:
-        app: blog
+        app: halo
     spec:
       containers:
         - env:
@@ -79,7 +79,7 @@ spec:
                   - /bin/sh
                   - -c
                   - sleep 15
-          name: blog
+          name: halo
           ports:
             - containerPort: 8090
               name: http
@@ -95,21 +95,21 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: blog
+            claimName: halo
 #          hostPath:
 #            path: /root/.halo
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: blog
-  namespace: blog
+  name: halo
+  namespace: halo
 spec:
   ports:
     - port: 8090
       protocol: TCP
       targetPort: 8090
   selector:
-    app: blog
+    app: halo
   sessionAffinity: None
   type: ClusterIP
