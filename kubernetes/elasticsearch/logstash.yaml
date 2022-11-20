@@ -58,7 +58,7 @@ spec:
             - mountPath: /usr/share/logstash/pipeline
               name: logstash-conf-volume
           ports:
-            - containerPort: 10514
+            - containerPort: 60514
               protocol: TCP
           env:
             - name: "XPACK_MONITORING_ELASTICSEARCH_URL"
@@ -83,8 +83,8 @@ metadata:
   namespace: elastic-system
 spec:
   ports:
-    - port: 10514
-      targetPort: 10514
+    - port: 60514
+      targetPort: 60514
   selector:
     elastic-app: logstash
   type: ClusterIP
