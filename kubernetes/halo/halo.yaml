@@ -45,6 +45,28 @@ spec:
         - env:
             - name: TZ
               value: Asia/Shanghai
+            - name: ES_JAVA_OPTS
+              value: "-Xms1g -Xmx1g"
+            - name: SERVER_PORT
+              value: "8090"
+            - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
+              value: com.mysql.cj.jdbc.Driver
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://test-leader.mysql.svc.cluster.local:3306/halodb?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+            - name: SPRING_DATASOURCE_USERNAME
+              value: root_rw
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: 8mx3@kHn!CYRF2G
+            - name: HALO_CACHE
+              value: redis
+            - name: SPRING_REDIS_PORT
+              value: "65379"
+            - name: SPRING_REDIS_DATABASE
+              value: "2"
+            - name: SPRING_REDIS_HOST
+              value: redis.dev.kikera.org
+            - name: SPRING_REDIS_PASSWORD
+              value: rnqdkWfnBHCiCQtq
           image: halohub/halo:latest
           imagePullPolicy: IfNotPresent
           volumeMounts:
@@ -62,13 +84,13 @@ spec:
             - containerPort: 8090
               name: http
               protocol: TCP
-          securityContext: {}
+          securityContext: { }
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
-      securityContext: {}
+      securityContext: { }
       terminationGracePeriodSeconds: 30
       volumes:
         - name: data
