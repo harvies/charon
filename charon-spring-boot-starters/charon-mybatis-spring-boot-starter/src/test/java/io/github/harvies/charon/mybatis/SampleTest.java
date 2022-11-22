@@ -25,7 +25,13 @@ public class SampleTest {
         int count = 5;
         System.out.println(("----- selectAll method test ------"));
         for (int i = 0; i < count; i++) {
-            userMapper.insert(new UserPO().setName("test").setAge(i).setEmail("mail" + i + "@mail.com"));
+            UserPO userPO = new UserPO();
+            userPO .setName("test");
+            userPO.setAge(i);
+            userPO.setDeleted(0L);
+            userPO.setEmail("mail" + i + "@mail.com");
+            userPO.setBizId(1L);
+            userMapper.insert(userPO);
         }
         List<UserPO> selectList = userMapper.selectList(Wrappers.<UserPO>lambdaQuery().eq(UserPO::getName, "test"));
         Assert.assertEquals(count, selectList.size());

@@ -12,7 +12,6 @@ import java.io.Serializable;
  */
 @Data
 //链式调用
-@Accessors(chain = true)
 @TableName(value = "user", autoResultMap = true)
 public class UserPO extends BasePlusPO implements Serializable {
     private static final long serialVersionUID = -4721607536018568393L;

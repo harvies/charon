@@ -117,9 +117,12 @@ public class TestPlugin {
 
             UserPO user = userMapper.getByName("Jone");
             log.warn("user:{}", user);
-            UserPO user1 = new UserPO().setName("aaa")
-                    .setAge(1)
-                    .setEmail("aaa@qq.com");
+            UserPO user1 = new UserPO();
+            user1.setName("aaa");
+            user1.setAge(1);
+            user1.setEmail("aaa@qq.com");
+            user1.setDeleted(0L);
+            user1.setBizId(1L);
             userMapper.save(user1);
             log.warn("user1:{}", user1);
             int deleteById = userMapper.deleteById(user1.getId());

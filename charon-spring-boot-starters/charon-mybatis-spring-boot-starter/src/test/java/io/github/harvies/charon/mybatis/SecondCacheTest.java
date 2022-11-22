@@ -37,7 +37,12 @@ public class SecondCacheTest {
                 UserPO user = mapper.getById(1L);
                 System.err.println(user);
                 if (i == 5) {
-                    UserPO user1 = new UserPO().setName("user" + i).setAge(i).setEmail("email" + i);
+                    UserPO user1 = new UserPO();
+                   user1.setName("user" + i);
+                   user1.setAge(i);
+                   user1.setEmail("email" + i);
+                   user1.setDeleted(0L);
+                   user1.setBizId(1L);
                     int save = mapper.save(user1);
                     System.err.println("save result:" + save);
                 }
