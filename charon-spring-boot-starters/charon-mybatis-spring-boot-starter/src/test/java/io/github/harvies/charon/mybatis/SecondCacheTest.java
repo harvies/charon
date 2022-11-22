@@ -1,6 +1,6 @@
 package io.github.harvies.charon.mybatis;
 
-import io.github.harvies.charon.mybatis.entity.User;
+import io.github.harvies.charon.mybatis.po.UserPO;
 import io.github.harvies.charon.mybatis.mapper.UserMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -34,10 +34,10 @@ public class SecondCacheTest {
             SqlSession session = sqlSessionFactory.openSession();
             try {
                 UserMapper mapper = session.getMapper(UserMapper.class);
-                User user = mapper.getById(1L);
+                UserPO user = mapper.getById(1L);
                 System.err.println(user);
                 if (i == 5) {
-                    User user1 = new User().setName("user" + i).setAge(i).setEmail("email" + i);
+                    UserPO user1 = new UserPO().setName("user" + i).setAge(i).setEmail("email" + i);
                     int save = mapper.save(user1);
                     System.err.println("save result:" + save);
                 }

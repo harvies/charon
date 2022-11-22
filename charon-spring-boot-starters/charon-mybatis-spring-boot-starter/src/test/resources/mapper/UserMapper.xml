@@ -5,19 +5,19 @@
 <mapper namespace="io.github.harvies.charon.mybatis.mapper.UserMapper">
     <!-- 开启二级缓存/> -->
     <cache/>
-    <select id="getById" resultType="io.github.harvies.charon.mybatis.entity.User" useCache="true">
+    <select id="getById" resultType="io.github.harvies.charon.mybatis.po.UserPO" useCache="true">
         select *
         from user
         where id = #{id}
     </select>
 
-    <select id="getById2" resultType="io.github.harvies.charon.mybatis.entity.User" useCache="true">
+    <select id="getById2" resultType="io.github.harvies.charon.mybatis.po.UserPO" useCache="true">
         select *
         from user
         where id = #{id}
     </select>
 
-    <select id="getByName" resultType="io.github.harvies.charon.mybatis.entity.User">
+    <select id="getByName" resultType="io.github.harvies.charon.mybatis.po.UserPO">
         select *
         from user
         where `name` = #{name}
@@ -34,13 +34,13 @@
         where id = #{id}
     </delete>
 
-    <select id="selectByIdList" resultType="io.github.harvies.charon.mybatis.entity.User">
+    <select id="selectByIdList" resultType="io.github.harvies.charon.mybatis.po.UserPO">
         select * from user where id in
         <foreach collection="idList" item="item" open="(" close=")" separator=",">
             #{item}
         </foreach>
     </select>
-    <select id="selectByIdListAndName" resultType="io.github.harvies.charon.mybatis.entity.User">
+    <select id="selectByIdListAndName" resultType="io.github.harvies.charon.mybatis.po.UserPO">
         select * from user where id in
         <foreach collection="idList" item="item" open="(" close=")" separator=",">
             #{item}

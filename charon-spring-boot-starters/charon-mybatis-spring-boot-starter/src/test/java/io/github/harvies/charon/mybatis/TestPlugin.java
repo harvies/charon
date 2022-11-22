@@ -1,6 +1,6 @@
 package io.github.harvies.charon.mybatis;
 
-import io.github.harvies.charon.mybatis.entity.User;
+import io.github.harvies.charon.mybatis.po.UserPO;
 import io.github.harvies.charon.mybatis.factory.ExampleObjectFactory;
 import io.github.harvies.charon.mybatis.mapper.UserMapper;
 import io.github.harvies.charon.mybatis.plugins.SqlPrintInterceptor;
@@ -110,14 +110,14 @@ public class TestPlugin {
             /**
              * execute mapper
              */
-            User byId = userMapper.getById(1L);
+            UserPO byId = userMapper.getById(1L);
             log.warn("byId:{}", byId);
-            User byId2 = userMapper.getById2(1L);
+            UserPO byId2 = userMapper.getById2(1L);
             log.warn("byId2:{}", byId2);
 
-            User user = userMapper.getByName("Jone");
+            UserPO user = userMapper.getByName("Jone");
             log.warn("user:{}", user);
-            User user1 = new User().setName("aaa")
+            UserPO user1 = new UserPO().setName("aaa")
                     .setAge(1)
                     .setEmail("aaa@qq.com");
             userMapper.save(user1);
@@ -125,9 +125,9 @@ public class TestPlugin {
             int deleteById = userMapper.deleteById(user1.getId());
             log.warn("deleteById result:{}", deleteById);
 
-            List<User> userList = userMapper.selectByIdList(Arrays.asList(1L, 2L, 3L));
+            List<UserPO> userList = userMapper.selectByIdList(Arrays.asList(1L, 2L, 3L));
             log.warn("userList:{}", userList);
-            List<User> userList2 = userMapper.selectByIdListAndName(Arrays.asList(1L, 2L, 3L), "Jone");
+            List<UserPO> userList2 = userMapper.selectByIdListAndName(Arrays.asList(1L, 2L, 3L), "Jone");
             log.warn("userList2:{}", userList2);
         } finally {
             /**

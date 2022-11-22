@@ -1,6 +1,6 @@
 package io.github.harvies.charon.mybatis;
 
-import io.github.harvies.charon.mybatis.entity.User;
+import io.github.harvies.charon.mybatis.po.UserPO;
 import io.github.harvies.charon.mybatis.mapper.UserMapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class SpringBootMybatisPlusApplication implements CommandLineRunner {
     @Override
     public void run(String... args) {
         System.out.println(("----- selectAll method test ------"));
-        List<User> userList = userMapper.selectList(null);
+        List<UserPO> userList = userMapper.selectList(null);
         userList.forEach(System.out::println);
     }
 }
