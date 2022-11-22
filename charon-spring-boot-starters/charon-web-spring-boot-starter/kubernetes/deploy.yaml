@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: charon-boot-example
+  namespace: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: charon-boot-example
+  template:
+    metadata:
+      labels:
+        app: charon-boot-example
+    spec:
+      imagePullSecrets:
+        - name: aliyuncs-secret
+      containers:
+        - name: charon-boot-example
+          #这里注意是命名空间+仓库名称
+          #注意：latest版本号，远程仓库不认，需要对应版本号为1.0
+          image: registry.cn-hangzhou.aliyuncs.com/harvies/charon-boot-example:latest
+          #本地有的话取本地，没有的话取远程仓库
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: charon-boot-example
+  namespace: test
+spec:
+  type: ClusterIP
+  selector:
+    app: charon-boot-example
+#  ports:
+#    - name: http
+#      port: 8080
+#      targetPort: 8080

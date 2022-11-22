@@ -1162,8 +1162,8 @@
             </activation>
             <properties>
                 <ENV>dev</ENV>
-                <NACOS_ADDR>nacos.kikera.org</NACOS_ADDR>
-                <LOGSTASH_HOST>logstash.kikera.org</LOGSTASH_HOST>
+                <NACOS_ADDR>nacos-headless.nacos.svc.cluster.local:8848</NACOS_ADDR>
+                <LOGSTASH_HOST>logstash-service.elastic-system.svc.cluster.local</LOGSTASH_HOST>
                 <LOGSTASH_PORT>60514</LOGSTASH_PORT>
                 <Xms>-Xms256M</Xms>
                 <Xmx>-Xmx256M</Xmx>
