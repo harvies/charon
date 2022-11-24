@@ -10,6 +10,7 @@ spec:
   - {name: k8s-node1, address: 192.168.7.31, internalAddress: 192.168.7.31, user: root, password: "hrXhjPMG7feeC6"}
   - {name: k8s-node2, address: 192.168.7.32, internalAddress: 192.168.7.32, user: root, password: "hrXhjPMG7feeC6"}
   - {name: k8s-node3, address: 192.168.7.33, internalAddress: 192.168.7.33, user: root, password: "hrXhjPMG7feeC6"}
+  - {name: k8s-node4, address: 192.168.7.34, internalAddress: 192.168.7.34, user: root, password: "hrXhjPMG7feeC6"}
   roleGroups:
     etcd:
     - k8s-master1
@@ -21,6 +22,7 @@ spec:
     - k8s-node1
     - k8s-node2
     - k8s-node3
+    - k8s-node4
   controlPlaneEndpoint:
     ## Internal loadbalancer for apiservers 
     internalLoadbalancer: haproxy
