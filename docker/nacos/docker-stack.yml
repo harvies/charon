@@ -31,7 +31,7 @@ services:
       MYSQL_SERVICE_DB_NAME: nacos
       MYSQL_SERVICE_DB_PARAM: 'characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useSSL=false&serverTimezone=UTC'
       MYSQL_SERVICE_USER: 'nacos'
-      MYSQL_SERVICE_PASSWORD: 'x2JAUw4KVeaUKBD'
+      MYSQL_SERVICE_PASSWORD: 'password'
       MYSQL_DATABASE_NUM: 1
       MODE: standalone
       JVM_XMX: 512m
