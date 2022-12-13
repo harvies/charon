@@ -14,7 +14,7 @@ docker run -d \
 -e DB_PORT=3306 \
 -e DB_DATABASE=lychee \
 -e DB_USERNAME=root \
--e DB_PASSWORD='8mx3@kHn!CYRF2G' \
+-e DB_PASSWORD='password' \
 -p 90:80 \
 lycheeorg/lychee
 

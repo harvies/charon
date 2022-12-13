@@ -42,7 +42,7 @@ data:
   mysql.host: "test-leader.mysql.svc.cluster.local"
   mysql.port: "3306"
   mysql.user: "root_rw"
-  mysql.password: "8mx3@kHn!CYRF2G"
+  mysql.password: "password"
 ---
 apiVersion: apps/v1
 kind: StatefulSet
