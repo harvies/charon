@@ -13,7 +13,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>charon-excel</module>
-        <module>charon-picture</module>
     </modules>
 
     <dependencies>
@@ -22,5 +21,19 @@
             <artifactId>charon-core</artifactId>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>active-charon-picture</id>
+            <modules>
+                <module>charon-picture</module>
+            </modules>
+            <activation>
+                <os>
+                    <arch>!mac</arch>
+                </os>
+            </activation>
+        </profile>
+    </profiles>
 
 </project>
