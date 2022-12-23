@@ -1,2 +1,0 @@
-referenceConfigInitialized=io.github.harvies.charon.dubbo.listener.event.ReferenceConfigInitializedEventListener
-serviceConfigExported=io.github.harvies.charon.dubbo.listener.event.ServiceConfigExportedEventListener

@@ -17,7 +17,7 @@
         <module>charon-dependencies</module>
         <module>charon-core</module>
         <!--        <module>charon-api</module>-->
-        <!--        <module>charon-dubbo</module>-->
+        <module>charon-dubbo</module>
         <!--        <module>charon-notify</module>-->
         <!--        <module>charon-oss</module>-->
         <!--        <module>charon-file</module>-->
