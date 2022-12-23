@@ -1,11 +1,12 @@
 package io.github.harvies.charon.dubbo;
 
 
-import io.github.harvies.charon.util.PropertiesUtils;
 import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.RegistryConfig;
 import org.apache.dubbo.config.ServiceConfig;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -14,10 +15,13 @@ import java.util.concurrent.CountDownLatch;
 public class QuickStartServer {
 
     public static void main(String[] args) throws Exception {
-        String zkUrl = PropertiesUtils.getDefaultProperty("charon.zk.url");
         ServiceConfig<HelloService> service = new ServiceConfig<>();
         service.setApplication(new ApplicationConfig("first-dubbo-provider"));
-        service.setRegistry(new RegistryConfig("zookeeper://" + zkUrl));
+        RegistryConfig registryConfig = new RegistryConfig("multicast://224.5.6.7:1234");
+        Map<String,String> parameters = new HashMap<>();
+        parameters.put("unicast","false");
+        registryConfig.setParameters(parameters);
+        service.setRegistry(registryConfig);
         service.setInterface(HelloService.class);
         service.setRef(new HelloServiceImpl());
         //设置集群容错模式(默认failover)

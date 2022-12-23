@@ -31,7 +31,6 @@
         <module>charon-model</module>
         <!--        <module>charon-test</module>-->
         <!--        <module>charon-jcef</module>-->
-        <!--        <module>charon-chat-gpt</module>-->
     </modules>
     <profiles>
         <profile>

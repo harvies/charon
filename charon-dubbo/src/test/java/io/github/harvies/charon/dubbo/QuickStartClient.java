@@ -7,6 +7,9 @@ import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.ReferenceConfig;
 import org.apache.dubbo.config.RegistryConfig;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Quick Start client
  *
@@ -14,10 +17,12 @@ import org.apache.dubbo.config.RegistryConfig;
  */
 public class QuickStartClient {
     public static void main(String[] args) {
-        String zkUrl = PropertiesUtils.getDefaultProperty("charon.zk.url");
         ReferenceConfig<HelloService> reference = new ReferenceConfig<>();
         reference.setApplication(new ApplicationConfig("first-dubbo-consumer"));
-        RegistryConfig registryConfig = new RegistryConfig("zookeeper://" + zkUrl);
+        RegistryConfig registryConfig = new RegistryConfig("multicast://224.5.6.7:1234");
+        Map<String,String> parameters = new HashMap<>();
+        parameters.put("unicast","false");
+        registryConfig.setParameters(parameters);
         registryConfig.setTimeout(10000);
         reference.setRegistry(registryConfig);
         reference.setInterface(HelloService.class);
