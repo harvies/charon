@@ -63,15 +63,6 @@
                     <skip>true</skip>
                 </configuration>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>com.spotify</groupId>-->
-<!--                <artifactId>docker-maven-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <exposes>-->
-<!--                        <expose>8761</expose>-->
-<!--                    </exposes>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
         </plugins>
     </build>
 </project>

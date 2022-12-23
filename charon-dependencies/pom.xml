@@ -10,8 +10,9 @@
     <packaging>pom</packaging>
     <properties>
         <!-- Compiler properties -->
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+
         <encoding>UTF-8</encoding>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
@@ -72,16 +73,6 @@
         <!-- plugins-->
         <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
         <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
-
-        <web.port>8080</web.port>
-        <Xms>-Xms256M</Xms>
-        <Xmx>-Xmx256M</Xmx>
-        <MetaspaceSize>-XX:MetaspaceSize=256m</MetaspaceSize>
-        <MaxMetaspaceSize>-XX:MaxMetaspaceSize=256m</MaxMetaspaceSize>
-        <PermSize>-XX:PermSize=256m</PermSize>
-        <MaxPermSize>-XX:MaxPermSize=256m</MaxPermSize>
-        <!-- not work-->
-        <MaxDirectMemorySize>-XX:MaxDirectMemorySize=256m</MaxDirectMemorySize>
 
     </properties>
 
@@ -937,7 +928,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.1</version>
+                    <version>3.10.1</version>
                     <configuration>
                         <!--在此处配置之后就不需要再安装idea插件和配置Preferences | Build, Execution, Deployment | Compiler | Annotation Processors 了 -->
                         <annotationProcessorPaths>
@@ -1075,13 +1066,6 @@
                                 </SW_AGENT_COLLECTOR_BACKEND_SERVICES>
                             </environment>
                             <jvmFlags>
-                                <jvmFlag>${Xms}</jvmFlag>
-                                <jvmFlag>${Xmx}</jvmFlag>
-                                <jvmFlag>${MetaspaceSize}</jvmFlag>
-                                <jvmFlag>${MaxMetaspaceSize}</jvmFlag>
-                                <jvmFlag>${PermSize}</jvmFlag>
-                                <jvmFlag>${MaxPermSize}</jvmFlag>
-                                <jvmFlag>${MaxDirectMemorySize}</jvmFlag>
                                 <jvmFlag>-verbose:gc</jvmFlag>
                                 <jvmFlag>-Xloggc:gc.log</jvmFlag>
                                 <jvmFlag>-XX:+PrintGCDetails</jvmFlag>
@@ -1098,15 +1082,10 @@
                                 </jvmFlag>
                             </jvmFlags>
                             <ports>
-                                <port>${web.port}</port>
+                                <port>8080</port>
                             </ports>
                         </container>
                     </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>com.spotify</groupId>
-                    <artifactId>docker-maven-plugin</artifactId>
-                    <version>1.2.2</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -1170,16 +1149,10 @@
                 <NACOS_ADDR>nacos-headless.nacos.svc.cluster.local:8848</NACOS_ADDR>
                 <LOGSTASH_HOST>logstash-service.elastic-system.svc.cluster.local</LOGSTASH_HOST>
                 <LOGSTASH_PORT>60514</LOGSTASH_PORT>
-                <Xms>-Xms256M</Xms>
-                <Xmx>-Xmx256M</Xmx>
             </properties>
         </profile>
         <profile>
             <id>test</id>
-            <properties>
-                <Xms>-Xms512M</Xms>
-                <Xmx>-Xmx512M</Xmx>
-            </properties>
         </profile>
         <profile>
             <id>ossrh</id>
