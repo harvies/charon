@@ -5,6 +5,7 @@ import io.github.harvies.charon.model.ApiResult;
 import io.github.harvies.charon.model.constant.CharonErrorCode;
 import io.github.harvies.charon.model.exception.ApiException;
 import io.github.harvies.charon.model.exception.SystemException;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -14,8 +15,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
 import javax.annotation.PostConstruct;
-import javax.servlet.http.HttpServletRequest;
-
 @RestControllerAdvice
 @Order(-1000000)
 @Slf4j

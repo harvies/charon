@@ -1,4 +1,0 @@
-org.springframework.context.ApplicationContextInitializer=\
-  io.github.harvies.charon.spring.boot.core.CharonBootApplicationInitializer
-org.springframework.boot.env.EnvironmentPostProcessor=\
-  io.github.harvies.charon.spring.boot.core.CharonSpringBootEnvironmentPostProcessor

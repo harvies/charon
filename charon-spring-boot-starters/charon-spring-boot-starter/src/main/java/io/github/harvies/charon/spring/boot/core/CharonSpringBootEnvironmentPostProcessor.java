@@ -4,7 +4,7 @@ import io.github.harvies.charon.util.PropertiesUtils;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.context.config.ConfigFileApplicationListener;
+import org.springframework.boot.context.config.ConfigDataEnvironmentPostProcessor;
 import org.springframework.boot.env.EnvironmentPostProcessor;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -43,7 +43,7 @@ public class CharonSpringBootEnvironmentPostProcessor implements EnvironmentPost
     @Override
     public int getOrder() {
         //要比springboot读取properties文件优先级低
-        return ConfigFileApplicationListener.DEFAULT_ORDER + 1;
+        return ConfigDataEnvironmentPostProcessor.ORDER + 1;
     }
 
     /**
