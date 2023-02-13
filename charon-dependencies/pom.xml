@@ -58,7 +58,7 @@
         <apollo-client.version>1.7.0</apollo-client.version>
         <skywalking.version>8.7.0</skywalking.version>
         <charon.version>0.0.9-SNAPSHOT</charon.version>
-        <spring-boot-admin-starter.version>2.4.3</spring-boot-admin-starter.version>
+        <spring-boot-admin-starter.version>2.5.6</spring-boot-admin-starter.version>
         <javamelody.version>1.85.0</javamelody.version>
         <calcite.version>1.26.0</calcite.version>
         <telegram.version>5.2.0</telegram.version>
