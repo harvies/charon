@@ -2,12 +2,12 @@ version: '3'
 
 services:
   chevereto:
-    image: nmtan/chevereto:1.2.3
+    image: nmtan/chevereto:1.6.2
     restart: always
     networks:
       - private
     environment:
-      CHEVERETO_DB_HOST: mysql.dev.kikera.org
+      CHEVERETO_DB_HOST: 10.233.53.2
       CHEVERETO_DB_USERNAME: chevereto
       CHEVERETO_DB_PASSWORD: pb3kPyahP67Ecx
       CHEVERETO_DB_NAME: chevereto
