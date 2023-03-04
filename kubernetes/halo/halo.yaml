@@ -1,10 +1,16 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: halo2
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   labels:
     app: halo
-  name: halo
-  namespace: halo
+  name: halo2
+  namespace: halo2
 spec:
   storageClassName: nfs-client
   accessModes:
@@ -16,100 +22,60 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: halo
+  namespace: halo2
   labels:
     app: halo
-  name: halo
-  namespace: halo
 spec:
-  progressDeadlineSeconds: 600
   replicas: 1
-  revisionHistoryLimit: 10
   selector:
     matchLabels:
       app: halo
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
   template:
     metadata:
-      annotations:
-        prometheus.io/port: "9527"
-        prometheus.io/scrape: "true"
-      creationTimestamp: null
       labels:
         app: halo
     spec:
       containers:
-        - env:
-            - name: TZ
-              value: Asia/Shanghai
-            - name: ES_JAVA_OPTS
-              value: "-Xms1g -Xmx1g"
-            - name: SERVER_PORT
-              value: "8090"
-            - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
-              value: com.mysql.cj.jdbc.Driver
-            - name: SPRING_DATASOURCE_URL
-              value: jdbc:mysql://test-leader.mysql.svc.cluster.local:3306/halodb?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
-            - name: SPRING_DATASOURCE_USERNAME
-              value: root_rw
-            - name: SPRING_DATASOURCE_PASSWORD
-              value: password
-            - name: HALO_CACHE
-              value: redis
-            - name: SPRING_REDIS_PORT
-              value: "65379"
-            - name: SPRING_REDIS_DATABASE
-              value: "2"
-            - name: SPRING_REDIS_HOST
-              value: redis.dev.kikera.org
-            - name: SPRING_REDIS_PASSWORD
-              value: password
-          image: halohub/halo:latest
-          imagePullPolicy: IfNotPresent
+        - name: halo
+          image: halohub/halo:2.3.0
+          imagePullPolicy: Always
           volumeMounts:
             - name: data
-              mountPath: /root/.halo
-          lifecycle:
-            preStop:
-              exec:
-                command:
-                  - /bin/sh
-                  - -c
-                  - sleep 15
-          name: halo
+              mountPath: /root/.halo2
           ports:
             - containerPort: 8090
-              name: http
-              protocol: TCP
-          securityContext: { }
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
+          args:
+#            - --spring.r2dbc.url=r2dbc:pool:mysql://10.233.53.2:3306/halodb?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+#            - --spring.r2dbc.username=halo
+#            # MySQL 的密码，请保证与下方 MYSQL_ROOT_PASSWORD 的变量值一致。
+#            - --spring.r2dbc.password=TEM87QTPdv3QXw
+#            - --spring.sql.init.platform=mysql
+            # 外部访问地址，请根据实际需要修改
+            - --halo.external-url=http://halo.halo2.svc.cluster.local:8090/
+            # 初始化的超级管理员用户名
+            - --halo.security.initializer.superadminusername=admin
+            # 初始化的超级管理员密码
+            - --halo.security.initializer.superadminpassword=P@88w0rd
+          env:
+            - name: JVM_OPTS
+              value: " -Xmx2G -Xms2G "
       dnsPolicy: ClusterFirst
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: { }
-      terminationGracePeriodSeconds: 30
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: halo
-#          hostPath:
-#            path: /root/.halo
+            claimName: halo2
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: halo
-  namespace: halo
+  namespace: halo2
 spec:
-  ports:
-    - port: 8090
-      protocol: TCP
-      targetPort: 8090
   selector:
     app: halo
-  sessionAffinity: None
+  ports:
+    - name: http
+      port: 8090
+      targetPort: 8090
   type: ClusterIP
