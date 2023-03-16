@@ -16,6 +16,7 @@ public class Cunsumer {
     public static void main(String[] args) throws MQClientException {
         //创建消费者实例
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("consumerGroup1");
+
         //设置nameServer地址
         consumer.setNamesrvAddr("127.0.0.1:9876");
         consumer.subscribe("orderTopic1","*");
