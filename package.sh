@@ -1,1 +1,1 @@
-mvn clean package -s ~/.m2/settings_self.xml -Paliyun,github -U
+mvn clean package -s .m2/settings.xml -U  -DskipTests

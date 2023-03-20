@@ -883,16 +883,16 @@
         </dependencies>
     </dependencyManagement>
 
-    <repositories>
-        <repository>
-            <id>Liferay Public</id>
-            <url>https://repository.liferay.com/nexus/content/repositories/public/</url>
-        </repository>
-        <repository>
-            <id>WSO2 Dist</id>
-            <url>https://dist.wso2.org/maven2/</url>
-        </repository>
-    </repositories>
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>Liferay Public</id>-->
+<!--            <url>https://repository.liferay.com/nexus/content/repositories/public/</url>-->
+<!--        </repository>-->
+<!--        <repository>-->
+<!--            <id>WSO2 Dist</id>-->
+<!--            <url>https://dist.wso2.org/maven2/</url>-->
+<!--        </repository>-->
+<!--    </repositories>-->
 
     <dependencies>
         <dependency>
