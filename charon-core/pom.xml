@@ -55,11 +55,12 @@
             <artifactId>cglib</artifactId>
         </dependency>
 
-        <!--jdk14缺失的包-->
+        <!--jdk17缺失的包-->
         <dependency>
-            <groupId>javax.annotation</groupId>
-            <artifactId>javax.annotation-api</artifactId>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
