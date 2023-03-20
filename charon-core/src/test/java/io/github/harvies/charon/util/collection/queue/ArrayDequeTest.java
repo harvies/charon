@@ -2,12 +2,13 @@ package io.github.harvies.charon.util.collection.queue;
 
 import org.junit.Test;
 
+import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class ArrayDequeTest {
     @Test
     public void testArrayDeque() {
-        Deque<Integer> deque = new ArrayDequeWrapper<>(4);
+        Deque<Integer> deque = new ArrayDeque<>(4);
         deque.addLast(1);
         deque.addLast(2);
         deque.addFirst(3);
