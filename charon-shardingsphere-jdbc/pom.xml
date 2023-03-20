@@ -8,14 +8,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>charon-shardingsphere-jdbc</artifactId>
-    <packaging>jar</packaging>
-
-    <name>charon-shardingsphere-jdbc</name>
-    <url>http://maven.apache.org</url>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
     <dependencies>
         <dependency>

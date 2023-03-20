@@ -1,1 +1,3 @@
-mvn clean package -s ~/.m2/settings_self.xml -Paliyun,github -U
+#!/bin/bash
+source ./set_jdk17.sh
+mvn clean package  -U  -DskipTests
