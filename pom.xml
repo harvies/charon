@@ -16,8 +16,8 @@
     <modules>
         <module>charon-dependencies</module>
         <module>charon-core</module>
-        <!--        <module>charon-api</module>-->
-<!--        <module>charon-dubbo</module>-->
+        <module>charon-api</module>
+        <!--        <module>charon-dubbo</module>-->
         <!--        <module>charon-notify</module>-->
         <!--        <module>charon-oss</module>-->
         <!--        <module>charon-file</module>-->
@@ -25,11 +25,11 @@
         <!--        <module>charon-extra</module>-->
         <!--        <module>charon-elasticsearch</module>-->
         <!--        <module>charon-config</module>-->
-<!--                <module>charon-spring-boot-starters</module>-->
+        <!--                <module>charon-spring-boot-starters</module>-->
         <!--        <module>charon-spring-cloud-starters</module>-->
         <!--        <module>charon-agent</module>-->
         <module>charon-model</module>
-<!--        <module>charon-shardingsphere-jdbc</module>-->
+        <!--        <module>charon-shardingsphere-jdbc</module>-->
         <!--        <module>charon-test</module>-->
         <!--        <module>charon-jcef</module>-->
     </modules>
