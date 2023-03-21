@@ -33,44 +33,27 @@
             <artifactId>dom4j</artifactId>
             <scope>provided</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.jiangxincode/cpdetector -->
+        <dependency>
+            <groupId>com.github.jiangxincode</groupId>
+            <artifactId>cpdetector</artifactId>
+        </dependency>
         <!-- rss -->
         <dependency>
             <groupId>com.rometools</groupId>
             <artifactId>rome</artifactId>
             <scope>provided</scope>
-        </dependency>
+    </dependency>
 
-        <!--html to markdown -->
+         <!--html to markdown -->
         <dependency>
             <groupId>com.kotcrab.remark</groupId>
             <artifactId>remark</artifactId>
             <scope>provided</scope>
         </dependency>
 
-        <!-- 利用第三方开源包cpdetector获取文件编码格式 begin-->
-        <!-- https://mvnrepository.com/artifact/antlr/antlr -->
-        <dependency>
-            <groupId>antlr</groupId>
-            <artifactId>antlr</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.liferay/org.mozilla.intl.chardet -->
-        <dependency>
-            <groupId>com.liferay</groupId>
-            <artifactId>org.mozilla.intl.chardet</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/jargs/jargs -->
-        <dependency>
-            <groupId>jargs</groupId>
-            <artifactId>jargs</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.github.jiangxincode/cpdetector -->
-        <dependency>
-            <groupId>com.github.jiangxincode</groupId>
-            <artifactId>cpdetector</artifactId>
-        </dependency>
-        <!-- 利用第三方开源包cpdetector获取文件编码格式 end-->
-
-        <dependency>
+    <!-- webmagic-->
+	  <dependency>
             <groupId>us.codecraft</groupId>
             <artifactId>webmagic-core</artifactId>
             <version>${webmagic.version}</version>
@@ -95,6 +78,7 @@
             <version>${commons-logging.version}</version>
             <scope>provided</scope>
         </dependency>
+
     </dependencies>
 
 </project>

@@ -18,10 +18,10 @@
         <module>charon-core</module>
         <module>charon-api</module>
         <!--        <module>charon-dubbo</module>-->
-        <!--        <module>charon-notify</module>-->
-        <!--        <module>charon-oss</module>-->
+        <module>charon-notify</module>
+        <module>charon-oss</module>
         <!--        <module>charon-file</module>-->
-        <!--        <module>charon-http</module>-->
+	<module>charon-http</module>
         <!--        <module>charon-extra</module>-->
         <!--        <module>charon-elasticsearch</module>-->
         <!--        <module>charon-config</module>-->
