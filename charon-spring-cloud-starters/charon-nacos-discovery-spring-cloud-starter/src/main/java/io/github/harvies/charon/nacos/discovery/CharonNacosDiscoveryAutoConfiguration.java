@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 @Configuration(proxyBeanMethods = false)
 @AutoConfigureAfter({NacosDiscoveryAutoConfiguration.class})

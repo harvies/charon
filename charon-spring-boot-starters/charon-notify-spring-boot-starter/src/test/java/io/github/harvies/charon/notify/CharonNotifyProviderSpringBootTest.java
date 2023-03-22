@@ -3,7 +3,7 @@
 //import org.junit.Test;
 //import org.junit.jupiter.api.Assertions;
 //
-//import javax.annotation.Resource;
+//import jakarta.annotation.Resource;
 //
 //public class CharonNotifyProviderSpringBootTest extends BaseTest {
 //

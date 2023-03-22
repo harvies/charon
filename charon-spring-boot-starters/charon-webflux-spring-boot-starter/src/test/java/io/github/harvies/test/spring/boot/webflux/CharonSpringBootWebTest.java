@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.boot.web.server.LocalServerPort;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 class CharonSpringBootWebTest extends BaseTest {
 

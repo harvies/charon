@@ -7,7 +7,7 @@ import io.github.harvies.charon.mybatis.mapper.UserMapper;
 import io.github.harvies.charon.mybatis.po.UserPO;
 import org.junit.jupiter.api.Test;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
