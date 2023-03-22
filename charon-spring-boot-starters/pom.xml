@@ -19,17 +19,17 @@
 <!--        <module>charon-spring-boot-admin-server-starter</module>-->
 <!--        <module>charon-spring-boot-admin-client-starter</module>-->
 <!--        <module>charon-notify-spring-boot-starter</module>-->
-<!--        <module>charon-oss-spring-boot-starter</module>-->
-<!--        <module>charon-elasticjob-lite-spring-boot-starter</module>-->
+            <module>charon-oss-spring-boot-starter</module>
+            <module>charon-elasticjob-lite-spring-boot-starter</module>
 <!--        <module>charon-mongo-spring-boot-starter</module>-->
 <!--        <module>charon-shardingsphere-jdbc-spring-boot-starter</module>-->
-<!--        <module>charon-elasticsearch-spring-boot-starter</module>-->
-<!--        <module>charon-elk-spring-boot-starter</module>-->
+            <module>charon-elasticsearch-spring-boot-starter</module>
+            <module>charon-elk-spring-boot-starter</module>
 <!--        <module>charon-swagger-spring-boot-starter</module>-->
 <!--        <module>charon-mybatis-spring-boot-starter</module>-->
         <module>charon-rocketmq-spring-boot-starter</module>
 <!--        <module>charon-canal-client-spring-boot-starter</module>-->
-<!--        <module>charon-config-spring-boot-starter</module>-->
+            <module>charon-config-spring-boot-starter</module>
 <!--        <module>charon-shiro-spring-boot-starter</module>-->
 <!--        <module>charon-webflux-spring-boot-starter</module>-->
 <!--        <module>charon-cache-spring-boot-starter</module>-->

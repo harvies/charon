@@ -24,7 +24,7 @@
 	<module>charon-http</module>
         <!--        <module>charon-extra</module>-->
         <!--        <module>charon-elasticsearch</module>-->
-        <!--        <module>charon-config</module>-->
+        <module>charon-config</module>
                         <module>charon-spring-boot-starters</module>
         <!--        <module>charon-spring-cloud-starters</module>-->
         <!--        <module>charon-agent</module>-->
