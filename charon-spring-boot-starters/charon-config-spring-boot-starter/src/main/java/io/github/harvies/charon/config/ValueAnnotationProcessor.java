@@ -2,6 +2,7 @@ package io.github.harvies.charon.config;
 
 import io.github.harvies.charon.util.StringUtils;
 import io.github.harvies.charon.util.reflect.FieldUtils;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,7 +10,6 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.lang.reflect.Field;
 import java.util.HashSet;
 import java.util.Set;
