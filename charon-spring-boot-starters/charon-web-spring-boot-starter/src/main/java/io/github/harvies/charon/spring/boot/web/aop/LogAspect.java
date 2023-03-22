@@ -2,14 +2,13 @@ package io.github.harvies.charon.spring.boot.web.aop;
 
 import io.github.harvies.charon.model.ApiResult;
 import io.github.harvies.charon.util.JsonUtils;
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-
-import javax.annotation.PostConstruct;
 
 /**
  * 日志切面类

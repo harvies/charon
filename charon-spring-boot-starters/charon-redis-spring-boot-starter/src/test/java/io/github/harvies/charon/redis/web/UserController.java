@@ -2,12 +2,12 @@ package io.github.harvies.charon.redis.web;
 
 import io.github.harvies.charon.redis.dto.UserDTO;
 import io.github.harvies.charon.redis.service.UserCacheService;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @Slf4j

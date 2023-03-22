@@ -1,5 +1,6 @@
 package io.github.harvies.charon.elasticsearch.config;
 
+import jakarta.annotation.Resource;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
@@ -15,7 +16,6 @@ import org.springframework.data.elasticsearch.core.mapping.ElasticsearchPersiste
 import org.springframework.data.elasticsearch.core.mapping.ElasticsearchPersistentProperty;
 import org.springframework.data.mapping.context.MappingContext;
 
-import javax.annotation.Resource;
 import java.util.Date;
 
 @Configuration

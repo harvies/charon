@@ -1,11 +1,11 @@
 package io.github.harvies.charon.redis;
 
+import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.redisson.api.*;
 
-import javax.annotation.Resource;
 import java.util.Set;
 
 public class RedissonClientSpringBootTest extends BaseTest {

@@ -1,11 +1,11 @@
 package io.github.harvies.test.spring.boot.web;
 
 import io.github.harvies.charon.spring.boot.web.Constants;
+import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import javax.annotation.Resource;
 
 class CharonSpringBootWebTest extends BaseTest {
 
