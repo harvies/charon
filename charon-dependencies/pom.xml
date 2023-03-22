@@ -1065,8 +1065,8 @@
                             <paths>
                                 <!-- Copies from '/home/user/jib-extras' into '/extras' on the container -->
                                 <path>
-					<from>~/.charon</from>
-					<into>~/.charon</into>
+                                    <from>${user.home}/.charon</from>
+                                    <into>${user.home}/.charon</into>
                                 </path>
                             </paths>
                         </extraDirectories>
