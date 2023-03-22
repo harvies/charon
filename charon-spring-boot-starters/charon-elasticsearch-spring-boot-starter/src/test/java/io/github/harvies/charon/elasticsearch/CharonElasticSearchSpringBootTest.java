@@ -5,8 +5,14 @@ import io.github.harvies.charon.util.FileUtils;
 import io.github.harvies.charon.util.JsonUtils;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.elasticsearch.index.query.BoolQueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.TermsQueryBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.client.erhlc.NativeSearchQuery;
+import org.springframework.data.elasticsearch.client.erhlc.NativeSearchQueryBuilder;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.IndexOperations;
 import org.springframework.data.elasticsearch.core.SearchHit;
@@ -27,6 +33,9 @@ class CharonElasticSearchSpringBootTest extends BaseTest {
 
     @Resource
     private ElasticsearchOperations elasticsearchOperations;
+
+    @Resource
+    private ElasticsearchTemplate elasticsearchTemplate;
 
     @Test
     void elasticsearchOperations() {
@@ -94,15 +103,15 @@ class CharonElasticSearchSpringBootTest extends BaseTest {
         System.out.println(searchHits);
     }
 
-//    @Test
-//    void nativeSearchQuery() {
-//        BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
-//        boolQueryBuilder.must(new TermsQueryBuilder("tagList", Arrays.asList("123", "234", "345")));
-//        NativeSearchQuery query = new NativeSearchQueryBuilder().withQuery(boolQueryBuilder).build();
-//        SearchHits<User> hits = elasticsearchOperations.search(query, User.class, IndexCoordinates.of(indexName));
-//        List<SearchHit<User>> searchHits = hits.getSearchHits();
-//        System.out.println(searchHits);
-//    }
+    @Test
+    void nativeSearchQuery() {
+        BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
+        boolQueryBuilder.must(new TermsQueryBuilder("tagList", Arrays.asList("123", "234", "345")));
+        NativeSearchQuery query = new NativeSearchQueryBuilder().withQuery(boolQueryBuilder).build();
+        SearchHits<User> hits = elasticsearchOperations.search(query, User.class, IndexCoordinates.of(indexName));
+        List<SearchHit<User>> searchHits = hits.getSearchHits();
+        System.out.println(searchHits);
+    }
 
     @Test
     void delete() {
