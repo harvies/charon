@@ -7,7 +7,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.context.config.ConfigFileApplicationListener;
+import org.springframework.boot.context.config.ConfigDataEnvironmentPostProcessor;
 import org.springframework.boot.env.EnvironmentPostProcessor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
@@ -38,7 +38,7 @@ public class CharonConfigEnvironmentPostProcessor implements EnvironmentPostProc
     @Override
     public int getOrder() {
         //要比springboot读取properties文件优先级低(先获取applicationName)
-        return ConfigFileApplicationListener.DEFAULT_ORDER + 1;
+        return ConfigDataEnvironmentPostProcessor.ORDER + 1;
     }
 
 
