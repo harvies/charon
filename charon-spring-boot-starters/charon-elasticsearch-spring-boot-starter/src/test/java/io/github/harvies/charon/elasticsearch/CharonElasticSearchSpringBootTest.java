@@ -1,27 +1,28 @@
 package io.github.harvies.charon.elasticsearch;
 
+import co.elastic.clients.elasticsearch._types.FieldValue;
+import co.elastic.clients.elasticsearch._types.query_dsl.TermsQuery;
+import co.elastic.clients.elasticsearch._types.query_dsl.TermsQueryField;
 import com.alibaba.fastjson.JSON;
 import io.github.harvies.charon.util.FileUtils;
 import io.github.harvies.charon.util.JsonUtils;
+import jakarta.annotation.Resource;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.elasticsearch.index.query.BoolQueryBuilder;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.index.query.TermsQueryBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate;
-import org.springframework.data.elasticsearch.client.erhlc.NativeSearchQuery;
-import org.springframework.data.elasticsearch.client.erhlc.NativeSearchQueryBuilder;
+import org.springframework.data.elasticsearch.client.elc.NativeQuery;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.IndexOperations;
 import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.data.elasticsearch.core.document.Document;
 import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
-import org.springframework.data.elasticsearch.core.query.*;
+import org.springframework.data.elasticsearch.core.query.Criteria;
+import org.springframework.data.elasticsearch.core.query.CriteriaQuery;
+import org.springframework.data.elasticsearch.core.query.IndexQuery;
 
-import jakarta.annotation.Resource;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -105,10 +106,17 @@ class CharonElasticSearchSpringBootTest extends BaseTest {
 
     @Test
     void nativeSearchQuery() {
-        BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
-        boolQueryBuilder.must(new TermsQueryBuilder("tagList", Arrays.asList("123", "234", "345")));
-        NativeSearchQuery query = new NativeSearchQueryBuilder().withQuery(boolQueryBuilder).build();
-        SearchHits<User> hits = elasticsearchOperations.search(query, User.class, IndexCoordinates.of(indexName));
+        TermsQuery termsQuery = new TermsQuery.Builder().field("tagList")
+                .terms(
+                        new TermsQueryField.Builder().value(
+                                Arrays.asList(
+                                        FieldValue.of("123"),
+                                        FieldValue.of("234"),
+                                        FieldValue.of("345"))
+                        ).build()
+                ).build();
+        NativeQuery nativeQuery = new NativeQuery(termsQuery._toQuery());
+        SearchHits<User> hits = elasticsearchOperations.search(nativeQuery, User.class, IndexCoordinates.of(indexName));
         List<SearchHit<User>> searchHits = hits.getSearchHits();
         System.out.println(searchHits);
     }
