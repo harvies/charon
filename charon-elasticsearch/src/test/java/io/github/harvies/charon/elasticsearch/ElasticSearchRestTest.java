@@ -14,7 +14,7 @@ public class ElasticSearchRestTest extends BaseTest {
 
     @Test
     public void _count() throws IOException {
-        Request request = new Request("POST", "blog/_count");
+        Request request = new Request("POST", "rss_item_202303/_count");
         Response response = restClient.performRequest(request);
         System.out.println(response);
         String result = EntityUtils.toString(response.getEntity(), "UTF-8");
@@ -23,7 +23,7 @@ public class ElasticSearchRestTest extends BaseTest {
 
     @Test
     public void _search() throws IOException {
-        Request request = new Request("POST", "blog/_search");
+        Request request = new Request("POST", "rss_item_202303/_search");
         Response response = restClient.performRequest(request);
         System.out.println(response);
         String result = EntityUtils.toString(response.getEntity(), "UTF-8");
