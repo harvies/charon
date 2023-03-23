@@ -3,7 +3,7 @@ package io.github.harvies.charon.spring.boot.factorybean;
 import org.junit.Test;
 import org.springframework.beans.factory.BeanFactory;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 public class CharonSpringBootTestFactoryBean extends BaseTest {
 

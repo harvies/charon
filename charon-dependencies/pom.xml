@@ -21,7 +21,7 @@
         <archetype.encoding>${encoding}</archetype.encoding>
 
         <!-- 版本说明 https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E -->
-        <spring-boot.version>3.0.1</spring-boot.version>
+        <spring-boot.version>3.0.4</spring-boot.version>
         <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
         <spring-cloud-netflix.version>2.2.6.RELEASE</spring-cloud-netflix.version>
         <spring-cloud-alibaba.version>2.2.6.RELEASE</spring-cloud-alibaba.version>
@@ -113,27 +113,27 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>org.springframework.cloud</groupId>-->
-<!--                <artifactId>spring-cloud-dependencies</artifactId>-->
-<!--                <version>${spring-cloud.version}</version>-->
-<!--                <type>pom</type>-->
-<!--                <scope>import</scope>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>org.springframework.cloud</groupId>-->
-<!--                <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
-<!--                <version>${spring-cloud-netflix.version}</version>-->
-<!--                <type>pom</type>-->
-<!--                <scope>import</scope>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.alibaba.cloud</groupId>-->
-<!--                <artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
-<!--                <version>${spring-cloud-alibaba.version}</version>-->
-<!--                <type>pom</type>-->
-<!--                <scope>import</scope>-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>org.springframework.cloud</groupId>-->
+            <!--                <artifactId>spring-cloud-dependencies</artifactId>-->
+            <!--                <version>${spring-cloud.version}</version>-->
+            <!--                <type>pom</type>-->
+            <!--                <scope>import</scope>-->
+            <!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>org.springframework.cloud</groupId>-->
+            <!--                <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
+            <!--                <version>${spring-cloud-netflix.version}</version>-->
+            <!--                <type>pom</type>-->
+            <!--                <scope>import</scope>-->
+            <!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>com.alibaba.cloud</groupId>-->
+            <!--                <artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
+            <!--                <version>${spring-cloud-alibaba.version}</version>-->
+            <!--                <type>pom</type>-->
+            <!--                <scope>import</scope>-->
+            <!--            </dependency>-->
             <!-- rocketmq -->
             <dependency>
                 <groupId>org.apache.rocketmq</groupId>
@@ -892,16 +892,16 @@
         </dependencies>
     </dependencyManagement>
 
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>Liferay Public</id>-->
-<!--            <url>https://repository.liferay.com/nexus/content/repositories/public/</url>-->
-<!--        </repository>-->
-<!--        <repository>-->
-<!--            <id>WSO2 Dist</id>-->
-<!--            <url>https://dist.wso2.org/maven2/</url>-->
-<!--        </repository>-->
-<!--    </repositories>-->
+    <!--    <repositories>-->
+    <!--        <repository>-->
+    <!--            <id>Liferay Public</id>-->
+    <!--            <url>https://repository.liferay.com/nexus/content/repositories/public/</url>-->
+    <!--        </repository>-->
+    <!--        <repository>-->
+    <!--            <id>WSO2 Dist</id>-->
+    <!--            <url>https://dist.wso2.org/maven2/</url>-->
+    <!--        </repository>-->
+    <!--    </repositories>-->
 
     <dependencies>
         <dependency>
@@ -1317,12 +1317,6 @@
                 <dependency>
                     <groupId>jakarta.validation</groupId>
                     <artifactId>jakarta.validation-api</artifactId>
-                </dependency>
-                <!-- 添加 Javax Annotation -->
-                <dependency>
-                    <groupId>javax.annotation</groupId>
-                    <artifactId>jsr250-api</artifactId>
-                    <version>1.0</version>
                 </dependency>
             </dependencies>
         </profile>

@@ -1,13 +1,13 @@
 package io.github.harvies.charon.config;
 
 import io.github.harvies.charon.config.annotation.RefreshScope;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnClass(RefreshScope.class)

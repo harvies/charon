@@ -1,16 +1,15 @@
 package io.github.harvies.charon.spring.boot.core;
 
 import io.github.harvies.charon.spring.boot.core.event.CharonBootShutdownEvent;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
-
 @Slf4j
 public class CharonShutdownHook implements InitializingBean {
-    @Autowired
+    @Resource
     private CharonBootApplicationProperties charonBootApplicationProperties;
-    @Autowired
+    @Resource
     private ApplicationEventPublisher applicationEventPublisher;
 
     @Override

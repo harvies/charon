@@ -15,7 +15,7 @@ import org.springframework.cloud.gateway.route.RouteDefinitionRepository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 @Slf4j
 public class PersistenceRouteDefinitionRepository implements RouteDefinitionRepository {

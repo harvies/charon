@@ -4,7 +4,7 @@
 //import org.junit.Test;
 //import org.junit.jupiter.api.Assertions;
 //
-//import javax.annotation.Resource;
+//import jakarta.annotation.Resource;
 //import java.io.IOException;
 //
 //public class CharonOSSSpringBootTest extends BaseTest {

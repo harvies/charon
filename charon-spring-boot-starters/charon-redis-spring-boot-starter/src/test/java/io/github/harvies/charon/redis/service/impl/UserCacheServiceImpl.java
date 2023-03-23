@@ -3,12 +3,12 @@ package io.github.harvies.charon.redis.service.impl;
 import io.github.harvies.charon.redis.dao.UserDAO;
 import io.github.harvies.charon.redis.dto.UserDTO;
 import io.github.harvies.charon.redis.service.UserCacheService;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 

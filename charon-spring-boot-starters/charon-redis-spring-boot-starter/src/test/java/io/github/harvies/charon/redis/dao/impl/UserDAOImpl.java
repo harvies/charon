@@ -2,11 +2,11 @@ package io.github.harvies.charon.redis.dao.impl;
 
 import io.github.harvies.charon.redis.dao.UserDAO;
 import io.github.harvies.charon.redis.dto.UserDTO;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 

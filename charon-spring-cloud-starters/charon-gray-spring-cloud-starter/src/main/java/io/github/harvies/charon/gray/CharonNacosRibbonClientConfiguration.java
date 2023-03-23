@@ -28,7 +28,7 @@ import org.springframework.cloud.netflix.ribbon.PropertiesFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * integrated Ribbon by default.

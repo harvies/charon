@@ -2,12 +2,11 @@ package io.github.harvies.test.spring.boot.web;
 
 import com.alibaba.fastjson.JSONObject;
 import io.github.harvies.charon.util.JsonUtils;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-
-import javax.annotation.Resource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

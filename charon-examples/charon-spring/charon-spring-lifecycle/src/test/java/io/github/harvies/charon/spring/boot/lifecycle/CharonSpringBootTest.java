@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 public class CharonSpringBootTest extends BaseTest {
     @Value("${spring.jackson.time-zone:11}")
