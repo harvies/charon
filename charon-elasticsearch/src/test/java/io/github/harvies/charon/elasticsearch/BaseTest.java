@@ -19,7 +19,7 @@ public abstract class BaseTest {
     @BeforeEach
     public void beforeEach() {
         String uris = PropertiesUtils.getDefaultProperty("charon.elasticsearch.rest.uris");
-        HttpHost httpHost = HttpHost.create("http://" + uris);
+        HttpHost httpHost = HttpHost.create(uris.startsWith("http") ? uris : "http://" + uris);
         restClient = RestClient.builder(httpHost)
                 .setRequestConfigCallback(requestConfigBuilder -> {
                     //建立连接
