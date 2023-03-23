@@ -15,13 +15,6 @@ public interface MyBaseMapper<T> extends BaseMapper<T> {
      */
     int putJson(@Param(value = "field") String field, @Param(value = "id") Serializable id, @Param(value = "key") String key, @Param(value = "value") Object value);
 
-    /**
-     * 根据id往features字段写入数据
-     *
-     * @see MyBaseMapper#putJson(String, Serializable, String, Object)
-     */
-    @Deprecated
-    int putFeature(@Param(value = "id") Object id, @Param(value = "key") String key, @Param(value = "value") Object value);
 
     /**
      * 根据idList往json字段写入多个key value数据
@@ -30,38 +23,14 @@ public interface MyBaseMapper<T> extends BaseMapper<T> {
 
 
     /**
-     * 根据id往features字段写入多个key value数据
-     *
-     * @see MyBaseMapper#putFeatures(Object, Map)
-     */
-    @Deprecated
-    int putFeatures(@Param(value = "id") Object id, @Param(value = "values") Map<String, Object> values);
-
-    /**
      * 根据id和key从json字段查询数据
      */
     Object getJson(@Param(value = "field") String field, @Param(value = "id") Serializable id, @Param(value = "key") String key);
 
     /**
-     * 根据id和key从features字段查询数据
-     *
-     * @see MyBaseMapper#getJsons(String, Serializable, List)
-     */
-    @Deprecated
-    Object getFeature(@Param(value = "id") Object id, @Param(value = "key") String key);
-
-    /**
      * 根据id和keys从json字段查询数据
      */
     Map<String, Object> getJsons(@Param(value = "field") String field, @Param(value = "id") Serializable id, @Param(value = "keys") List<String> keys);
-
-    /**
-     * 根据id和keys从features字段查询数据
-     *
-     * @see MyBaseMapper#getJsons(String, Serializable, List)
-     */
-    @Deprecated
-    Map<String, Object> getFeatures(@Param(value = "id") Object id, @Param(value = "keys") List<String> keys);
 
     /**
      * 根据id往json字段写入数据

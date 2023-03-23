@@ -10,6 +10,10 @@ import org.apache.ibatis.mapping.SqlSource;
  * 根据id删除json字段某个key
  */
 public class RemoveJson extends AbstractMethod {
+    public RemoveJson(String methodName) {
+        super(methodName);
+    }
+
     @Override
     public MappedStatement injectMappedStatement(Class<?> mapperClass, Class<?> modelClass, TableInfo tableInfo) {
         MySqlMethod sqlMethod = MySqlMethod.REMOVE_JSON;

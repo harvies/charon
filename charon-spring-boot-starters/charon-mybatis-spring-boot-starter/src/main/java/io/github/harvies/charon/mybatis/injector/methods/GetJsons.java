@@ -12,6 +12,10 @@ import java.util.Map;
  * 根据id和keys从json字段查询数据
  */
 public class GetJsons extends AbstractMethod {
+    public GetJsons(String methodName) {
+        super(methodName);
+    }
+
     @Override
     public MappedStatement injectMappedStatement(Class<?> mapperClass, Class<?> modelClass, TableInfo tableInfo) {
         MySqlMethod sqlMethod = MySqlMethod.GET_JSONS;

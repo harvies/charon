@@ -29,9 +29,7 @@
         <sofa-boot.version>3.3.2</sofa-boot.version>
         <elastic-job.version>3.0.1</elastic-job.version>
         <mybatis.version>3.5.6</mybatis.version>
-        <mybatis-plus.version>3.4.3.1</mybatis-plus.version>
-        <mybatis-spring.version>2.0.6</mybatis-spring.version>
-        <mybatis-spring-boot-starter.version>2.1.0</mybatis-spring-boot-starter.version>
+        <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
         <druid.version>1.2.3</druid.version>
         <shardingsphere.version>5.3.1</shardingsphere.version>
         <HikariCP.version>3.4.5</HikariCP.version>

@@ -10,6 +10,10 @@ import org.apache.ibatis.mapping.SqlSource;
  * 根据id和key从json字段查询数据
  */
 public class GetJson extends AbstractMethod {
+    public GetJson(String methodName) {
+        super(methodName);
+    }
+
     @Override
     public MappedStatement injectMappedStatement(Class<?> mapperClass, Class<?> modelClass, TableInfo tableInfo) {
         MySqlMethod sqlMethod = MySqlMethod.GET_JSON;

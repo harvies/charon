@@ -10,6 +10,10 @@ import org.apache.ibatis.mapping.SqlSource;
  * 根据id往json字段写入多个key value数据
  */
 public class PutJsons extends AbstractMethod {
+    public PutJsons(String methodName) {
+        super(methodName);
+    }
+
     @Override
     public MappedStatement injectMappedStatement(Class<?> mapperClass, Class<?> modelClass, TableInfo tableInfo) {
         MySqlMethod sqlMethod = MySqlMethod.PUT_JSONS;

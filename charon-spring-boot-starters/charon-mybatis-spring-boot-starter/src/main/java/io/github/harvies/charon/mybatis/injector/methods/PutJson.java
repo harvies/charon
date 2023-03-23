@@ -10,6 +10,10 @@ import org.apache.ibatis.mapping.SqlSource;
  * 根据id往features字段写入数据
  */
 public class PutJson extends AbstractMethod {
+    public PutJson(String methodName) {
+        super(methodName);
+    }
+
     @Override
     public MappedStatement injectMappedStatement(Class<?> mapperClass, Class<?> modelClass, TableInfo tableInfo) {
         MySqlMethod sqlMethod = MySqlMethod.PUT_JSON;
