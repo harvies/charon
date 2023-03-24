@@ -1,15 +1,18 @@
 package io.github.harvies.charon.elasticsearch.config;
 
-import co.elastic.clients.elasticsearch.ElasticsearchClient;
-import co.elastic.clients.transport.ElasticsearchTransport;
+import io.github.harvies.charon.util.PropertiesUtils;
 import jakarta.annotation.Resource;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
+import org.apache.http.HttpHost;
+import org.apache.http.HttpResponseInterceptor;
+import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.CredentialsProvider;
+import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.message.BasicHeader;
-import org.elasticsearch.client.RestClientBuilder;
-import org.springframework.boot.autoconfigure.elasticsearch.ElasticsearchProperties;
-import org.springframework.boot.autoconfigure.elasticsearch.RestClientBuilderCustomizer;
+import org.elasticsearch.client.RestClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
@@ -23,36 +26,40 @@ import org.springframework.data.elasticsearch.core.mapping.ElasticsearchPersiste
 import org.springframework.data.mapping.context.MappingContext;
 
 import java.util.Date;
+import java.util.List;
 
 @Configuration
 public class ElasticSearchConfig {
     @Bean
-    ElasticsearchClient elasticsearchClient(ElasticsearchTransport transport) {
-        return new ElasticsearchClient(transport).withTransportOptions(
-                builder -> {
-                    builder.addHeader("X-Elastic-Product", "charon");
-                    return builder;
-                }
-        );
-    }
-
-    @Bean
-    RestClientBuilderCustomizer restClientBuilderCustomizer(ElasticsearchProperties properties) {
-        return new ElasticSearchConfig.DefaultRestClientBuilderCustomizer(properties);
-    }
-
-    public class DefaultRestClientBuilderCustomizer implements RestClientBuilderCustomizer {
-        public DefaultRestClientBuilderCustomizer(ElasticsearchProperties properties) {
-
-        }
-
-        @Override
-        public void customize(RestClientBuilder builder) {
-            builder.setDefaultHeaders(new BasicHeader[]{
-                    new BasicHeader("Content-Type", "application/json"),
-                    new BasicHeader("X-Elastic-Product", "charon")
-            });
-        }
+    RestClient restClient() {
+        String uris = PropertiesUtils.getDefaultProperty("charon.elasticsearch.rest.uris");
+        String username = PropertiesUtils.getDefaultProperty("charon.elasticsearch.rest.username");
+        String password = PropertiesUtils.getDefaultProperty("charon.elasticsearch.rest.password");
+        HttpHost httpHost = HttpHost.create(uris);
+        CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
+        credentialsProvider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(username, password));
+        return RestClient.builder(httpHost)
+                .setHttpClientConfigCallback(httpClientBuilder -> {
+                    httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider);
+                    httpClientBuilder.setDefaultHeaders(
+                            List.of(new BasicHeader("Content-Type", "application/json"))
+                    );
+                    //兼容7.x服务端 https://stackoverflow.com/questions/71142680/co-elastic-clients-transport-transportexception-es-search-missing-x-elastic/74102828#74102828
+                    httpClientBuilder.addInterceptorLast(
+                            (HttpResponseInterceptor) (httpResponse, httpContext) -> httpResponse.addHeader("X-Elastic-Product", "Elasticsearch")
+                    );
+                    return httpClientBuilder;
+                })
+                .setRequestConfigCallback(requestConfigBuilder -> {
+                    //建立连接
+                    requestConfigBuilder.setConnectTimeout(5000);
+                    //读取数据
+                    requestConfigBuilder.setSocketTimeout(10000);
+                    //获取连接
+                    requestConfigBuilder.setConnectionRequestTimeout(3000);
+                    return requestConfigBuilder;
+                })
+                .build();
     }
 
     @Resource

@@ -17,6 +17,7 @@ import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.IndexOperations;
 import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.data.elasticsearch.core.SearchHits;
+import org.springframework.data.elasticsearch.core.cluster.ClusterHealth;
 import org.springframework.data.elasticsearch.core.document.Document;
 import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
 import org.springframework.data.elasticsearch.core.query.Criteria;
@@ -41,6 +42,13 @@ class CharonElasticSearchSpringBootTest extends BaseTest {
     @Test
     void elasticsearchOperations() {
         Assertions.assertNotNull(elasticsearchOperations);
+    }
+
+    @Test
+    void health() {
+        ClusterHealth health = elasticsearchTemplate.cluster().health();
+        log.info("health:[{}]", JSON.toJSONString(health));
+        Assertions.assertNotNull(health);
     }
 
     @Test
