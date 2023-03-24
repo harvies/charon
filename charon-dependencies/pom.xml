@@ -1049,7 +1049,7 @@
                     <configuration>
                         <allowInsecureRegistries>true</allowInsecureRegistries>
                         <from>
-                            <image>registry.cn-hangzhou.aliyuncs.com/harvies/jdk:20221017</image>
+                            <image>adoptopenjdk/openjdk17:alpine</image>
                         </from>
                         <to>
                             <image>registry.cn-hangzhou.aliyuncs.com/harvies/${project.artifactId}:${project.version}
@@ -1072,8 +1072,7 @@
                         <container>
                             <!--                            <mainClass>com.xxx.Application</mainClass>-->
                             <environment>
-                                <SW_AGENT_COLLECTOR_BACKEND_SERVICES>sw.dev.kikera.org:11800
-                                </SW_AGENT_COLLECTOR_BACKEND_SERVICES>
+                                <SW_AGENT_COLLECTOR_BACKEND_SERVICES>sw.dev.kikera.org:11800</SW_AGENT_COLLECTOR_BACKEND_SERVICES>
                             </environment>
                             <jvmFlags>
                                 <jvmFlag>-verbose:gc</jvmFlag>
