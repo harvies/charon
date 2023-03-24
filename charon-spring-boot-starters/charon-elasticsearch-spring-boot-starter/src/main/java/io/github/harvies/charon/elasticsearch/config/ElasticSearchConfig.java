@@ -1,18 +1,15 @@
 package io.github.harvies.charon.elasticsearch.config;
 
-import io.github.harvies.charon.util.PropertiesUtils;
 import jakarta.annotation.Resource;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
-import org.apache.http.HttpHost;
 import org.apache.http.HttpResponseInterceptor;
-import org.apache.http.auth.AuthScope;
-import org.apache.http.auth.UsernamePasswordCredentials;
-import org.apache.http.client.CredentialsProvider;
-import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.message.BasicHeader;
 import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestClientBuilder;
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.boot.autoconfigure.elasticsearch.RestClientBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
@@ -30,17 +27,14 @@ import java.util.List;
 
 @Configuration
 public class ElasticSearchConfig {
+
     @Bean
-    RestClient restClient() {
-        String uris = PropertiesUtils.getDefaultProperty("charon.elasticsearch.rest.uris");
-        String username = PropertiesUtils.getDefaultProperty("charon.elasticsearch.rest.username");
-        String password = PropertiesUtils.getDefaultProperty("charon.elasticsearch.rest.password");
-        HttpHost httpHost = HttpHost.create(uris);
-        CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
-        credentialsProvider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(username, password));
-        return RestClient.builder(httpHost)
+    RestClient restClient(RestClientBuilder restClientBuilder, ObjectProvider<RestClientBuilderCustomizer> builderCustomizers) {
+
+        //org.springframework.boot.autoconfigure.elasticsearch.ElasticsearchRestClientConfigurations.RestClientBuilderConfiguration
+        return restClientBuilder
                 .setHttpClientConfigCallback(httpClientBuilder -> {
-                    httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider);
+                    builderCustomizers.orderedStream().forEach((customizer) -> customizer.customize(httpClientBuilder));
                     httpClientBuilder.setDefaultHeaders(
                             List.of(new BasicHeader("Content-Type", "application/json"))
                     );
