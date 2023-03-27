@@ -1066,10 +1066,6 @@
                                     <from>${user.home}/.charon</from>
                                     <into>${user.home}/.charon</into>
                                 </path>
-                                <path>
-                                    <from>/opt/charon</from>
-                                    <into>/opt/charon</into>
-                                </path>
                             </paths>
                         </extraDirectories>
 
