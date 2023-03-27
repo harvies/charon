@@ -1052,7 +1052,9 @@
                             <image>khipu/openjdk17-alpine</image>
                         </from>
                         <to>
-                            <image>registry.cn-hangzhou.aliyuncs.com/harvies/${project.artifactId}:${project.version}
+                            <!--suppress UnresolvedMavenProperty -->
+                            <!-- mvn clean package -U -DskipTests  jib:build -pl xxx -am -Paliyun -Dimage.version=1.0.0 -->
+                            <image>registry.cn-hangzhou.aliyuncs.com/harvies/${project.artifactId}:${image.version}
                             </image>
                             <tags>
                                 <tag>latest</tag>
