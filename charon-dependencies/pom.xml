@@ -27,7 +27,7 @@
         <spring-cloud-alibaba.version>2.2.6.RELEASE</spring-cloud-alibaba.version>
 
         <sofa-boot.version>3.3.2</sofa-boot.version>
-        <elastic-job.version>3.0.1</elastic-job.version>
+        <elastic-job.version>3.0.2</elastic-job.version>
         <mybatis.version>3.5.6</mybatis.version>
         <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
         <druid.version>1.2.3</druid.version>
