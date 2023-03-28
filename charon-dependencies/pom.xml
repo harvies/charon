@@ -1065,7 +1065,7 @@
                             <paths>
                                 <!-- Copies from '/home/user/jib-extras' into '/extras' on the container -->
                                 <path>
-                                    <from>${user.home}/.charon</from>
+                                    <from>/opt/charon</from>
                                     <into>/opt/charon</into>
                                 </path>
                             </paths>
