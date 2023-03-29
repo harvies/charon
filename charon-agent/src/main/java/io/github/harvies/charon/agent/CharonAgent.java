@@ -34,7 +34,7 @@ public class CharonAgent {
     }
 
     private static void installTimeInterceptor(Instrumentation inst) {
-        AgentBuilder.Transformer transformer = (builder, typeDescription, classLoader, module) -> {
+        AgentBuilder.Transformer transformer = (builder, typeDescription, classLoader, module,protectionDomain) -> {
             return builder
                     .method(ElementMatchers.any()) // 拦截任意方法
                     .intercept(MethodDelegation.to(TimeInterceptor.class)); // 委托
@@ -46,7 +46,7 @@ public class CharonAgent {
                 .Default()
 //                .ignore(nameStartsWith("io.github.harvies.charon.util.JsonUtils."))
                 .type(
-                        ElementMatchers.nameStartsWith("io.github.harvies.blazars")
+                        ElementMatchers.nameStartsWith("io.github.harvies.charis")
                                 .or(ElementMatchers.nameStartsWith("io.github.harvies.charon"))
                 ) // 指定需要拦截的类
                 .transform(transformer)
