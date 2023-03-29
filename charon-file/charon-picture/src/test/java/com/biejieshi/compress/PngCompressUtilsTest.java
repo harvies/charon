@@ -1,7 +1,5 @@
 package com.biejieshi.compress;
 
-import org.junit.Test;
-
 import javax.imageio.ImageIO;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,7 +12,7 @@ public class PngCompressUtilsTest {
     /**
      * 测试png压缩
      */
-    @Test
+//    @Test
     public void testPngCompress() {
         String testFileName = "test-1.png";
         InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(testFileName);

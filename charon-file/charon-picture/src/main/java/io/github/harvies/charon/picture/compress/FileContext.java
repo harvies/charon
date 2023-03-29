@@ -1,11 +1,10 @@
 package io.github.harvies.charon.picture.compress;
 
-import io.github.harvies.charon.picture.compress.BaseFileContext;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import javax.validation.constraints.NotNull;
 import java.io.File;
 
 @EqualsAndHashCode(callSuper = true)

@@ -50,7 +50,7 @@
         <jpa.version>1.0.0.Final</jpa.version>
         <rocketmq.version>5.1.0</rocketmq.version>
         <commons-cli.version>1.2</commons-cli.version>
-        <cglib.version>2.2.2</cglib.version>
+        <cglib.version>3.3.0</cglib.version>
         <joor.version>0.9.6</joor.version>
         <javassist.version>3.27.0-GA</javassist.version>
         <jsqlparser.version>3.1</jsqlparser.version>
@@ -412,7 +412,7 @@
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>easyexcel</artifactId>
-                <version>2.2.10</version>
+                <version>3.2.1</version>
             </dependency>
 
             <dependency>
