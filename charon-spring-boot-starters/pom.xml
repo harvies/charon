@@ -30,7 +30,7 @@
         <module>charon-rocketmq-spring-boot-starter</module>
         <!--        <module>charon-canal-client-spring-boot-starter</module>-->
         <module>charon-config-spring-boot-starter</module>
-        <!--        <module>charon-shiro-spring-boot-starter</module>-->
+        <module>charon-shiro-spring-boot-starter</module>
         <!--        <module>charon-webflux-spring-boot-starter</module>-->
         <!--        <module>charon-cache-spring-boot-starter</module>-->
         <!--        <module>charon-bizlog-spring-boot-starter</module>-->
