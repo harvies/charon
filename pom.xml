@@ -29,7 +29,7 @@
         <!--        <module>charon-spring-cloud-starters</module>-->
         <module>charon-agent</module>
         <module>charon-model</module>
-        <!--        <module>charon-shardingsphere-jdbc</module>-->
+        <module>charon-shardingsphere-jdbc</module>
         <!--        <module>charon-test</module>-->
         <!--        <module>charon-jcef</module>-->
     </modules>
