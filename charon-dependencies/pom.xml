@@ -221,7 +221,7 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-text</artifactId>
-                <version>1.9</version>
+                <version>1.10.0</version>
             </dependency>
             <!-- apache commons end -->
             <dependency>
@@ -459,7 +459,7 @@
             <dependency>
                 <groupId>org.jsoup</groupId>
                 <artifactId>jsoup</artifactId>
-                <version>1.14.2</version>
+                <version>1.15.4</version>
             </dependency>
 
             <dependency>
@@ -1054,7 +1054,7 @@
                     <configuration>
                         <allowInsecureRegistries>true</allowInsecureRegistries>
                         <from>
-                            <image>khipu/openjdk17-alpine</image>
+                            <image>registry.cn-hangzhou.aliyuncs.com/harvies/jdk17:20230324</image>
                         </from>
                         <to>
                             <!--suppress UnresolvedMavenProperty -->

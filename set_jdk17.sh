@@ -7,7 +7,7 @@ if [ $OS_TYPE = "Darwin" ]; then
   export JAVA_HOME=$(/usr/libexec/java_home -v 17)
 elif [ $OS_TYPE = "Linux" ]; then
   # Linux系统
-  export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+  export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 else
   # Windows系统
   export JAVA_HOME="C:\Program Files\Java\jdk-17"
