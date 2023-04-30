@@ -1,6 +1,6 @@
 package io.github.harvies.test.spring.boot.web;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import io.github.harvies.charon.util.JsonUtils;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
