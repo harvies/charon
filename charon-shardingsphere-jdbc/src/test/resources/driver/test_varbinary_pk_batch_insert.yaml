@@ -2,17 +2,17 @@ databaseName: logic_db
 
 dataSources:
   ds_2:
-    password: '8mx3@kHn!CYRF2G'
+    password: '123456'
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
     url: jdbc:mysql://10.233.53.2:3306/ds_0?useServerPrepStmts=true&serverTimezone=UTC&useSSL=false&useLocalSessionState=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
     username: root_rw
   ds_3:
-    password: '8mx3@kHn!CYRF2G'
+    password: '123456'
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
     url: jdbc:mysql://10.233.53.2:3306/ds_1?useServerPrepStmts=true&serverTimezone=UTC&useSSL=false&useLocalSessionState=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
     username: root_rw
   ds_4:
-    password: '8mx3@kHn!CYRF2G'
+    password: '123456'
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
     url: jdbc:mysql://10.233.53.2:3306/ds_2?useServerPrepStmts=true&serverTimezone=UTC&useSSL=false&useLocalSessionState=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
     username: root_rw
