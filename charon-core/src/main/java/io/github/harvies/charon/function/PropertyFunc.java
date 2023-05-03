@@ -1,8 +1,7 @@
 package io.github.harvies.charon.function;
 
-import java.io.Serializable;
-import java.util.function.Function;
-
-public interface PropertyFunc<T, R> extends Function<T, R>, Serializable {
-
+@FunctionalInterface
+public
+interface PropertyFunc<T, R> extends java.io.Serializable {
+    R apply(T t);
 }

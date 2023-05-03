@@ -4,33 +4,36 @@ import io.github.harvies.charon.function.PropertyFunc;
 
 import java.lang.invoke.SerializedLambda;
 import java.lang.reflect.Method;
+import java.util.Objects;
 
 public class ReflectionFieldName {
 
-    public static <T> String getFieldName(PropertyFunc<T, ?> func) {
+    public static <T> String getFieldName(PropertyFunc<T, ?> lambda) {
+        Objects.requireNonNull(lambda, "lambda expression cannot be null");
+        SerializedLambda serializedLambda = getSerializedLambda(lambda);
+        String methodName = serializedLambda.getImplMethodName();
+        if (!methodName.startsWith("get") && !methodName.startsWith("is")) {
+            throw new IllegalArgumentException("lambda expression must be a getter method reference");
+        }
+        return decapitalize(methodName.replaceFirst("^(get|is)", ""));
+    }
+
+    private static SerializedLambda getSerializedLambda(PropertyFunc<?, ?> lambda) {
         try {
-            Method method = func.getClass().getDeclaredMethod("writeReplace");
-            method.setAccessible(Boolean.TRUE);
-            SerializedLambda serializedLambda = (SerializedLambda) method.invoke(func);
-            return resolveFieldName(serializedLambda.getImplMethodName());
-        } catch (ReflectiveOperationException e) {
-            throw new RuntimeException(e);
+            Method method = lambda.getClass().getDeclaredMethod("writeReplace");
+            method.setAccessible(true);
+            return (SerializedLambda) method.invoke(lambda);
+        } catch (Exception e) {
+            throw new RuntimeException("failed to get serialized lambda", e);
         }
     }
 
-    private static String resolveFieldName(String getMethodName) {
-        if (getMethodName.startsWith("get")) {
-            getMethodName = getMethodName.substring(3);
-        } else if (getMethodName.startsWith("is")) {
-            getMethodName = getMethodName.substring(2);
+    private static String decapitalize(String name) {
+        if (name == null || name.isEmpty()) {
+            return name;
         }
-        return firstToLowerCase(getMethodName);
-    }
-
-    private static String firstToLowerCase(String param) {
-        if (StringUtils.isBlank(param)) {
-            return "";
-        }
-        return param.substring(0, 1).toLowerCase() + param.substring(1);
+        char[] chars = name.toCharArray();
+        chars[0] = Character.toLowerCase(chars[0]);
+        return new String(chars);
     }
 }
