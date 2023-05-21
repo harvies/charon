@@ -3,7 +3,7 @@ package io.github.harvies.charon.elasticsearch;
 import co.elastic.clients.elasticsearch._types.FieldValue;
 import co.elastic.clients.elasticsearch._types.query_dsl.TermsQuery;
 import co.elastic.clients.elasticsearch._types.query_dsl.TermsQueryField;
-import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson2.JSON;
 import io.github.harvies.charon.util.FileUtils;
 import io.github.harvies.charon.util.JsonUtils;
 import jakarta.annotation.Resource;
@@ -100,7 +100,7 @@ class CharonElasticSearchSpringBootTest extends BaseTest {
                 .setDescription("世界你好2");
         IndexQuery indexQuery = new IndexQuery();
         indexQuery.setId("2");
-        indexQuery.setSource(JSON.toJSONStringWithDateFormat(user, "yyyy-MM-dd HH:mm:ss"));
+        indexQuery.setSource(JSON.toJSONString(user, "yyyy-MM-dd HH:mm:ss"));
         elasticsearchOperations.index(indexQuery, IndexCoordinates.of(indexName));
     }
 
