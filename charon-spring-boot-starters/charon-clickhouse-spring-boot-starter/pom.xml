@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.github.harvies.charon</groupId>
+        <artifactId>charon-spring-boot-starters</artifactId>
+        <version>0.0.9-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>charon-clickhouse-spring-boot-starter</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.clickhouse/clickhouse-jdbc -->
+        <dependency>
+            <groupId>com.clickhouse</groupId>
+            <artifactId>clickhouse-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+    </dependencies>
+</project>

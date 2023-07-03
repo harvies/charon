@@ -894,6 +894,13 @@
                 <artifactId>elasticsearch-rest-high-level-client</artifactId>
                 <version>7.15.0</version>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.clickhouse/clickhouse-jdbc -->
+            <dependency>
+                <groupId>com.clickhouse</groupId>
+                <artifactId>clickhouse-jdbc</artifactId>
+                <version>0.4.6</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
