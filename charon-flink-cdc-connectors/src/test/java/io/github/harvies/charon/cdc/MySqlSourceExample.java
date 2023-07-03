@@ -9,7 +9,7 @@ public class MySqlSourceExample {
   public static void main(String[] args) throws Exception {
     MySqlSource<String> mySqlSource = MySqlSource.<String>builder()
             .hostname("yourHostname")
-            .port(yourPort)
+            .port(-1)
             .databaseList("yourDatabaseName") // set captured database
             .tableList("yourDatabaseName.yourTableName") // set captured table
             .username("yourUsername")

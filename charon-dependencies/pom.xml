@@ -908,6 +908,13 @@
                 <!-- The dependency is available only for stable releases, SNAPSHOT dependency need build by yourself. -->
                 <version>2.4.0</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-java -->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-streaming-java</artifactId>
+                <version>1.17.1</version>
+                <scope>provided</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
