@@ -30,6 +30,7 @@
         <module>charon-agent</module>
         <module>charon-model</module>
         <module>charon-shardingsphere-jdbc</module>
+        <module>charon-flink-cdc-connectors</module>
         <!--        <module>charon-test</module>-->
         <!--        <module>charon-jcef</module>-->
     </modules>
