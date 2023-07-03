@@ -2,7 +2,7 @@
 spring:
   datasource:
     driver-class-name: com.clickhouse.jdbc.ClickHouseDriver
-    url: jdbc:clickhouse://${charon.clickhouse.url}/default?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    url: jdbc:clickhouse://${charon.clickhouse.url}/sgk?compress=0&serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
     username: ${charon.clickhouse.username}
     password: ${charon.clickhouse.password}
     type: com.zaxxer.hikari.HikariDataSource
