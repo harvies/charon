@@ -14,5 +14,5 @@ public class User {
     private String password;
     private List<String> tagList;
     private String description;
-    private Date gmtCreate;
+    private Long gmtCreate;
 }

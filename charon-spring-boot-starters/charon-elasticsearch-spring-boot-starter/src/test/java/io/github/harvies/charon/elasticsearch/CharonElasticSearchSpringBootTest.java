@@ -1,22 +1,28 @@
 package io.github.harvies.charon.elasticsearch;
 
 import co.elastic.clients.elasticsearch._types.FieldValue;
+import co.elastic.clients.elasticsearch._types.query_dsl.MatchAllQuery;
 import co.elastic.clients.elasticsearch._types.query_dsl.TermsQuery;
 import co.elastic.clients.elasticsearch._types.query_dsl.TermsQueryField;
 import com.alibaba.fastjson2.JSON;
 import io.github.harvies.charon.util.FileUtils;
 import io.github.harvies.charon.util.JsonUtils;
 import jakarta.annotation.Resource;
+import lombok.Cleanup;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.client.elc.IndicesTemplate;
 import org.springframework.data.elasticsearch.client.elc.NativeQuery;
-import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
-import org.springframework.data.elasticsearch.core.IndexOperations;
-import org.springframework.data.elasticsearch.core.SearchHit;
-import org.springframework.data.elasticsearch.core.SearchHits;
+import org.springframework.data.elasticsearch.client.elc.QueryBuilders;
+import org.springframework.data.elasticsearch.client.erhlc.ElasticsearchRestTemplate;
+import org.springframework.data.elasticsearch.client.erhlc.NativeSearchQuery;
+import org.springframework.data.elasticsearch.client.erhlc.NativeSearchQueryBuilder;
+import org.springframework.data.elasticsearch.core.*;
 import org.springframework.data.elasticsearch.core.cluster.ClusterHealth;
 import org.springframework.data.elasticsearch.core.document.Document;
 import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
@@ -24,9 +30,11 @@ import org.springframework.data.elasticsearch.core.query.Criteria;
 import org.springframework.data.elasticsearch.core.query.CriteriaQuery;
 import org.springframework.data.elasticsearch.core.query.IndexQuery;
 
+import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 class CharonElasticSearchSpringBootTest extends BaseTest {
@@ -97,29 +105,12 @@ class CharonElasticSearchSpringBootTest extends BaseTest {
                 .setUsername("user1")
                 .setPassword("pass1")
                 .setTagList(Arrays.asList("123", "345"))
-                .setGmtCreate(new Date())
+                .setGmtCreate(new Date().getTime())
                 .setDescription("世界你好");
         IndexQuery indexQuery = new IndexQuery();
         indexQuery.setId("1");
         indexQuery.setSource(JsonUtils.toJSONString(user));
         elasticsearchOperations.index(indexQuery, IndexCoordinates.of(indexName));
-    }
-
-    @Test
-    void index2() {
-        doCreateIndex();
-        User user = new User()
-                .setId(2L)
-                .setUsername("user2")
-                .setPassword("pass2")
-                .setTagList(Arrays.asList("234", "345"))
-                .setGmtCreate(new Date())
-                .setDescription("世界你好2");
-        IndexQuery indexQuery = new IndexQuery();
-        indexQuery.setId("2");
-        indexQuery.setSource(JSON.toJSONString(user, "yyyy-MM-dd HH:mm:ss"));
-        elasticsearchOperations.index(indexQuery, IndexCoordinates.of(indexName));
-        deleteIndex();
     }
 
     @Test
@@ -160,4 +151,31 @@ class CharonElasticSearchSpringBootTest extends BaseTest {
         elasticsearchOperations.delete("1", IndexCoordinates.of(indexName));
         deleteIndex();
     }
+
+
+    @SneakyThrows
+    private void doRefresh() {
+        // TODO: 2023/7/4
+        TimeUnit.SECONDS.sleep(2);
+    }
+
+    @Test
+    public void scrollSearch() {
+        createIndex();
+        doIndex();
+        doRefresh();
+        // 创建查询条件和分页信息
+        MatchAllQuery matchAllQuery = new MatchAllQuery.Builder().build();
+        NativeQuery nativeQuery = new NativeQuery(matchAllQuery._toQuery());
+        // 执行滚动查询
+        @Cleanup
+        SearchHitsIterator<User> scrolledPage = elasticsearchOperations.searchForStream(nativeQuery, User.class, IndexCoordinates.of(indexName));
+        // 迭代查询结果
+        while (scrolledPage.hasNext()) {
+            SearchHit<User> userSearchHit = scrolledPage.next();
+            log.info("userSearchHit:[{}]", JSON.toJSONString(userSearchHit));
+        }
+        deleteIndex();
+    }
+
 }
