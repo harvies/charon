@@ -39,7 +39,7 @@
         <commons-logging.version>1.2</commons-logging.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <lombok.version>1.18.26</lombok.version>
-        <guava.version>29.0-jre</guava.version>
+        <guava.version>32.1.1-jre</guava.version>
         <curator.version>5.1.0</curator.version><!--高版本curator对应高版本zookeeper(3.5.5) -->
         <zookeeper.version>3.7.0</zookeeper.version>
         <dubbo.version>3.2.0</dubbo.version>
@@ -908,12 +908,16 @@
                 <!-- The dependency is available only for stable releases, SNAPSHOT dependency need build by yourself. -->
                 <version>2.4.0</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-java -->
+            <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-connector-base -->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-connector-base</artifactId>
+                <version>1.17.1</version>
+            </dependency>
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-streaming-java</artifactId>
                 <version>1.17.1</version>
-                <scope>provided</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

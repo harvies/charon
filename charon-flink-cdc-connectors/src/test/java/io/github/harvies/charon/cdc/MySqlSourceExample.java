@@ -1,5 +1,6 @@
 package io.github.harvies.charon.cdc;
 
+import io.github.harvies.charon.util.PropertiesUtils;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import com.ververica.cdc.debezium.JsonDebeziumDeserializationSchema;
@@ -8,12 +9,12 @@ import com.ververica.cdc.connectors.mysql.source.MySqlSource;
 public class MySqlSourceExample {
   public static void main(String[] args) throws Exception {
     MySqlSource<String> mySqlSource = MySqlSource.<String>builder()
-            .hostname("yourHostname")
-            .port(-1)
-            .databaseList("yourDatabaseName") // set captured database
-            .tableList("yourDatabaseName.yourTableName") // set captured table
-            .username("yourUsername")
-            .password("yourPassword")
+            .hostname(PropertiesUtils.getDefaultProperty("charon.mysql.url"))
+            .port(3306)
+            .databaseList("blazars") // set captured database
+            .tableList("blazars.*") // set captured table
+            .username("charon.mysql.username")
+            .password("charon.mysql.password")
             .deserializer(new JsonDebeziumDeserializationSchema()) // converts SourceRecord to JSON String
             .build();
 
