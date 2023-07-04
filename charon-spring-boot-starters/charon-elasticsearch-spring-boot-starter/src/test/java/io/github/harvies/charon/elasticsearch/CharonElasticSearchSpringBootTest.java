@@ -59,6 +59,13 @@ class CharonElasticSearchSpringBootTest extends BaseTest {
     @SneakyThrows
     @Test
     void createIndex() {
+        deleteIndex();
+        doCreateIndex();
+        deleteIndex();
+    }
+
+    @SneakyThrows
+    private void doCreateIndex() {
         IndexOperations indexOperations = elasticsearchOperations.indexOps(IndexCoordinates.of(indexName));
         indexOperations.create(Document.parse(
                 FileUtils.readClassPathFile("index/user/user_settings.json", "UTF-8")
@@ -68,14 +75,23 @@ class CharonElasticSearchSpringBootTest extends BaseTest {
     @SneakyThrows
     @Test
     void putMapping() {
+        deleteIndex();
+        doCreateIndex();
         IndexOperations indexOperations = elasticsearchOperations.indexOps(IndexCoordinates.of(indexName));
         indexOperations.putMapping(Document.parse(
                 FileUtils.readClassPathFile("index/user/user_mapping.json", "UTF-8")
         ));
+        deleteIndex();
     }
 
     @Test
     void index() {
+        doCreateIndex();
+        doIndex();
+        deleteIndex();
+    }
+
+    private void doIndex() {
         User user = new User()
                 .setId(1L)
                 .setUsername("user1")
@@ -91,6 +107,7 @@ class CharonElasticSearchSpringBootTest extends BaseTest {
 
     @Test
     void index2() {
+        doCreateIndex();
         User user = new User()
                 .setId(2L)
                 .setUsername("user2")
@@ -102,18 +119,24 @@ class CharonElasticSearchSpringBootTest extends BaseTest {
         indexQuery.setId("2");
         indexQuery.setSource(JSON.toJSONString(user, "yyyy-MM-dd HH:mm:ss"));
         elasticsearchOperations.index(indexQuery, IndexCoordinates.of(indexName));
+        deleteIndex();
     }
 
     @Test
     void criteriaQuery() {
+        doCreateIndex();
+        doIndex();
         CriteriaQuery criteriaQuery = new CriteriaQuery(Criteria.where("tagList").in("123", "234", "345"));
         SearchHits<User> hits = elasticsearchOperations.search(criteriaQuery, User.class, IndexCoordinates.of(indexName));
         List<SearchHit<User>> searchHits = hits.getSearchHits();
-        System.out.println(searchHits);
+        log.info("searchHits:[{}]", JSON.toJSONString(searchHits));
+        deleteIndex();
     }
 
     @Test
     void nativeSearchQuery() {
+        doCreateIndex();
+        doIndex();
         TermsQuery termsQuery = new TermsQuery.Builder().field("tagList")
                 .terms(
                         new TermsQueryField.Builder().value(
@@ -126,11 +149,15 @@ class CharonElasticSearchSpringBootTest extends BaseTest {
         NativeQuery nativeQuery = new NativeQuery(termsQuery._toQuery());
         SearchHits<User> hits = elasticsearchOperations.search(nativeQuery, User.class, IndexCoordinates.of(indexName));
         List<SearchHit<User>> searchHits = hits.getSearchHits();
-        System.out.println(searchHits);
+        log.info("searchHits:[{}]", JSON.toJSONString(searchHits));
+        deleteIndex();
     }
 
     @Test
     void delete() {
+        doCreateIndex();
+        doIndex();
         elasticsearchOperations.delete("1", IndexCoordinates.of(indexName));
+        deleteIndex();
     }
 }
