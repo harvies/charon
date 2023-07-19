@@ -22,11 +22,6 @@
 
         <!-- 版本说明 https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E -->
         <spring-boot.version>3.1.1</spring-boot.version>
-        <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
-        <spring-cloud-netflix.version>2.2.6.RELEASE</spring-cloud-netflix.version>
-        <spring-cloud-alibaba.version>2.2.6.RELEASE</spring-cloud-alibaba.version>
-
-        <sofa-boot.version>3.3.2</sofa-boot.version>
         <elastic-job.version>3.0.2</elastic-job.version>
         <mybatis.version>3.5.6</mybatis.version>
         <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
@@ -113,27 +108,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--            <dependency>-->
-            <!--                <groupId>org.springframework.cloud</groupId>-->
-            <!--                <artifactId>spring-cloud-dependencies</artifactId>-->
-            <!--                <version>${spring-cloud.version}</version>-->
-            <!--                <type>pom</type>-->
-            <!--                <scope>import</scope>-->
-            <!--            </dependency>-->
-            <!--            <dependency>-->
-            <!--                <groupId>org.springframework.cloud</groupId>-->
-            <!--                <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
-            <!--                <version>${spring-cloud-netflix.version}</version>-->
-            <!--                <type>pom</type>-->
-            <!--                <scope>import</scope>-->
-            <!--            </dependency>-->
-            <!--            <dependency>-->
-            <!--                <groupId>com.alibaba.cloud</groupId>-->
-            <!--                <artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
-            <!--                <version>${spring-cloud-alibaba.version}</version>-->
-            <!--                <type>pom</type>-->
-            <!--                <scope>import</scope>-->
-            <!--            </dependency>-->
             <!-- rocketmq -->
             <dependency>
                 <groupId>org.apache.rocketmq</groupId>

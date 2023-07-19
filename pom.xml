@@ -26,7 +26,6 @@
         <module>charon-elasticsearch</module>
         <module>charon-config</module>
         <module>charon-spring-boot-starters</module>
-        <!--        <module>charon-spring-cloud-starters</module>-->
         <module>charon-agent</module>
         <module>charon-model</module>
         <module>charon-shardingsphere-jdbc</module>
