@@ -21,7 +21,7 @@
         <archetype.encoding>${encoding}</archetype.encoding>
 
         <!-- 版本说明 https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E -->
-        <spring-boot.version>3.0.4</spring-boot.version>
+        <spring-boot.version>3.1.1</spring-boot.version>
         <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
         <spring-cloud-netflix.version>2.2.6.RELEASE</spring-cloud-netflix.version>
         <spring-cloud-alibaba.version>2.2.6.RELEASE</spring-cloud-alibaba.version>
@@ -34,8 +34,8 @@
         <shardingsphere.version>5.3.2</shardingsphere.version>
         <HikariCP.version>3.4.5</HikariCP.version>
         <h2.version>1.4.200</h2.version>
-        <logback.version>1.2.3</logback.version>
-        <log4j.version>1.7.31</log4j.version>
+<!--        <logback.version>1.2.3</logback.version>-->
+<!--        <log4j.version>1.7.31</log4j.version>-->
         <commons-logging.version>1.2</commons-logging.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <lombok.version>1.18.26</lombok.version>
@@ -326,35 +326,35 @@
                 <optional>true</optional>
             </dependency>
             <!-- log -->
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>${log4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-log4j12</artifactId>
-                <version>${log4j.version}</version>
-                <scope>provided</scope>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>slf4j-api</artifactId>
-                        <groupId>org.slf4j</groupId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.slf4j</groupId>-->
+<!--                <artifactId>slf4j-api</artifactId>-->
+<!--                <version>${log4j.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.slf4j</groupId>-->
+<!--                <artifactId>slf4j-log4j12</artifactId>-->
+<!--                <version>${log4j.version}</version>-->
+<!--                <scope>provided</scope>-->
+<!--                <exclusions>-->
+<!--                    <exclusion>-->
+<!--                        <artifactId>slf4j-api</artifactId>-->
+<!--                        <groupId>org.slf4j</groupId>-->
+<!--                    </exclusion>-->
+<!--                </exclusions>-->
+<!--            </dependency>-->
 
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>${logback.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>slf4j-api</artifactId>
-                        <groupId>org.slf4j</groupId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>ch.qos.logback</groupId>-->
+<!--                <artifactId>logback-classic</artifactId>-->
+<!--                <version>${logback.version}</version>-->
+<!--                <exclusions>-->
+<!--                    <exclusion>-->
+<!--                        <artifactId>slf4j-api</artifactId>-->
+<!--                        <groupId>org.slf4j</groupId>-->
+<!--                    </exclusion>-->
+<!--                </exclusions>-->
+<!--            </dependency>-->
 
             <!-- orm -->
             <dependency>

@@ -12,10 +12,10 @@ public class ControllerConfiguration {
         return new HealthController();
     }
 
-    @Bean
-    public LogController logController() {
-        return new LogController();
-    }
+//    @Bean
+//    public LogController logController() {
+//        return new LogController();
+//    }
 
     @Bean
     public MemoryController memoryController() {
