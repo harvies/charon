@@ -12,12 +12,16 @@ import org.springframework.stereotype.Component;
 public class CharonBootApplicationInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
     @PostConstruct
     public void init() {
-        log.info("CharonBootApplicationInitializer init");
+        log.warn("CharonBootApplicationInitializer inited");
     }
 
     @Override
     public void initialize(ConfigurableApplicationContext configurableApplicationContext) {
+
+        log.warn("CharonBootApplicationInitializer initialize");
+
         if (configurableApplicationContext instanceof AnnotationConfigRegistry) {
+            log.warn("CharonBootApplicationInitializer 可手动扫描指定包");
             //扫描指定包
             ((AnnotationConfigRegistry) configurableApplicationContext).scan("io.github.harvies.charon.spring.boot.core");
         }

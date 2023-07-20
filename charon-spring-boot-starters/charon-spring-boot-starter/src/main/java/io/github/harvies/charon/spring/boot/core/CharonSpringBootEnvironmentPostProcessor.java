@@ -1,7 +1,7 @@
 package io.github.harvies.charon.spring.boot.core;
 
 import io.github.harvies.charon.util.PropertiesUtils;
-import lombok.SneakyThrows;
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.context.config.ConfigDataEnvironmentPostProcessor;
@@ -24,6 +24,12 @@ import java.util.Properties;
 @Component
 public class CharonSpringBootEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
 
+    @PostConstruct
+    public void init() {
+        log.warn("CharonSpringBootEnvironmentPostProcessor inited");
+    }
+
+
     private ConfigurableEnvironment environment;
     /**
      * 配置文件位置，可扫描多个jar
@@ -31,9 +37,11 @@ public class CharonSpringBootEnvironmentPostProcessor implements EnvironmentPost
     public static final String CHARON_PROPERTIES_RESOURCE_LOCATION = "application.properties";
 
 
-    @SneakyThrows
     @Override
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
+
+        log.warn("CharonSpringBootEnvironmentPostProcessor postProcessEnvironment");
+
         this.environment = environment;
         log.info("set charon-spring-boot properties begin");
         loadProperties();
