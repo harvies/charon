@@ -100,6 +100,13 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-jdbc-core</artifactId>
+                <version>${shardingsphere.version}</version>
+            </dependency>
+
             <!-- dependencies end-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
