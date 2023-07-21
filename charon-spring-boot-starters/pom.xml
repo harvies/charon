@@ -28,7 +28,6 @@
         <!--        <module>charon-swagger-spring-boot-starter</module>-->
         <module>charon-mybatis-spring-boot-starter</module>
         <module>charon-rocketmq-spring-boot-starter</module>
-        <!--        <module>charon-canal-client-spring-boot-starter</module>-->
         <module>charon-config-spring-boot-starter</module>
         <module>charon-shiro-spring-boot-starter</module>
         <module>charon-security-spring-boot-starter</module>
