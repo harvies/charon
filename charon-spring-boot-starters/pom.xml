@@ -33,6 +33,7 @@
         <module>charon-shiro-spring-boot-starter</module>
         <module>charon-security-spring-boot-starter</module>
         <module>charon-clickhouse-spring-boot-starter</module>
+        <module>charon-jdbc-spring-boot-starter</module>
         <!--        <module>charon-webflux-spring-boot-starter</module>-->
         <!--        <module>charon-cache-spring-boot-starter</module>-->
         <!--        <module>charon-bizlog-spring-boot-starter</module>-->
