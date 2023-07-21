@@ -4,24 +4,13 @@
     <update id="createTableIfNotExists">
         CREATE TABLE IF NOT EXISTS t_user
         (
-            `id`
-            bigint
-            unsigned
-            NOT
-            NULL
-            AUTO_INCREMENT,
-            `nickname`
-            varchar(50) COLLATE utf8mb4_bin DEFAULT NULL,
-            `mobile`       varchar(50) COLLATE utf8mb4_bin DEFAULT NULL,
-            `gmt_create`   datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
-            `gmt_modified` datetime NOT NULL,
-            PRIMARY KEY
-        (
-            `id`
-        )
+            `id`       bigint unsigned NOT NULL,
+            `username` varchar(50) COLLATE utf8mb4_bin DEFAULT NULL,
+            `mobile`   varchar(50) COLLATE utf8mb4_bin DEFAULT NULL,
+            PRIMARY KEY (`id`)
             ) ENGINE = InnoDB
             DEFAULT CHARSET = utf8mb4
-            COLLATE = utf8mb4_bin;
+            COLLATE = utf8mb4_bin
     </update>
 
     <update id="truncateTable">

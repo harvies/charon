@@ -5,20 +5,14 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-import java.util.Date;
-
 @Data
 @TableName("t_user")
-public class UserPO  {
+public class UserPO {
 
     @TableId(type = IdType.AUTO)
     private Long id;
 
-    private String nickname;
+    private String username;
 
     private String mobile;
-
-    private Date gmtCreate;
-
-    private Date gmtModified;
 }
