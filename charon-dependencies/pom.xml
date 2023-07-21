@@ -25,8 +25,7 @@
         <elastic-job.version>3.0.2</elastic-job.version>
         <mybatis.version>3.5.6</mybatis.version>
         <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
-        <druid.version>1.2.3</druid.version>
-        <shardingsphere.version>5.3.2</shardingsphere.version>
+        <shardingsphere.version>5.4.0</shardingsphere.version>
         <HikariCP.version>3.4.5</HikariCP.version>
         <h2.version>1.4.200</h2.version>
 <!--        <logback.version>1.2.3</logback.version>-->
@@ -294,12 +293,6 @@
             </dependency>
 
             <!-- datasource -->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid</artifactId>
-                <version>1.1.22</version>
-                <optional>true</optional>
-            </dependency>
             <dependency>
                 <groupId>com.zaxxer</groupId>
                 <artifactId>HikariCP</artifactId>
