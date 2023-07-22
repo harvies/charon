@@ -22,7 +22,6 @@
         <module>charon-oss-spring-boot-starter</module>
         <module>charon-elasticjob-lite-spring-boot-starter</module>
         <module>charon-mongo-spring-boot-starter</module>
-        <module>charon-shardingsphere-jdbc-spring-boot-starter</module>
         <module>charon-elasticsearch-spring-boot-starter</module>
         <module>charon-elk-spring-boot-starter</module>
         <!--        <module>charon-swagger-spring-boot-starter</module>-->
@@ -33,9 +32,6 @@
         <module>charon-security-spring-boot-starter</module>
         <module>charon-clickhouse-spring-boot-starter</module>
         <module>charon-jdbc-spring-boot-starter</module>
-        <!--        <module>charon-webflux-spring-boot-starter</module>-->
-        <!--        <module>charon-cache-spring-boot-starter</module>-->
-        <!--        <module>charon-bizlog-spring-boot-starter</module>-->
     </modules>
     <dependencies>
         <dependency>
