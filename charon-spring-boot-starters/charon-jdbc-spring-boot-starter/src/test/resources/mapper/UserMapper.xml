@@ -4,14 +4,14 @@
     <update id="createTableIfNotExists">
         CREATE TABLE IF NOT EXISTS t_user
         (
-            `id`       bigint unsigned NOT NULL AUTO_INCREMENT,
+            `id`       BIGINT(20) unsigned NOT NULL AUTO_INCREMENT,
             `username` varchar(50) DEFAULT NULL,
             `mobile`   varchar(50) DEFAULT NULL,
+             biz_id BIGINT(20) NULL DEFAULT NULL COMMENT 'bizId',
+             deleted BIGINT(20) unsigned NOT NULL DEFAULT 0 NULL COMMENT 'deleted',
             `features` json        DEFAULT NULL,
             PRIMARY KEY (`id`)
-            ) ENGINE = InnoDB
-            DEFAULT CHARSET = utf8mb4
-            COLLATE = utf8mb4_bin;
+            ) ENGINE = InnoDB;
     </update>
 
     <update id="truncateTable">
