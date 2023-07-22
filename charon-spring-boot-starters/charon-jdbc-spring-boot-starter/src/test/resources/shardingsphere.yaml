@@ -17,7 +17,7 @@ rules:
   - !SHARDING
     autoTables:
       t_user:
-        actualDataSources: ds_0,ds_1
+        actualDataSources: ds_${0..1}
         keyGenerateStrategy:
           column: id
           keyGeneratorName: t_user_key_generator
@@ -25,7 +25,7 @@ rules:
         shardingStrategy:
           standard:
             shardingAlgorithmName: t_user_sharding_algorithm
-            shardingColumn: id
+            shardingColumn: mobile
     keyGenerators:
       t_user_key_generator:
         type: snowflake
@@ -33,4 +33,4 @@ rules:
       t_user_sharding_algorithm:
         type: hash_mod
         props:
-          sharding-count: '128'
+          sharding-count: 4

@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import io.github.harvies.charon.jdbc.mapper.SystemMapper;
 import io.github.harvies.charon.jdbc.mapper.UserMapper;
 import io.github.harvies.charon.jdbc.po.UserPO;
-import io.github.harvies.charon.util.RandomUtils;
+import io.github.harvies.charon.util.SnowFlake;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -31,25 +31,31 @@ class CharonJdbcSpringBootTest extends BaseTest {
     }
 
     @Test
+    void dropTableIfExists() {
+        userMapper.dropTableIfExists();
+    }
+
+    @Test
     void test0() {
+        SnowFlake snowFlake = new SnowFlake(0, 0);
         userMapper.dropTableIfExists();
         userMapper.createTableIfNotExists();
         for (int i = 0; i < 4; i++) {
             UserPO userPO = new UserPO();
-            userPO.setUsername(String.valueOf(RandomUtils.nextInt(100000, 999999)));
-            userPO.setMobile(String.valueOf(RandomUtils.nextInt(1000000, 9999999)));
+            userPO.setUsername(String.valueOf(snowFlake.nextId()));
+            userPO.setMobile(String.valueOf(snowFlake.nextId()));
             userMapper.insert(userPO);
             String key = "key_" + userPO.getId();
             String value = "value_" + userPO.getId();
             userMapper.putJson("features", userPO.getId(), key, value);
-            assertThat(userMapper.selectById(userPO.getId()).getFeatures().get(key), is(value));
-//            assertThat(userMapper.selectList(
-//                    Wrappers.<UserPO>lambdaQuery().eq(UserPO::getUsername, userPO.getUsername())
-//            ).get(0).getFeatures().get(key), is(value));
+//            assertThat(userMapper.selectById(userPO.getId()).getFeatures().get(key), is(value));
+            assertThat(userMapper.selectList(
+                    Wrappers.<UserPO>lambdaQuery().eq(UserPO::getMobile, userPO.getMobile())
+            ).get(0).getFeatures().get(key), is(value));
         }
         Long count = userMapper.selectCount(Wrappers.emptyWrapper());
         log.info("count:[{}]", count);
-//        assertThat(count, is(10L));
+        assertThat(count, is(4L));
 //        userMapper.truncateTable();
 //        userMapper.dropTableIfExists();
     }
