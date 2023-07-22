@@ -5,7 +5,3 @@ spring:
     username: @charon.clickhouse.username@
     password: @charon.clickhouse.password@
     type: com.zaxxer.hikari.HikariDataSource
-
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

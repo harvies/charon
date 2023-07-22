@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:mysql://@charon.mysql.url@/ds_0?useServerPrepStmts=true&serverTimezone=UTC&useSSL=false&useLocalSessionState=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+    username: @charon.mysql.username@
+    password: @charon.mysql.password@
+    driver-class-name: com.mysql.cj.jdbc.Driver
