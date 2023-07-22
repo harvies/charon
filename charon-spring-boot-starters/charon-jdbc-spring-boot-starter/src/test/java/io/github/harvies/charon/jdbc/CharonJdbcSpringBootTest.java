@@ -26,6 +26,10 @@ class CharonJdbcSpringBootTest extends BaseTest {
             userPO.setUsername(String.valueOf(RandomUtils.nextInt(100000, 999999)));
             userPO.setMobile(String.valueOf(RandomUtils.nextInt(1000000, 9999999)));
             userMapper.insert(userPO);
+            String key = "key_" + userPO.getId();
+            String value = "value_" + userPO.getId();
+            userMapper.putJson("features", userPO.getId(), key, value);
+            assertThat(userMapper.selectById(userPO.getId()).getFeatures().get(key), is(value));
         }
         Long count = userMapper.selectCount(Wrappers.emptyWrapper());
         log.info("count:[{}]", count);
