@@ -1136,6 +1136,28 @@
                 </includes>
             </resource>
         </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <!-- 开启过滤，用指定的参数替换directory下文件中的参数（@xxx@） -->
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>**/*.dll</exclude>
+                    <exclude>**/*.jnilib</exclude>
+                    <exclude>**/*.so</exclude>
+                </excludes>
+            </testResource>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*.dll</include>
+                    <include>**/*.jnilib</include>
+                    <include>**/*.so</include>
+                </includes>
+            </testResource>
+        </testResources>
+
     </build>
     <profiles>
         <profile>
