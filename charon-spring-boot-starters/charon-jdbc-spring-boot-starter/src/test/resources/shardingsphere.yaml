@@ -20,17 +20,17 @@ rules:
         actualDataSources: ds_0,ds_1
         keyGenerateStrategy:
           column: id
-          keyGeneratorName: t_user_snowflake
+          keyGeneratorName: t_user_key_generator
         logicTable: t_user
         shardingStrategy:
           standard:
-            shardingAlgorithmName: t_user_hash_mod
+            shardingAlgorithmName: t_user_sharding_algorithm
             shardingColumn: id
     keyGenerators:
-      t_user_snowflake:
+      t_user_key_generator:
         type: snowflake
     shardingAlgorithms:
-      t_user_hash_mod:
-        props:
-          sharding-count: '2'
+      t_user_sharding_algorithm:
         type: hash_mod
+        props:
+          sharding-count: '128'
