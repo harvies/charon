@@ -8,5 +8,5 @@ public interface UserMapper extends BaseMapper<UserPO> {
 
     void truncateTable();
 
-    void dropTable();
+    void dropTableIfExists();
 }

@@ -1,16 +1,18 @@
 databaseName: logic_db
 
+props:
+  sql-show: true
 dataSources:
   ds_0:
-    password: 123456
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://localhost:3306/ds_0?useServerPrepStmts=true&serverTimezone=UTC&useSSL=false&useLocalSessionState=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
-    username: root
+    url: jdbc:mysql://@charon.mysql.url@/ds_0?useServerPrepStmts=true&serverTimezone=UTC&useSSL=false&useLocalSessionState=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+    username: @charon.mysql.username@
+    password: @charon.mysql.password@
   ds_1:
-    password: 123456
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://localhost:3306/ds_1?useServerPrepStmts=true&serverTimezone=UTC&useSSL=false&useLocalSessionState=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
-    username: root
+    url: jdbc:mysql://@charon.mysql.url@/ds_1?useServerPrepStmts=true&serverTimezone=UTC&useSSL=false&useLocalSessionState=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+    username: @charon.mysql.username@
+    password: @charon.mysql.password@
 rules:
   - !SHARDING
     autoTables:

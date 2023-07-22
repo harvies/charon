@@ -17,7 +17,7 @@
         TRUNCATE TABLE t_user;
     </update>
 
-    <update id="dropTable">
+    <update id="dropTableIfExists">
         DROP TABLE IF EXISTS t_user;
     </update>
 </mapper>

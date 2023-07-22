@@ -1161,21 +1161,6 @@
     </build>
     <profiles>
         <profile>
-            <id>dev</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <ENV>dev</ENV>
-                <NACOS_ADDR>nacos-headless.nacos.svc.cluster.local:8848</NACOS_ADDR>
-                <LOGSTASH_HOST>logstash-service.elastic-system.svc.cluster.local</LOGSTASH_HOST>
-                <LOGSTASH_PORT>60514</LOGSTASH_PORT>
-            </properties>
-        </profile>
-        <profile>
-            <id>test</id>
-        </profile>
-        <profile>
             <id>ossrh</id>
             <properties>
                 <gpg.skip>false</gpg.skip>
