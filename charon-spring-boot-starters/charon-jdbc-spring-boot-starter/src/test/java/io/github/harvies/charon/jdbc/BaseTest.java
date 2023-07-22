@@ -12,7 +12,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
  */
 @ExtendWith(value = SpringExtension.class)
 @SpringBootTest(classes = CharonJdbcSpringBootApplication.class)
-@TestPropertySource(properties = {"spring.config.location = classpath:application-shardingsphere.yml"})
+@TestPropertySource(properties = {"spring.config.location = classpath:application-shardingsphere_complex.yml"})
 @Slf4j
 public abstract class BaseTest {
 }

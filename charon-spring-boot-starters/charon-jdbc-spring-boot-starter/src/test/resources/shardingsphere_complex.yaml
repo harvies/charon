@@ -1,0 +1,57 @@
+databaseName: logic_db
+
+props:
+  sql-show: true
+dataSources:
+  ds_0:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://@charon.mysql.url@/ds_0?useServerPrepStmts=true&serverTimezone=UTC&useSSL=false&useLocalSessionState=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+    username: @charon.mysql.username@
+    password: @charon.mysql.password@
+  ds_1:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://@charon.mysql.url@/ds_1?useServerPrepStmts=true&serverTimezone=UTC&useSSL=false&useLocalSessionState=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+    username: @charon.mysql.username@
+    password: @charon.mysql.password@
+rules:
+  - !SHARDING
+    tables: # 数据分片规则配置
+      t_user: # 逻辑表名称
+        actualDataNodes: ds_${0..1}.t_user_${0..1} # 由数据源名 + 表名组成（参考 Inline 语法规则）
+        databaseStrategy: # 分库策略，缺省表示使用默认分库策略，以下的分片策略只能选其一
+          standard: # 用于单分片键的标准分片场景
+            shardingColumn: id # 分片列名称
+            shardingAlgorithmName: t_user_sharding_database_algorithm # 分片算法名称
+#          complex: # 用于多分片键的复合分片场景
+#            shardingColumns: # 分片列名称，多个列以逗号分隔
+#            shardingAlgorithmName: # 分片算法名称
+#          hint: # Hint 分片策略
+#            shardingAlgorithmName: # 分片算法名称
+#          none: # 不分片
+        tableStrategy: # 分表策略，同分库策略
+          complex: # 用于多分片键的复合分片场景
+            shardingColumns: id,username,mobile # 分片列名称，多个列以逗号分隔
+            shardingAlgorithmName: t_user_sharding_table_algorithm # 分片算法名称
+        keyGenerateStrategy: # 分布式序列策略
+          column: id # 自增列名称，缺省表示不使用自增主键生成器
+          keyGeneratorName: t_user_key_generator # 分布式序列算法名称
+
+    # 分片算法配置
+    shardingAlgorithms:
+      t_user_sharding_database_algorithm: # 分片算法名称
+        type: INLINE
+        props: # 分片算法属性配置
+          algorithm-expression: ds_${id % 2}
+      t_user_sharding_table_algorithm: # 分片算法名称
+        type: CLASS_BASED
+        props: # 分片算法属性配置
+          strategy: COMPLEX
+          algorithmClassName: io.github.harvies.charon.jdbc.UserComplexKeysShardingAlgorithm
+        # ...
+
+    # 分布式序列算法配置
+    keyGenerators:
+      t_user_key_generator: # 分布式序列算法名称
+        type: snowflake # 分布式序列算法类型
+        props: # 分布式序列算法属性配置
+        # ...
