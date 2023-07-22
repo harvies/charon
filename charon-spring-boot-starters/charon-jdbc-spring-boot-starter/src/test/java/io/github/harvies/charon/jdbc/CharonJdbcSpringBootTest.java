@@ -1,12 +1,16 @@
 package io.github.harvies.charon.jdbc;
 
+import com.alibaba.fastjson2.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import io.github.harvies.charon.jdbc.mapper.SystemMapper;
 import io.github.harvies.charon.jdbc.mapper.UserMapper;
 import io.github.harvies.charon.jdbc.po.UserPO;
 import io.github.harvies.charon.util.RandomUtils;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -16,6 +20,15 @@ class CharonJdbcSpringBootTest extends BaseTest {
 
     @Resource
     private UserMapper userMapper;
+
+    @Resource
+    private SystemMapper systemMapper;
+
+    @Test
+    void showDatabases() {
+        List<String> databaseList = systemMapper.showDatabases();
+        log.info("databaseList:[{}]", JSON.toJSONString(databaseList));
+    }
 
     @Test
     void test0() {
