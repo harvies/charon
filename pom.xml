@@ -16,7 +16,6 @@
     <modules>
         <module>charon-dependencies</module>
         <module>charon-core</module>
-        <module>charon-api</module>
         <module>charon-dubbo</module>
         <module>charon-notify</module>
         <module>charon-oss</module>
@@ -26,9 +25,9 @@
         <module>charon-elasticsearch</module>
         <module>charon-config</module>
         <module>charon-spring-boot-starters</module>
-        <module>charon-agent</module>
+<!--        <module>charon-agent</module>-->
         <module>charon-model</module>
-        <module>charon-flink-cdc-connectors</module>
+<!--        <module>charon-flink-cdc-connectors</module>-->
         <!--        <module>charon-test</module>-->
         <!--        <module>charon-jcef</module>-->
     </modules>
