@@ -28,9 +28,6 @@
         <shardingsphere.version>5.4.0</shardingsphere.version>
         <HikariCP.version>3.4.5</HikariCP.version>
         <h2.version>1.4.200</h2.version>
-        <!--        <logback.version>1.2.3</logback.version>-->
-        <!--        <log4j.version>1.7.31</log4j.version>-->
-        <commons-logging.version>1.2</commons-logging.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <lombok.version>1.18.26</lombok.version>
         <guava.version>32.1.1-jre</guava.version>
@@ -150,7 +147,7 @@
             <dependency>
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-spring-boot-web-starter</artifactId>
-                <version>2.0.0-alpha-1</version>
+                <version>2.0.0-alpha-3</version>
             </dependency>
             <dependency>
                 <groupId>org.redisson</groupId>
