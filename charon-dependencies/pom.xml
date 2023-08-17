@@ -298,37 +298,6 @@
                 <version>${HikariCP.version}</version>
                 <optional>true</optional>
             </dependency>
-            <!-- log -->
-            <!--            <dependency>-->
-            <!--                <groupId>org.slf4j</groupId>-->
-            <!--                <artifactId>slf4j-api</artifactId>-->
-            <!--                <version>${log4j.version}</version>-->
-            <!--            </dependency>-->
-            <!--            <dependency>-->
-            <!--                <groupId>org.slf4j</groupId>-->
-            <!--                <artifactId>slf4j-log4j12</artifactId>-->
-            <!--                <version>${log4j.version}</version>-->
-            <!--                <scope>provided</scope>-->
-            <!--                <exclusions>-->
-            <!--                    <exclusion>-->
-            <!--                        <artifactId>slf4j-api</artifactId>-->
-            <!--                        <groupId>org.slf4j</groupId>-->
-            <!--                    </exclusion>-->
-            <!--                </exclusions>-->
-            <!--            </dependency>-->
-
-            <!--            <dependency>-->
-            <!--                <groupId>ch.qos.logback</groupId>-->
-            <!--                <artifactId>logback-classic</artifactId>-->
-            <!--                <version>${logback.version}</version>-->
-            <!--                <exclusions>-->
-            <!--                    <exclusion>-->
-            <!--                        <artifactId>slf4j-api</artifactId>-->
-            <!--                        <groupId>org.slf4j</groupId>-->
-            <!--                    </exclusion>-->
-            <!--                </exclusions>-->
-            <!--            </dependency>-->
-
             <!-- orm -->
             <dependency>
                 <groupId>org.mybatis</groupId>
@@ -340,7 +309,6 @@
                 <artifactId>mybatis-plus</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
-
 
             <!-- zookeeper client-->
             <dependency>
@@ -414,14 +382,6 @@
                 <artifactId>protobuf-java</artifactId>
                 <version>3.6.1</version>
             </dependency>
-
-            <!-- sofa-rpc begin-->
-            <dependency>
-                <groupId>com.alipay.sofa</groupId>
-                <artifactId>sofa-rpc-all</artifactId>
-                <version>5.6.2</version>
-            </dependency>
-            <!-- sofa-rpc end-->
 
             <dependency>
                 <groupId>org.kohsuke</groupId>
