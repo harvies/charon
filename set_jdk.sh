@@ -4,13 +4,13 @@
 OS_TYPE=$(uname -s)
 if [ $OS_TYPE = "Darwin" ]; then
   # Mac系统
-  export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+  export JAVA_HOME=$(/usr/libexec/java_home -v 21)
 elif [ $OS_TYPE = "Linux" ]; then
   # Linux系统
-  export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+  export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 else
   # Windows系统
-  export JAVA_HOME="C:\Program Files\Java\jdk-17"
+  export JAVA_HOME="C:\Program Files\Java\jdk-21"
 fi
 
 # 将JDK的bin目录添加到系统的PATH环境变量中
