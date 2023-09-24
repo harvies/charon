@@ -10,8 +10,8 @@
     <packaging>pom</packaging>
     <properties>
         <!-- Compiler properties -->
-        <maven.compiler.target>17</maven.compiler.target>
-        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
 
         <encoding>UTF-8</encoding>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
@@ -28,8 +28,8 @@
         <shardingsphere.version>5.4.0</shardingsphere.version>
         <HikariCP.version>3.4.5</HikariCP.version>
         <h2.version>1.4.200</h2.version>
-        <mapstruct.version>1.4.2.Final</mapstruct.version>
-        <lombok.version>1.18.26</lombok.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <lombok.version>1.18.30</lombok.version>
         <guava.version>32.1.1-jre</guava.version>
         <curator.version>5.1.0</curator.version><!--高版本curator对应高版本zookeeper(3.5.5) -->
         <zookeeper.version>3.7.0</zookeeper.version>
@@ -993,7 +993,7 @@
                     <configuration>
                         <allowInsecureRegistries>true</allowInsecureRegistries>
                         <from>
-                            <image>registry.cn-hangzhou.aliyuncs.com/harvies/jdk17:20230324</image>
+                            <image>registry.cn-hangzhou.aliyuncs.com/harvies/jdk21:20230924</image>
                         </from>
                         <to>
                             <!--suppress UnresolvedMavenProperty -->
