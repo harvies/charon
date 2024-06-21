@@ -3,18 +3,30 @@ package io.github.harvies.charon.jpa;
 import com.google.common.collect.Lists;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.Expressions;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import io.github.harvies.charon.util.StringUtils;
+import jakarta.annotation.Resource;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class CustomerRepositoryTest extends BaseTest {
 
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Resource
+    private JPAQueryFactory jpaQueryFactory;
+
+    @AfterEach
+    public void afterEach(){
+        customerRepository.deleteAll();
+    }
 
     @Test
     public void testSaveAndGetCustomer() {
@@ -26,7 +38,7 @@ public class CustomerRepositoryTest extends BaseTest {
 
         List<Customer> customers = customerRepository.findAll();
         assertEquals(1, customers.size());
-        assertEquals("Alice", customers.get(0).getName());
+        assertEquals("Alice", customers.getFirst().getName());
     }
 
     @Test
@@ -46,6 +58,16 @@ public class CustomerRepositoryTest extends BaseTest {
         }
         List<Customer> customers = Lists.newArrayList(customerRepository.findAll(expression));
         assertEquals(1, customers.size());
-        assertEquals("Alice", customers.get(0).getName());
+        assertEquals("Alice", customers.getFirst().getName());
+    }
+
+    @Test
+    public void test() {
+        Customer customer = new Customer();
+        customer.setName("Alice");
+        customer.setEmail("alice@example.com");
+        customerRepository.save(customer);
+        Customer fetchedFirst = jpaQueryFactory.selectFrom(QCustomer.customer).where(QCustomer.customer.name.eq("Alice")).fetchFirst();
+        assertNotNull(fetchedFirst);
     }
 }

@@ -435,6 +435,17 @@
                 <artifactId>hibernate-jpamodelgen</artifactId>
                 <version>${hibernate.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.github.openfeign.querydsl</groupId>
+                <artifactId>querydsl-sql</artifactId>
+                <version>${querydsl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.openfeign.querydsl</groupId>
+                <artifactId>querydsl-sql-codegen</artifactId>
+                <version>${querydsl.version}</version>
+                <scope>provided</scope>
+            </dependency>
             <!--jpa end-->
 
             <!-- charon -->
