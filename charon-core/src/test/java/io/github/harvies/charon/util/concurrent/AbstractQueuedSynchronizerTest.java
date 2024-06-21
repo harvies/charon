@@ -1,4 +1,4 @@
-package io.github.harvies.charon.tests.base.jdk.concurrent;
+package io.github.harvies.charon.util.concurrent;
 
 /**
  * AbstractQueuedSynchronizer 类如其名,抽象的队列式的同步器,AQS 定义了一套多线程访问

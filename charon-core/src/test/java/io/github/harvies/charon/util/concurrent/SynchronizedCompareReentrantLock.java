@@ -1,4 +1,4 @@
-package io.github.harvies.charon.tests.base.jdk.concurrent;
+package io.github.harvies.charon.util.concurrent;
 
 /**
  * synchronized 和 ReentrantLock 的区别
