@@ -2,6 +2,7 @@ package io.github.harvies.charon.util.concurrent;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * InheritableThread测试
@@ -18,7 +19,8 @@ public class InheritableThreadLocalTest {
     public static final String PARENT_LOCAL_VALUE = "Parent Local";
     public static final String PARENT_INHERITABLE_VALUE = "Parent Inheritable";
 
-    public static void main(String[] args) {
+    @Test
+    public void test(){
         Thread parentThread = new Thread(() -> {
             ThreadLocal<String> local = new ThreadLocal<>();
             local.set(PARENT_LOCAL_VALUE);
