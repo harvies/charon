@@ -1,4 +1,4 @@
-package io.github.harvies.charon.tests.base.thread;
+package io.github.harvies.charon.util.thread;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package io.github.harvies.charon.tests.spi;
+package io.github.harvies.charon.util.spi;
 
 public class OptimusPrime implements Robot {
 

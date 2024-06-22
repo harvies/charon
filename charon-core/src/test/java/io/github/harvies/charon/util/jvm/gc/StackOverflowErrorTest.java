@@ -1,4 +1,4 @@
-package io.github.harvies.charon.tests.base.jvm.gc;
+package io.github.harvies.charon.util.jvm.gc;
 
 /**
  * @author harvies

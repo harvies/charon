@@ -1,4 +1,4 @@
-package io.github.harvies.charon.tests.base.jvm.object;
+package io.github.harvies.charon.util.jvm;
 
 import io.github.harvies.charon.util.FileUtils;
 import org.openjdk.jol.heap.HeapDumpException;

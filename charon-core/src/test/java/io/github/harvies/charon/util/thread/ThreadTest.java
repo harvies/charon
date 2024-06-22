@@ -1,4 +1,4 @@
-package io.github.harvies.charon.tests.base.thread;
+package io.github.harvies.charon.util.thread;
 
 public class ThreadTest {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package io.github.harvies.charon.tests.base.thread;
+package io.github.harvies.charon.util.thread;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import lombok.extern.slf4j.Slf4j;

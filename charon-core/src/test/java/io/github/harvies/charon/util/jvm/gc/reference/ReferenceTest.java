@@ -1,4 +1,4 @@
-package io.github.harvies.charon.tests.base.jvm.gc.reference;
+package io.github.harvies.charon.util.jvm.gc.reference;
 
 import org.junit.Test;
 

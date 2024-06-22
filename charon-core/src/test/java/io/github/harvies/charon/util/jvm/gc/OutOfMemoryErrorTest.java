@@ -1,4 +1,4 @@
-package io.github.harvies.charon.tests.base.jvm.gc;
+package io.github.harvies.charon.util.jvm.gc;
 
 import java.util.ArrayList;
 import java.util.List;

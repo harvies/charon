@@ -1,4 +1,4 @@
-package io.github.harvies.charon.tests.base.jvm.gc;
+package io.github.harvies.charon.util.jvm.gc;
 
 /**
  * 通过finalize()方法在垃圾回收时自救
