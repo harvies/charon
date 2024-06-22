@@ -52,7 +52,7 @@ public class TtlExecutorServiceTest {
     public void test2() throws ExecutionException, InterruptedException {
 
         // Wrapping ExecutorService with TTL
-        ExecutorService ttlExecutorService = Executors.newCachedThreadPool();
+        ExecutorService executorService = Executors.newCachedThreadPool();
 
         InheritableThreadLocal<String> context = new InheritableThreadLocal<>();
 
@@ -63,7 +63,7 @@ public class TtlExecutorServiceTest {
         // Runnable
         /////////////////////////////////////
         Runnable task = () -> System.out.println("[child thread] get " + context.get() + " in Runnable");
-        ttlExecutorService.submit(task).get();
+        executorService.submit(task).get();
 
         /////////////////////////////////////
         // Callable
@@ -72,11 +72,11 @@ public class TtlExecutorServiceTest {
             System.out.println("[child thread] get " + context.get() + " in Callable");
             return 42;
         };
-        ttlExecutorService.submit(call).get();
+        executorService.submit(call).get();
 
         /////////////////////////////////////
         // Cleanup
         /////////////////////////////////////
-        ttlExecutorService.shutdown();
+        executorService.shutdown();
     }
 }
