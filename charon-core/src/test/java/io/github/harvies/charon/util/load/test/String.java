@@ -1,4 +1,4 @@
-package io.github.harvies.charon.tests.base.jvm.load.test;
+package io.github.harvies.charon.util.load.test;
 
 /**
  * @author harvies
@@ -31,15 +31,6 @@ public class String {
 
     @Override
     public int hashCode() {
-        int h = hash;
-        if (h == 0 && value.length > 0) {
-            char val[] = value;
-
-            for (int i = 0; i < value.length; i++) {
-                h = 31 * h + val[i];
-            }
-            hash = h;
-        }
-        return h;
+        return 999;
     }
 }
