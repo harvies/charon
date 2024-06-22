@@ -1,11 +1,11 @@
 package io.github.harvies.charon.util.concurrent.blockqueue;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomUtils;
+import org.junit.jupiter.api.Test;
 
-import java.util.concurrent.DelayQueue;
-import java.util.concurrent.Delayed;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * DelayQueue(缓存失效、定时任务 )
@@ -21,35 +21,38 @@ import java.util.concurrent.TimeUnit;
  *
  * @author harvies
  */
+@Slf4j
 public class DelayQueueTest {
-    private static DelayQueue<DelayedTest> delayQueue = new DelayQueue<>();
+    private static DelayQueue<TestDelayed> delayQueue = new DelayQueue<>();
 
-    public static void main(String[] args) {
-        new Thread(() -> {
+    @Test
+    public void test() throws ExecutionException, InterruptedException {
+        log.info("begin");
+        CompletableFuture<Void> completableFuture1 = CompletableFuture.runAsync(() -> {
             for (int i = 0; i < 10; i++) {
-                DelayedTest delayedTest = new DelayedTest(RandomUtils.nextInt(1000, 10000));
-                delayQueue.offer(delayedTest);
+                TestDelayed testDelayed = new TestDelayed(RandomUtils.nextInt(1000, 10000));
+                delayQueue.offer(testDelayed);
             }
-        }).start();
-        new Thread(() -> {
+        });
+        CompletableFuture<Void> completableFuture2 = CompletableFuture.runAsync(() -> {
             for (int i = 0; i < 10; i++) {
-                DelayedTest take = null;
+                TestDelayed take = null;
                 try {
                     take = delayQueue.take();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.err.println("delayTime:" + take);
+                log.info("delayTime:{}", take);
             }
-
-        }).start();
-
-
+        });
+        CompletableFuture<Void> completableFuture = CompletableFuture.allOf(completableFuture1, completableFuture2);
+        completableFuture.get();
+        log.info("end");
     }
 }
 
 @Data
-class DelayedTest implements Delayed {
+class TestDelayed implements Delayed {
     private long executeTime;
     private long delayTime;
 
@@ -58,7 +61,7 @@ class DelayedTest implements Delayed {
      *
      * @param delayTime
      */
-    public DelayedTest(long delayTime) {
+    public TestDelayed(long delayTime) {
         this.executeTime = TimeUnit.NANOSECONDS.convert(delayTime, TimeUnit.MILLISECONDS) + System.nanoTime();
         this.delayTime = delayTime;
     }
@@ -70,11 +73,11 @@ class DelayedTest implements Delayed {
 
     @Override
     public int compareTo(Delayed o) {
-        DelayedTest delayedTest = (DelayedTest) o;
-        if (delayedTest.executeTime == this.executeTime) {
+        TestDelayed testDelayed = (TestDelayed) o;
+        if (testDelayed.executeTime == this.executeTime) {
             return 0;
         }
-        return this.executeTime > delayedTest.executeTime ? 1 : -1;
+        return this.executeTime > testDelayed.executeTime ? 1 : -1;
 
     }
 }
