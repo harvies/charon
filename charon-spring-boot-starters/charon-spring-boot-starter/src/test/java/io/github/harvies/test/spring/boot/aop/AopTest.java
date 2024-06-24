@@ -1,5 +1,6 @@
-package io.github.harvies.charon.tests.spring.aop;
+package io.github.harvies.test.spring.boot.aop;
 
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
@@ -9,26 +10,27 @@ import org.springframework.stereotype.Component;
  */
 @Aspect
 @Component
-public class TransactionTest {
-    @Pointcut(value = "execution(* io.github.harvies.charon.tests.spring.service.LoginService.login(..))")
+@Slf4j
+public class AopTest {
+    @Pointcut(value = "execution(* io.github.harvies.test.spring.boot.BeanA.methodA(..))")
     public void point() {
     }
 
     @Before(value = "point()")
     public void before() {
-        System.out.println("transaction begin");
+        log.info("transaction begin");
     }
 
     @AfterReturning(value = "point()")
     public void after() {
-        System.out.println("transaction commit");
+        log.info("transaction commit");
     }
 
     @Around("point()")
     public boolean around(ProceedingJoinPoint joinPoint) throws Throwable {
-        System.out.println("transaction begin");
+        log.info("around transaction begin");
         boolean proceed = (boolean) joinPoint.proceed();
-        System.out.println("transaction commit");
+        log.info("around transaction commit");
         return proceed;
     }
 }
