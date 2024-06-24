@@ -1,9 +1,12 @@
 package io.github.harvies.test.spring.boot;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.core.env.Environment;
 
 import jakarta.annotation.Resource;
@@ -17,10 +20,11 @@ public class CharonSpringBootTest extends BaseTest {
 
     @Resource
     private BeanFactory beanFactory;
+
     @Test
     public void test() {
         String property = environment.getProperty("spring.jackson.time-zone");
-        Assert.assertEquals("GMT+9", property);
+        Assertions.assertEquals("GMT+9", property);
 
         //获取BeanA
         BeanA beanA = beanFactory.getBean(BeanA.class);
@@ -33,5 +37,16 @@ public class CharonSpringBootTest extends BaseTest {
 
         //获取BeanA
         System.out.println(beanFactory.getBean("beanAFactoryBean"));
+    }
+
+    @Test
+    public void testBeanDefinition() {
+        DefaultListableBeanFactory defaultListableBeanFactory = (DefaultListableBeanFactory) beanFactory;
+        BeanDefinition beanDefinition = new GenericBeanDefinition();
+        beanDefinition.setBeanClassName("io.github.harvies.test.spring.boot.BeanA");
+        defaultListableBeanFactory.registerBeanDefinition("beanA", beanDefinition);
+        BeanA beanA = (BeanA) defaultListableBeanFactory.getBean("beanA");
+        boolean methodA = beanA.methodA();
+        System.err.println(methodA);
     }
 }
