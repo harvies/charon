@@ -1,5 +1,6 @@
-package io.github.harvies.charon.spring.boot.lifecycle;
+package io.github.harvies.test.spring.boot.lifecycle;
 
+import io.github.harvies.test.spring.boot.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Value;

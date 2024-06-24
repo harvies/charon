@@ -1,4 +1,4 @@
-package io.github.harvies.charon.spring.boot.factorybean;
+package io.github.harvies.test.spring.boot.factorybean;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +9,7 @@ public class FactoryBeanConfig {
 
     @Bean
     //控制TestFactoryBean是单例还是原型
-    @Scope(scopeName = "prototype")
+//    @Scope(scopeName = "prototype")
     public TestFactoryBean testFactoryBean() {
         return new TestFactoryBean();
     }
