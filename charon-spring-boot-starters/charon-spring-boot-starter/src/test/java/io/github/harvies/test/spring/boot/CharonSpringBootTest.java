@@ -22,14 +22,16 @@ public class CharonSpringBootTest extends BaseTest {
         String property = environment.getProperty("spring.jackson.time-zone");
         Assert.assertEquals("GMT+9", property);
 
-        //获取BeanB
+        //获取BeanA
+        BeanA beanA = beanFactory.getBean(BeanA.class);
+        System.out.println(beanA);
+        beanA.methodA();
         System.out.println(beanFactory.getBean(BeanA.class));
-        System.out.println(beanFactory.getBean(BeanA.class));
-        //获取FactoryBean本身
-        System.out.println(beanFactory.getBean("&testFactoryBean"));
-        System.out.println(beanFactory.getBean("&testFactoryBean"));
+//        //获取FactoryBean本身
+        System.out.println(beanFactory.getBean("&beanAFactoryBean"));
+        System.out.println(beanFactory.getBean("&beanAFactoryBean"));
 
-        //获取BeanB
-        System.out.println(beanFactory.getBean("testFactoryBean"));
+        //获取BeanA
+        System.out.println(beanFactory.getBean("beanAFactoryBean"));
     }
 }

@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class FactoryBeanConfig {
 
-    @Bean
+    @Bean(name = "beanAFactoryBean")
     //控制TestFactoryBean是单例还是原型
 //    @Scope(scopeName = "prototype")
     public BeanAFactoryBean testFactoryBean() {

@@ -16,6 +16,6 @@ public class BeanAFactoryBean implements FactoryBean<BeanA> {
     //控制BeanB是单例还是原型
     @Override
     public boolean isSingleton() {
-        return false;
+        return true;
     }
 }
