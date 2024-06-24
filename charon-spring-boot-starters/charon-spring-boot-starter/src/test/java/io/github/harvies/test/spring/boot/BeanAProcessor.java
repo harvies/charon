@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class BeanAProcessor implements ApplicationContextAware, EnvironmentAware, BeanPostProcessor, ApplicationContextInitializer<ConfigurableApplicationContext>, InitializingBean, DisposableBean {
+public class BeanAProcessor implements SmartLifecycle,ApplicationContextAware, EnvironmentAware, BeanPostProcessor, ApplicationContextInitializer<ConfigurableApplicationContext>, InitializingBean, DisposableBean {
 
     public static final String ORIGIN_BEAN_A = "originBeanA";
     public static final String MODIFY_BEAN_A = "modifyBeanA";
@@ -68,5 +68,20 @@ public class BeanAProcessor implements ApplicationContextAware, EnvironmentAware
     @Override
     public void initialize(ConfigurableApplicationContext applicationContext) {
         log.info("0. BeanAProcessor ApplicationContextAware initialize");
+    }
+
+    @Override
+    public void start() {
+        log.info("spring启动时执行");
+    }
+
+    @Override
+    public void stop() {
+        log.info("spring停止时执行");
+    }
+
+    @Override
+    public boolean isRunning() {
+        return false;
     }
 }
