@@ -1,4 +1,4 @@
-package io.github.harvies.charon.tests.zk;
+package io.github.harvies.charon.config.zk;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
@@ -9,7 +9,7 @@ import org.apache.zookeeper.Watcher;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.locks.LockSupport;
 
-import static io.github.harvies.charon.tests.zk.ZookeeperTest.testPath;
+import static io.github.harvies.charon.config.zk.ZookeeperTest.testPath;
 
 @Slf4j
 public class WatchTest {

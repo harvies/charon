@@ -1,4 +1,4 @@
-package io.github.harvies.charon.tests.zk;
+package io.github.harvies.charon.config.zk;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;

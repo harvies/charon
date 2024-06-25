@@ -1,4 +1,4 @@
-package io.github.harvies.charon.tests.zk;
+package io.github.harvies.charon.config.zk;
 
 import io.github.harvies.charon.util.PropertiesUtils;
 import org.apache.curator.RetryPolicy;
