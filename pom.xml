@@ -21,7 +21,6 @@
         <module>charon-oss</module>
         <module>charon-file</module>
         <module>charon-http</module>
-        <module>charon-extra</module>
         <module>charon-elasticsearch</module>
         <module>charon-config</module>
         <module>charon-spring-boot-starters</module>
