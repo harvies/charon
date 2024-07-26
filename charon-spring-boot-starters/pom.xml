@@ -31,6 +31,7 @@
         <module>charon-security-spring-boot-starter</module>
         <module>charon-jdbc-spring-boot-starter</module>
         <module>charon-jpa-spring-boot-starter</module>
+        <module>charon-wechat-spring-boot-starter</module>
     </modules>
     <dependencies>
         <dependency>
