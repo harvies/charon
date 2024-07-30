@@ -22,7 +22,6 @@
         <module>charon-file</module>
         <module>charon-http</module>
         <module>charon-elasticsearch</module>
-        <module>charon-config</module>
         <module>charon-spring-boot-starters</module>
 <!--        <module>charon-agent</module>-->
         <module>charon-model</module>
