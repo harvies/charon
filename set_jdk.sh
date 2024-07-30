@@ -1,10 +1,11 @@
-#!/bin/bash
+#!/bin/zsh
 
 # 判断操作系统类型
 OS_TYPE=$(uname -s)
 if [ $OS_TYPE = "Darwin" ]; then
   # Mac系统
-  export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+  source "$HOME/.sdkman/bin/sdkman-init.sh"
+  sdk use java 17.0.12.fx-zulu
 elif [ $OS_TYPE = "Linux" ]; then
   # Linux系统
   export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
