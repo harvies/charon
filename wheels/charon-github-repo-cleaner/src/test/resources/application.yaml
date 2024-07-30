@@ -2,6 +2,6 @@ server:
   port: 9001
 spring:
   application:
-    name: github-repo-manage
+    name: charon-github-repo-cleaner
 github:
   oauthAccessToken: ${charon.oss.github.oauthAccessToken}
