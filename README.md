@@ -42,10 +42,13 @@
       集成spring-boot-amin-client
 - [docker](./docker) 常用docker镜像
 
+## 配置文件
+拷贝配置文件charon.properties.example 到 ~/.charon/charon.properties
+
 ## 编译
 
 ```bash
-mvn clean install -DskipTests -U
+./build.sh
 ```
 
 ## 部署
