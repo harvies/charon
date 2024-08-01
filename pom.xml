@@ -16,6 +16,5 @@
     <modules>
         <module>charon-dependencies</module>
         <module>examples</module>
-        <module>wheels</module>
     </modules>
 </project>
