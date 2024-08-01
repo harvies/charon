@@ -3,22 +3,33 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>charon-spring-boot-starters</artifactId>
+        <artifactId>examples</artifactId>
         <groupId>io.github.harvies.charon</groupId>
         <version>0.0.9-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>charon-elk-spring-boot-starter</artifactId>
+    <artifactId>charon-dubbo-spring-boot-starter</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>io.github.harvies.charon</groupId>
             <artifactId>charon-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
-            <groupId>net.logstash.logback</groupId>
-            <artifactId>logstash-logback-encoder</artifactId>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-dubbo</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-log4j12</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.github.harvies.charon</groupId>
+            <artifactId>charon-web-spring-boot-starter</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
-
 </project>

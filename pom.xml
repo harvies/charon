@@ -15,26 +15,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>charon-dependencies</module>
-        <module>charon-core</module>
-        <module>charon-dubbo</module>
-        <module>charon-notify</module>
-        <module>charon-oss</module>
-        <module>charon-file</module>
-        <module>charon-http</module>
-        <module>charon-elasticsearch</module>
-        <module>charon-spring-boot-starters</module>
-<!--        <module>charon-agent</module>-->
-        <module>charon-model</module>
-<!--        <module>charon-flink-cdc-connectors</module>-->
-        <!--        <module>charon-test</module>-->
-        <!--        <module>charon-jcef</module>-->
+        <module>examples</module>
+        <module>wheels</module>
     </modules>
-    <profiles>
-        <profile>
-            <id>examples</id>
-            <modules>
-                <module>charon-examples</module>
-            </modules>
-        </profile>
-    </profiles>
 </project>

@@ -8,7 +8,7 @@ if [ $OS_TYPE = "Darwin" ]; then
   sdk use java 17.0.12.fx-zulu
 elif [ $OS_TYPE = "Linux" ]; then
   # Linux系统
-  export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+  export JAVA_HOME=/usr/lib/jvm/java-22-openjdk
 else
   # Windows系统
   export JAVA_HOME="C:\Program Files\Java\jdk-17"
