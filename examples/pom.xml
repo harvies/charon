@@ -38,6 +38,7 @@
         <!--        <module>charon-flink-cdc-connectors</module>-->
         <!--        <module>charon-test</module>-->
         <!--        <module>charon-jcef</module>-->
+        <module>spring-circular-dependencies</module>
     </modules>
     <dependencies>
         <dependency>
