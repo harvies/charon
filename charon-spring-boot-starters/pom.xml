@@ -18,8 +18,6 @@
         <module>charon-web-spring-boot-starter</module>
         <!--        <module>charon-spring-boot-admin-server-starter</module>-->
         <!--        <module>charon-spring-boot-admin-client-starter</module>-->
-        <module>charon-notify-spring-boot-starter</module>
-        <module>charon-oss-spring-boot-starter</module>
         <module>charon-elasticjob-lite-spring-boot-starter</module>
         <module>charon-mongo-spring-boot-starter</module>
         <module>charon-elasticsearch-spring-boot-starter</module>
